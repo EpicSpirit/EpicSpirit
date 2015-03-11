@@ -6,10 +6,14 @@ public class MovePerso : MonoBehaviour {
 	public GameObject perso;
 	private CharacterController controller;
 	public float vitesse;
+	public float vitesseRotation;
 
 	// Use this for initialization
 	void Start () {
-	
+
+		if(vitesse == 0) {vitesse=10;Debug.Log ("Utilisation valeur par défaut");}
+		if(vitesseRotation == 0) {vitesseRotation=10;Debug.Log ("Utilisation valeur par défaut");}
+
 		controller = perso.GetComponents<CharacterController>()[0];
 
 	}
@@ -22,27 +26,36 @@ public class MovePerso : MonoBehaviour {
 		mouvement.y = 0;
 		mouvement.z = 0;
 
+
+
 		// Code mouvement pour les tests
 		if(Input.GetKey(KeyCode.RightArrow)) {
 			mouvement.x += vitesse;
-
+			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.right), vitesseRotation*Time.deltaTime);
+			 
 		} 
 		if(Input.GetKey(KeyCode.LeftArrow)) {
 			
 			mouvement.x -= vitesse;
+			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.left), vitesseRotation*Time.deltaTime);
+
+
 		} 
 		if(Input.GetKey(KeyCode.UpArrow)) {
 			
 			mouvement.z += vitesse;
+			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.forward), vitesseRotation*Time.deltaTime);
+
 		}
 		if(Input.GetKey(KeyCode.DownArrow)) {
 			
 			mouvement.z -= vitesse;
+			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.back), vitesseRotation*Time.deltaTime);
+
 		} 
 
-		//perso.transform.Translate(mouvement);
-		controller.Move (controller.transform.TransformDirection(mouvement*vitesse*Time.deltaTime));
-
+		controller.Move(mouvement*vitesse*Time.deltaTime);
+	
 
 
 	
