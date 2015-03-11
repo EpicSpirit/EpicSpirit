@@ -29,25 +29,25 @@ public class MovePerso : MonoBehaviour {
 
 
 		// Code mouvement pour les tests
-		if(Input.GetKey(KeyCode.RightArrow)) {
+		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
 			mouvement.x += vitesse;
 			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.right), vitesseRotation*Time.deltaTime);
 			 
 		} 
-		if(Input.GetKey(KeyCode.LeftArrow)) {
+		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey (KeyCode.Q)) {
 			
 			mouvement.x -= vitesse;
 			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.left), vitesseRotation*Time.deltaTime);
 
 
 		} 
-		if(Input.GetKey(KeyCode.UpArrow)) {
+		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey (KeyCode.Z)) {
 			
 			mouvement.z += vitesse;
 			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.forward), vitesseRotation*Time.deltaTime);
 
 		}
-		if(Input.GetKey(KeyCode.DownArrow)) {
+		if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey (KeyCode.S)) {
 			
 			mouvement.z -= vitesse;
 			controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, Quaternion.LookRotation(Vector3.back), vitesseRotation*Time.deltaTime);
