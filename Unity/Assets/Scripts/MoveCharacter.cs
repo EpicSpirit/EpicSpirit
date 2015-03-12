@@ -4,74 +4,67 @@ using System.Collections;
 public class MoveCharacter : MonoBehaviour
 {
 
-	public GameObject perso;
-	private CharacterController controller;
-	public float speed;
-	public float speedRotation;
+    private GameObject _character;
+    private CharacterController _controller;
+    private float _speed;
+    private float _speedRotation;
+    private Vector3 _motion;
 
-	// Use this for initialization
-	void Start () 
+    public MoveCharacter(GameObject character)
+    {
+        _character = character;
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        if ( _speed == 0 )
+        {
+            _speed = 3; 
+            Debug.Log( "Utilisation valeur par défaut" );
+        }
+        if ( _speedRotation == 0 )
+        {
+            _speedRotation = 10;
+            Debug.Log( "Utilisation valeur par défaut" );
+        }
+
+        _controller = _character.GetComponents<CharacterController>()[0];
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
 
-		if(speed == 0)
-        {
-            speed = 10; Debug.Log( "Utilisation valeur par défaut" );
-        }
-		if(speedRotation == 0) 
-        {
-            speedRotation = 10; Debug.Log( "Utilisation valeur par défaut" );
-        }
+        _motion.x = 0;
+        _motion.y = 0;
+        _motion.z = 0;
 
-        controller = perso.GetComponents<CharacterController>()[0];
+        _controller.Move( _motion * _speed * Time.deltaTime );
 
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Testing _motion code
+
+    public void MoveRight()
     {
-
-		Vector3 motion;
-		motion.x = 0;
-		motion.y = 0;
-		motion.z = 0;
-
-
-
-		// Code motion pour les tests
-		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey (KeyCode.D))
-        {
-			motion.x += speed;
-            controller.transform.rotation = Quaternion.Slerp( controller.transform.rotation, Quaternion.LookRotation( Vector3.right ), speedRotation * Time.deltaTime );
-			 
-		} 
-		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey (KeyCode.Q))
-        {
-			
-			motion.x -= speed;
-            controller.transform.rotation = Quaternion.Slerp( controller.transform.rotation, Quaternion.LookRotation( Vector3.left ), speedRotation * Time.deltaTime );
-
-
-		}
-        if ( Input.GetKey( KeyCode.UpArrow ) || Input.GetKey( KeyCode.Z ) ) 
-        {
-			
-			motion.z += speed;
-            controller.transform.rotation = Quaternion.Slerp( controller.transform.rotation, Quaternion.LookRotation( Vector3.forward ), speedRotation * Time.deltaTime );
-
-		}
-        if ( Input.GetKey( KeyCode.DownArrow ) || Input.GetKey( KeyCode.S ) ) 
-        {
-			
-			motion.z -= speed;
-            controller.transform.rotation = Quaternion.Slerp( controller.transform.rotation, Quaternion.LookRotation( Vector3.back ), speedRotation * Time.deltaTime );
-
-		}
-
-        controller.Move( motion * speed * Time.deltaTime );
-	
-
-
-	
-	}
-
+        _motion.x += _speed;
+        _controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( Vector3.right ), _speedRotation * Time.deltaTime );
+    }
+    public void MoveLeft()
+    {
+        _motion.x -= _speed;
+        _controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( Vector3.left ), _speedRotation * Time.deltaTime );
+    }
+    public void MoveUp()
+    {
+        _motion.z += _speed;
+        _controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( Vector3.forward ), _speedRotation * Time.deltaTime );
+    }
+    public void MoveDown()
+    {
+        _motion.z -= _speed;
+        _controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( Vector3.back ), _speedRotation * Time.deltaTime );
+    }
 }
