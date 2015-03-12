@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 			_character.Move(direction);
 		}
 
-		if(Input.GetKey (KeyCode.Space)) {
+		if(Input.GetKeyDown (KeyCode.Space)) {
 
 			_character.Attack();
 		}

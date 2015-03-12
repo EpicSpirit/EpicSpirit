@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		_life =20;
+		_life =3;
 		_hit=new RaycastHit();
 
 		if ( _speed == 0 )
@@ -51,15 +51,11 @@ public class Character : MonoBehaviour
 		cone_centre.z = 2;
 		cone_centre.x = 0;
 		cone_centre.y = 0;
-		Debug.DrawRay(_controller.transform.position , _controller.transform.TransformDirection(cone_centre));
-		
+
 		Vector3 cone_droite = cone_centre;
-		cone_droite.x += 1;
-		Debug.DrawRay(_controller.transform.position , _controller.transform.TransformDirection(cone_droite));
-		
 		Vector3 cone_gauche = cone_centre;
+		cone_droite.x += 1;
 		cone_gauche.x -= 1;
-		Debug.DrawRay(_controller.transform.position , _controller.transform.TransformDirection(cone_gauche));
 
 		if(Physics.Raycast(_controller.transform.position, cone_centre, out _hit)) {
 			_adv=null;
@@ -74,10 +70,10 @@ public class Character : MonoBehaviour
 	}
 	public void takeDamage() 
 	{
+		this._life -= 1;
 
 		Debug.Log ("Je suis "+this.name+" et je viens de prendre des dégats :-(");
 		Debug.Log ("Vie restante : "+this._life);
-		this._life -= 1;
 
 		if(this._life <= 0) {
 			GameObject.Destroy(this.gameObject);
