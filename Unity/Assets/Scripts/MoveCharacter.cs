@@ -66,6 +66,27 @@ public class MoveCharacter : MonoBehaviour
             controller.transform.rotation = Quaternion.Slerp( controller.transform.rotation, Quaternion.LookRotation( Vector3.back ), speedRotation * Time.deltaTime );
 
 		}
+		if(Input.GetKey (KeyCode.Space)) {
+
+			Debug.Log ("Attaque !");
+			Vector3 cone_centre;
+			cone_centre.z = 2;
+			cone_centre.x = 0;
+			cone_centre.y = 0;
+			Debug.DrawRay(controller.transform.position , controller.transform.TransformDirection(cone_centre));
+
+			Vector3 cone_droite = cone_centre;
+			cone_droite.x += 1;
+			Debug.DrawRay(controller.transform.position , controller.transform.TransformDirection(cone_droite));
+
+			Vector3 cone_gauche = cone_centre;
+			cone_gauche.x -= 1;
+			Debug.DrawRay(controller.transform.position , controller.transform.TransformDirection(cone_gauche));
+
+
+
+
+		}
 
         controller.Move( motion * speed * Time.deltaTime );
 	
