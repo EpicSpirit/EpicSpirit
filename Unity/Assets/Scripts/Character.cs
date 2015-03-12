@@ -57,7 +57,7 @@ public class Character : MonoBehaviour
 		cone_droite.x += 1;
 		cone_gauche.x -= 1;
 
-		if(Physics.Raycast(_controller.transform.position, cone_centre, out _hit)) {
+		if(Physics.Raycast(_controller.transform.position, _controller.transform.TransformDirection(cone_centre), out _hit)) {
 			_adv=null;
 			_adv = _hit.transform.GetComponent<Character>();
 			if(_adv != null) {
@@ -70,13 +70,22 @@ public class Character : MonoBehaviour
 	}
 	public void takeDamage() 
 	{
+		ParticleSystem[] par = this.GetComponentsInChildren<ParticleSystem>();
+		foreach(ParticleSystem par_ in par) {
+			if(par_.name == "DamageEffect") {
+				par_.Play();
+			}
+
+		}
 		this._life -= 1;
 
 		Debug.Log ("Je suis "+this.name+" et je viens de prendre des dégats :-(");
 		Debug.Log ("Vie restante : "+this._life);
 
 		if(this._life <= 0) {
-			GameObject.Destroy(this.gameObject);
+
+			GameObject.Destroy(this.gameObject, 0.5f);
+
 		}
 
 	}

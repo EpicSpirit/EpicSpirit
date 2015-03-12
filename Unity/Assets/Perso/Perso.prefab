@@ -42,6 +42,7 @@ GameObject:
   - 4: {fileID: 489824}
   - 65: {fileID: 6593384}
   - 143: {fileID: 14325770}
+  - 114: {fileID: 11469246}
   m_Layer: 0
   m_Name: Perso
   m_TagString: Untagged
@@ -60,22 +61,6 @@ GameObject:
   - 108: {fileID: 10880428}
   m_Layer: 0
   m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &174330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 463550}
-  - 114: {fileID: 11445940}
-  m_Layer: 0
-  m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,18 +103,6 @@ Transform:
   - {fileID: 443760}
   m_Father: {fileID: 489824}
   m_RootOrder: 0
---- !u!4 &463550
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174330}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0799999237, y: .350000024, z: -.24000001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 489824}
-  m_RootOrder: 2
 --- !u!4 &489824
 Transform:
   m_ObjectHideFlags: 1
@@ -137,12 +110,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.71000004, y: .629999995, z: 3.67000008}
+  m_LocalPosition: {x: 7, y: 1, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 455240}
   - {fileID: 434812}
-  - {fileID: 463550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2385020
@@ -220,12 +192,12 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11445940
+--- !u!114 &11469246
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174330}
+  m_GameObject: {fileID: 160514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f178caa79dafe76468bda151d3b252b3, type: 3}
