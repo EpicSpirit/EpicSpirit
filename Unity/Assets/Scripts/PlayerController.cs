@@ -3,33 +3,53 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    private MoveCharacter _moveCharacter;
     public GameObject _player;
+	private Character _character;
+
 	// Use this for initialization
 	void Start () 
     {
-        _moveCharacter = new MoveCharacter( _player );
+
+		_character = _player.GetComponents<Character>()[0];
+
+
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+		Vector3 direction = new Vector3();
+
+		// Test pour la gestion des touches pour le moment
         if ( Input.GetKey( KeyCode.RightArrow ) || Input.GetKey( KeyCode.D ) )
         {
-            _moveCharacter.MoveRight();
-        }
+			direction += Vector3.right;
+		}
         if ( Input.GetKey( KeyCode.LeftArrow ) || Input.GetKey( KeyCode.Q ) )
         {
-            _moveCharacter.MoveLeft();
-        }
+			direction += Vector3.left;
+
+		}
         if ( Input.GetKey( KeyCode.UpArrow ) || Input.GetKey( KeyCode.Z ) )
         {
-            _moveCharacter.MoveUp();
-        }
+			direction += Vector3.forward;
+
+		}
         if ( Input.GetKey( KeyCode.DownArrow ) || Input.GetKey( KeyCode.S ) )
         {
-            _moveCharacter.MoveDown();
-        }
+			direction += Vector3.back;
+		}
+
+		// Application de la méthode Move si on doit bouger
+		if(direction != Vector3.zero) 
+		{
+			
+			_character.Move(direction);
+
+			
+		}
+
+
 
 	}
 }
