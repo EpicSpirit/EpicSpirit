@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 
 		_character = _player.GetComponents<Character>()[0];
 
-
     }
 	
 	// Update is called once per frame
