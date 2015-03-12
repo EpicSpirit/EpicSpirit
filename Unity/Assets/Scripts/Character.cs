@@ -41,12 +41,28 @@ public class Character : MonoBehaviour
 
 	public void Attack() 
 	{
+		Debug.Log ("Attaque !");
+		Vector3 cone_centre;
+		cone_centre.z = 2;
+		cone_centre.x = 0;
+		cone_centre.y = 0;
+		Debug.DrawRay(_controller.transform.position , _controller.transform.TransformDirection(cone_centre));
+		
+		Vector3 cone_droite = cone_centre;
+		cone_droite.x += 1;
+		Debug.DrawRay(_controller.transform.position , _controller.transform.TransformDirection(cone_droite));
+		
+		Vector3 cone_gauche = cone_centre;
+		cone_gauche.x -= 1;
+		Debug.DrawRay(_controller.transform.position , _controller.transform.TransformDirection(cone_gauche));
 
 
 
 	}
 	public void takeDamage() 
 	{
+
+
 
 	}
 

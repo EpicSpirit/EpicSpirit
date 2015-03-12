@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
 		Vector3 direction = new Vector3();
-
 		// Test pour la gestion des touches pour le moment
         if ( Input.GetKey( KeyCode.RightArrow ) || Input.GetKey( KeyCode.D ) )
         {
@@ -43,10 +42,12 @@ public class PlayerController : MonoBehaviour
 		// Application de la méthode Move si on doit bouger
 		if(direction != Vector3.zero) 
 		{
-			
 			_character.Move(direction);
+		}
 
-			
+		if(Input.GetKey (KeyCode.Space)) {
+
+			_character.Attack();
 		}
 
 
