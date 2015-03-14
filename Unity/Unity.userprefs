@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnnemiIA.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\test.cs">
     <Files>
-      <File FileName="Assets\Scripts\Character.cs" Line="71" Column="2" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="56" Column="1" />
-      <File FileName="Assets\Scripts\EnnemiIA.cs" Line="15" Column="16" />
+      <File FileName="Assets\Scripts\Character.cs" Line="33" Column="3" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="34" Column="4" />
+      <File FileName="Assets\Scripts\EnnemiIA.cs" Line="60" Column="1" />
+      <File FileName="Assets\test.cs" Line="9" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <File FileName="Assets\Scripts\MoveCharacter.cs" Line="86" Column="1" />

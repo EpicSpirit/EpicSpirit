@@ -43,6 +43,7 @@ GameObject:
   - 65: {fileID: 6593384}
   - 143: {fileID: 14325770}
   - 114: {fileID: 11469246}
+  - 111: {fileID: 11161846}
   m_Layer: 0
   m_Name: Perso
   m_TagString: Untagged
@@ -192,6 +193,20 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!111 &11161846
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160514}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &11469246
 MonoBehaviour:
   m_ObjectHideFlags: 1
