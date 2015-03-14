@@ -12,14 +12,12 @@ public class PlayerController : MonoBehaviour
 
 		_character = _player.GetComponents<Character>()[0];
 
-
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
 		Vector3 direction = new Vector3();
-
 		// Test pour la gestion des touches pour le moment
         if ( Input.GetKey( KeyCode.RightArrow ) || Input.GetKey( KeyCode.D ) )
         {
@@ -43,10 +41,12 @@ public class PlayerController : MonoBehaviour
 		// Application de la méthode Move si on doit bouger
 		if(direction != Vector3.zero) 
 		{
-			
 			_character.Move(direction);
+		}
 
-			
+		if(Input.GetKeyDown (KeyCode.Space)) {
+
+			_character.Attack();
 		}
 
 
