@@ -68,6 +68,7 @@ public class Character : MonoBehaviour
 
 
 	}
+
 	public void takeDamage() 
 	{
 		ParticleSystem[] par = this.GetComponentsInChildren<ParticleSystem>();
