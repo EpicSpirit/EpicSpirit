@@ -6,16 +6,18 @@ public class EnnemiIA : MonoBehaviour
     public GameObject _ennemi;
     private Character _character;
 
-    private System.Random _randomGenerator;
+    private static System.Random _randomGenerator= new System.Random();
 
     private int _changeDirection;
-    int _randomDirection;
+    private int _randomDirection;
+	private int _timeOfMouvement;
+	private Vector3 direction = new Vector3();
+
 
 	// Use this for initialization
 	void Start () 
     {
         _character = _ennemi.GetComponents<Character>()[0];
-        _randomGenerator = new System.Random();
         _changeDirection = 0;
         _randomDirection = 1;
 	}
@@ -23,17 +25,19 @@ public class EnnemiIA : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
+		/* Et les commentaires c'est pour les tapettes ? */
+
+		// Si on passe en dessous de zéro, c'est que l'on doit relancer un compte
         if (_changeDirection == 0)
         {
             _randomDirection = _randomGenerator.Next( 1, 4 );
-            _changeDirection = 100;
+            _changeDirection = _randomGenerator.Next(100, 300);
+			_timeOfMouvement = _randomGenerator.Next (5, 100);
         }
         
 
-        Vector3 direction = new Vector3();
-
-
-
+		// CHoix de la direction du mouvement (pour le moment on ne peut pas se déplacer en diagonale)
+		direction = Vector3.zero;
         switch ( _randomDirection )
         {
             case 1:
@@ -48,12 +52,18 @@ public class EnnemiIA : MonoBehaviour
             case 4:
                 direction += Vector3.back;
                 break;
+			default :
+				Debug.Log ("ERREUR direction");
+				break;
         }
-        if ( direction != Vector3.zero )
+		_timeOfMouvement --;
+        if ( direction != Vector3.zero && _timeOfMouvement > 0)
         {
             _character.Move( direction );
-            _changeDirection--;
         }
+
+		// On descend d'un tick
+		_changeDirection--;
 	
 	}
 }
