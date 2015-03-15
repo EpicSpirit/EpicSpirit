@@ -11,10 +11,12 @@ public class Character : MonoBehaviour
 	private RaycastHit _hit;
 	private Character _adv;
 	private int _life;
+	private int _lookaroundcount;
 	
 	// Use this for initialization
 	void Start()
 	{
+		_lookaroundcount = 300;
 		_life =3;
 		_hit=new RaycastHit();
 
@@ -40,11 +42,42 @@ public class Character : MonoBehaviour
 	}
 	
 	// Testing _motion code
-
+	public void DontMove() {
+		Animation list = _controller.gameObject.GetComponentInChildren<Animation>();
+		if(list) {
+			list.CrossFade("idle");
+		}	
+	}
 	public void Move(Vector3 direction) 
 	{
-		_controller.Move( direction * _speed * Time.deltaTime );
-		_controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( direction ), _speedRotation * Time.deltaTime );
+		
+		// Si on doit réellement bouger :
+		if(direction != Vector3.zero) {
+			// On joue l'anim walk si elle existe
+			Animation list = _controller.gameObject.GetComponentInChildren<Animation>();
+			if(list) {
+				list.CrossFade("walk");
+			}
+		
+			_controller.Move( direction * _speed * Time.deltaTime );
+			_controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( direction ), _speedRotation * Time.deltaTime );
+		}
+		else {
+			// Joue l'anime idle
+			Animation anim = _controller.gameObject.GetComponentInChildren<Animation>();
+			if(anim) {
+				anim.CrossFadeQueued("idle");
+			}	
+			// Gestion du mouvement lookaround quand on reste static un petit moment
+			_lookaroundcount --;
+			if(_lookaroundcount < 0) {
+				_lookaroundcount = 300;
+				anim.CrossFadeQueued("look_around",1f, QueueMode.PlayNow);
+			
+			}
+			
+		
+		}
 	}
 
 	public void Attack() 

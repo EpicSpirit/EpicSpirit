@@ -39,10 +39,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		// Application de la méthode Move si on doit bouger
-		if(direction != Vector3.zero) 
-		{
-			_character.Move(direction);
-		}
+		_character.Move(direction);
 
 		if(Input.GetKeyDown (KeyCode.Space)) {
 
