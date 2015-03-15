@@ -2449,6 +2449,34 @@ Prefab:
       propertyPath: m_Name
       value: Spi
       objectReference: {fileID: 0}
+    - target: {fileID: 2300006, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300008, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300010, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300014, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300004, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
   m_IsPrefabParent: 0
