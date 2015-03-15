@@ -25,7 +25,6 @@ public class EnnemiIA : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-		/* Et les commentaires c'est pour les tapettes ? */
 
 		// Si on passe en dessous de zéro, c'est que l'on doit relancer un compte
         if (_changeDirection == 0)
