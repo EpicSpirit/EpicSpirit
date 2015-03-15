@@ -2399,15 +2399,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400158, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: .25
+      value: .267509997
       objectReference: {fileID: 0}
     - target: {fileID: 400158, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.98000002
+      value: -1.49510002
       objectReference: {fileID: 0}
     - target: {fileID: 400158, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -.540000021
+      value: -.46371001
       objectReference: {fileID: 0}
     - target: {fileID: 400158, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2431,15 +2431,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400158, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_LocalScale.x
-      value: 49.0815659
+      value: 39.4336739
       objectReference: {fileID: 0}
     - target: {fileID: 400158, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_LocalScale.y
-      value: 49.0815506
+      value: 39.4336624
       objectReference: {fileID: 0}
     - target: {fileID: 400158, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_LocalScale.z
-      value: 49.0815506
+      value: 39.4336624
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 5b4f595af4f77624492c3dcb79c596ac, type: 3}
       propertyPath: m_Controller
@@ -2554,8 +2554,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1758712331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 2.66000009, z: 8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.00740004, y: 2.68700004, z: 8.00930023}
+  m_LocalScale: {x: .867639303, y: .867639303, z: .867639303}
   m_Children:
   - {fileID: 166577979}
   - {fileID: 1104752505}
@@ -2584,7 +2584,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4.26000023
+  m_Height: 3.58999991
   m_Radius: 1.13999999
   m_SlopeLimit: 45
   m_StepOffset: .300000012
