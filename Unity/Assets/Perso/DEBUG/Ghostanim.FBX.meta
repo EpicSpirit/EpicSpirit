@@ -175,6 +175,20 @@ ModelImporter:
     2300010: CATRigTail3
     2300012: CATRigTail4
     2300014: CATRigTail5
+    2300016: CATRigHub001
+    2300018: CATRigLArm1
+    2300020: CATRigLArmCollarbone
+    2300022: CATRigLArmPalm
+    2300024: CATRigLLeg1
+    2300026: CATRigLLeg1 1
+    2300028: CATRigLLeg2
+    2300030: CATRigLLeg2 1
+    2300032: CATRigLLegAnkle
+    2300034: CATRigLLegAnkle 1
+    2300036: CATRigRArm1
+    2300038: CATRigRArmCollarbone
+    2300040: CATRigRArmPalm
+    2300042: Group31689
     3300000: CATRigHub001Bone005
     3300002: CATRigLLegDigit11
     3300004: CATRigLLegDigit11 1
@@ -183,6 +197,20 @@ ModelImporter:
     3300010: CATRigTail3
     3300012: CATRigTail4
     3300014: CATRigTail5
+    3300016: CATRigHub001
+    3300018: CATRigLArm1
+    3300020: CATRigLArmCollarbone
+    3300022: CATRigLArmPalm
+    3300024: CATRigLLeg1
+    3300026: CATRigLLeg1 1
+    3300028: CATRigLLeg2
+    3300030: CATRigLLeg2 1
+    3300032: CATRigLLegAnkle
+    3300034: CATRigLLegAnkle 1
+    3300036: CATRigRArm1
+    3300038: CATRigRArmCollarbone
+    3300040: CATRigRArmPalm
+    3300042: Group31689
     4300000: Group31689
     4300002: CATRigTail1
     4300004: CATRigTail2
@@ -192,6 +220,19 @@ ModelImporter:
     4300012: CATRigHub001Bone005
     4300014: CATRigLLegDigit11
     4300016: CATRigLLegDigit11
+    4300018: CATRigHub001
+    4300020: CATRigLLeg1
+    4300022: CATRigLLeg2
+    4300024: CATRigLLegAnkle
+    4300026: CATRigLLeg1
+    4300028: CATRigLLeg2
+    4300030: CATRigLLegAnkle
+    4300032: CATRigLArmCollarbone
+    4300034: CATRigLArm1
+    4300036: CATRigLArmPalm
+    4300038: CATRigRArmCollarbone
+    4300040: CATRigRArm1
+    4300042: CATRigRArmPalm
     7400000: Take 001
     7400002: Take 0010
     7400004: Take 0011
@@ -223,7 +264,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -238,145 +279,6 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
-        weight: 1
-      - path: Base Human
-        weight: 1
-      - path: Base Human001
-        weight: 1
-      - path: Base Human001LPlatform
-        weight: 1
-      - path: Base Human001Pelvis
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001LThigh
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001LThigh/Base Human001LCalf
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001LThigh/Base Human001LCalf/Base Human001LFoot
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001RThigh
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001RThigh/Base Human001RCalf
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001RThigh/Base Human001RCalf/Base Human001RFoot
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone/Base Human001LUpperarm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone/Base Human001LUpperarm/Base
-          Human001LForearm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone/Base Human001LUpperarm/Base
-          Human001LForearm/Base Human001LPalm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001Neck1
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001Neck1/Base Human001Neck2
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001Neck1/Base Human001Neck2/Base
-          Human001Head
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone/Base Human001RUpperarm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone/Base Human001RUpperarm/Base
-          Human001RForearm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone/Base Human001RUpperarm/Base
-          Human001RForearm/Base Human001RPalm
-        weight: 1
-      - path: Base Human001RPlatform
-        weight: 1
-      - path: Base HumanLPlatform
-        weight: 1
-      - path: Base HumanPelvis
-        weight: 1
-      - path: Base HumanPelvis/Base HumanLThigh
-        weight: 1
-      - path: Base HumanPelvis/Base HumanLThigh/Base HumanLCalf
-        weight: 1
-      - path: Base HumanPelvis/Base HumanLThigh/Base HumanLCalf/Base HumanLFoot
-        weight: 1
-      - path: Base HumanPelvis/Base HumanRThigh
-        weight: 1
-      - path: Base HumanPelvis/Base HumanRThigh/Base HumanRCalf
-        weight: 1
-      - path: Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Base HumanRFoot
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
-          HumanLForearm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
-          HumanLForearm/Base HumanLPalm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanNeck1
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanNeck1/Base HumanNeck2
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanNeck1/Base HumanNeck2/Base HumanHead
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
-          HumanRForearm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
-          HumanRForearm/Base HumanRPalm
-        weight: 1
-      - path: Base HumanRPlatform
         weight: 1
       - path: CATRigHub001
         weight: 1
@@ -395,7 +297,6 @@ ModelImporter:
       - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle
         weight: 1
       - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle/CATRigLLegDigit11
-          1
         weight: 1
       - path: CATRigHub001/CATRigLLeg1 1
         weight: 1
@@ -404,6 +305,7 @@ ModelImporter:
       - path: CATRigHub001/CATRigLLeg1 1/CATRigLLeg2 1/CATRigLLegAnkle 1
         weight: 1
       - path: CATRigHub001/CATRigLLeg1 1/CATRigLLeg2 1/CATRigLLegAnkle 1/CATRigLLegDigit11
+          1
         weight: 1
       - path: CATRigHub001/CATRigRArmCollarbone
         weight: 1
@@ -421,17 +323,11 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3/CATRigTail4/CATRigTail5
         weight: 1
-      - path: CATRigHub002
-        weight: 1
       - path: CATRigLLegPlatform
         weight: 1
       - path: CATRigLLegPlatform 1
         weight: 1
-      - path: Character001
-        weight: 1
       - path: Character002
-        weight: 1
-      - path: Character003
         weight: 1
       - path: Group31689
         weight: 1
@@ -463,145 +359,6 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Base Human
-        weight: 1
-      - path: Base Human001
-        weight: 1
-      - path: Base Human001LPlatform
-        weight: 1
-      - path: Base Human001Pelvis
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001LThigh
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001LThigh/Base Human001LCalf
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001LThigh/Base Human001LCalf/Base Human001LFoot
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001RThigh
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001RThigh/Base Human001RCalf
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001RThigh/Base Human001RCalf/Base Human001RFoot
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone/Base Human001LUpperarm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone/Base Human001LUpperarm/Base
-          Human001LForearm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001LCollarbone/Base Human001LUpperarm/Base
-          Human001LForearm/Base Human001LPalm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001Neck1
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001Neck1/Base Human001Neck2
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001Neck1/Base Human001Neck2/Base
-          Human001Head
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone/Base Human001RUpperarm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone/Base Human001RUpperarm/Base
-          Human001RForearm
-        weight: 1
-      - path: Base Human001Pelvis/Base Human001Spine1/Base Human001Spine2/Base Human001Spine3/Base
-          Human001Spine4/Base Human001Ribcage/Base Human001RCollarbone/Base Human001RUpperarm/Base
-          Human001RForearm/Base Human001RPalm
-        weight: 1
-      - path: Base Human001RPlatform
-        weight: 1
-      - path: Base HumanLPlatform
-        weight: 1
-      - path: Base HumanPelvis
-        weight: 1
-      - path: Base HumanPelvis/Base HumanLThigh
-        weight: 1
-      - path: Base HumanPelvis/Base HumanLThigh/Base HumanLCalf
-        weight: 1
-      - path: Base HumanPelvis/Base HumanLThigh/Base HumanLCalf/Base HumanLFoot
-        weight: 1
-      - path: Base HumanPelvis/Base HumanRThigh
-        weight: 1
-      - path: Base HumanPelvis/Base HumanRThigh/Base HumanRCalf
-        weight: 1
-      - path: Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Base HumanRFoot
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
-          HumanLForearm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
-          HumanLForearm/Base HumanLPalm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanNeck1
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanNeck1/Base HumanNeck2
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanNeck1/Base HumanNeck2/Base HumanHead
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
-          HumanRForearm
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
-          HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
-          HumanRForearm/Base HumanRPalm
-        weight: 1
-      - path: Base HumanRPlatform
-        weight: 1
       - path: CATRigHub001
         weight: 1
       - path: CATRigHub001/CATRigHub001Bone005
@@ -619,7 +376,6 @@ ModelImporter:
       - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle
         weight: 1
       - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle/CATRigLLegDigit11
-          1
         weight: 1
       - path: CATRigHub001/CATRigLLeg1 1
         weight: 1
@@ -628,6 +384,7 @@ ModelImporter:
       - path: CATRigHub001/CATRigLLeg1 1/CATRigLLeg2 1/CATRigLLegAnkle 1
         weight: 1
       - path: CATRigHub001/CATRigLLeg1 1/CATRigLLeg2 1/CATRigLLegAnkle 1/CATRigLLegDigit11
+          1
         weight: 1
       - path: CATRigHub001/CATRigRArmCollarbone
         weight: 1
@@ -645,17 +402,11 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3/CATRigTail4/CATRigTail5
         weight: 1
-      - path: CATRigHub002
-        weight: 1
       - path: CATRigLLegPlatform
         weight: 1
       - path: CATRigLLegPlatform 1
         weight: 1
-      - path: Character001
-        weight: 1
       - path: Character002
-        weight: 1
-      - path: Character003
         weight: 1
       - path: Group31689
         weight: 1
