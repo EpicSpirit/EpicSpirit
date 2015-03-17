@@ -35,13 +35,14 @@ public class PlayerController : MonoBehaviour
 		}
         if ( Input.GetKey( KeyCode.DownArrow ) || Input.GetKey( KeyCode.S ) )
         {
-			direction += Vector3.back;
+            direction += Vector3.back;
 		}
 
 		// Application de la méthode Move si on doit bouger
-		_character.Move(direction);
+        _character.Move( direction );
 
-		if(Input.GetKeyDown (KeyCode.Space)) {
+        if ( Input.GetKeyDown( KeyCode.Space ) ) 
+        {
 
 			_character.Attack();
 		}
