@@ -101,6 +101,12 @@ public class Character : MonoBehaviour
 
 			}
 		}
+		
+		Animation anim = _controller.gameObject.GetComponentInChildren<Animation>();
+		if(anim) {
+			//anim.CrossFadeQueued("bim",1f, QueueMode.PlayNow);
+			anim.Play ("bim");
+		}	
 
 
 	}
