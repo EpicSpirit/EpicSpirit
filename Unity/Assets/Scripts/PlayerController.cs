@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     {
 
 		_character = _player.GetComponents<Character>()[0];
-
+        _character.Speed = 15;
     }
 	
 	// Update is called once per frame

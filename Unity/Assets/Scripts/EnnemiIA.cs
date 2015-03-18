@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnnemiIA : MonoBehaviour 
 {
+    public int _aggroArea;
+
     private Character _character;
 
     private static System.Random _randomGenerator= new System.Random();
@@ -17,7 +19,12 @@ public class EnnemiIA : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        if (_aggroArea == 0)
+        {
+            _aggroArea = 8;
+        }
         _character = this.GetComponents<Character>()[0];
+        _character.Speed = 2;
         _changeDirection = 0;
         _randomDirection = 1;
 
@@ -38,6 +45,8 @@ public class EnnemiIA : MonoBehaviour
 
     private void RandomMove()
     {
+        _character.Speed = 2;
+
         // Si on passe en dessous de zéro, c'est que l'on doit relancer un compte
         if ( _changeDirection == 0 )
         {
@@ -47,7 +56,7 @@ public class EnnemiIA : MonoBehaviour
         }
 
 
-        // CHoix de la _direction du mouvement (pour le moment on ne peut pas se déplacer en diagonale)
+        // Choix de la _direction du mouvement (pour le moment on ne peut pas se déplacer en diagonale)
         _direction = Vector3.zero;
         switch ( _randomDirection )
         {
@@ -79,9 +88,9 @@ public class EnnemiIA : MonoBehaviour
     }
     private void AggressiveMove()
     {
-        Debug.Log( "Chase Open !" );
+        _character.Speed = 3;
 
-        if ( _direction != Vector3.zero && _timeOfMouvement > 0 )
+        if ( _direction != Vector3.zero )
         {
             _character.Move( _direction );
         }
@@ -91,10 +100,8 @@ public class EnnemiIA : MonoBehaviour
 
     private bool DetectTarget()
     {
-        Debug.DrawRay( this.transform.TransformDirection(this.transform.position), GameObject.FindWithTag( "Player" ).transform.TransformDirection(GameObject.FindWithTag( "Player" ).transform.position) );
-
         _direction = GameObject.FindWithTag( "Player" ).transform.position - this.transform.position;
-        if ( _direction.magnitude < 5 )
+        if ( _direction.magnitude < _aggroArea )
         {
             return true;
         }

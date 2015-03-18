@@ -12,7 +12,12 @@ public class Character : MonoBehaviour
 	private Character _adv;
 	private int _life;
 	private int _lookaroundcount;
-	
+
+    public float Speed
+    {
+        set { _speed = value; }
+    }
+
 	// Use this for initialization
 	void Start()
 	{
@@ -22,7 +27,7 @@ public class Character : MonoBehaviour
 
 		if ( _speed == 0 )
 		{
-			_speed = 10; 
+			_speed = 100; 
 			//Debug.Log( "Utilisation valeur par défaut" );
 		}
 		if ( _speedRotation == 0 )
