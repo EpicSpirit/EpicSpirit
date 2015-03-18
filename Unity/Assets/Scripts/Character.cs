@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
 
 		if ( _speed == 0 )
 		{
-			_speed = 5; 
+			_speed = 10; 
 			//Debug.Log( "Utilisation valeur par défaut" );
 		}
 		if ( _speedRotation == 0 )
@@ -98,7 +98,7 @@ public class Character : MonoBehaviour
 
         if ( Physics.Raycast( _controller.transform.position, _controller.transform.TransformDirection( cone_centre ), out _hit ) )
         {
-			_adv=null;
+			_adv= null;
             _adv = _hit.transform.GetComponent<Character>();
 			if(_adv != null) 
             {
