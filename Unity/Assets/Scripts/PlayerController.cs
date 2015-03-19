@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Controller
 {
-    public GameObject _player;
-	private Character _character;
+   // public GameObject _player;
+	public Player _character;
 
 	// Use this for initialization
 	void Start () 
     {
-
-		_character = _player.GetComponents<Character>()[0];
+		//_character = _player.GetComponents<Character>()[0];
         _character.Speed = 15;
     }
 	

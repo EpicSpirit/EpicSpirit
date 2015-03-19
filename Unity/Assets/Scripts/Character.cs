@@ -5,29 +5,42 @@ public class Character : MonoBehaviour
 {
 	
 	private CharacterController _controller;
-	private float _speed;
-	private float _speedRotation;
-	private Vector3 _motion;
-	private RaycastHit _hit;
-	private Character _adv;
-	private int _life;
-	private int _lookaroundcount;
 
-    public int Life
+    #region Char Stats
+
+    private float _speed;
+	private float _speedRotation;
+	private Character _target;
+	private int _health;
+    private int _attack;
+
+    #endregion
+
+	private RaycastHit _hit;
+    
+    private int _lookAroundCount;
+
+    #region Properties
+    public int Health
     {
-        get { return _life; }
-        set { _life = value; }
+        get { return _health; }
+        set { _health = value; }
     }
     public float Speed
     {
         set { _speed = value; }
     }
+    public int LookAroundCount
+    {
+        set { _lookAroundCount = value; }
+    }
+    #endregion
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start()
 	{
-		_lookaroundcount = 300;
-		_life =3;
+		
+		
         _hit = new RaycastHit();
 
 		if ( _speed == 0 )
@@ -51,14 +64,7 @@ public class Character : MonoBehaviour
 	}
 	
 	// Testing _motion code
-	public void DontMove() 
-    {
-        Animation list = _controller.gameObject.GetComponentInChildren<Animation>();
-		if(list) 
-        {
-            list.CrossFade( "idle" );
-		}	
-	}
+	
 	public void Move(Vector3 direction) 
 	{
         if ( _controller != null )
@@ -85,10 +91,10 @@ public class Character : MonoBehaviour
                     anim.CrossFadeQueued( "idle" );
                 }
                 // Gestion du mouvement lookaround quand on reste static un petit moment
-                _lookaroundcount--;
-                if ( _lookaroundcount < 0 )
+                _lookAroundCount--;
+                if ( _lookAroundCount < 0 )
                 {
-                    _lookaroundcount = 300;
+                    _lookAroundCount = 300;
                     anim.CrossFadeQueued( "look_around", 1f, QueueMode.PlayNow );
                 }
             }
@@ -112,11 +118,11 @@ public class Character : MonoBehaviour
 
             if ( Physics.Raycast( _controller.transform.position, _controller.transform.TransformDirection( cone_centre ), out _hit ) )
             {
-                _adv = null;
-                _adv = _hit.transform.GetComponent<Character>();
-                if ( _adv != null )
+                _target = null;
+                _target = _hit.transform.GetComponent<Character>();
+                if ( _target != null )
                 {
-                    _adv.takeDamage();
+                    _target.takeDamage();
                 }
             }
 
@@ -139,12 +145,12 @@ public class Character : MonoBehaviour
 				par_.Play();
 			}
 		}
-		this._life -= 1;
+		this._health -= 1;
 
         Debug.Log( "Je suis " + this.name + " et je viens de prendre des dégats :-(" );
-        Debug.Log( "Vie restante : " + this._life );
+        Debug.Log( "Vie restante : " + this._health );
 
-        if ( this._life <= 0 )
+        if ( this._health <= 0 )
         {
             Die();
 		}

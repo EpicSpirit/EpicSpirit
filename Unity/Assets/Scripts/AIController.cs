@@ -1,37 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class EnnemiIA : MonoBehaviour 
+public class AIController : Controller
 {
-    public int _aggroArea;
+    public Enemy _character;
 
-    private Character _character;
-
-    private static System.Random _randomGenerator= new System.Random();
+    private static System.Random _randomGenerator = new System.Random();
 
     private int _changeDirection;
     private int _randomDirection;
     private int _focusedDirection;
-	private int _timeOfMouvement;
-	private Vector3 _direction = new Vector3();
-
-
-	// Use this for initialization
-	void Start () 
+    private int _timeOfMouvement;
+    private Vector3 _direction = new Vector3();
+    void Start()
     {
-        if (_aggroArea == 0)
-        {
-            _aggroArea = 8;
-        }
-        _character = this.GetComponents<Character>()[0];
         _character.Speed = 2;
         _changeDirection = 0;
         _randomDirection = 1;
-
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+    void Update()
     {
         if ( DetectTarget() )
         {
@@ -41,7 +27,7 @@ public class EnnemiIA : MonoBehaviour
         {
             RandomMove();
         }
-	}
+    }
 
     private void RandomMove()
     {
@@ -84,7 +70,7 @@ public class EnnemiIA : MonoBehaviour
 
         // On descend d'un tick
         _changeDirection--;
-	
+
     }
     private void AggressiveMove()
     {
@@ -94,27 +80,27 @@ public class EnnemiIA : MonoBehaviour
         {
             _character.Move( _direction );
         }
-        if (_direction.magnitude < 2)
+        if ( _direction.magnitude < 2 )
         {
             Vector3 cone_centre;
             cone_centre.z = 2;
             cone_centre.x = 0;
             cone_centre.y = 0;
             RaycastHit hit;
-	        Character adv;
-            if ( Physics.Raycast( transform.position, transform.TransformDirection( cone_centre ), out hit ) )
+            Character adv;
+            if ( Physics.Raycast( _character.transform.position, _character.transform.TransformDirection( cone_centre ), out hit ) )
             {
                 adv = null;
                 adv = hit.transform.GetComponent<Character>();
-                if ( adv != null && adv.Life >= 0)
+                if ( adv != null && adv.Health >= 0 )
                 {
                     WaitForEndOfFrame a = new WaitForEndOfFrame();
                     adv.takeDamage();
                 }
             }
         }
-        
-        
+
+
 
     }
 
@@ -124,12 +110,13 @@ public class EnnemiIA : MonoBehaviour
         if ( player != null )
         {
             _direction = player.transform.position - this.transform.position;
-            if ( _direction.magnitude < _aggroArea )
+            if ( _direction.magnitude < _character._aggroArea )
             {
                 return true;
             }
         }
-        
+
         return false;
     }
+
 }
