@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Character : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Character : MonoBehaviour
 	private Character _adv;
 	private int _life;
 	private int _lookaroundcount;
+	private List<Vector3> _vecteursAttaques;
 
     public float Speed
     {
@@ -36,6 +38,20 @@ public class Character : MonoBehaviour
 			//Debug.Log( "Utilisation valeur par défaut" );
 		}
 		_controller = this.GetComponent<CharacterController>();
+		
+		// Définition de la zone d'attaque
+		_vecteursAttaques = new List<Vector3>();
+		_vecteursAttaques.Add(new Vector3(0,0,2));
+		_vecteursAttaques.Add(new Vector3(1,0,2));
+		_vecteursAttaques.Add(new Vector3(-1,0,2));
+		
+		_vecteursAttaques.Add(new Vector3(0,1,2));
+		_vecteursAttaques.Add(new Vector3(-1,1,2));
+		_vecteursAttaques.Add(new Vector3(1,1,2));
+		
+		
+		
+		
 	}
 	
 	// Update is called once per frame
@@ -90,27 +106,27 @@ public class Character : MonoBehaviour
 
 	public void Attack() 
 	{
-        Debug.Log( "Attaque !" );
-		Vector3 cone_centre;
-		cone_centre.z = 2;
-		cone_centre.x = 0;
-		cone_centre.y = 0;
-
-		Vector3 cone_droite = cone_centre;
-		Vector3 cone_gauche = cone_centre;
-		cone_droite.x += 1;
-		cone_gauche.x -= 1;
-
-        if ( Physics.Raycast( _controller.transform.position, _controller.transform.TransformDirection( cone_centre ), out _hit ) )
-        {
-			_adv= null;
-            _adv = _hit.transform.GetComponent<Character>();
-			if(_adv != null) 
-            {
-                _adv.takeDamage();
+		
+		foreach(Vector3 vec in _vecteursAttaques) {
+			Debug.DrawRay(_controller.transform.position, _controller.transform.TransformDirection(vec),Color.yellow,1.0f);
+			
+	        if ( Physics.Raycast( _controller.transform.position, _controller.transform.TransformDirection( vec ), out _hit ) )
+	        {
+	        	//DEBUG 
+				_adv= null;
+	            _adv = _hit.transform.GetComponent<Character>();
+				Debug.Log (_hit.collider.name);
+				
+				if(_adv != null) 
+	            {
+					Debug.Log ("touch ! et attaque");
+					
+	                _adv.takeDamage();
+				}
 			}
 		}
-
+		
+		// Dans tout les cas on met l'anim d'attaque
 		Animation anim = _controller.gameObject.GetComponentInChildren<Animation>();
 		if(anim) {
 			//anim.CrossFadeQueued("bim",1f, QueueMode.PlayNow);
