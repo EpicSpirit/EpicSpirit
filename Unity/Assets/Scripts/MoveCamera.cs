@@ -17,11 +17,13 @@ public class MoveCamera : MonoBehaviour
 
 	void Update () 
     {
-		Vector3 mouvement = this.transform.position;
-		mouvement.x = cible.transform.position.x;
-		mouvement.z = cible.transform.position.z - 8;
+        if ( cible != null )
+        {
+		    Vector3 mouvement = this.transform.position;
+            mouvement.x = cible.transform.position.x;
+            mouvement.z = cible.transform.position.z - 8;
 
-		this.transform.position = mouvement;
-
+            this.transform.position = mouvement;
+        }
 	}
 }

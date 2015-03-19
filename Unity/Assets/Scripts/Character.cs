@@ -13,6 +13,11 @@ public class Character : MonoBehaviour
 	private int _life;
 	private int _lookaroundcount;
 
+    public int Life
+    {
+        get { return _life; }
+        set { _life = value; }
+    }
     public float Speed
     {
         set { _speed = value; }
@@ -56,67 +61,72 @@ public class Character : MonoBehaviour
 	}
 	public void Move(Vector3 direction) 
 	{
-		
+        if ( _controller != null )
+        { 
 		// Si on doit réellement bouger
-		if( direction != Vector3.zero )
-        {
-			// On joue l'anim walk si elle existe
-            Animation list = _controller.gameObject.GetComponentInChildren<Animation>();
-			if(list)
+            if ( direction != Vector3.zero )
             {
-                list.CrossFade( "walk" );
-			}
+                // On joue l'anim walk si elle existe
+                Animation list = _controller.gameObject.GetComponentInChildren<Animation>();
+                if ( list )
+                {
+                    list.CrossFade( "walk" );
+                }
 
-            _controller.Move( direction * _speed * Time.deltaTime );
-			_controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( direction ), _speedRotation * Time.deltaTime );
-		}
-		else
-        {
-			// Joue l'anime idle
-			Animation anim = _controller.gameObject.GetComponentInChildren<Animation>();
-			if(anim)
+                _controller.Move( direction * _speed * Time.deltaTime );
+                _controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( direction ), _speedRotation * Time.deltaTime );
+            }
+            else
             {
-                anim.CrossFadeQueued( "idle" );
-			}	
-			// Gestion du mouvement lookaround quand on reste static un petit moment
-			_lookaroundcount --;
-			if(_lookaroundcount < 0)
-            {
-                _lookaroundcount = 300;
-                anim.CrossFadeQueued( "look_around", 1f, QueueMode.PlayNow );
-			}	
+                // Joue l'anime idle
+                Animation anim = _controller.gameObject.GetComponentInChildren<Animation>();
+                if ( anim )
+                {
+                    anim.CrossFadeQueued( "idle" );
+                }
+                // Gestion du mouvement lookaround quand on reste static un petit moment
+                _lookaroundcount--;
+                if ( _lookaroundcount < 0 )
+                {
+                    _lookaroundcount = 300;
+                    anim.CrossFadeQueued( "look_around", 1f, QueueMode.PlayNow );
+                }
+            }
 		}
 	}
 
 	public void Attack() 
 	{
-        Debug.Log( "Attaque !" );
-		Vector3 cone_centre;
-		cone_centre.z = 2;
-		cone_centre.x = 0;
-		cone_centre.y = 0;
-
-		Vector3 cone_droite = cone_centre;
-		Vector3 cone_gauche = cone_centre;
-		cone_droite.x += 1;
-		cone_gauche.x -= 1;
-
-        if ( Physics.Raycast( _controller.transform.position, _controller.transform.TransformDirection( cone_centre ), out _hit ) )
+        if ( _controller != null )
         {
-			_adv= null;
-            _adv = _hit.transform.GetComponent<Character>();
-			if(_adv != null) 
+            Debug.Log( "Attaque !" );
+            Vector3 cone_centre;
+            cone_centre.z = 2;
+            cone_centre.x = 0;
+            cone_centre.y = 0;
+
+            Vector3 cone_droite = cone_centre;
+            Vector3 cone_gauche = cone_centre;
+            cone_droite.x += 1;
+            cone_gauche.x -= 1;
+
+            if ( Physics.Raycast( _controller.transform.position, _controller.transform.TransformDirection( cone_centre ), out _hit ) )
             {
-                _adv.takeDamage();
-			}
-		}
+                _adv = null;
+                _adv = _hit.transform.GetComponent<Character>();
+                if ( _adv != null )
+                {
+                    _adv.takeDamage();
+                }
+            }
 
-		Animation anim = _controller.gameObject.GetComponentInChildren<Animation>();
-		if(anim) {
-			//anim.CrossFadeQueued("bim",1f, QueueMode.PlayNow);
-			anim.Play ("bim");
-		}	
-
+            Animation anim = _controller.gameObject.GetComponentInChildren<Animation>();
+            if ( anim )
+            {
+                //anim.CrossFadeQueued("bim",1f, QueueMode.PlayNow);
+                anim.Play( "bim" );
+            }
+        }
 	}
 
 	public void takeDamage() 
@@ -136,7 +146,12 @@ public class Character : MonoBehaviour
 
         if ( this._life <= 0 )
         {
-            GameObject.Destroy( this.gameObject, 0.5f );
+            Die();
 		}
 	}
+
+    private void Die()
+    {
+        GameObject.Destroy( this.gameObject, 0.5f );
+    }
 }

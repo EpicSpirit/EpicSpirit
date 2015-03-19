@@ -94,16 +94,40 @@ public class EnnemiIA : MonoBehaviour
         {
             _character.Move( _direction );
         }
+        if (_direction.magnitude < 2)
+        {
+            Vector3 cone_centre;
+            cone_centre.z = 2;
+            cone_centre.x = 0;
+            cone_centre.y = 0;
+            RaycastHit hit;
+	        Character adv;
+            if ( Physics.Raycast( transform.position, transform.TransformDirection( cone_centre ), out hit ) )
+            {
+                adv = null;
+                adv = hit.transform.GetComponent<Character>();
+                if ( adv != null && adv.Life >= 0)
+                {
+                    WaitForEndOfFrame a = new WaitForEndOfFrame();
+                    adv.takeDamage();
+                }
+            }
+        }
+        
         
 
     }
 
     private bool DetectTarget()
     {
-        _direction = GameObject.FindWithTag( "Player" ).transform.position - this.transform.position;
-        if ( _direction.magnitude < _aggroArea )
+        GameObject player = GameObject.FindWithTag( "Player" );
+        if ( player != null )
         {
-            return true;
+            _direction = player.transform.position - this.transform.position;
+            if ( _direction.magnitude < _aggroArea )
+            {
+                return true;
+            }
         }
         
         return false;
