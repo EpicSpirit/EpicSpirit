@@ -19,7 +19,7 @@ public class MoveCamera : MonoBehaviour
     {
 		Vector3 mouvement = this.transform.position;
 		mouvement.x = cible.transform.position.x;
-		mouvement.z = cible.transform.position.z - 15;
+		mouvement.z = cible.transform.position.z - 8;
 		mouvement.y = cible.transform.position.y + 15;
 
 		this.transform.position = mouvement;

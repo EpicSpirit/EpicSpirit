@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
 	{
 		_lastAttack=0;
 		// Gestion des mauvaises init
-		if(_attackspeed == 0) {_attackspeed = 2f;}
+		if(_attackspeed == 0) {_attackspeed = 0.5f;}
 		
 		// Animation Manager
 		anims = this.GetComponent<Animation>();
@@ -84,7 +84,6 @@ public class Character : MonoBehaviour
 	public void Move(Vector3 direction) 
 	{
 		if(!isAttacking()) {
-		
 			// Si on doit réellement bouger
 			if( direction != Vector3.zero )
 			{
@@ -97,7 +96,7 @@ public class Character : MonoBehaviour
 			}
 			else
 			{
-				if(!isAttacking()) AnimationManager("idle");
+				AnimationManager("idle");
 				
 				// Gestion du mouvement lookaround quand on reste static un petit moment
 				_lookaroundcount --;
@@ -111,15 +110,17 @@ public class Character : MonoBehaviour
 		}
 		
 	}
-	private bool isAttacking() {
-		return _lastAttack+_attackspeed < Time.fixedTime;
+	public bool isAttacking() {
+		if(anims) {
+			return anims.IsPlaying("bim");
+		} else {
+			return false;
+		}
 	}
 	public void Attack() 
 	{	
 		// Gestion du tick
-		
-		if(_lastAttack+_attackspeed > Time.fixedTime) {
-			Debug.Log ("ATTAQUE");
+		if(!isAttacking()) {
 			_lastAttack = Time.fixedTime;	// MaJ
 			
 			// Qui on attaque
@@ -144,6 +145,7 @@ public class Character : MonoBehaviour
 			
 			
 		}
+		
 		
 		
 
