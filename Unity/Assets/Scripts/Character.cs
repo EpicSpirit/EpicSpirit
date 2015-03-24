@@ -16,7 +16,6 @@ public class Character : MonoBehaviour
 	private List<Vector3> _vecteursAttaques;
 	private Animation anims;
 	
-	private float _lastAttack;
 	public float _attackspeed;
 
     public float Speed
@@ -30,7 +29,6 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		_lastAttack=0;
 		// Gestion des mauvaises init
 		if(_attackspeed == 0) {_attackspeed = 0.5f;}
 		
@@ -96,7 +94,9 @@ public class Character : MonoBehaviour
 			}
 			else
 			{
-				AnimationManager("idle");
+				if(anims && !anims.IsPlaying("look_around")) {
+					AnimationManager("idle");
+				}
 				
 				// Gestion du mouvement lookaround quand on reste static un petit moment
 				_lookaroundcount --;
@@ -121,7 +121,6 @@ public class Character : MonoBehaviour
 	{	
 		// Gestion du tick
 		if(!isAttacking()) {
-			_lastAttack = Time.fixedTime;	// MaJ
 			
 			// Qui on attaque
 			foreach(Vector3 vec in _vecteursAttaques) {
