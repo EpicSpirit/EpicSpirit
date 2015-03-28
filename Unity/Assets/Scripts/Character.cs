@@ -90,7 +90,7 @@ public class Character : MonoBehaviour
 				
 				
 				_controller.Move( direction * _speed * Time.deltaTime );
-				_controller.transform.rotation = Quaternion.Slerp( _controller.transform.rotation, Quaternion.LookRotation( direction ), _speedRotation * Time.deltaTime );
+				_controller.transform.rotation = Quaternion.LookRotation( direction );
 			}
 			else
 			{
@@ -172,7 +172,7 @@ public class Character : MonoBehaviour
 		// Si notre gestionnaire d'anim existe bel et bien :
 		if(anims != null) {
 		
-			anims.CrossFade(anim);
+			anims.Play(anim);
 			
 		}
 	}
