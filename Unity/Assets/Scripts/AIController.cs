@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class AIController : Controller
+public class AIEnemy : IController
 {
-    public Enemy _character;
+    public Character _character;
 
     private static System.Random _randomGenerator = new System.Random();
 
@@ -119,4 +119,8 @@ public class AIController : Controller
         return false;
     }
 
+    public Vector3 Direction()
+    {
+        return new Vector3();
+    }
 }

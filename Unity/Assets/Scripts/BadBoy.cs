@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class Enemy : Character
+public class BadBoy : Character
 {
     public int _aggroArea;
 

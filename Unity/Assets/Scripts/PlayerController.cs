@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : Controller
+public class PlayerController : IController
 {
    // public GameObject _player;
-	public Player _character;
+	public Spi _character;
 
 	// Use this for initialization
 	void Start () 
@@ -51,4 +51,9 @@ public class PlayerController : Controller
 
 
 	}
+
+    public Vector3 Direction()
+    {
+        return new Vector3();
+    }
 }

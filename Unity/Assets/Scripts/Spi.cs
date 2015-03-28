@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class Player : Character
+public class Spi : Character
 {
     void Start()
     {

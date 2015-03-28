@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
 	
 	private CharacterController _controller;
