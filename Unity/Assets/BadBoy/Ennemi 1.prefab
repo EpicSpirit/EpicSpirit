@@ -60,9 +60,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480632}
-  - 114: {fileID: 11429188}
   - 143: {fileID: 14362844}
-  - 114: {fileID: 11413558}
+  - 114: {fileID: 11459038}
+  - 114: {fileID: 11492228}
   m_Layer: 0
   m_Name: Ennemi 1
   m_TagString: Ennemi
@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.92000008, y: .959999979, z: 13.5200005}
+  m_LocalPosition: {x: 4.36999989, y: 7.07999992, z: 34.3800011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433216}
@@ -152,7 +152,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153886}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11413558
+--- !u!114 &11459038
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -160,11 +160,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 187092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9bcf176dca7174687d0379496f2339, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b23177c4ac59044296fc6654e46ac5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ennemi: {fileID: 187092}
---- !u!114 &11429188
+  _attackspeed: 2
+  _aggroArea: 10
+--- !u!114 &11492228
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 187092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f178caa79dafe76468bda151d3b252b3, type: 3}
+  m_Script: {fileID: 11500000, guid: d280d901d28e4de448f00823b85429ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &13530212

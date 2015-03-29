@@ -2,17 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Character : MonoBehaviour
+public  class Character : MonoBehaviour
 {
-	
+	// Controller du personnage
 	private CharacterController _controller;
-	private float _speed;
+	
+	// Stat du perso
+	internal float _speed;
 	private float _speedRotation;
+//		private Character _target; //A quoi ça sert ? 
+	private int _attack;
+	internal int _life;
+
+	
 	private Vector3 _motion;
 	private RaycastHit _hit;
 	private Character _adv;
-	private int _life;
-	private int _lookaroundcount;
+	internal int _lookaroundcount;
 	private List<Vector3> _vecteursAttaques;
 	private Animation anims;
 	
@@ -29,6 +35,12 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		Initialisation();
+		
+		
+	}
+	
+	internal void Initialisation() {
 		// Gestion des mauvaises init
 		if(_attackspeed == 0) {_attackspeed = 0.5f;}
 		
@@ -37,11 +49,11 @@ public class Character : MonoBehaviour
 		if(anims == null) {
 			anims = this.GetComponentInChildren<Animation>();
 		}
-	
+		
 		_lookaroundcount = 300;
 		_life =3;
-        _hit = new RaycastHit();
-
+		_hit = new RaycastHit();
+		
 		if ( _speed == 0 )
 		{
 			_speed = 100; 
@@ -65,18 +77,22 @@ public class Character : MonoBehaviour
 		_vecteursAttaques.Add(new Vector3(1,1,2));
 		
 		
-		
-		
+	
 	}
 	
 	// Update is called once per frame
 	void Update()
     {
-		// Gravité
-        this.GetComponent<CharacterController>().Move( Vector3.down );
+		
         
 	}
+	internal void Gravity() {
+		// Gravité
+		if(!_controller.isGrounded) {
+			_controller.Move( Vector3.down );
+		}
 	
+	}
 	
 	
 	public void Move(Vector3 direction) 
