@@ -17,9 +17,7 @@ public  class Character : MonoBehaviour
 	
 	private Vector3 _motion;
 	private RaycastHit _hit;
-	private Character _adv;
 	internal int _lookaroundcount;
-	private List<Vector3> _vecteursAttaques;
 	private Animation anims;
 	
 	public float _attackspeed;
@@ -66,15 +64,7 @@ public  class Character : MonoBehaviour
 		}
 		_controller = this.GetComponent<CharacterController>();
 		
-		// Définition de la zone d'attaque
-		_vecteursAttaques = new List<Vector3>();
-		_vecteursAttaques.Add(new Vector3(0,0,2));
-		_vecteursAttaques.Add(new Vector3(1,0,2));
-		_vecteursAttaques.Add(new Vector3(-1,0,2));
 		
-		_vecteursAttaques.Add(new Vector3(0,1,2));
-		_vecteursAttaques.Add(new Vector3(-1,1,2));
-		_vecteursAttaques.Add(new Vector3(1,1,2));
 		
 		
 	
@@ -133,40 +123,59 @@ public  class Character : MonoBehaviour
 			return false;
 		}
 	}
-	public void Attack() 
+	public virtual void Attack() 
 	{	
 		// Gestion du tick
 		if(!isAttacking()) {
 			
-			// Qui on attaque
-			foreach(Vector3 vec in _vecteursAttaques) {
-				Debug.DrawRay(_controller.transform.position, _controller.transform.TransformDirection(vec),Color.yellow,1.0f);
-				
-				if ( Physics.Raycast( _controller.transform.position, _controller.transform.TransformDirection( vec ), out _hit ) )
-				{
-					//DEBUG 
-					_adv= null;
-					_adv = _hit.transform.GetComponent<Character>();
-					
-					if(_adv != null) 
-					{						
-						_adv.takeDamage();
-					}
-				}
+			List<Character> list_cible = GetListofCible(this.gameObject);
+			foreach(Character adv in list_cible) {
+				adv.takeDamage();
 			}
 			
 			// Dans tout les cas on met l'anim d'attaque
 			AnimationManager("bim");
-			
-			
 		}
-		
-		
-		
 
 	}
+	
+	internal List<Character> GetListofCible(GameObject origin) {
+		List<Character> retour = new List<Character>();
+		List<Vector3> _vecteursAttaques;
+		RaycastHit hit;
+		
+		
+		// Définition de la zone d'attaque
+		_vecteursAttaques = new List<Vector3>();
+		_vecteursAttaques.Add(new Vector3(0,0,2));
+		_vecteursAttaques.Add(new Vector3(1,0,2));
+		_vecteursAttaques.Add(new Vector3(-1,0,2));
+		
+		_vecteursAttaques.Add(new Vector3(0,1,2));
+		_vecteursAttaques.Add(new Vector3(-1,1,2));
+		_vecteursAttaques.Add(new Vector3(1,1,2));
+		
+		foreach(Vector3 vec in _vecteursAttaques) {
+			Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(vec),Color.yellow,1.0f);
+			
+			if ( Physics.Raycast( origin.transform.position, origin.transform.TransformDirection( vec ), out hit ) )
+			{
+				//DEBUG 
+				Character adv = null;
+				adv = hit.transform.GetComponent<Character>();
+				
+				if(adv != null) 
+				{						
+					retour.Add(adv);
+				}
+			}
+		}
+		
+		return retour;
+	
+	}
 
-	public void takeDamage() 
+	public virtual void takeDamage() 
 	{
         ParticleSystem[] par = this.GetComponentsInChildren<ParticleSystem>();
         foreach ( ParticleSystem par_ in par )
