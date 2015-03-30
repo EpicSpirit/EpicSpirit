@@ -100,7 +100,7 @@ public class AIController : MonoBehaviour, IController
 					if(_lastAttack+_character._attackspeed < Time.fixedTime) {
 					
 						_lastAttack=Time.fixedTime;
-						adv.takeDamage();	
+						adv.takeDamage(1);	
 					
 					}
 					

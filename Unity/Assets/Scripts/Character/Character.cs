@@ -118,7 +118,7 @@ public  class Character : MonoBehaviour
 	}
 	public bool isAttacking() {
 		if(anims) {
-			return anims.IsPlaying("bim");
+            return anims.IsPlaying("bim") || anims.IsPlaying("bim_2");
 		} else {
 			return false;
 		}
@@ -130,7 +130,7 @@ public  class Character : MonoBehaviour
 			
 			List<Character> list_cible = GetListofCible(this.gameObject);
 			foreach(Character adv in list_cible) {
-				adv.takeDamage();
+				adv.takeDamage(1);
 			}
 			
 			// Dans tout les cas on met l'anim d'attaque
@@ -175,7 +175,7 @@ public  class Character : MonoBehaviour
 	
 	}
 
-	public virtual void takeDamage() 
+	public virtual void takeDamage(int puissance) 
 	{
         ParticleSystem[] par = this.GetComponentsInChildren<ParticleSystem>();
         foreach ( ParticleSystem par_ in par )
@@ -185,15 +185,16 @@ public  class Character : MonoBehaviour
 				par_.Play();
 			}
 		}
-		this._life -= 1;
+		this._life -= puissance;
 
         if ( this._life <= 0 )
         {
             GameObject.Destroy( this.gameObject, 0.5f );
 		}
+        Debug.Log(this._life);
 	}
 	
-	private void AnimationManager(string anim) {
+	internal void AnimationManager(string anim) {
 		// Si notre gestionnaire d'anim existe bel et bien :
 		if(anims != null) {
 		
@@ -205,8 +206,8 @@ public  class Character : MonoBehaviour
 	
 	public void ParticuleManager() {
 	
-	
-	
+	    // TODO
+	    
 	}
 	
 }
