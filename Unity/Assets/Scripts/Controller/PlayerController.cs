@@ -5,11 +5,12 @@ public class PlayerController : MonoBehaviour, IController
 {
     public GameObject _player;
 	private Character _character;
+    private bool _attack;
 
 	// Use this for initialization
 	void Start () 
     {
-
+        _attack = false;
 		_character = _player.GetComponents<Spi>()[0];
         _character.Speed = 15;
     }
@@ -17,7 +18,8 @@ public class PlayerController : MonoBehaviour, IController
 	// Update is called once per frame
 	void Update ()
     {
-    	if(_character != null) {
+        if ( _character != null )
+        {
     	
 			Vector3 direction = new Vector3();
 			// Test pour la gestion des touches pour le moment
@@ -43,20 +45,18 @@ public class PlayerController : MonoBehaviour, IController
 			// Application de la méthode Move si on doit bouger
 			_character.Move( direction );
 			
-			if ( Input.GetKeyDown( KeyCode.Space ) ) 
+			if ( Input.GetKeyDown( KeyCode.Space ) || _attack == true ) 
 			{
-				
+                _attack = false;
 				_character.Attack();
 			}
-    	
     	}
-		
-
-
-
-
-
 	}
+
+    public void ToAttack()
+    {
+        _attack = true;
+    }
 	
 	public Vector3 Direction()
     {
