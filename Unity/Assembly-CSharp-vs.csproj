@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ButtonManager.cs" />
      <Compile Include="Assets\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Scripts\Character\Ennemi.cs" />
@@ -54,7 +53,6 @@
      <Compile Include="Assets\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Scripts\Controller\IController.cs" />
      <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\EventManager.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Test.cs" />
  <Reference Include="UnityEngine.UI">
