@@ -19,7 +19,8 @@ public class Spi : Character
 	{
 		Gravity();
 	}
-	public override void takeDamage() {
+	public override void takeDamage() 
+    {
 		Debug.Log ("Spi prend des dommages");
 	
 	}

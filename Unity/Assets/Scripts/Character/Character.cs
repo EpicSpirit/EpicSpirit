@@ -18,7 +18,7 @@ public  class Character : MonoBehaviour
 	private Vector3 _motion;
 	private RaycastHit _hit;
 	internal int _lookaroundcount;
-	private Animation anims;
+	private Animation anims; // NON !
 	
 	public float _attackspeed;
 
@@ -77,8 +77,9 @@ public  class Character : MonoBehaviour
         
 	}
 	internal void Gravity() {
-		// Gravité
-		if(!_controller.isGrounded) {
+		// Gravité // NON !
+        if ( !_controller.isGrounded )
+        {
 			_controller.Move( Vector3.down );
 		}
 	
@@ -87,33 +88,35 @@ public  class Character : MonoBehaviour
 	
 	public void Move(Vector3 direction) 
 	{
-		if(!isAttacking()) {
-			// Si on doit réellement bouger
-			if( direction != Vector3.zero )
-			{
-				// On joue l'anim walk 
-				AnimationManager("walk");
-				
-				
-				_controller.Move( direction * _speed * Time.deltaTime );
-				_controller.transform.rotation = Quaternion.LookRotation( direction );
-			}
-			else
-			{
-				if(anims && !anims.IsPlaying("look_around")) {
-					AnimationManager("idle");
-				}
-				
-				// Gestion du mouvement lookaround quand on reste static un petit moment
-				_lookaroundcount --;
-				if(_lookaroundcount < 0)
-				{
-					_lookaroundcount = 300;
-					AnimationManager("look_around");
-				}	
-			}
-		
-		}
+        if ( !isAttacking() )
+        {
+            // Si on doit réellement bouger
+            if ( direction != Vector3.zero )
+            {
+                // On joue l'anim walk 
+                AnimationManager( "walk" );
+
+
+                _controller.Move( direction * _speed * Time.deltaTime );
+                _controller.transform.rotation = Quaternion.LookRotation( direction );
+            }
+            else
+            {
+                if ( anims && !anims.IsPlaying( "look_around" ) )
+                {
+                    AnimationManager( "idle" );
+                }
+
+                // Gestion du mouvement lookaround quand on reste static un petit moment
+                _lookaroundcount--;
+                if ( _lookaroundcount < 0 )
+                {
+                    _lookaroundcount = 300;
+                    AnimationManager( "look_around" );
+                }
+            }
+
+        }
 		
 	}
 	public bool isAttacking() {
