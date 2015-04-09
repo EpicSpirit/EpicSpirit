@@ -77,7 +77,7 @@ public  class Character : MonoBehaviour
         
 	}
 	internal void Gravity() {
-		// Gravité // NON !
+		// Gravité // NON ! // Si ! C'est juste pour y aller Yolo pour le moment :p
         if ( !_controller.isGrounded )
         {
 			_controller.Move( Vector3.down );
@@ -95,7 +95,6 @@ public  class Character : MonoBehaviour
             {
                 // On joue l'anim walk 
                 AnimationManager( "walk" );
-
 
                 _controller.Move( direction * _speed * Time.deltaTime );
                 _controller.transform.rotation = Quaternion.LookRotation( direction );
@@ -196,13 +195,15 @@ public  class Character : MonoBehaviour
 		}
 	}
 	
-	private void AnimationManager(string anim) {
+	public void AnimationManager(string anim) {
 		// Si notre gestionnaire d'anim existe bel et bien :
-		if(anims != null) {
+		if(anims != null &&  ! anims.IsPlaying(anim) ) {
 		
 			anims.Play(anim);
 			
 		}
+		
+		
 	}
 	
 	

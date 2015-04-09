@@ -17,6 +17,8 @@ public class Controller3DExample : MonoBehaviour
     private Transform _mainCameraTransform;
     private Transform _transformCache;
     private Transform _playerTransform;
+    
+    private Spi _spi;
 
     void Start()
     {
@@ -29,6 +31,8 @@ public class Controller3DExample : MonoBehaviour
         _mainCameraTransform = Camera.main.GetComponent<Transform>();
         _transformCache = _player.GetComponent<Transform>();
         _playerTransform = _player.transform;
+        
+        _spi = _characterController.GetComponent<Spi>();
     }
 
     
@@ -42,27 +46,30 @@ public class Controller3DExample : MonoBehaviour
 
         CommonMovementMethod(movement);
     }
-
+	
+	/* Kev' : Je ne pense pas que cette fonction ai un intéret */
+	/*
     private void MoveWithEvent(Vector3 inputMovement)
     {
         var movement = new Vector3(
             inputMovement.x,
             0f,
             inputMovement.y);
-
+	
+	
         CommonMovementMethod(movement);
     }
+    */
 
     private void CommonMovementMethod(Vector3 movement)
     {
         movement = _mainCameraTransform.TransformDirection(movement);
         movement.y = 0f;
         movement.Normalize();
-
-        FaceDirection(movement);
-        _characterController.Move(movement * movementSpeed * Time.deltaTime);
+        
+		_spi.Move (movement);
     }
-
+	/*
     public void FaceDirection(Vector3 direction)
     {
         StopCoroutine("RotateCoroutine");
@@ -81,5 +88,6 @@ public class Controller3DExample : MonoBehaviour
         }
         while ((direction - _playerTransform.forward).sqrMagnitude > 0.2f);
     }
+    */
 
 }

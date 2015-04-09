@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58dae865885f7448866c6853247ce35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 15
   MovementJoystick: {fileID: 1936599308}
   _player: {fileID: 1758712331}
 --- !u!143 &420562176
@@ -4950,7 +4950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e0cb1ffc250624ba8b0de5dffa515f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackspeed: 2
+  _attackspeed: 5
 --- !u!143 &1758712334
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5174,7 +5174,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 8dc078558e571db4bbfd22abffcbaca9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.27472496
+      value: 4.66889906
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8dc078558e571db4bbfd22abffcbaca9, type: 2}
       propertyPath: m_LocalPosition.y
