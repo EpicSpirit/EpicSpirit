@@ -25,8 +25,14 @@ public class Spi : Character
 	{
 		Gravity();
 	}
+<<<<<<< HEAD
+	public override void takeDamage() 
+    {
+		Debug.Log ("Spi prend des dommages");
+	
+	}
+=======
     
-            
     public override void Attack()
     {
         
@@ -63,6 +69,7 @@ public class Spi : Character
     }
     
 
+>>>>>>> origin/DevRedou
 	
 	
 }
