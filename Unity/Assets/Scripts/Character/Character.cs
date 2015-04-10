@@ -127,6 +127,7 @@ public  class Character : MonoBehaviour
 	}
 	public virtual void Attack() 
 	{	
+		Debug.Log ("Attack !");
 		// Gestion du tick
 		if(!isAttacking()) {
 			
