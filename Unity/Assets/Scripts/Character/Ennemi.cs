@@ -5,13 +5,11 @@ public abstract class Ennemi : Character {
 	
 	public int _aggroArea;
 	
-	// Use this for initialization
-	void Start () {
-	
+	public void Invokation() {
+		
+		ParticuleManager("Invokation");
+		
+		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

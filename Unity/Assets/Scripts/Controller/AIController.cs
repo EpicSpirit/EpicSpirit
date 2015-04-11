@@ -84,6 +84,15 @@ public class AIController : MonoBehaviour, IController
 		// Si on peut taper
 		if ( _direction.magnitude < 2 )
 		{
+			// Test si on est dans le bon tick 
+			if(_lastAttack+_character._attackspeed < Time.fixedTime) {
+				
+				_lastAttack=Time.fixedTime;
+				_character.Attack();
+				
+			}
+			
+			
 			Vector3 cone_centre;
 			cone_centre.z = 2;
 			cone_centre.x = 0;
@@ -96,17 +105,12 @@ public class AIController : MonoBehaviour, IController
 				adv = hit.transform.GetComponent<Character>();
 				if ( adv != null && adv._life >= 0 )
 				{
-					// Test si on est dans le bon tick 
-					if(_lastAttack+_character._attackspeed < Time.fixedTime) {
 					
-						_lastAttack=Time.fixedTime;
-						adv.takeDamage(1);	
-					
-					}
 					
 					
 				}
 			}
+			
 		}
 		// Sinon, on bouge vers le perso
 		else if ( _direction != Vector3.zero  )

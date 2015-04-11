@@ -87,7 +87,8 @@ public  class Character : MonoBehaviour
 	
 	
 	public void Move(Vector3 direction) 
-	{
+	{	
+		direction.y = 0;
         if ( !isAttacking() )
         {
             // Si on doit réellement bouger
@@ -173,7 +174,6 @@ public  class Character : MonoBehaviour
 				}
 			}
 		}
-		
 		return retour;
 	
 	}
@@ -209,9 +209,14 @@ public  class Character : MonoBehaviour
 	}
 	
 	
-	public void ParticuleManager() {
+	public void ParticuleManager(string name) {
 	
-	    // TODO
+	   	var parts = this.GetComponentsInChildren<ParticleSystem>();
+	   	foreach(ParticleSystem part in parts) {
+	   		if(name == part.name) {part.Play();Debug.Log ("Trouvé!");}
+	   	
+	   	}
+	   	
 	    
 	}
 	

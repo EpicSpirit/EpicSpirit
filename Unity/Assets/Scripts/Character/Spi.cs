@@ -46,13 +46,12 @@ public class Spi : Character
 
 
 			List<Character> list_cible = GetListofCible(this.gameObject);
+			
 			foreach(Character adv in list_cible) {
 				adv.takeDamage(_compteur_attack+1);
 			}
 			
 			// Dans tout les cas on met l'anim d'attaque
-			AnimationManager("bim_2");
-
             if(_compteur_attack >= 2) {
                 _compteur_attack = 0;
                 AnimationManager("bim_2");
