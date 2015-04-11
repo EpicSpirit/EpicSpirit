@@ -93,24 +93,6 @@ public class AIController : MonoBehaviour, IController
 			}
 			
 			
-			Vector3 cone_centre;
-			cone_centre.z = 2;
-			cone_centre.x = 0;
-			cone_centre.y = 0;
-			RaycastHit hit;
-			Character adv;
-			if ( Physics.Raycast( _character.transform.position, _character.transform.TransformDirection( cone_centre ), out hit ) )
-			{
-				adv = null;
-				adv = hit.transform.GetComponent<Character>();
-				if ( adv != null && adv._life >= 0 )
-				{
-					
-					
-					
-				}
-			}
-			
 		}
 		// Sinon, on bouge vers le perso
 		else if ( _direction != Vector3.zero  )

@@ -43,10 +43,9 @@ public class Boss_OTD : Ennemi {
 		position.x += _randomGenerator.Next(1,5);
 		position.z += _randomGenerator.Next(1,5);
 		
-		Ennemi obj = (Ennemi)Object.Instantiate(Resources.LoadAssetAtPath<UnityEngine.Object>("Assets/BadBoy/Ennemi 1.prefab"),position, this.transform.rotation);
-		obj.Invokation();
-		Debug.Log ("TEST");
-	
+		var obj = Instantiate(Resources.LoadAssetAtPath<UnityEngine.Object>("Assets/BadBoy/Ennemi 1.prefab"),position, this.transform.rotation) as GameObject;
+		var ennemi = obj.GetComponent<Ennemi>();
+		ennemi.Invokation();	
 	}
 	
 	
