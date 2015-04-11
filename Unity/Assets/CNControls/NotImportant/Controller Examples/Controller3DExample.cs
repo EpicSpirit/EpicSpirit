@@ -66,7 +66,6 @@ public class Controller3DExample : MonoBehaviour
         movement = _mainCameraTransform.TransformDirection(movement);
         movement.y = 0f;
         movement.Normalize();
-        Debug.Log (movement);
         
         _spi.Move (movement * movementSpeed* Time.deltaTime);
 		

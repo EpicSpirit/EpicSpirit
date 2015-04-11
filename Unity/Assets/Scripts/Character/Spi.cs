@@ -14,7 +14,7 @@ public class Spi : Character
 	{
 		Initialisation();
 		
-		_life = 20;
+		_life = 1000;
 		_lookaroundcount = 300;
         _compteur_attack=0;
         _comboAttackInterval = 0.9f;
@@ -48,6 +48,7 @@ public class Spi : Character
 			List<Character> list_cible = GetListofCible(this.gameObject);
 			
 			foreach(Character adv in list_cible) {
+				if(adv.name == this.name) continue;
 				adv.takeDamage(_compteur_attack+1);
 			}
 			
