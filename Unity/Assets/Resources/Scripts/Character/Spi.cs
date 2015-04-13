@@ -48,8 +48,10 @@ public class Spi : Character
 			List<Character> list_cible = GetListofCible(this.gameObject);
 			
 			foreach(Character adv in list_cible) {
-				if(adv.name == this.name) continue;
-				adv.takeDamage(_compteur_attack+1);
+				//Debug.Log ();
+				if(adv.name != this.name) {
+					adv.takeDamage(_compteur_attack+1);
+				}
 			}
 			
 			// Dans tout les cas on met l'anim d'attaque

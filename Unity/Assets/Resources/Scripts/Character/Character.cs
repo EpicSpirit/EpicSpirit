@@ -168,7 +168,7 @@ public  class Character : MonoBehaviour
 				Character adv = null;
 				adv = hit.transform.GetComponent<Character>();
 				
-				if(adv != null) 
+				if(adv != null && adv.name != this.name) 
 				{						
 					retour.Add(adv);
 				}
