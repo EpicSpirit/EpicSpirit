@@ -46,21 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CNControls\NotImportant\Controller Examples\CameraFollowExample.cs" />
-     <Compile Include="Assets\CNControls\NotImportant\Controller Examples\Controller3DExample.cs" />
-     <Compile Include="Assets\CNControls\Scripts\CNAbstractController.cs" />
-     <Compile Include="Assets\CNControls\Scripts\CNJoystick.cs" />
-     <Compile Include="Assets\CNControls\Scripts\CNThrowableTouchpad.cs" />
-     <Compile Include="Assets\CNControls\Scripts\CNTouchpad.cs" />
-     <Compile Include="Assets\Scripts\Character\BadBoy.cs" />
-     <Compile Include="Assets\Scripts\Character\Character.cs" />
-     <Compile Include="Assets\Scripts\Character\Ennemi.cs" />
-     <Compile Include="Assets\Scripts\Character\Spi.cs" />
-     <Compile Include="Assets\Scripts\Controller\AIController.cs" />
-     <Compile Include="Assets\Scripts\Controller\IController.cs" />
-     <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\MoveCamera.cs" />
-     <Compile Include="Assets\Test.cs" />
+     <Compile Include="Assets\Resources\CNControls\NotImportant\Controller Examples\CameraFollowExample.cs" />
+     <Compile Include="Assets\Resources\CNControls\NotImportant\Controller Examples\Controller3DExample.cs" />
+     <Compile Include="Assets\Resources\CNControls\Scripts\CNAbstractController.cs" />
+     <Compile Include="Assets\Resources\CNControls\Scripts\CNJoystick.cs" />
+     <Compile Include="Assets\Resources\CNControls\Scripts\CNThrowableTouchpad.cs" />
+     <Compile Include="Assets\Resources\CNControls\Scripts\CNTouchpad.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Boss_OTD.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Ennemi.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
+     <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
+     <Compile Include="Assets\Resources\Scripts\Controller\IController.cs" />
+     <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\MoveCamera.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
