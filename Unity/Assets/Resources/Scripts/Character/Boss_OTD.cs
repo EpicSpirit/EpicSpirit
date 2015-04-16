@@ -14,7 +14,7 @@ public class Boss_OTD : Ennemi {
 			_aggroArea = 10;
 		}
 		_life = 30;
-		_speed = 0.5f;
+		_movementSpeed = 0.5f;
 		
 	}
 	

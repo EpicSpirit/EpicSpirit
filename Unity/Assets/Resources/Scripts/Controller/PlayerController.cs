@@ -3,16 +3,14 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour, IController
 {
-    public GameObject _player;
-	private Character _character;
+    public Character _character;
+
     private bool _attack;
 
 	// Use this for initialization
 	void Start () 
     {
         _attack = false;
-		_character = _player.GetComponents<Spi>()[0];
-        _character.Speed = 15;
     }
 	
 	// Update is called once per frame

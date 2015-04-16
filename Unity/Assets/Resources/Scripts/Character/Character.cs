@@ -8,9 +8,8 @@ public  class Character : MonoBehaviour
 	private CharacterController _controller;
 	
 	// Stat du perso
-	internal float _speed;
+	internal float _movementSpeed;
 	private float _speedRotation;
-//		private Character _target; //A quoi ça sert ? 
 	private int _attack;
 	internal int _life;
 
@@ -21,11 +20,13 @@ public  class Character : MonoBehaviour
 	private Animation anims; // NON !
 	
 	public float _attackspeed;
+    public int _aggroArea;
 
-    public float Speed
+
+    public float MovementSpeed
     {
-        set { _speed = value; }
-        get{ return _speed; }
+        set { _movementSpeed = value; }
+        get{ return _movementSpeed; }
     }
     
     
@@ -38,13 +39,15 @@ public  class Character : MonoBehaviour
 		
 	}
 	
-	internal void Initialisation() {
+	internal void Initialisation() 
+    {
 		// Gestion des mauvaises init
 		if(_attackspeed == 0) {_attackspeed = 0.5f;}
 		
 		// Animation Manager
 		anims = this.GetComponent<Animation>();
-		if(anims == null) {
+		if(anims == null) 
+        {
 			anims = this.GetComponentInChildren<Animation>();
 		}
 		
@@ -52,9 +55,9 @@ public  class Character : MonoBehaviour
 		_life =3;
 		_hit = new RaycastHit();
 		
-		if ( _speed == 0 )
+		if ( _movementSpeed == 0 )
 		{
-			_speed = 100; 
+			_movementSpeed = 100; 
 			//Debug.Log( "Utilisation valeur par défaut" );
 		}
 		if ( _speedRotation == 0 )
@@ -97,7 +100,7 @@ public  class Character : MonoBehaviour
                 // On joue l'anim walk 
                 AnimationManager( "walk" );
 
-                _controller.Move( direction * _speed * Time.deltaTime );
+                _controller.Move( direction * _movementSpeed * Time.deltaTime );
                 _controller.transform.rotation = Quaternion.LookRotation( direction );
             }
             else

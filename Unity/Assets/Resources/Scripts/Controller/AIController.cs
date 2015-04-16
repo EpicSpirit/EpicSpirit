@@ -2,7 +2,7 @@
 
 public class AIController : MonoBehaviour, IController
 {
-	private Ennemi _character;
+	private Character _character;
 	
 	private static System.Random _randomGenerator = new System.Random();
 	
@@ -16,8 +16,8 @@ public class AIController : MonoBehaviour, IController
 	void Start()
 	{
 		_lastAttack= Time.fixedTime;
-		_character = GetComponent<Ennemi>();
-		_character.Speed = 2;
+		_character = GetComponent<Character>();
+		_character.MovementSpeed = 2;
 		_changeDirection = 0;
 		_randomDirection = 1;
 	}
@@ -36,7 +36,7 @@ public class AIController : MonoBehaviour, IController
 	
 	private void RandomMove()
 	{
-		_character.Speed = 2;
+		_character.MovementSpeed = 2;
 		
 		// Si on passe en dessous de zéro, c'est que l'on doit relancer un compte
 		if ( _changeDirection == 0 )
@@ -79,7 +79,7 @@ public class AIController : MonoBehaviour, IController
 	}
 	private void AggressiveMove()
 	{
-		_character.Speed = 3;
+		_character.MovementSpeed = 3;
 		
 		// Si on peut taper
 		if ( _direction.magnitude < 2 )

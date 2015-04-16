@@ -1,21 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BadBoy : Ennemi {
+public class BadBoy : Ennemi 
+{
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
 		Initialisation();
 		if ( _aggroArea == 0 )
 		{
 			_aggroArea = 8;
 		}
 		_life = 3;
-		_speed = 2;
+		_movementSpeed = 2;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
 	
 	}
 }
