@@ -46,14 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Resources\CNControls\Editor\CNAbstractControllerInspector.cs" />
-     <Compile Include="Assets\Resources\CNControls\Editor\CNInputEditorTools.cs" />
-     <Compile Include="Assets\Resources\CNControls\Editor\CNJoystickCreatorMenu.cs" />
-     <Compile Include="Assets\Resources\CNControls\Editor\CNJoystickInspector.cs" />
-     <Compile Include="Assets\Resources\CNControls\Editor\CNThrowableTouchpadCreatorMenu.cs" />
-     <Compile Include="Assets\Resources\CNControls\Editor\CNThrowableTouchpadInspector.cs" />
-     <Compile Include="Assets\Resources\CNControls\Editor\CNTouchpadCreatorMenu.cs" />
-     <Compile Include="Assets\Resources\CNControls\Editor\CNTouchpadInspector.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNAbstractControllerInspector.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNInputEditorTools.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNJoystickCreatorMenu.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNJoystickInspector.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNThrowableTouchpadCreatorMenu.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNThrowableTouchpadInspector.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNTouchpadCreatorMenu.cs" />
+     <Compile Include="Assets\Resources\UI\CNControls\Editor\CNTouchpadInspector.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
