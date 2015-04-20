@@ -783,6 +783,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 494200, guid: b41c38aac8d7b7040802a291bc470fcc, type: 2}
   m_PrefabInternal: {fileID: 164475050}
+  _joystickOn: 1
+  _player: {fileID: 1758712331}
+  _character: {fileID: 1758712333}
+  _movementJoystick: {fileID: 396871230}
 --- !u!4 &424079520
 Transform:
   m_PrefabParentObject: {fileID: 460100, guid: fe4d1f14b28cab342a5b0220521b9287, type: 2}
@@ -2646,6 +2650,7 @@ GameObject:
 --- !u!114 &1758712333
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11404772, guid: edc60615ee8644b4c9508f891f4ad86e,
+  _aggroArea: 0
     type: 2}
   m_PrefabInternal: {fileID: 1309464526}
   m_Script: {fileID: 11500000, guid: 13e0cb1ffc250624ba8b0de5dffa515f, type: 3}

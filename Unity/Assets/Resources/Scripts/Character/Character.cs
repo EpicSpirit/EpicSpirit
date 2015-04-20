@@ -8,28 +8,31 @@ public  class Character : MonoBehaviour
 	internal CharacterController _controller;
 	
 	// Stat du perso
-	internal float _speed;
+	public float _movementSpeed;
 	private float _speedRotation;
-//		private Character _target; //A quoi ça sert ? 
 	private int _attack;
-	internal int _life;
-
+	internal int _health;
+    private float _attackSpeed = 5f;
 	
 	private Vector3 _motion;
 	private RaycastHit _hit;
 	internal int _lookaroundcount;
-	internal Animation anims; // NON !
+	private Animation _animations;
 	
-	public float _attackspeed;
+    public int _aggroArea;
 
-    public float Speed
+
+    public float MovementSpeed
     {
-        set { _speed = value; }
-        get{ return _speed; }
+        set { _movementSpeed = value; }
+        get{ return _movementSpeed; }
     }
-    
-    
 
+    public float AttackSpeed
+    {
+        set { _attackSpeed = value; }
+        get { return _attackSpeed; }
+    }
 	// Use this for initialization
 	virtual public void Start()
 	{
@@ -38,23 +41,22 @@ public  class Character : MonoBehaviour
 		
 	}
 	
-	internal void Initialisation() {
-		// Gestion des mauvaises init
-		if(_attackspeed == 0) {_attackspeed = 0.5f;}
-		
+	internal void Initialisation() 
+    {		
 		// Animation Manager
-		anims = this.GetComponent<Animation>();
-		if(anims == null) {
-			anims = this.GetComponentInChildren<Animation>();
+		_animations = this.GetComponent<Animation>();
+		if(_animations == null) 
+        {
+			_animations = this.GetComponentInChildren<Animation>();
 		}
 		
 		_lookaroundcount = 300;
-		_life =3;
+		_health =3;
 		_hit = new RaycastHit();
 		
-		if ( _speed == 0 )
+		if ( _movementSpeed == 0 )
 		{
-			_speed = 100; 
+			_movementSpeed = 100; 
 			//Debug.Log( "Utilisation valeur par défaut" );
 		}
 		if ( _speedRotation == 0 )
@@ -97,8 +99,7 @@ public  class Character : MonoBehaviour
                 // On joue l'anim walk 
                 AnimationManager( "walk" );
                 
-
-                _controller.Move( direction * _speed * Time.deltaTime );
+                _controller.Move( direction * _movementSpeed * Time.deltaTime );
                 _controller.transform.rotation = Quaternion.LookRotation( direction );
             }
             else
@@ -110,8 +111,8 @@ public  class Character : MonoBehaviour
 		
 	}
 	public bool isAttacking() {
-		if(anims) {
-            return anims.IsPlaying("bim") || anims.IsPlaying("bim_2");
+		if(_animations) {
+            return _animations.IsPlaying("bim") || _animations.IsPlaying("bim_2");
 		} else {
 			return false;
 		}
@@ -180,21 +181,20 @@ public  class Character : MonoBehaviour
 				par_.Play();
 			}
 		}
-		
-		this._life -= puissance;
+		this._health -= puissance;
 
-        if ( this._life <= 0 )
+        if ( this._health <= 0 )
         {
             GameObject.Destroy( this.gameObject, 0.5f );
 		}
-        Debug.Log(this._life);
+        Debug.Log(this._health);
 	}
 	
 	public void AnimationManager(string anim) {
 		// Si notre gestionnaire d'anim existe bel et bien :
-		if(anims != null &&  ! anims.IsPlaying(anim) ) {
+		if(_animations != null &&  ! _animations.IsPlaying(anim) ) {
 		
-			anims.Play(anim);
+			_animations.Play(anim);
 			
 		}
 		

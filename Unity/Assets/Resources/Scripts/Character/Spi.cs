@@ -13,8 +13,7 @@ public class Spi : Character
 	void Start()
 	{
 		Initialisation();
-		
-		_life = 1000;
+		_health = 1000;
 		_lookaroundcount = 300;
         _compteur_attack=0;
         _comboAttackInterval = 0.9f;

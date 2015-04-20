@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BadBoy : Ennemi {
+public class BadBoy : Ennemi 
+{
 
 	// Use this for initialization
 	override public void Start () {
@@ -11,8 +12,8 @@ public class BadBoy : Ennemi {
 		{
 			_aggroArea = 8;
 		}
-		_life = 3;
-		_speed = 2;
+		_health = 3;
+		_movementSpeed = 2;
 	}
 	
 	public override void takeDamage(int puissance) {
