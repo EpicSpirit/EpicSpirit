@@ -1,0 +1,45 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class BadBoy : Ennemi 
+{
+
+	// Use this for initialization
+<<<<<<< HEAD
+	override public void Start () {
+		base.Start();
+		
+=======
+	void Start () 
+    {
+		Initialisation();
+>>>>>>> origin/Canvas_HUD
+		if ( _aggroArea == 0 )
+		{
+			_aggroArea = 8;
+		}
+		_health = 3;
+		_movementSpeed = 2;
+	}
+	
+<<<<<<< HEAD
+	public override void takeDamage(int puissance) {
+			
+			base.takeDamage(puissance);
+			if(!isAttacking()) {
+			
+				AnimationManager("damage");
+			
+			}
+			
+=======
+	// Update is called once per frame
+	void Update () 
+    {
+>>>>>>> origin/Canvas_HUD
+	
+	}
+	
+	
+	
+}

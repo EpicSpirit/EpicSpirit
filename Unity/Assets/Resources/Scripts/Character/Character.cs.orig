@@ -5,56 +5,58 @@ using System.Collections.Generic;
 public  class Character : MonoBehaviour
 {
 	// Controller du personnage
-	private CharacterController _controller;
+	internal CharacterController _controller;
 	
 	// Stat du perso
-	internal float _speed;
+	public float _movementSpeed;
 	private float _speedRotation;
-//		private Character _target; //A quoi ça sert ? 
 	private int _attack;
-	internal int _life;
-
+	internal int _health;
+    private float _attackSpeed = 5f;
 	
 	private Vector3 _motion;
 	private RaycastHit _hit;
 	internal int _lookaroundcount;
-	private Animation anims; // NON !
+	private Animation _animations;
 	
-	public float _attackspeed;
+    public int _aggroArea;
 
-    public float Speed
+
+    public float MovementSpeed
     {
-        set { _speed = value; }
-        get{ return _speed; }
+        set { _movementSpeed = value; }
+        get{ return _movementSpeed; }
     }
-    
-    
 
+    public float AttackSpeed
+    {
+        set { _attackSpeed = value; }
+        get { return _attackSpeed; }
+    }
 	// Use this for initialization
-	void Start()
+	virtual public void Start()
 	{
 		Initialisation();
 		
 		
 	}
 	
-	internal void Initialisation() {
-		// Gestion des mauvaises init
-		if(_attackspeed == 0) {_attackspeed = 0.5f;}
-		
+	internal void Initialisation() 
+    {		
 		// Animation Manager
-		anims = this.GetComponent<Animation>();
-		if(anims == null) {
-			anims = this.GetComponentInChildren<Animation>();
+		_animations = this.GetComponent<Animation>();
+		if(_animations == null) 
+        {
+			_animations = this.GetComponentInChildren<Animation>();
 		}
 		
 		_lookaroundcount = 300;
-		_life =3;
+		_health =3;
 		_hit = new RaycastHit();
 		
-		if ( _speed == 0 )
+		if ( _movementSpeed == 0 )
 		{
-			_speed = 100; 
+			_movementSpeed = 100; 
 			//Debug.Log( "Utilisation valeur par défaut" );
 		}
 		if ( _speedRotation == 0 )
@@ -71,7 +73,7 @@ public  class Character : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update()
+	virtual public void Update()
     {
 		
         
@@ -86,8 +88,9 @@ public  class Character : MonoBehaviour
 	}
 	
 	
-	public void Move(Vector3 direction) 
-	{
+	public virtual void Move(Vector3 direction) 
+	{	
+		direction.y = 0;
         if ( !isAttacking() )
         {
             // Si on doit réellement bouger
@@ -95,32 +98,21 @@ public  class Character : MonoBehaviour
             {
                 // On joue l'anim walk 
                 AnimationManager( "walk" );
-
-                _controller.Move( direction * _speed * Time.deltaTime );
+                
+                _controller.Move( direction * _movementSpeed * Time.deltaTime );
                 _controller.transform.rotation = Quaternion.LookRotation( direction );
             }
             else
             {
-                if ( anims && !anims.IsPlaying( "look_around" ) )
-                {
-                    AnimationManager( "idle" );
-                }
-
-                // Gestion du mouvement lookaround quand on reste static un petit moment
-                _lookaroundcount--;
-                if ( _lookaroundcount < 0 )
-                {
-                    _lookaroundcount = 300;
-                    AnimationManager( "look_around" );
-                }
+            	AnimationManager( "idle" );
             }
 
         }
 		
 	}
 	public bool isAttacking() {
-		if(anims) {
-            return anims.IsPlaying("bim") || anims.IsPlaying("bim_2");
+		if(_animations) {
+            return _animations.IsPlaying("bim") || _animations.IsPlaying("bim_2");
 		} else {
 			return false;
 		}
@@ -145,40 +137,42 @@ public  class Character : MonoBehaviour
 		List<Character> retour = new List<Character>();
 		List<Vector3> _vecteursAttaques;
 		RaycastHit hit;
-		
+		Character adv = null;
+		Vector3 new_origine = new Vector3(origin.transform.position.x, origin.transform.position.y+1, origin.transform.position.z);
 		
 		// Définition de la zone d'attaque
 		_vecteursAttaques = new List<Vector3>();
-		_vecteursAttaques.Add(new Vector3(0,0,2));
-		_vecteursAttaques.Add(new Vector3(1,0,2));
-		_vecteursAttaques.Add(new Vector3(-1,0,2));
 		
-		_vecteursAttaques.Add(new Vector3(0,1,2));
-		_vecteursAttaques.Add(new Vector3(-1,1,2));
-		_vecteursAttaques.Add(new Vector3(1,1,2));
+		_vecteursAttaques.Add(new Vector3(0,0,2));
+		_vecteursAttaques.Add(new Vector3(-1,0,2));	
+		_vecteursAttaques.Add(new Vector3(1,0,2));
 		
 		foreach(Vector3 vec in _vecteursAttaques) {
-			Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(vec),Color.yellow,1.0f);
+		
+			Debug.DrawRay(new_origine, origin.transform.TransformDirection(vec),Color.yellow,1.0f);
 			
-			if ( Physics.Raycast( origin.transform.position, origin.transform.TransformDirection( vec ), out hit ) )
+			if ( Physics.Raycast( new_origine, origin.transform.TransformDirection( vec ), out hit ,vec.magnitude) )
 			{
-				//DEBUG 
-				Character adv = null;
+				
+				
 				adv = hit.transform.GetComponent<Character>();
 				
-				if(adv != null) 
-				{						
+				if(adv != null && adv.name != this.name) 
+				{			
+					Debug.Log ("X :"+vec.x+"Y: "+vec.y+"Z"+vec.z+" name"+hit.transform.name);			
+					//Debug.Log ("touché "+hit.collider.name);
+					
 					retour.Add(adv);
 				}
 			}
 		}
-		
 		return retour;
 	
 	}
 
 	public virtual void takeDamage(int puissance) 
 	{
+		// TODO a remettre quand l'effet de particule devient swaggy
         ParticleSystem[] par = this.GetComponentsInChildren<ParticleSystem>();
         foreach ( ParticleSystem par_ in par )
         {
@@ -187,24 +181,20 @@ public  class Character : MonoBehaviour
 				par_.Play();
 			}
 		}
-		this._life -= puissance;
+		this._health -= puissance;
 
-        if ( this._life <= 0 )
+        if ( this._health <= 0 )
         {
             GameObject.Destroy( this.gameObject, 0.5f );
 		}
-        Debug.Log(this._life);
+        Debug.Log(this._health);
 	}
 	
-<<<<<<< HEAD
 	public void AnimationManager(string anim) {
-=======
-	internal void AnimationManager(string anim) {
->>>>>>> origin/DevRedou
 		// Si notre gestionnaire d'anim existe bel et bien :
-		if(anims != null &&  ! anims.IsPlaying(anim) ) {
+		if(_animations != null &&  ! _animations.IsPlaying(anim) ) {
 		
-			anims.Play(anim);
+			_animations.Play(anim);
 			
 		}
 		
@@ -212,9 +202,16 @@ public  class Character : MonoBehaviour
 	}
 	
 	
-	public void ParticuleManager() {
+	public void ParticuleManager(string name) {
 	
-	    // TODO
+	   	var parts = this.GetComponentsInChildren<ParticleSystem>();
+	   	foreach(ParticleSystem part in parts) {
+	   		if(name == part.name) {
+	   			part.Play();
+	   		}
+	   	
+	   	}
+	   	
 	    
 	}
 	
