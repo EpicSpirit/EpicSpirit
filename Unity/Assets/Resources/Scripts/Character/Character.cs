@@ -147,29 +147,31 @@ public  class Character : MonoBehaviour
 		List<Character> retour = new List<Character>();
 		List<Vector3> _vecteursAttaques;
 		RaycastHit hit;
-		
+		Character adv = null;
+		Vector3 new_origine = new Vector3(origin.transform.position.x, origin.transform.position.y+1, origin.transform.position.z);
 		
 		// Définition de la zone d'attaque
 		_vecteursAttaques = new List<Vector3>();
-		_vecteursAttaques.Add(new Vector3(0,0,2));
-		_vecteursAttaques.Add(new Vector3(1,0,2));
-		_vecteursAttaques.Add(new Vector3(-1,0,2));
 		
-		_vecteursAttaques.Add(new Vector3(0,1,2));
-		_vecteursAttaques.Add(new Vector3(-1,1,2));
-		_vecteursAttaques.Add(new Vector3(1,1,2));
+		_vecteursAttaques.Add(new Vector3(0,0,2));
+		_vecteursAttaques.Add(new Vector3(-1,0,2));	
+		_vecteursAttaques.Add(new Vector3(1,0,2));
 		
 		foreach(Vector3 vec in _vecteursAttaques) {
-			Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(vec),Color.yellow,1.0f);
+		
+			Debug.DrawRay(new_origine, origin.transform.TransformDirection(vec),Color.yellow,1.0f);
 			
-			if ( Physics.Raycast( origin.transform.position, origin.transform.TransformDirection( vec ), out hit ) )
+			if ( Physics.Raycast( new_origine, origin.transform.TransformDirection( vec ), out hit ,vec.magnitude) )
 			{
-				//DEBUG 
-				Character adv = null;
+				
+				
 				adv = hit.transform.GetComponent<Character>();
 				
 				if(adv != null && adv.name != this.name) 
-				{						
+				{			
+					Debug.Log ("X :"+vec.x+"Y: "+vec.y+"Z"+vec.z+" name"+hit.transform.name);			
+					//Debug.Log ("touché "+hit.collider.name);
+					
 					retour.Add(adv);
 				}
 			}
