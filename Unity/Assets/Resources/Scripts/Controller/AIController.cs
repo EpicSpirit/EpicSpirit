@@ -10,11 +10,12 @@ public class AIController : MonoBehaviour, IController
 	private int _randomDirection;
 	private int _focusedDirection;
 	private int _timeOfMouvement;
-	private Vector3 _direction = new Vector3();
+	private Vector3 _direction;
 	private float _lastAttack;
 	
 	void Start()
 	{
+        _direction = new Vector3();
 		_lastAttack= Time.fixedTime;
 		_character = GetComponent<Character>();
 		_character.MovementSpeed = 2;
@@ -85,11 +86,10 @@ public class AIController : MonoBehaviour, IController
 		if ( _direction.magnitude < 2 )
 		{
 			// Test si on est dans le bon tick 
-			if(_lastAttack+_character.AttackSpeed < Time.fixedTime) {
-				
+            if ( _lastAttack + _character.AttackSpeed < Time.fixedTime )
+            {
 				_lastAttack=Time.fixedTime;
-				_character.Attack();
-				
+				_character.Attack();	
 			}
 			
 			
