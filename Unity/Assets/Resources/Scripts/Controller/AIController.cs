@@ -24,7 +24,6 @@ public class AIController : MonoBehaviour, IController
 	}
 	void Update()
 	{
-		_character.Gravity();
 		if ( DetectTarget() )
 		{
 			AggressiveMove();
@@ -48,7 +47,7 @@ public class AIController : MonoBehaviour, IController
 		}
 		
 		
-		// Choix de la _direction du mouvement (pour le moment on ne peut pas se déplacer en diagonale)
+		// Choix de la _direction du movement (pour le moment on ne peut pas se déplacer en diagonale)
 		_direction = Vector3.zero;
 		switch ( _randomDirection )
 		{

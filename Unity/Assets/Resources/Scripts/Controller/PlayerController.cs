@@ -2,10 +2,12 @@
 using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
+
 public class PlayerController : MonoBehaviour, IController
 {
-    public bool _joystickOn;
-    
+    // Switch for keyboard/Joystick Controller
+    public bool _joystickOn;  
+    // Character that we have to control
     public Character _character;
 
     // Joystick controller

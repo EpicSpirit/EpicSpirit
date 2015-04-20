@@ -1,106 +1,100 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public  class Character : MonoBehaviour
 {
-	// Controller du personnage
-	private CharacterController _controller;
-	
-	// Stat du perso
+    #region Fields
+
 	public float _movementSpeed;
-	private float _speedRotation;
-	private int _attack;
-	internal int _health;
-    private float _attackSpeed = 5f;
-	
-	private Vector3 _motion;
-	private RaycastHit _hit;
-	internal int _lookaroundcount;
-	private Animation _animations;
-	
     public int _aggroArea;
 
+    // Character Statistic
+    internal float _speedRotation;
+    internal int _attack;
+	internal int _health;
+    internal float _attackSpeed = 5f;
 
+    // Utilities
+    internal RaycastHit _hit;
+	internal int _lookAroundCount;
+    internal Animation _animations;
+    internal List<Character> _targets;
+    internal List<Vector3> _attackVectors;
+
+    // Controller
+    private CharacterController _characterController;
+
+    #endregion 
+
+    #region Properties
     public float MovementSpeed
     {
         set { _movementSpeed = value; }
-        get{ return _movementSpeed; }
+        get { return _movementSpeed; }
     }
-
     public float AttackSpeed
     {
         set { _attackSpeed = value; }
         get { return _attackSpeed; }
     }
-	// Use this for initialization
-	void Start()
+
+    #endregion
+
+	public virtual void Start()
 	{
-		Initialisation();
-		
+        InitializeAnimationManager();
+
+        _lookAroundCount = 300;
+        _health = 3;
+
+        _attackVectors = new List<Vector3>();
+        _attackVectors.Add( new Vector3( 0, 1, 2 ) );
+        _attackVectors.Add( new Vector3( -1, 1, 2 ) );
+        _attackVectors.Add( new Vector3( 1, 1, 2 ) );
+
+        _characterController = this.GetComponent<CharacterController>();
+        if ( _characterController == null ) 
+        { 
+            throw new NullReferenceException("Character must have a CharacterController"); 
+        }
 		
 	}
-	
-	internal void Initialisation() 
-    {		
-		// Animation Manager
-		_animations = this.GetComponent<Animation>();
-		if(_animations == null) 
-        {
-			_animations = this.GetComponentInChildren<Animation>();
-		}
-		
-		_lookaroundcount = 300;
-		_health =3;
-		_hit = new RaycastHit();
-		
-		if ( _movementSpeed == 0 )
-		{
-			_movementSpeed = 100; 
-			//Debug.Log( "Utilisation valeur par défaut" );
-		}
-		if ( _speedRotation == 0 )
-		{
-			_speedRotation = 10;
-			//Debug.Log( "Utilisation valeur par défaut" );
-		}
-		_controller = this.GetComponent<CharacterController>();
-		
-		
-		
-		
-	
-	}
-	
-	// Update is called once per frame
-	void Update()
+
+    public virtual void Update ()
     {
-		
         
-	}
-	internal void Gravity() {
-		// Gravité // NON ! // Si ! C'est juste pour y aller Yolo pour le moment :p
-        if ( !_controller.isGrounded )
+
+    }
+
+    private void InitializeAnimationManager()
+    {
+        _animations = this.GetComponent<Animation>();
+        if (_animations == null)
         {
-			_controller.Move( Vector3.down );
-		}
-	
-	}
-	
+            _animations = this.GetComponentInChildren<Animation>();
+        }
+
+        if (_animations == null)
+        {
+            throw new NullReferenceException("Character must have Animation Component"); 
+
+        }
+    }
 	
 	public void Move(Vector3 direction) 
 	{	
 		direction.y = 0;
         if ( !isAttacking() )
         {
-            // Si on doit réellement bouger
+            // Character have to move
             if ( direction != Vector3.zero )
             {
-                // On joue l'anim walk 
                 AnimationManager( "walk" );
 
-                _controller.Move( direction * _movementSpeed * Time.deltaTime );
-                _controller.transform.rotation = Quaternion.LookRotation( direction );
+                _characterController.Move( direction * _movementSpeed * Time.deltaTime );
+                _characterController.transform.rotation = Quaternion.LookRotation( direction );
             }
             else
             {
@@ -109,11 +103,11 @@ public  class Character : MonoBehaviour
                     AnimationManager( "idle" );
                 }
 
-                // Gestion du mouvement lookaround quand on reste static un petit moment
-                _lookaroundcount--;
-                if ( _lookaroundcount < 0 )
+                // LookAround Management
+                _lookAroundCount--;
+                if ( _lookAroundCount < 0 )
                 {
-                    _lookaroundcount = 300;
+                    _lookAroundCount = 300;
                     AnimationManager( "look_around" );
                 }
             }
@@ -121,101 +115,99 @@ public  class Character : MonoBehaviour
         }
 		
 	}
-	public bool isAttacking() {
-		if(_animations) {
-            return _animations.IsPlaying("bim") || _animations.IsPlaying("bim_2");
-		} else {
+	internal bool isAttacking() 
+    {
+		if( _animations )
+        {
+            return _animations.IsPlaying( "bim" ) || _animations.IsPlaying( "bim_2" );
+		}
+        else 
+        {
 			return false;
 		}
 	}
-	public virtual void Attack() 
+	
+    public virtual void Attack() 
 	{	
-		Debug.Log ("Attack !");
-		// Gestion du tick
-		if(!isAttacking()) {
-			
-			List<Character> list_cible = GetListofCible(this.gameObject);
-			foreach(Character adv in list_cible) {
-				adv.takeDamage(1);
+		// Tick Management
+		if( ! isAttacking() ) 
+        {
+            GetListOfTarget( );
+            foreach ( Character enemy in _targets ) 
+            {
+                enemy.takeDamage( 1 );    // TODO: Gérer la force d'attaque
 			}
-			
-			// Dans tout les cas on met l'anim d'attaque
-			AnimationManager("bim");
+
+            AnimationManager( "bim" );
 		}
 
 	}
 	
-	internal List<Character> GetListofCible(GameObject origin) {
-		List<Character> retour = new List<Character>();
-		List<Vector3> _vecteursAttaques;
-		RaycastHit hit;
-		
-		
-		// Définition de la zone d'attaque
-		_vecteursAttaques = new List<Vector3>();
-		_vecteursAttaques.Add(new Vector3(0,0,2));
-		_vecteursAttaques.Add(new Vector3(1,0,2));
-		_vecteursAttaques.Add(new Vector3(-1,0,2));
-		
-		_vecteursAttaques.Add(new Vector3(0,1,2));
-		_vecteursAttaques.Add(new Vector3(-1,1,2));
-		_vecteursAttaques.Add(new Vector3(1,1,2));
-		
-		foreach(Vector3 vec in _vecteursAttaques) {
-			Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(vec),Color.yellow,1.0f);
-			
-			if ( Physics.Raycast( origin.transform.position, origin.transform.TransformDirection( vec ), out hit ) )
+    // TODO : remettre l'origine de l'attaque au bon endroit
+	internal List<Character> GetListOfTarget() 
+    {
+        _targets = new List<Character>();
+
+        foreach ( Vector3 vector in _attackVectors )
+        {
+            Debug.DrawRay( this.transform.position, this.transform.TransformDirection( vector ), Color.yellow, 1.0f );
+
+            if ( Physics.Raycast( this.transform.position, this.transform.TransformDirection( vector ), out _hit ) )
 			{
-				//DEBUG 
-				Character adv = null;
-				adv = hit.transform.GetComponent<Character>();
-				
-				if(adv != null && adv.name != this.name) 
-				{						
-					retour.Add(adv);
+
+				Character target = null;
+                target = _hit.transform.GetComponent<Character>();
+
+                if ( target != null && target.name != this.name ) 
+				{
+                    _targets.Add( target );
 				}
 			}
 		}
-		return retour;
+        return _targets;
 	
 	}
 
-	public virtual void takeDamage(int puissance) 
+	// TODO: Rendre ça plus propre au niveau algo
+    // TODO : Faire la migration dans le particule manager
+    internal virtual void takeDamage(int force) 
 	{
-        ParticleSystem[] par = this.GetComponentsInChildren<ParticleSystem>();
-        foreach ( ParticleSystem par_ in par )
+        ParticleSystem[] particuleSystems = this.GetComponentsInChildren<ParticleSystem>();
+        foreach ( ParticleSystem particuleSystem in particuleSystems )
         {
-            if ( par_.name == "DamageEffect" )
+            if ( particuleSystem.name == "DamageEffect" )
             {
-				par_.Play();
+                particuleSystem.Play();
 			}
 		}
-		this._health -= puissance;
 
-        if ( this._health <= 0 )
+		_health -= force;
+
+        if ( _health <= 0 )
         {
             GameObject.Destroy( this.gameObject, 0.5f );
 		}
-        Debug.Log(this._health);
+
 	}
 	
 	public void AnimationManager(string anim) {
-		// Si notre gestionnaire d'anim existe bel et bien :
-		if(_animations != null &&  ! _animations.IsPlaying(anim) ) {
-		
-			_animations.Play(anim);
-			
+		if( _animations != null &&  ! _animations.IsPlaying(anim) ) 
+        {
+			_animations.Play( anim );	
 		}
-		
-		
 	}
 	
-	
-	public void ParticuleManager(string name) {
-	
-	   	var parts = this.GetComponentsInChildren<ParticleSystem>();
-	   	foreach(ParticleSystem part in parts) {
-	   		if(name == part.name) {part.Play();Debug.Log ("Trouvé!");}
+	// TODO : Rendre ça opti
+    public void ParticuleManager(string name) 
+    {
+	   	ParticleSystem[] particulesSystem = this.GetComponentsInChildren<ParticleSystem>();
+
+	   	foreach(ParticleSystem particuleSystem in particulesSystem) 
+        {
+	   		if(name == particuleSystem.name) 
+            {
+                particuleSystem.Play();
+            }
 	   	
 	   	}
 	   	

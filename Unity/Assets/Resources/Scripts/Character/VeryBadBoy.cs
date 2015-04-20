@@ -1,57 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class VeryBadBoy : Ennemi 
+public class VeryBadBoy: Character
 {
-	
 	private static System.Random _randomGenerator = new System.Random();
 	
 	
-	// Use this for initialization
-	void Start () 
+	public override void Start () 
 	{
-		Initialisation();
-		if ( _aggroArea == 0 )
-		{
-			_aggroArea = 10;
-		}
+        base.Start();
+   		
 		_health = 30;
 		_movementSpeed = 0.5f;
 		
 	}
 	
-	// Notre super boss ne peut que Invoker des BadBoys pour le moment
 	public override void Attack ()
 	{
 		// Pour le moment notre méchant ne fait QUE Invoquer des BadBoy :-)
-		InvokeBadBoy();
-		
-		
-		
+		SummonBadBoy();
+
 	}
 	
-	private void InvokeBadBoy() 
+	// TODO : Revoir l'histoire du random pour avoir une bonne plage de valeur
+    // TODO : Rendre la méthode un peu plus générique ? 
+    private void SummonBadBoy() 
 	{
 		
-		// On prend une position pas loin de notre boss
 		Vector3 position = this.transform.position;
 		
 		position.x += _randomGenerator.Next(1,5);
 		position.z += _randomGenerator.Next(1,5);
 
-        GameObject obj = Instantiate( (UnityEngine.Object)UnityEngine.Resources.Load<UnityEngine.Object>( "BadBoy/Prefab_BadBoy" ), position, this.transform.rotation ) as GameObject;
-		Ennemi ennemi = obj.GetComponent<Ennemi>();
-		ennemi.Invokation();	
+        GameObject badBoy = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "BadBoy/Prefab_BadBoy" ), position, this.transform.rotation ) as GameObject;
+        Character enemy = badBoy.GetComponent<Character>();
+        enemy.ParticuleManager( "Invokation" );
 	}
-	
-	
-	
-	public override void takeDamage(int puissance) 
-	{
-		base.takeDamage(puissance);
-	
-	}
-	
-	
 	
 }

@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
-     <Compile Include="Assets\Resources\Scripts\Character\Ennemi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />

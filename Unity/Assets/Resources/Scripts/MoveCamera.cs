@@ -5,27 +5,23 @@ using System.Collections;
 
 public class MoveCamera : MonoBehaviour 
 {
+    // GameObject that we have to follow
+	public GameObject _target;    
 
-	public GameObject cible;
-
-
-	void Start () 
+	/*
+     * TODO: Rendre le code plus propre et générique (gérer notament la rotation de la caméra)
+     * */
+    void Update () 
     {
-
-	}
-	
-
-	void Update () 
-    {
-    	if(cible != null)
+    	if(_target != null)
 		{
-			Vector3 mouvement = this.transform.position;
+			Vector3 movement = this.transform.position;
 
-			mouvement.x = cible.transform.position.x;
-			mouvement.z = cible.transform.position.z - 10;
-			mouvement.y = cible.transform.position.y + 15;
+			movement.x = _target.transform.position.x;
+			movement.z = _target.transform.position.z - 10;
+			movement.y = _target.transform.position.y + 15;
 			
-			this.transform.position = mouvement;
+			this.transform.position = movement;
     	}
 		
 
