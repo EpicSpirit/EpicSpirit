@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public  class Character : MonoBehaviour
 {
 	// Controller du personnage
-	private CharacterController _controller;
+	internal CharacterController _controller;
 	
 	// Stat du perso
 	internal float _speed;
@@ -18,7 +18,7 @@ public  class Character : MonoBehaviour
 	private Vector3 _motion;
 	private RaycastHit _hit;
 	internal int _lookaroundcount;
-	private Animation anims; // NON !
+	internal Animation anims; // NON !
 	
 	public float _attackspeed;
 
@@ -31,7 +31,7 @@ public  class Character : MonoBehaviour
     
 
 	// Use this for initialization
-	void Start()
+	virtual public void Start()
 	{
 		Initialisation();
 		
@@ -71,7 +71,7 @@ public  class Character : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update()
+	virtual public void Update()
     {
 		
         
@@ -86,7 +86,7 @@ public  class Character : MonoBehaviour
 	}
 	
 	
-	public void Move(Vector3 direction) 
+	public virtual void Move(Vector3 direction) 
 	{	
 		direction.y = 0;
         if ( !isAttacking() )
@@ -96,24 +96,14 @@ public  class Character : MonoBehaviour
             {
                 // On joue l'anim walk 
                 AnimationManager( "walk" );
+                
 
                 _controller.Move( direction * _speed * Time.deltaTime );
                 _controller.transform.rotation = Quaternion.LookRotation( direction );
             }
             else
             {
-                if ( anims && !anims.IsPlaying( "look_around" ) )
-                {
-                    AnimationManager( "idle" );
-                }
-
-                // Gestion du mouvement lookaround quand on reste static un petit moment
-                _lookaroundcount--;
-                if ( _lookaroundcount < 0 )
-                {
-                    _lookaroundcount = 300;
-                    AnimationManager( "look_around" );
-                }
+            	AnimationManager( "idle" );
             }
 
         }
@@ -128,7 +118,6 @@ public  class Character : MonoBehaviour
 	}
 	public virtual void Attack() 
 	{	
-		Debug.Log ("Attack !");
 		// Gestion du tick
 		if(!isAttacking()) {
 			
@@ -182,6 +171,7 @@ public  class Character : MonoBehaviour
 
 	public virtual void takeDamage(int puissance) 
 	{
+		// TODO a remettre quand l'effet de particule devient swaggy
         ParticleSystem[] par = this.GetComponentsInChildren<ParticleSystem>();
         foreach ( ParticleSystem par_ in par )
         {
@@ -190,6 +180,7 @@ public  class Character : MonoBehaviour
 				par_.Play();
 			}
 		}
+		
 		this._life -= puissance;
 
         if ( this._life <= 0 )
@@ -215,7 +206,9 @@ public  class Character : MonoBehaviour
 	
 	   	var parts = this.GetComponentsInChildren<ParticleSystem>();
 	   	foreach(ParticleSystem part in parts) {
-	   		if(name == part.name) {part.Play();Debug.Log ("Trouvé!");}
+	   		if(name == part.name) {
+	   			part.Play();
+	   		}
 	   	
 	   	}
 	   	

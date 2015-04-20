@@ -43,7 +43,7 @@ public class Boss_OTD : Ennemi {
 		position.x += _randomGenerator.Next(1,5);
 		position.z += _randomGenerator.Next(1,5);
 
-        GameObject obj = Instantiate( (UnityEngine.Object)UnityEngine.Resources.Load<UnityEngine.Object>( "BadBoy/Prefab_BadBoy" ), position, this.transform.rotation ) as GameObject;
+        GameObject obj = Instantiate( (UnityEngine.Object)UnityEngine.Resources.Load<UnityEngine.Object>( "Perso/Prefab/Badboy" ), position, this.transform.rotation ) as GameObject;
 		Ennemi ennemi = obj.GetComponent<Ennemi>();
 		ennemi.Invokation();	
 	}
@@ -51,7 +51,6 @@ public class Boss_OTD : Ennemi {
 	
 	
 	public override void takeDamage(int puissance) {
-		Debug.Log ("AIE ! "+ _life);
 		base.takeDamage(puissance);
 	
 	}

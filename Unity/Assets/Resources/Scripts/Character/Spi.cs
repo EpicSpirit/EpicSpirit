@@ -23,7 +23,7 @@ public class Spi : Character
 	
 	void Update()
 	{
-		Gravity();
+		//Gravity();
 	}
     
             
@@ -61,7 +61,40 @@ public class Spi : Character
 		}
     }
     
-
+    /* TODO : Faire une version un monimum générique de la fonction Move de base*/
+	public override void Move(Vector3 direction) {
+		
+		direction.y = 0;
+		if ( !isAttacking() )
+		{
+			// Si on doit réellement bouger
+			if ( direction != Vector3.zero )
+			{
+				// On joue l'anim walk 
+				AnimationManager( "walk" );
+				
+				_controller.Move( direction * _speed * Time.deltaTime );
+				_controller.transform.rotation = Quaternion.LookRotation( direction );
+			}
+			else
+			{
+				if ( anims && !anims.IsPlaying( "look_around" ) )
+				{
+					AnimationManager( "idle" );
+				}
+				
+				// Gestion du mouvement lookaround quand on reste static un petit moment
+				_lookaroundcount--;
+				if ( _lookaroundcount < 0 )
+				{
+					_lookaroundcount = 300;
+					AnimationManager( "look_around" );
+				}
+			}
+			
+		}
+	
+	}
 	
 	
 }

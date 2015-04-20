@@ -4,8 +4,9 @@ using System.Collections;
 public class BadBoy : Ennemi {
 
 	// Use this for initialization
-	void Start () {
-		Initialisation();
+	override public void Start () {
+		base.Start();
+		
 		if ( _aggroArea == 0 )
 		{
 			_aggroArea = 8;
@@ -14,8 +15,18 @@ public class BadBoy : Ennemi {
 		_speed = 2;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	public override void takeDamage(int puissance) {
+			
+			base.takeDamage(puissance);
+			if(!isAttacking()) {
+			
+				AnimationManager("damage");
+			
+			}
+			
 	
 	}
+	
+	
+	
 }
