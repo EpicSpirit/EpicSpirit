@@ -8,18 +8,17 @@ public  class Character : MonoBehaviour
 	private CharacterController _controller;
 	
 	// Stat du perso
-	internal float _movementSpeed;
+	public float _movementSpeed;
 	private float _speedRotation;
 	private int _attack;
-	internal int _life;
-
+	internal int _health;
+    private float _attackSpeed = 5f;
 	
 	private Vector3 _motion;
 	private RaycastHit _hit;
 	internal int _lookaroundcount;
-	private Animation anims; // NON !
+	private Animation _animations;
 	
-	public float _attackspeed;
     public int _aggroArea;
 
 
@@ -28,9 +27,12 @@ public  class Character : MonoBehaviour
         set { _movementSpeed = value; }
         get{ return _movementSpeed; }
     }
-    
-    
 
+    public float AttackSpeed
+    {
+        set { _attackSpeed = value; }
+        get { return _attackSpeed; }
+    }
 	// Use this for initialization
 	void Start()
 	{
@@ -40,19 +42,16 @@ public  class Character : MonoBehaviour
 	}
 	
 	internal void Initialisation() 
-    {
-		// Gestion des mauvaises init
-		if(_attackspeed == 0) {_attackspeed = 0.5f;}
-		
+    {		
 		// Animation Manager
-		anims = this.GetComponent<Animation>();
-		if(anims == null) 
+		_animations = this.GetComponent<Animation>();
+		if(_animations == null) 
         {
-			anims = this.GetComponentInChildren<Animation>();
+			_animations = this.GetComponentInChildren<Animation>();
 		}
 		
 		_lookaroundcount = 300;
-		_life =3;
+		_health =3;
 		_hit = new RaycastHit();
 		
 		if ( _movementSpeed == 0 )
@@ -105,7 +104,7 @@ public  class Character : MonoBehaviour
             }
             else
             {
-                if ( anims && !anims.IsPlaying( "look_around" ) )
+                if ( _animations && !_animations.IsPlaying( "look_around" ) )
                 {
                     AnimationManager( "idle" );
                 }
@@ -123,8 +122,8 @@ public  class Character : MonoBehaviour
 		
 	}
 	public bool isAttacking() {
-		if(anims) {
-            return anims.IsPlaying("bim") || anims.IsPlaying("bim_2");
+		if(_animations) {
+            return _animations.IsPlaying("bim") || _animations.IsPlaying("bim_2");
 		} else {
 			return false;
 		}
@@ -191,20 +190,20 @@ public  class Character : MonoBehaviour
 				par_.Play();
 			}
 		}
-		this._life -= puissance;
+		this._health -= puissance;
 
-        if ( this._life <= 0 )
+        if ( this._health <= 0 )
         {
             GameObject.Destroy( this.gameObject, 0.5f );
 		}
-        Debug.Log(this._life);
+        Debug.Log(this._health);
 	}
 	
 	public void AnimationManager(string anim) {
 		// Si notre gestionnaire d'anim existe bel et bien :
-		if(anims != null &&  ! anims.IsPlaying(anim) ) {
+		if(_animations != null &&  ! _animations.IsPlaying(anim) ) {
 		
-			anims.Play(anim);
+			_animations.Play(anim);
 			
 		}
 		

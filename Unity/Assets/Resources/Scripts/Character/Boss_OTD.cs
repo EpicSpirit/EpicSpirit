@@ -13,7 +13,7 @@ public class Boss_OTD : Ennemi {
 		{
 			_aggroArea = 10;
 		}
-		_life = 30;
+		_health = 30;
 		_movementSpeed = 0.5f;
 		
 	}
@@ -51,7 +51,7 @@ public class Boss_OTD : Ennemi {
 	
 	
 	public override void takeDamage(int puissance) {
-		Debug.Log ("AIE ! "+ _life);
+		Debug.Log ("AIE ! "+ _health);
 		base.takeDamage(puissance);
 	
 	}

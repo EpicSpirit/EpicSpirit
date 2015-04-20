@@ -85,7 +85,7 @@ public class AIController : MonoBehaviour, IController
 		if ( _direction.magnitude < 2 )
 		{
 			// Test si on est dans le bon tick 
-			if(_lastAttack+_character._attackspeed < Time.fixedTime) {
+			if(_lastAttack+_character.AttackSpeed < Time.fixedTime) {
 				
 				_lastAttack=Time.fixedTime;
 				_character.Attack();

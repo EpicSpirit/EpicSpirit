@@ -2180,7 +2180,6 @@ GameObject:
   - 4: {fileID: 420562174}
   - 114: {fileID: 420562173}
   - 143: {fileID: 420562176}
-  - 114: {fileID: 420562175}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2199,7 +2198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be0e9859701abb47890ebcd029370a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1758712331}
+  _joystickOn: 1
+  _character: {fileID: 1758712333}
+  _movementJoystick: {fileID: 396871230}
 --- !u!4 &420562174
 Transform:
   m_ObjectHideFlags: 0
@@ -2212,20 +2213,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 617823563}
   m_RootOrder: 3
---- !u!114 &420562175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 420562172}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58dae865885f7448866c6853247ce35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5
-  MovementJoystick: {fileID: 396871230}
-  _player: {fileID: 1758712331}
 --- !u!143 &420562176
 CharacterController:
   m_ObjectHideFlags: 0
@@ -8012,6 +7999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackspeed: 5
+  _aggroArea: 0
 --- !u!143 &1758712334
 CharacterController:
   m_ObjectHideFlags: 0

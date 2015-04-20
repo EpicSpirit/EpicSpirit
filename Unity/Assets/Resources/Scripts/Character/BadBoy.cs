@@ -12,7 +12,7 @@ public class BadBoy : Ennemi
 		{
 			_aggroArea = 8;
 		}
-		_life = 3;
+		_health = 3;
 		_movementSpeed = 2;
 	}
 	
