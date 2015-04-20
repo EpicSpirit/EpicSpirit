@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boss_OTD : Ennemi {
+public class VeryBadBoy : Ennemi 
+{
 	
 	private static System.Random _randomGenerator = new System.Random();
 	
 	
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		Initialisation();
 		if ( _aggroArea == 0 )
 		{
@@ -16,13 +18,6 @@ public class Boss_OTD : Ennemi {
 		_health = 30;
 		_movementSpeed = 0.5f;
 		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-			
-					
 	}
 	
 	// Notre super boss ne peut que Invoker des BadBoys pour le moment
@@ -35,7 +30,8 @@ public class Boss_OTD : Ennemi {
 		
 	}
 	
-	private void InvokeBadBoy() {
+	private void InvokeBadBoy() 
+	{
 		
 		// On prend une position pas loin de notre boss
 		Vector3 position = this.transform.position;
@@ -50,8 +46,8 @@ public class Boss_OTD : Ennemi {
 	
 	
 	
-	public override void takeDamage(int puissance) {
-		Debug.Log ("AIE ! "+ _health);
+	public override void takeDamage(int puissance) 
+	{
 		base.takeDamage(puissance);
 	
 	}

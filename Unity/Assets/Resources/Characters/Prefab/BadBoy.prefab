@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11400476}
   - 114: {fileID: 11484202}
   m_Layer: 0
-  m_Name: Prefab_BadBoy
+  m_Name: BadBoy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b23177c4ac59044296fc6654e46ac5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackspeed: 2
+  _movementSpeed: 0
   _aggroArea: 10
 --- !u!114 &11484202
 MonoBehaviour:
