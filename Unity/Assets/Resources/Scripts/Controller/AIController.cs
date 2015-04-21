@@ -84,7 +84,6 @@ public class AIController : MonoBehaviour
         //Move if direction is set
 		if ( _direction != Vector3.zero && _timeOfMovement > 0 )
 		{
-            Debug.Log(_direction);
 			_character.Move( _direction );
 		}
 		

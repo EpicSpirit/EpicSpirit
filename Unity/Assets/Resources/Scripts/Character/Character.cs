@@ -59,7 +59,7 @@ public  class Character : MonoBehaviour
         { 
             throw new NullReferenceException("Character must have a CharacterController"); 
         }
-        Debug.Log(_characterController.name);
+
 		
 	}
 
@@ -147,12 +147,13 @@ public  class Character : MonoBehaviour
 	internal List<Character> GetListOfTarget() 
     {
         _targets = new List<Character>();
+        Vector3 realAttackOrigin = new Vector3(transform.position.x,transform.position.y+1,transform.position.z);
 
         foreach ( Vector3 vector in _attackVectors )
         {
-            Debug.DrawRay( this.transform.position, this.transform.TransformDirection( vector ), Color.yellow, 1.0f );
+            Debug.DrawRay( realAttackOrigin, this.transform.TransformDirection( vector ), Color.yellow, 1.0f );
 
-            if ( Physics.Raycast( this.transform.position, this.transform.TransformDirection( vector ), out _hit ) )
+            if ( Physics.Raycast( realAttackOrigin, this.transform.TransformDirection( vector ), out _hit ) )
 			{
 
 				Character target = null;
