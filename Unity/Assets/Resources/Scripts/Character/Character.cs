@@ -215,4 +215,84 @@ public  class Character : MonoBehaviour
 	    
 	}
 	
+
+    // Gestion des etats
+
+    // Est ce que l'on est dans tel etat
+
+    enum State
+    {
+        Idle=1,
+        Walk=2,
+        Attack=4,
+        Damaged=8,
+        Dead=16,
+        Cinematic=32
+    }
+    State _state;
+    List<int> Mask;
+
+    public void InitializeStateManager () 
+    {
+        Mask [0] = 32; // Idle
+        Mask [1] = 48; // Walk
+        Mask [2] = 48; // Attack
+        Mask [3] = 56; // Damaged
+        Mask [4] = 62; // Dead
+        Mask [5] = 63; // Cinematic
+    }
+
+    /// <summary>
+    /// Return true if the state is right
+    /// </summary>
+    /// <param name="state">The state to match</param>
+    /// <returns>True if right</returns>
+    public bool isState(State state ) 
+    {
+        if ( state == null ) { throw new ArgumentNullException(); }
+
+        return _state == state;
+    }
+
+    /// <summary>
+    /// Change State if it's possible
+    /// </summary>
+    /// <param name="state">The new state</param>
+    /// <returns>True if the state has changed</returns>
+    public bool ChangeState (State state) 
+    {
+        if ( state == null ) { throw new ArgumentNullException(); }
+
+        if ( isPriority( _state, state ) ) 
+        {
+            _state = state; return true; 
+        }
+        else 
+        {
+            return false; 
+        }
+    }
+
+    /// <summary>
+    /// Compare the priority of both states
+    /// </summary>
+    /// <param name="currentState"></param>
+    /// <param name="newState"></param>
+    /// <returns>True if the new state is priority than the current state</returns>
+    private bool isPriority (State currentState, State newState) 
+    {
+
+        throw new NotImplementedException();
+
+     }
+
+    private int powerTwo ( int value ) { 
+        var a = 0;
+        do {
+            value/=2;
+            a++;
+        } while(value!= 1);
+        return a;
+    }
+
 }
