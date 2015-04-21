@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
-
-public class PlayerController : MonoBehaviour, IController
+public class PlayerController : MonoBehaviour
 {
     // Switch for keyboard/Joystick Controller
     public bool _joystickOn;  
+
     // Character that we have to control
     public Character _character;
 
@@ -16,18 +17,16 @@ public class PlayerController : MonoBehaviour, IController
     // Main camera transform used for joystick
     private Transform _mainCameraTransform;
 
-	// Use this for initialization
 	void Start () 
     {
         _mainCameraTransform = Camera.main.GetComponent<Transform>();    
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         if ( _character != null )
         {
-            if (_joystickOn)
+            if ( _joystickOn )
             {
                 JoystickMove();
             }
@@ -36,7 +35,11 @@ public class PlayerController : MonoBehaviour, IController
                 KeyboardMove();
                 Attack();
             }
-    	}
+        }
+        else 
+        {
+            throw new Exception("I need the character");
+        }
 	}
 
 
@@ -50,7 +53,7 @@ public class PlayerController : MonoBehaviour, IController
     private void KeyboardMove()
     {
         Vector3 direction = new Vector3();
-        // Test pour la gestion des touches pour le moment
+
         if ( Input.GetKey( KeyCode.RightArrow ) || Input.GetKey( KeyCode.D ) )
         {
             direction += Vector3.right;
@@ -70,7 +73,6 @@ public class PlayerController : MonoBehaviour, IController
             direction += Vector3.back;
         }
 
-        // Application de la méthode Move si on doit bouger
         _character.Move( direction );
     }
 
@@ -86,10 +88,6 @@ public class PlayerController : MonoBehaviour, IController
         movement.Normalize();
 
         _character.Move( movement );
-    }
-	public Vector3 Direction()
-    {
-        return new Vector3();
     }
 
 }

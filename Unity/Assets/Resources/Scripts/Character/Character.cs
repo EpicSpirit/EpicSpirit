@@ -8,7 +8,7 @@ public  class Character : MonoBehaviour
     #region Fields
 
 	public float _movementSpeed;
-    public int _aggroArea;
+    public float _attackRange;
 
     // Character Statistic
     internal float _speedRotation;
@@ -59,12 +59,12 @@ public  class Character : MonoBehaviour
         { 
             throw new NullReferenceException("Character must have a CharacterController"); 
         }
+        Debug.Log(_characterController.name);
 		
 	}
 
     public virtual void Update ()
     {
-        
 
     }
 
@@ -92,7 +92,6 @@ public  class Character : MonoBehaviour
             if ( direction != Vector3.zero )
             {
                 AnimationManager( "walk" );
-
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
                 _characterController.transform.rotation = Quaternion.LookRotation( direction );
             }
@@ -127,6 +126,7 @@ public  class Character : MonoBehaviour
 		}
 	}
 	
+    // Todo: Mettre en place les vecteur d'attaque en fonction du attack_range
     public virtual void Attack() 
 	{	
 		// Tick Management
@@ -191,7 +191,7 @@ public  class Character : MonoBehaviour
 	}
 	
 	public void AnimationManager(string anim) {
-		if( _animations != null &&  ! _animations.IsPlaying(anim) ) 
+		if( _animations != null &&  ! _animations.IsPlaying(anim) && _animations.GetClip(anim) != null ) 
         {
 			_animations.Play( anim );	
 		}

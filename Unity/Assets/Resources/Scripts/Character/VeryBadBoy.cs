@@ -32,7 +32,7 @@ public class VeryBadBoy: Character
 		position.x += _randomGenerator.Next(1,5);
 		position.z += _randomGenerator.Next(1,5);
 
-        GameObject badBoy = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "BadBoy/Prefab_BadBoy" ), position, this.transform.rotation ) as GameObject;
+        GameObject badBoy = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Characters/Prefab/BadBoy" ), position, this.transform.rotation ) as GameObject;
         Character enemy = badBoy.GetComponent<Character>();
         enemy.ParticuleManager( "Invokation" );
 	}

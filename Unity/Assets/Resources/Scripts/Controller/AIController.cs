@@ -1,19 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class AIController : MonoBehaviour, IController
+//Todo : créer une classe spécifique pour tout les ennemis
+public class AIController : MonoBehaviour
 {
+    #region Fields
+    public float _randomMovementSpeed;
+    public float _aggroMovementSpeed;
+    public int _aggroArea;
+
 	private Character _character;
-	
 	private static System.Random _randomGenerator = new System.Random();
-	
-	private int _changeDirection;
+    
+    // Delay until the next move
+	private int _changeDirection;        
 	private int _randomDirection;
-	private int _focusedDirection;
-	private int _timeOfMouvement;
+
+    // Time interval for the current move
+	private int _timeOfMovement;
 	private Vector3 _direction;
+
+    // Time of the last Attack
 	private float _lastAttack;
-	
-	void Start()
+    #endregion
+
+    void Start()
 	{
         _direction = new Vector3();
 		_lastAttack= Time.fixedTime;
@@ -22,6 +33,7 @@ public class AIController : MonoBehaviour, IController
 		_changeDirection = 0;
 		_randomDirection = 1;
 	}
+
 	void Update()
 	{
 		if ( DetectTarget() )
@@ -33,93 +45,87 @@ public class AIController : MonoBehaviour, IController
 			RandomMove();
 		}
 	}
-	
+
+    // TODO: Mettre le vecteur du mouvement en random entre -1 et 1 pour tout les axes sauf Y
 	private void RandomMove()
-	{
-		_character.MovementSpeed = 2;
+	{     
+		_character.MovementSpeed = _randomMovementSpeed;
 		
-		// Si on passe en dessous de zéro, c'est que l'on doit relancer un compte
+		// Attribute a new direction to the character
 		if ( _changeDirection == 0 )
 		{
 			_randomDirection = _randomGenerator.Next( 1, 4 );
 			_changeDirection = _randomGenerator.Next( 100, 300 );
-			_timeOfMouvement = _randomGenerator.Next( 5, 100 );
+			_timeOfMovement = _randomGenerator.Next( 5, 100 );
 		}
 		
-		
-		// Choix de la _direction du movement (pour le moment on ne peut pas se déplacer en diagonale)
-		_direction = Vector3.zero;
+        // Set the direction
+        _direction = Vector3.zero;
 		switch ( _randomDirection )
 		{
-		case 1:
-			_direction += Vector3.right;
-			break;
-		case 2:
-			_direction += Vector3.left;
-			break;
-		case 3:
-			_direction += Vector3.forward;
-			break;
-		case 4:
-			_direction += Vector3.back;
-			break;
-		default:
-			Debug.Log( "ERREUR _direction" );
-			break;
+		    case 1:
+			    _direction += Vector3.right;
+			    break;
+		    case 2:
+			    _direction += Vector3.left;
+			    break;
+		    case 3:
+			    _direction += Vector3.forward;
+			    break;
+		    case 4:
+			    _direction += Vector3.back;
+			    break;
+		    default:
+			    throw new Exception( "ERREUR _direction" );
 		}
-		_timeOfMouvement--;
-		if ( _direction != Vector3.zero && _timeOfMouvement > 0 )
+
+		_timeOfMovement--;
+
+        //Move if direction is set
+		if ( _direction != Vector3.zero && _timeOfMovement > 0 )
 		{
+            Debug.Log(_direction);
 			_character.Move( _direction );
 		}
 		
-		// On descend d'un tick
 		_changeDirection--;
 		
 	}
-	private void AggressiveMove()
+
+    private bool DetectTarget ()
+    {
+        GameObject player = GameObject.FindWithTag( "Player" );
+        if ( player != null )
+        {
+            _direction = player.transform.position - _character.transform.position;
+            if ( _direction.magnitude < _aggroArea )
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void AggressiveMove()
 	{
-		_character.MovementSpeed = 3;
+		_character.MovementSpeed = _aggroMovementSpeed;
 		
-		// Si on peut taper
-		if ( _direction.magnitude < 2 )
+        // Attack the enemy if he is near
+		if ( _direction.magnitude < _character._attackRange )
 		{
-			// Test si on est dans le bon tick 
             if ( _lastAttack + _character.AttackSpeed < Time.fixedTime )
             {
 				_lastAttack=Time.fixedTime;
 				_character.Attack();	
 			}
-			
-			
 		}
-		// Sinon, on bouge vers le perso
+
+		// Follow the enemy
 		else if ( _direction != Vector3.zero  )
 		{
 			_character.Move( _direction );
 		}
-		
-		
-		
 	}
-	
-	private bool DetectTarget()
-	{
-		GameObject player = GameObject.FindWithTag( "Player" );
-		if ( player != null )
-		{
-			_direction = player.transform.position - _character.transform.position;
-			if ( _direction.magnitude < _character._aggroArea )
-			{
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
-	public Vector3 Direction()
-	{
-		return new Vector3();
-	}
+
 }
