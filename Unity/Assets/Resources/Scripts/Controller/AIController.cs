@@ -82,7 +82,7 @@ public class AIController : MonoBehaviour
 		_timeOfMovement--;
 
         //Move if direction is set
-		if ( _direction != Vector3.zero && _timeOfMovement > 0 )
+		if (_timeOfMovement > 0 )
 		{
 			_character.Move( _direction );
 		}

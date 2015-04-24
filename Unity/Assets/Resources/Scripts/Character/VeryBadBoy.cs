@@ -44,7 +44,16 @@ public class VeryBadBoy: Character
     public override void Move ( Vector3 direction )
     {
         base.Move( direction );
-        AnimationManager( "walk" );
+        if(direction == Vector3.zero)
+        {
+            AnimationManager( "idle" );
+        }
+        else
+        {
+            AnimationManager( "walk" );
+        }
+        
     }
+    
 	
 }
