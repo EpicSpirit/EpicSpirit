@@ -9,6 +9,8 @@ public class Spi : Character
     int _attackCounter;
     float _dateOfLastAttack;
     float _comboAttackInterval;
+    int _lookAroundCount;
+
 	
 	public override void Start()
 	{
@@ -66,9 +68,31 @@ public class Spi : Character
             }
 		}
     }
-    
 
-	
-	
+    public override void Move ( Vector3 direction )
+    {
+        base.Move( direction );
+        if ( !isAttacking())
+        {
+            if(direction != Vector3.zero) 
+            {
+                AnimationManager( "walk" );
+            }
+            else if ( _animations && !_animations.IsPlaying( "look_around" ) )
+            {
+                    AnimationManager( "idle" );
+            }
+
+            // LookAround Management
+            _lookAroundCount--;
+            if ( _lookAroundCount < 0 )
+            {
+                _lookAroundCount = 300;
+                AnimationManager( "look_around" );
+            }
+            
+        }
+
+    }
 }
 

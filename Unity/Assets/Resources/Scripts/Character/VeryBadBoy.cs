@@ -26,7 +26,11 @@ public class VeryBadBoy: Character
     // TODO : Rendre la méthode un peu plus générique ? 
     private void SummonBadBoy() 
 	{
-		
+        // Play the animation
+        AnimationManager( "invokation" );
+
+
+        // Real attack
 		Vector3 position = this.transform.position;
 		
 		position.x += _randomGenerator.Next(1,5);
@@ -36,5 +40,11 @@ public class VeryBadBoy: Character
         Character enemy = badBoy.GetComponent<Character>();
         enemy.ParticuleManager( "Invokation" );
 	}
+
+    public override void Move ( Vector3 direction )
+    {
+        base.Move( direction );
+        AnimationManager( "walk" );
+    }
 	
 }

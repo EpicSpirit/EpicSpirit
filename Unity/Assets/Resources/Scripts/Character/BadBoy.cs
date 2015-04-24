@@ -12,4 +12,10 @@ public class BadBoy : Character
 
 	}
 
+    public override void Move ( Vector3 direction )
+    {
+        base.Move( direction );
+            AnimationManager( "walk" );
+    }
+
 }

@@ -18,7 +18,6 @@ public  class Character : MonoBehaviour
 
     // Utilities
     internal RaycastHit _hit;
-	internal int _lookAroundCount;
     internal Animation _animations;
     internal List<Character> _targets;
     internal List<Vector3> _attackVectors;
@@ -46,9 +45,7 @@ public  class Character : MonoBehaviour
 	{
         InitializeAnimationManager();
 
-        _lookAroundCount = 300;
         _health = 3;
-
         _attackVectors = new List<Vector3>();
         _attackVectors.Add( new Vector3( 0, 1, 2 ) );
         _attackVectors.Add( new Vector3( -1, 1, 2 ) );
@@ -65,7 +62,15 @@ public  class Character : MonoBehaviour
 
     public virtual void Update ()
     {
-
+        Gravity();
+    }
+    
+    public void Gravity() {
+        // Gravité // NON ! // Si ! C'est juste pour y aller Yolo pour le moment :p
+        if ( !_characterController.isGrounded )
+        {
+            _characterController.Move( Vector3.down );
+		}
     }
 
     private void InitializeAnimationManager()
@@ -83,38 +88,18 @@ public  class Character : MonoBehaviour
         }
     }
 	
-	public void Move(Vector3 direction) 
-	{	
-		direction.y = 0;
-        if ( !isAttacking() )
+    // TODO : Factoriser cette méthode, tout les perso n'ont pas un look around
+	public virtual void Move(Vector3 direction) 
+	{
+        direction.y = 0;
+        if ( !isAttacking() && direction != Vector3.zero)
         {
-            // Character have to move
-            if ( direction != Vector3.zero )
-            {
-                AnimationManager( "walk" );
-                _characterController.Move( direction * _movementSpeed * Time.deltaTime );
-                _characterController.transform.rotation = Quaternion.LookRotation( direction );
-            }
-            else
-            {
-                if ( _animations && !_animations.IsPlaying( "look_around" ) )
-                {
-                    AnimationManager( "idle" );
-                }
-
-                // LookAround Management
-                _lookAroundCount--;
-                if ( _lookAroundCount < 0 )
-                {
-                    _lookAroundCount = 300;
-                    AnimationManager( "look_around" );
-                }
-            }
-
+            _characterController.Move( direction * _movementSpeed * Time.deltaTime );
+            _characterController.transform.rotation = Quaternion.LookRotation( direction );  
         }
-		
 	}
-	internal bool isAttacking() 
+
+    internal bool isAttacking() 
     {
 		if( _animations )
         {
@@ -126,7 +111,8 @@ public  class Character : MonoBehaviour
 		}
 	}
 	
-    // Todo: Mettre en place les vecteur d'attaque en fonction du attack_range
+    // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
+    // TODO: Gérer la force d'attaque
     public virtual void Attack() 
 	{	
 		// Tick Management
@@ -135,7 +121,7 @@ public  class Character : MonoBehaviour
             GetListOfTarget( );
             foreach ( Character enemy in _targets ) 
             {
-                enemy.takeDamage( 1 );    // TODO: Gérer la force d'attaque
+                enemy.takeDamage( 1 );    
 			}
 
             AnimationManager( "bim" );
@@ -220,7 +206,7 @@ public  class Character : MonoBehaviour
 
     // Est ce que l'on est dans tel etat
 
-    enum State
+    public enum State:int
     {
         Idle=1,
         Walk=2,
@@ -281,6 +267,7 @@ public  class Character : MonoBehaviour
     /// <returns>True if the new state is priority than the current state</returns>
     private bool isPriority (State currentState, State newState) 
     {
+        int coucou = (int)currentState;
 
         throw new NotImplementedException();
 
