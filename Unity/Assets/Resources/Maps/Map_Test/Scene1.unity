@@ -496,7 +496,8 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -5.14182186
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11458588, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &291640329
@@ -781,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be0e9859701abb47890ebcd029370a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystickOn: 0
+  _joystickOn: 1
   _character: {fileID: 1758712333}
   _movementJoystick: {fileID: 396871230}
 --- !u!4 &420562174
@@ -1258,6 +1259,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10855966, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

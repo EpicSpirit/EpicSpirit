@@ -120,11 +120,9 @@ public class AIController : MonoBehaviour
 			}
 		}
 
-		// Follow the enemy
-		else if ( _direction != Vector3.zero  )
-		{
-			_character.Move( _direction );
-		}
+		
+		_character.Move( _direction );
+		
 	}
 
 }
