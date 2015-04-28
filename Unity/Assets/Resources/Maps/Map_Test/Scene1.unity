@@ -2031,7 +2031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be0e9859701abb47890ebcd029370a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystickOn: 1
+  _joystickOn: 0
   _character: {fileID: 1758712333}
   _movementJoystick: {fileID: 396871230}
 --- !u!4 &420562174
@@ -2572,6 +2572,10 @@ Prefab:
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429926, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
+      propertyPath: _movementSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}

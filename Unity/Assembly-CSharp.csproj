@@ -54,6 +54,7 @@
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\IController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\MainMenu\MouseGesture.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\NotImportant\Controller Examples\CameraFollowExample.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNAbstractController.cs" />
