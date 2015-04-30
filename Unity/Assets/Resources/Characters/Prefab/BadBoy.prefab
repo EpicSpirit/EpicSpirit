@@ -11,7 +11,6 @@ GameObject:
   - 143: {fileID: 14304362}
   - 114: {fileID: 11400476}
   - 114: {fileID: 11484202}
-  - 54: {fileID: 5498312}
   m_Layer: 0
   m_Name: BadBoy
   m_TagString: Untagged
@@ -235,21 +234,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 471730}
   m_RootOrder: 0
---- !u!54 &5498312
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108640}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!111 &11109400
 Animation:
   m_ObjectHideFlags: 1
@@ -280,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 15
-  _attackRange: 2
+  _attackRange: 3
 --- !u!114 &11484202
 MonoBehaviour:
   m_ObjectHideFlags: 1
