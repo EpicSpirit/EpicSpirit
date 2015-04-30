@@ -43,7 +43,7 @@ namespace EpicSpirit.Game
 
         #endregion
 
-        public virtual void Start()
+        public virtual void Start ()
         {
             InitializeAnimationManager();
 
@@ -59,16 +59,16 @@ namespace EpicSpirit.Game
                 throw new NullReferenceException( "Character must have a CharacterController" );
             }
 
-           // InitializeStateManager();
+            // InitializeStateManager();
 
         }
 
-        public virtual void Update()
+        public virtual void Update ()
         {
             Gravity();
         }
 
-        public void Gravity()
+        public void Gravity ()
         {
             // Gravité // NON ! // Si ! C'est juste pour y aller Yolo pour le moment :p
             if ( !_characterController.isGrounded )
@@ -77,7 +77,7 @@ namespace EpicSpirit.Game
             }
         }
 
-        private void InitializeAnimationManager()
+        private void InitializeAnimationManager ()
         {
             _animations = this.GetComponent<Animation>();
             if ( _animations == null )
@@ -93,7 +93,7 @@ namespace EpicSpirit.Game
         }
 
         // TODO : Factoriser cette méthode, tout les perso n'ont pas un look around
-        public virtual void Move( Vector3 direction )
+        public virtual void Move ( Vector3 direction )
         {
             direction.y = 0;
             if ( !isAttacking() && direction != Vector3.zero )
@@ -103,7 +103,7 @@ namespace EpicSpirit.Game
             }
         }
 
-        internal bool isAttacking()
+        internal bool isAttacking ()
         {
             if ( _animations )
             {
@@ -117,7 +117,7 @@ namespace EpicSpirit.Game
 
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
-        public virtual void Attack()
+        public virtual void Attack ()
         {
             // Tick Management
             if ( !isAttacking() )
@@ -134,7 +134,7 @@ namespace EpicSpirit.Game
         }
 
         // TODO : remettre l'origine de l'attaque au bon endroit
-        internal List<Character> GetListOfTarget()
+        internal List<Character> GetListOfTarget ()
         {
             _targets = new List<Character>();
             Vector3 realAttackOrigin = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z );
@@ -161,7 +161,7 @@ namespace EpicSpirit.Game
 
         // TODO: Rendre ça plus propre au niveau algo
         // TODO : Faire la migration dans le particule manager
-        internal virtual void takeDamage( int force )
+        internal virtual void takeDamage ( int force )
         {
             ParticleSystem[] particuleSystems = this.GetComponentsInChildren<ParticleSystem>();
             foreach ( ParticleSystem particuleSystem in particuleSystems )
@@ -181,16 +181,19 @@ namespace EpicSpirit.Game
 
         }
 
-        public void AnimationManager( string anim )
+        #region AnimationManager
+        public void AnimationManager ( string anim )
         {
             if ( _animations != null && !_animations.IsPlaying( anim ) && _animations.GetClip( anim ) != null )
             {
                 _animations.Play( anim );
             }
         }
+        #endregion
 
+        #region ParticuleManager
         // TODO : Rendre ça opti
-        public void ParticuleManager( string name )
+        public void ParticuleManager ( string name )
         {
             ParticleSystem[] particulesSystem = this.GetComponentsInChildren<ParticleSystem>();
 
@@ -205,11 +208,9 @@ namespace EpicSpirit.Game
 
 
         }
+        #endregion
 
-
-        // Gestion des etats
-
-        // Est ce que l'on est dans tel etat
+        #region StateManager
 
         public enum State : int
         {
@@ -223,15 +224,15 @@ namespace EpicSpirit.Game
         State _state;
         List<int> mask;
 
-        public void InitializeStateManager()
+        public void InitializeStateManager ()
         {
             _state = State.Idle;
-            mask[0] = 32; // Idle          100000
-            mask[1] = 48; // Walk          110000
-            mask[2] = 48; // Attack        110000
-            mask[3] = 56; // Damaged       111000
-            mask[4] = 62; // Dead          111110
-            mask[5] = 63; // Cinematic     111111
+            mask [0] = 32; // Idle          100000
+            mask [1] = 48; // Walk          110000
+            mask [2] = 48; // Attack        110000
+            mask [3] = 56; // Damaged       111000
+            mask [4] = 62; // Dead          111110
+            mask [5] = 63; // Cinematic     111111
         }
 
         /// <summary>
@@ -239,7 +240,7 @@ namespace EpicSpirit.Game
         /// </summary>
         /// <param name="state">The state to match</param>
         /// <returns>True if right</returns>
-        public bool isState( State state )
+        public bool isState ( State state )
         {
             if ( state == null ) { throw new ArgumentNullException(); }
 
@@ -251,7 +252,7 @@ namespace EpicSpirit.Game
         /// </summary>
         /// <param name="state">The new state</param>
         /// <returns>True if the state has changed</returns>
-        public bool ChangeState( State state )
+        public bool ChangeState ( State state )
         {
             if ( state == null ) { throw new ArgumentNullException(); }
 
@@ -272,67 +273,55 @@ namespace EpicSpirit.Game
         /// <param name="currentState"></param>
         /// <param name="newState"></param>
         /// <returns>True if the new state is priority than the current state</returns>
-        private bool isPriority( State currentState, State newState )
+        private bool isPriority ( State currentState, State newState )
         {
             if ( currentState == null || newState == null ) throw new NullReferenceException( "Parameters can't be null" );
 
-            return ( mask[PowerTwo( (int)currentState )] & (int)newState ) != 0;
+            return ( mask [Log2ForPower2( ( UInt32 ) currentState )] & ( int ) newState ) != 0;
         }
+#endregion
 
-        public int PowerTwo( int value )
-        {
-            if ( value < 1 ) throw new ArgumentException( "Value can't be less than 0" );
-            if ( value % 2 != 0 ) throw new ArgumentException( "Value must be peer" );
-
-            int counter = 0;
-            while ( value != 1 )
-            {
-                value /= 2;
-                counter++;
-            }
-            return counter;
-        }
-
-    static int[] _multiplyDeBruijnBitPosition = 
+        #region LogCalul_ThanksToCKCORE
+        static int[] _multiplyDeBruijnBitPosition = 
 				{ 
 					0, 1, 28, 2, 29, 14, 24, 3, 30, 22, 20, 15, 25, 17, 4, 8, 
 					31, 27, 13, 23, 21, 19, 16, 7, 26, 12, 18, 6, 11, 5, 10, 9 
 				};
 
-    #region LogCalul_ThanksToCKCORE
-    /// <summary>
-    /// Compute the Log2 (logarithm base 2) of a given number.
-    /// </summary>
-    /// <param name="v">Integer to compute</param>
-    /// <returns>Log2 of the given integer</returns>
-    [CLSCompliant( false )]
-    static public int Log2 ( UInt32 v )
-    {
-        unchecked
+        /// <summary>
+        /// Compute the Log2 (logarithm base 2) of a given number.
+        /// </summary>
+        /// <param name="v">Integer to compute</param>
+        /// <returns>Log2 of the given integer</returns>
+        [CLSCompliant( false )]
+        static public int Log2 ( UInt32 v )
         {
-            v |= v >> 1;
-            v |= v >> 2;
-            v |= v >> 4;
-            v |= v >> 8;
-            v |= v >> 16;
-            v = ( v >> 1 ) + 1;
-            return _multiplyDeBruijnBitPosition [( ( v * 0x077CB531U ) ) >> 27];
+            unchecked
+            {
+                v |= v >> 1;
+                v |= v >> 2;
+                v |= v >> 4;
+                v |= v >> 8;
+                v |= v >> 16;
+                v = ( v >> 1 ) + 1;
+                return _multiplyDeBruijnBitPosition [( ( v * 0x077CB531U ) ) >> 27];
+            }
         }
-    }
 
-    /// <summary>
-    /// Compute the Log2ForPower2 (logarithm base 2 power 2) of a given number.
-    /// </summary>
-    /// <param name="v">Integer to compute. It MUST be a power of 2.</param>
-    /// <returns>Result</returns>
-    [CLSCompliant( false )]
-    static public int Log2ForPower2 ( UInt32 v )
-    {
-        unchecked
+        /// <summary>
+        /// Compute the Log2ForPower2 (logarithm base 2 power 2) of a given number.
+        /// </summary>
+        /// <param name="v">Integer to compute. It MUST be a power of 2.</param>
+        /// <returns>Result</returns>
+        [CLSCompliant( false )]
+        static public int Log2ForPower2 ( UInt32 v )
         {
-            return _multiplyDeBruijnBitPosition [( ( ( uint ) v * 0x077CB531U ) ) >> 27];
+            unchecked
+            {
+                return _multiplyDeBruijnBitPosition [( ( ( uint ) v * 0x077CB531U ) ) >> 27];
+            }
         }
-    }
-    #endregion
+        #endregion
 
+    }
 }
