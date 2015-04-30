@@ -2,92 +2,95 @@
 using System.Collections;
 using System;
 
-[RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+namespace EpicSpirit.Game
 {
-    // Switch for keyboard/Joystick Controller
-    public bool _joystickOn;  
-
-    // Character that we have to control
-    public Character _character;
-
-    // Joystick controller
-    public CNAbstractController _movementJoystick;
-
-    // Main camera transform used for joystick
-    private Transform _mainCameraTransform;
-
-	void Start () 
+    [RequireComponent( typeof( CharacterController ) )]
+    public class PlayerController : MonoBehaviour
     {
-        _mainCameraTransform = Camera.main.GetComponent<Transform>();    
-    }
-	
-	void Update ()
-    {
-        if ( _character != null )
+        // Switch for keyboard/Joystick Controller
+        public bool _joystickOn;
+
+        // Character that we have to control
+        public Character _character;
+
+        // Joystick controller
+        public CNAbstractController _movementJoystick;
+
+        // Main camera transform used for joystick
+        private Transform _mainCameraTransform;
+
+        void Start()
         {
-            if ( _joystickOn )
+            _mainCameraTransform = Camera.main.GetComponent<Transform>();
+        }
+
+        void Update()
+        {
+            if ( _character != null )
             {
-                JoystickMove();
+                if ( _joystickOn )
+                {
+                    JoystickMove();
+                }
+                else
+                {
+                    KeyboardMove();
+                    Attack();
+                }
             }
             else
             {
-                KeyboardMove();
-                Attack();
+                throw new Exception( "I need the character" );
             }
         }
-        else 
-        {
-            throw new Exception("I need the character");
-        }
-	}
 
 
-    private void Attack()
-    {
-        if ( Input.GetKeyDown( KeyCode.Space ) )
+        private void Attack()
         {
-            _character.Attack();
+            if ( Input.GetKeyDown( KeyCode.Space ) )
+            {
+                _character.Attack();
+            }
         }
+        private void KeyboardMove()
+        {
+            Vector3 direction = new Vector3();
+
+            if ( Input.GetKey( KeyCode.RightArrow ) || Input.GetKey( KeyCode.D ) )
+            {
+                direction += Vector3.right;
+            }
+            if ( Input.GetKey( KeyCode.LeftArrow ) || Input.GetKey( KeyCode.Q ) )
+            {
+                direction += Vector3.left;
+
+            }
+            if ( Input.GetKey( KeyCode.UpArrow ) || Input.GetKey( KeyCode.Z ) )
+            {
+                direction += Vector3.forward;
+
+            }
+            if ( Input.GetKey( KeyCode.DownArrow ) || Input.GetKey( KeyCode.S ) )
+            {
+                direction += Vector3.back;
+            }
+
+            _character.Move( direction );
+        }
+
+        private void JoystickMove()
+        {
+            var movement = new Vector3(
+                _movementJoystick.GetAxis( "Horizontal" ),
+                0f,
+                _movementJoystick.GetAxis( "Vertical" ) );
+
+            movement = _mainCameraTransform.TransformDirection( movement );
+            movement.y = 0f;
+            movement.Normalize();
+
+            _character.Move( movement );
+        }
+
     }
-    private void KeyboardMove()
-    {
-        Vector3 direction = new Vector3();
-
-        if ( Input.GetKey( KeyCode.RightArrow ) || Input.GetKey( KeyCode.D ) )
-        {
-            direction += Vector3.right;
-        }
-        if ( Input.GetKey( KeyCode.LeftArrow ) || Input.GetKey( KeyCode.Q ) )
-        {
-            direction += Vector3.left;
-
-        }
-        if ( Input.GetKey( KeyCode.UpArrow ) || Input.GetKey( KeyCode.Z ) )
-        {
-            direction += Vector3.forward;
-
-        }
-        if ( Input.GetKey( KeyCode.DownArrow ) || Input.GetKey( KeyCode.S ) )
-        {
-            direction += Vector3.back;
-        }
-
-        _character.Move( direction );
-    }
-
-    private void JoystickMove()
-    {
-        var movement = new Vector3(
-            _movementJoystick.GetAxis( "Horizontal" ),
-            0f,
-            _movementJoystick.GetAxis( "Vertical" ) );
-
-        movement = _mainCameraTransform.TransformDirection( movement );
-        movement.y = 0f;
-        movement.Normalize();
-
-        _character.Move( movement );
-    }
-
 }
