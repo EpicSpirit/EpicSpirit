@@ -107,7 +107,9 @@ namespace EpicSpirit.Game
         {
             if ( _animations )
             {
-                return _animations.IsPlaying( "attack" ) || _animations.IsPlaying( "attack_2" );
+                return _animations.IsPlaying( "attack" ) || 
+                        _animations.IsPlaying( "attack_2" ) ||
+                        _animations.IsPlaying("invoke") ;
             }
             else
             {

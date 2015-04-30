@@ -29,7 +29,7 @@ namespace EpicSpirit.Game
         private void SummonBadBoy()
         {
             // Play the animation
-            AnimationManager( "invokation" );
+            AnimationManager( "invoke" );
 
 
             // Real attack
@@ -46,11 +46,11 @@ namespace EpicSpirit.Game
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( direction == Vector3.zero )
+            if ( !isAttacking() && direction == Vector3.zero )
             {
                 AnimationManager( "idle" );
             }
-            else
+            else if(!isAttacking())
             {
                 AnimationManager( "walk" );
             }
