@@ -62,11 +62,11 @@ namespace EpicSpirit.Game
                 if ( _attackCounter >= 2 )
                 {
                     _attackCounter = 0;
-                    AnimationManager( "bim_2" );
+                    AnimationManager( "attack_2" );
                 }
                 else
                 {
-                    AnimationManager( "bim" );
+                    AnimationManager( "attack" );
                 }
             }
         }

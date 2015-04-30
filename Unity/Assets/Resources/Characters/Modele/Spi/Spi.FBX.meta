@@ -76,8 +76,8 @@ ModelImporter:
     7400000: walk
     7400002: idle
     7400004: look_around
-    7400006: bim
-    7400008: bim_2
+    7400006: attack
+    7400008: attack_2
     9500000: //RootNode
     11100000: //RootNode
     13700000: Group31689
@@ -353,7 +353,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: bim
+      name: attack
       takeName: Take 001
       firstFrame: 93
       lastFrame: 99
@@ -438,7 +438,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: bim_2
+      name: attack_2
       takeName: Take 001
       firstFrame: 105
       lastFrame: 114

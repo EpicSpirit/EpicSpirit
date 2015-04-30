@@ -13,15 +13,20 @@ namespace EpicSpirit.Game
             _movementSpeed = 2;
 
         }
-
+        public override void Attack ()
+        {
+            base.Attack();
+            AnimationManager("attack");
+            
+        }
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( direction == Vector3.zero )
+            if ( direction == Vector3.zero && !isAttacking())
             {
                 AnimationManager( "idle" );
             }
-            else
+            else if(!isAttacking())
             {
                 AnimationManager( "walk" );
             }

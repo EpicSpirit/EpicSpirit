@@ -107,7 +107,7 @@ namespace EpicSpirit.Game
         {
             if ( _animations )
             {
-                return _animations.IsPlaying( "bim" ) || _animations.IsPlaying( "bim_2" );
+                return _animations.IsPlaying( "attack" ) || _animations.IsPlaying( "attack_2" );
             }
             else
             {
@@ -128,7 +128,7 @@ namespace EpicSpirit.Game
                     enemy.takeDamage( 1 );
                 }
 
-                AnimationManager( "bim" );
+                AnimationManager( "attack" );
             }
 
         }
@@ -184,7 +184,13 @@ namespace EpicSpirit.Game
         #region AnimationManager
         public void AnimationManager ( string anim )
         {
-            if ( _animations != null && !_animations.IsPlaying( anim ) && _animations.GetClip( anim ) != null )
+            if ( _animations.GetClip( anim ) == null )
+            {
+                Debug.Log( "Can't find the animation " + anim + " in " + this.name );
+                return;
+            }
+
+            if ( _animations != null && !_animations.IsPlaying( anim ) )
             {
                 _animations.Play( anim );
             }
