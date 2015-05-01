@@ -12,10 +12,10 @@ namespace EpicSpirit.Game
         float _comboAttackInterval;
         int _lookAroundCount;
 
-
         public override void Start()
         {
             base.Start();
+
 
             _health = 1000;
             _lookAroundCount = 300;
@@ -69,6 +69,12 @@ namespace EpicSpirit.Game
                     AnimationManager( "attack" );
                 }
             }
+
+            Invoke( "StopAttack", 5.0f );
+        }
+
+        private void StopAttack () {
+            Debug.Log( "Je suis un test" );
         }
 
         public override void Move( Vector3 direction )
