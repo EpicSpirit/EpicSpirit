@@ -9453,7 +9453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84ce93f4667f5d488406a57ae82dde7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 
 --- !u!4 &610313101
 Transform:
   m_PrefabParentObject: {fileID: 460100, guid: fe4d1f14b28cab342a5b0220521b9287, type: 2}
@@ -12005,11 +12004,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409508, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 478588, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.32299709
+      value: -5.73359585
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11458588, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
@@ -17053,7 +17052,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 431270, guid: 1bd83c98ce6eef3439952aaf7c83393f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 56
+      value: 117.400002
       objectReference: {fileID: 0}
     - target: {fileID: 431270, guid: 1bd83c98ce6eef3439952aaf7c83393f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -17061,7 +17060,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 431270, guid: 1bd83c98ce6eef3439952aaf7c83393f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 56.7000008
+      value: 163.800003
       objectReference: {fileID: 0}
     - target: {fileID: 431270, guid: 1bd83c98ce6eef3439952aaf7c83393f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -17367,7 +17366,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 14361218, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_Height

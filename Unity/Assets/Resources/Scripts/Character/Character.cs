@@ -59,13 +59,14 @@ namespace EpicSpirit.Game
                 throw new NullReferenceException( "Character must have a CharacterController" );
             }
 
-            // InitializeStateManager();
+            InitializeStateManager();
 
         }
 
         public virtual void Update ()
         {
             Gravity();
+            if ( this.name == "Spi" ) Debug.Log("Actual State : "+_state.ToString());
         }
 
         public void Gravity ()
@@ -96,11 +97,35 @@ namespace EpicSpirit.Game
         public virtual void Move ( Vector3 direction )
         {
             direction.y = 0;
-            if ( !isAttacking() && direction != Vector3.zero )
+            Debug.Log("Direction : "+direction);
+            Debug.Log("ChangeState 6> Walk" + ChangeState(State.Walk));
+            
+            if ( direction != Vector3.zero && ChangeState(State.Walk))
             {
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
                 _characterController.transform.rotation = Quaternion.LookRotation( direction );
+            } 
+            else if( direction == Vector3.zero && getState <= State.Walk) 
+            {
+                EndOfState();
             }
+            else
+            {
+                // Nothing 
+            }
+        }
+
+        
+        private void EndOfState () {
+            _state = State.Idle;
+        }
+
+        private State getState{
+            get { return _state; }
+        }
+
+        private bool CanAttack () {
+            throw new NotImplementedException();
         }
 
         internal bool isAttacking ()
@@ -222,12 +247,12 @@ namespace EpicSpirit.Game
 
         public enum State : int
         {
-            Idle = 1,
-            Walk = 2,
-            Attack = 4,
-            Damaged = 8,
-            Dead = 16,
-            Cinematic = 32
+            Idle = 32,
+            Walk = 16,
+            Attack = 8,
+            Damaged = 4,
+            Dead = 2,
+            Cinematic = 1
         }
         State _state;
         List<int> mask;
@@ -235,12 +260,13 @@ namespace EpicSpirit.Game
         public void InitializeStateManager ()
         {
             _state = State.Idle;
-            mask [0] = 32; // Idle          100000
-            mask [1] = 48; // Walk          110000
-            mask [2] = 48; // Attack        110000
-            mask [3] = 56; // Damaged       111000
-            mask [4] = 62; // Dead          111110
-            mask [5] = 63; // Cinematic     111111
+            mask = new List<int>();
+            mask.Add(32); // Idle          100000
+            mask.Add( 48 ); // Walk          110000
+            mask.Add( 48 ); // Attack        110000
+            mask.Add( 56 ); // Damaged       111000
+            mask.Add( 62 ); // Dead          111110
+            mask.Add( 63 ); // Cinematic     111111
         }
 
         /// <summary>

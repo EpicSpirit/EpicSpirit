@@ -80,13 +80,12 @@ namespace EpicSpirit.Game
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( !isAttacking() )
+            if ( isState(State.Walk) )
             {
-                if ( direction != Vector3.zero )
-                {
-                    AnimationManager( "walk" );
-                }
-                else if ( _animations && !_animations.IsPlaying( "look_around" ) )
+                AnimationManager( "walk" );
+            }
+            else if(isState(State.Idle)) {
+                if ( _animations && !_animations.IsPlaying( "look_around" ) )
                 {
                     AnimationManager( "idle" );
                 }
