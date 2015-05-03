@@ -43,14 +43,15 @@ namespace EpicSpirit.Game
             enemy.ParticuleManager( "Invokation" );
         }
 
+        //Todo : Même code que BadBoy, rendre ça Dry avec une méthode générique ?
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( !isAttacking() && direction == Vector3.zero )
+            if ( isState( State.Idle ) )
             {
                 AnimationManager( "idle" );
             }
-            else if(!isAttacking())
+            else if ( isState( State.Walk ) )
             {
                 AnimationManager( "walk" );
             }

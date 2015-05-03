@@ -71,7 +71,6 @@ namespace EpicSpirit.Game
         public virtual void Update ()
         {
             Gravity();
-            //if ( this.name == "Spi" ) Debug.Log("Actual State : "+_state.ToString());
         }
 
         public void Gravity ()
@@ -118,61 +117,30 @@ namespace EpicSpirit.Game
             }
         }
 
-        internal void StopAttack ()
-        {
-            Debug.Log( "StopAttack" );
-            EndOfState();
-        }
-        
-        internal void EndOfState () {
-            _state = State.Idle;
-        }
-
-        private State getState{
-            get { return _state; }
-        }
-
-        internal bool CanAttack () {
-            return getState < State.Attack;
-        }
-
-        internal bool isAttacking ()
-        {
-            if ( _animations )
-            {
-                return _animations.IsPlaying( "attack" ) || 
-                        _animations.IsPlaying( "attack_2" ) ||
-                        _animations.IsPlaying("invoke") ;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
+        // TODO : Invoke( "StopAttack", _animations.GetClip( "attack" ).length) Rendre ça générique
         public virtual void Attack ()
         {
             // Tick Management
             if ( ChangeState(State.Attack) )
             {
                 justAttack = true;
-                Debug.Log("Debut attaque");
                 GetListOfTarget();
                 foreach ( Character enemy in _targets )
                 {
                     enemy.takeDamage( 1 );
                 }
 
-                //AnimationManager( "attack" );
-                Invoke( "StopAttack", _animations.GetClip( "attack" ).length+0.1f);
+                Invoke( "StopAttack", _animations.GetClip( "attack" ).length);
             }
-
-
-
         }
 
+        internal void StopAttack ()
+        {
+            EndOfState();
+        }
+        
         // TODO : remettre l'origine de l'attaque au bon endroit
         internal List<Character> GetListOfTarget ()
         {
@@ -270,7 +238,7 @@ namespace EpicSpirit.Game
         State _state;
         List<int> mask;
 
-        public void InitializeStateManager ()
+        internal void InitializeStateManager ()
         {
             _state = State.Idle;
             mask = new List<int>();
@@ -278,10 +246,21 @@ namespace EpicSpirit.Game
             mask.Add( 63 ); // Cinematic     111111
             mask.Add( 62 ); // Dead          111110
             mask.Add( 56 ); // Damaged       111000
-            mask.Add( 48 ); // Attack        110000
-            mask.Add( 48 ); // Walk          110000
+            mask.Add( 56 ); // Attack        111000
+            mask.Add( 32 ); // Walk          110000
             mask.Add( 32 ); // Idle          100000
         }
+
+        internal void EndOfState ()
+        {
+            _state = State.Idle;
+        }
+
+        internal State getState
+        {
+            get { return _state; }
+        }
+
 
         /// <summary>
         /// Return true if the state is right
@@ -304,9 +283,6 @@ namespace EpicSpirit.Game
         {
             if ( state == null ) { throw new ArgumentNullException(); }
 
-            // TEST A LA CON A ENLEVER QUAND ON VA REPASSER DEDSSUS
-            //if ( state == State.Attack && _state == State.Attack ) return false;
-
             if ( isPriority( _state, state ) )
             {
                 _state = state;
@@ -328,7 +304,7 @@ namespace EpicSpirit.Game
         {
             if ( currentState == null || newState == null ) throw new NullReferenceException( "Parameters can't be null" );
 
-            return ( mask [Log2ForPower2( ( UInt32 ) currentState )] & ( int ) newState ) != 0;
+            return ( mask [Log2ForPower2( ( UInt32 ) currentState )] & ( int ) newState ) == 0;
         }
 #endregion
 

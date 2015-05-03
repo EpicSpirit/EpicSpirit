@@ -16,17 +16,20 @@ namespace EpicSpirit.Game
         public override void Attack ()
         {
             base.Attack();
-            AnimationManager("attack");
+            if(isState(State.Attack) &&  justAttack) {
+                justAttack = false;
+                AnimationManager( "attack" );
+            }
             
         }
+        //Todo : Même code que VeryBadBoy, rendre ça Dry avec une méthode générique ?
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( direction == Vector3.zero && !isAttacking())
-            {
+            if(isState(State.Idle)) {
                 AnimationManager( "idle" );
             }
-            else if(!isAttacking())
+            else if(isState(State.Walk))
             {
                 AnimationManager( "walk" );
             }
