@@ -32,12 +32,12 @@ namespace EpicSpirit.Game
 
         public override void Attack()
         {
-
+            base.Attack();
             // Gestion du tick
-            if ( !isAttacking() )
+            if ( isState(State.Attack) && justAttack)
             {
-
-                //Loocking for the right attack phase 
+                justAttack = false;
+                //Looking for the right attack phase 
                 if ( _dateOfLastAttack + _comboAttackInterval > Time.fixedTime )
                 {
                     _attackCounter++;
@@ -49,15 +49,6 @@ namespace EpicSpirit.Game
                 // Update the last attack
                 _dateOfLastAttack = Time.fixedTime;
 
-                GetListOfTarget();
-                foreach ( Character enemy in _targets )
-                {
-                    if ( enemy.name != this.name )
-                    {
-                        enemy.takeDamage( _attackCounter + 1 );
-                    }
-                }
-
                 // Get the right attack
                 if ( _attackCounter >= 2 )
                 {
@@ -68,14 +59,13 @@ namespace EpicSpirit.Game
                 {
                     AnimationManager( "attack" );
                 }
+                
             }
 
-            Invoke( "StopAttack", 5.0f );
+            
         }
 
-        private void StopAttack () {
-            Debug.Log( "Je suis un test" );
-        }
+        
 
         public override void Move( Vector3 direction )
         {

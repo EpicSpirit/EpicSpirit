@@ -27,6 +27,9 @@ namespace EpicSpirit.Game
         // Controller
         private CharacterController _characterController;
 
+        // Attack
+        internal bool justAttack;
+
         #endregion
 
         #region Properties
@@ -46,6 +49,7 @@ namespace EpicSpirit.Game
         public virtual void Start ()
         {
             InitializeAnimationManager();
+            justAttack = false;
 
             _health = 3;
             _attackVectors = new List<Vector3>();
@@ -61,12 +65,13 @@ namespace EpicSpirit.Game
 
             InitializeStateManager();
 
+
         }
 
         public virtual void Update ()
         {
             Gravity();
-            if ( this.name == "Spi" ) Debug.Log("Actual State : "+_state.ToString());
+            //if ( this.name == "Spi" ) Debug.Log("Actual State : "+_state.ToString());
         }
 
         public void Gravity ()
@@ -97,15 +102,13 @@ namespace EpicSpirit.Game
         public virtual void Move ( Vector3 direction )
         {
             direction.y = 0;
-            Debug.Log("Direction : "+direction);
-            Debug.Log("ChangeState 6> Walk" + ChangeState(State.Walk));
             
             if ( direction != Vector3.zero && ChangeState(State.Walk))
             {
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
                 _characterController.transform.rotation = Quaternion.LookRotation( direction );
             } 
-            else if( direction == Vector3.zero && getState <= State.Walk) 
+            else if( direction == Vector3.zero && getState >= State.Walk) 
             {
                 EndOfState();
             }
@@ -115,8 +118,13 @@ namespace EpicSpirit.Game
             }
         }
 
+        internal void StopAttack ()
+        {
+            Debug.Log( "StopAttack" );
+            EndOfState();
+        }
         
-        private void EndOfState () {
+        internal void EndOfState () {
             _state = State.Idle;
         }
 
@@ -124,8 +132,8 @@ namespace EpicSpirit.Game
             get { return _state; }
         }
 
-        private bool CanAttack () {
-            throw new NotImplementedException();
+        internal bool CanAttack () {
+            return getState < State.Attack;
         }
 
         internal bool isAttacking ()
@@ -147,16 +155,21 @@ namespace EpicSpirit.Game
         public virtual void Attack ()
         {
             // Tick Management
-            if ( !isAttacking() )
+            if ( ChangeState(State.Attack) )
             {
+                justAttack = true;
+                Debug.Log("Debut attaque");
                 GetListOfTarget();
                 foreach ( Character enemy in _targets )
                 {
                     enemy.takeDamage( 1 );
                 }
 
-                AnimationManager( "attack" );
+                //AnimationManager( "attack" );
+                Invoke( "StopAttack", _animations.GetClip( "attack" ).length+0.1f);
             }
+
+
 
         }
 
@@ -261,12 +274,13 @@ namespace EpicSpirit.Game
         {
             _state = State.Idle;
             mask = new List<int>();
-            mask.Add(32); // Idle          100000
-            mask.Add( 48 ); // Walk          110000
-            mask.Add( 48 ); // Attack        110000
-            mask.Add( 56 ); // Damaged       111000
-            mask.Add( 62 ); // Dead          111110
+
             mask.Add( 63 ); // Cinematic     111111
+            mask.Add( 62 ); // Dead          111110
+            mask.Add( 56 ); // Damaged       111000
+            mask.Add( 48 ); // Attack        110000
+            mask.Add( 48 ); // Walk          110000
+            mask.Add( 32 ); // Idle          100000
         }
 
         /// <summary>
@@ -289,6 +303,9 @@ namespace EpicSpirit.Game
         public bool ChangeState ( State state )
         {
             if ( state == null ) { throw new ArgumentNullException(); }
+
+            // TEST A LA CON A ENLEVER QUAND ON VA REPASSER DEDSSUS
+            //if ( state == State.Attack && _state == State.Attack ) return false;
 
             if ( isPriority( _state, state ) )
             {
