@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpiController : MonoBehaviour 
+namespace EpicSpirit.Game
 {
-    public void Fall(Vector3 direction)
+    public class SpiController : MonoBehaviour
     {
-        this.GetComponent<Character>().Move( direction );
+        public void Fall( Vector3 direction )
+        {
+            this.GetComponent<Character>().Move( direction );
+        }
     }
 }
