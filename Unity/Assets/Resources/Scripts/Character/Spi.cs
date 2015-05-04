@@ -27,16 +27,15 @@ namespace EpicSpirit.Game
         public override void Update()
         {
             base.Update();
-
         }
-
         public override void Attack()
         {
+            string animationName;
             base.Attack();
             // Gestion du tick
-            if ( isState(State.Attack) && justAttack)
+            if ( isState(States.Attack) && justAttacked)
             {
-                justAttack = false;
+                justAttacked = false;
                 //Looking for the right attack phase 
                 if ( _dateOfLastAttack + _comboAttackInterval > Time.fixedTime )
                 {
@@ -53,12 +52,14 @@ namespace EpicSpirit.Game
                 if ( _attackCounter >= 2 )
                 {
                     _attackCounter = 0;
-                    AnimationManager( "attack_2" );
+                    animationName = "attack_2" ;
                 }
                 else
                 {
-                    AnimationManager( "attack" );
+                    animationName = "attack" ;
                 }
+                AnimationManager( animationName );
+                StopAttack( animationName );
                 
             }
 
@@ -70,11 +71,11 @@ namespace EpicSpirit.Game
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( isState(State.Walk) )
+            if ( isState(States.Walk) )
             {
                 AnimationManager( "walk" );
             }
-            else if(isState(State.Idle)) {
+            else if(isState(States.Idle)) {
                 if ( _animations && !_animations.IsPlaying( "look_around" ) )
                 {
                     AnimationManager( "idle" );
@@ -89,5 +90,6 @@ namespace EpicSpirit.Game
                 }
             }
         }
+    
     }
 }

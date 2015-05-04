@@ -28,7 +28,7 @@ namespace EpicSpirit.Game
         private CharacterController _characterController;
 
         // Attack
-        internal bool justAttack;
+        internal bool justAttacked;
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace EpicSpirit.Game
         public virtual void Start ()
         {
             InitializeAnimationManager();
-            justAttack = false;
+            justAttacked = false;
 
             _health = 3;
             _attackVectors = new List<Vector3>();
@@ -82,32 +82,17 @@ namespace EpicSpirit.Game
             }
         }
 
-        private void InitializeAnimationManager ()
-        {
-            _animations = this.GetComponent<Animation>();
-            if ( _animations == null )
-            {
-                _animations = this.GetComponentInChildren<Animation>();
-            }
-
-            if ( _animations == null )
-            {
-                throw new NullReferenceException( "Character must have Animation Component" );
-
-            }
-        }
-
         // TODO : Factoriser cette méthode, tout les perso n'ont pas un look around
         public virtual void Move ( Vector3 direction )
         {
             direction.y = 0;
             
-            if ( direction != Vector3.zero && ChangeState(State.Walk))
+            if ( direction != Vector3.zero && ChangeState(States.Walk))
             {
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
                 _characterController.transform.rotation = Quaternion.LookRotation( direction );
             } 
-            else if( direction == Vector3.zero && getState >= State.Walk) 
+            else if( direction == Vector3.zero && State <= States.Walk) 
             {
                 EndOfState();
             }
@@ -119,26 +104,29 @@ namespace EpicSpirit.Game
 
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
-        // TODO : Invoke( "StopAttack", _animations.GetClip( "attack" ).length) Rendre ça générique
+        // TODO : Invoke( "StopAttack", _animations.GetClip( "attack" ).length) Rendre ça générique pour les différentes animations 
         public virtual void Attack ()
         {
             // Tick Management
-            if ( ChangeState(State.Attack) )
+            if ( ChangeState(States.Attack) )
             {
-                justAttack = true;
+                justAttacked = true;
                 GetListOfTarget();
                 foreach ( Character enemy in _targets )
                 {
                     enemy.takeDamage( 1 );
                 }
 
-                Invoke( "StopAttack", _animations.GetClip( "attack" ).length);
             }
         }
 
-        internal void StopAttack ()
+        internal void StopAttack (string animationName)
         {
-            EndOfState();
+            StopAttack(_animations.GetClip(animationName).length);
+        }
+        internal void StopAttack ( float duration )
+        {
+            Invoke( "EndOfState", duration );
         }
         
         // TODO : remettre l'origine de l'attaque au bon endroit
@@ -167,8 +155,9 @@ namespace EpicSpirit.Game
 
         }
 
-        // TODO: Rendre ça plus propre au niveau algo
+        // TODO : Rendre ça plus propre au niveau algo
         // TODO : Faire la migration dans le particule manager
+        // TODO : Mettre avec le stateManager tout beau tout propre
         internal virtual void takeDamage ( int force )
         {
             ParticleSystem[] particuleSystems = this.GetComponentsInChildren<ParticleSystem>();
@@ -203,6 +192,21 @@ namespace EpicSpirit.Game
                 _animations.Play( anim );
             }
         }
+
+        private void InitializeAnimationManager ()
+        {
+            _animations = this.GetComponent<Animation>();
+            if ( _animations == null )
+            {
+                _animations = this.GetComponentInChildren<Animation>();
+            }
+
+            if ( _animations == null )
+            {
+                throw new NullReferenceException( "Character must have Animation Component" );
+
+            }
+        }
         #endregion
 
         #region ParticuleManager
@@ -226,37 +230,33 @@ namespace EpicSpirit.Game
 
         #region StateManager
 
-        public enum State : int
+        public enum States : int
         {
-            Idle = 32,
-            Walk = 16,
-            Attack = 8,
-            Damaged = 4,
-            Dead = 2,
-            Cinematic = 1
+            Idle = 1,
+            Walk = 2,
+            Attack = 4,
+            Damaged = 8,
         }
-        State _state;
+        States _state;
         List<int> mask;
 
         internal void InitializeStateManager ()
         {
-            _state = State.Idle;
+            _state = States.Idle;
             mask = new List<int>();
+            mask.Add( 15 ); // IDLE
+            mask.Add( 14 ); // WALK
+            mask.Add( 8 );  // ATTACK
+            mask.Add( 8 );  // DAMAGED
 
-            mask.Add( 63 ); // Cinematic     111111
-            mask.Add( 62 ); // Dead          111110
-            mask.Add( 56 ); // Damaged       111000
-            mask.Add( 56 ); // Attack        111000
-            mask.Add( 32 ); // Walk          110000
-            mask.Add( 32 ); // Idle          100000
         }
 
         internal void EndOfState ()
         {
-            _state = State.Idle;
+            _state = States.Idle;
         }
 
-        internal State getState
+        internal States State
         {
             get { return _state; }
         }
@@ -267,7 +267,7 @@ namespace EpicSpirit.Game
         /// </summary>
         /// <param name="state">The state to match</param>
         /// <returns>True if right</returns>
-        public bool isState ( State state )
+        public bool isState ( States state )
         {
             if ( state == null ) { throw new ArgumentNullException(); }
 
@@ -279,7 +279,7 @@ namespace EpicSpirit.Game
         /// </summary>
         /// <param name="state">The new state</param>
         /// <returns>True if the state has changed</returns>
-        public bool ChangeState ( State state )
+        public bool ChangeState ( States state )
         {
             if ( state == null ) { throw new ArgumentNullException(); }
 
@@ -300,11 +300,11 @@ namespace EpicSpirit.Game
         /// <param name="currentState"></param>
         /// <param name="newState"></param>
         /// <returns>True if the new state is priority than the current state</returns>
-        private bool isPriority ( State currentState, State newState )
+        private bool isPriority ( States currentState, States newState )
         {
             if ( currentState == null || newState == null ) throw new NullReferenceException( "Parameters can't be null" );
 
-            return ( mask [Log2ForPower2( ( UInt32 ) currentState )] & ( int ) newState ) == 0;
+            return ( mask [Log2ForPower2( ( UInt32 ) currentState )] & ( int ) newState ) != 0;
         }
 #endregion
 

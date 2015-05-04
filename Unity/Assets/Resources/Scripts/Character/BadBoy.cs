@@ -16,8 +16,8 @@ namespace EpicSpirit.Game
         public override void Attack ()
         {
             base.Attack();
-            if(isState(State.Attack) &&  justAttack) {
-                justAttack = false;
+            if(isState(States.Attack) &&  justAttacked) {
+                justAttacked = false;
                 AnimationManager( "attack" );
             }
             
@@ -26,10 +26,10 @@ namespace EpicSpirit.Game
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if(isState(State.Idle)) {
+            if(isState(States.Idle)) {
                 AnimationManager( "idle" );
             }
-            else if(isState(State.Walk))
+            else if(isState(States.Walk))
             {
                 AnimationManager( "walk" );
             }

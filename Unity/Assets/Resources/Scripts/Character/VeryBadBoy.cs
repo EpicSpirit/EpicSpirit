@@ -19,8 +19,9 @@ namespace EpicSpirit.Game
 
         public override void Attack()
         {
-            
-            if(ChangeState(State.Attack))
+            // Pas de base.Attadk()
+
+            if(ChangeState(States.Attack))
             {
                 // Pour le moment notre méchant ne fait QUE Invoquer des BadBoy :-)
                 SummonBadBoy();
@@ -57,11 +58,11 @@ namespace EpicSpirit.Game
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( isState( State.Idle ) )
+            if ( isState( States.Idle ) )
             {
                 AnimationManager( "idle" );
             }
-            else if ( isState( State.Walk ) )
+            else if ( isState( States.Walk ) )
             {
                 AnimationManager( "walk" );
             }
