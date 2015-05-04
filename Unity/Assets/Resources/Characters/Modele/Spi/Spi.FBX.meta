@@ -1,86 +1,86 @@
 fileFormatVersion: 2
-guid: 24c550661c25a3c43ad7e8d338912dff
-timeCreated: 1427203631
+guid: 9d3bff4d9dcfbd444b438d4e5062e543
+timeCreated: 1430748286
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Box002
-    100002: Box003
-    100004: CATRigHub001
-    100006: CATRigHub001Bone005
-    100008: CATRigLArm1
-    100010: CATRigLArmCollarbone
-    100012: CATRigLArmPalm
-    100014: CATRigLLeg1
-    100016: CATRigLLeg1 1
-    100018: CATRigLLeg2
-    100020: CATRigLLeg2 1
-    100022: CATRigLLegAnkle
-    100024: CATRigLLegAnkle 1
-    100026: CATRigLLegDigit11
-    100028: CATRigLLegDigit11 1
-    100030: CATRigLLegPlatform
-    100032: CATRigLLegPlatform 1
-    100034: CATRigRArm1
-    100036: CATRigRArmCollarbone
-    100038: CATRigRArmPalm
-    100040: CATRigTail1
-    100042: CATRigTail2
-    100044: CATRigTail3
-    100046: CATRigTail4
-    100048: CATRigTail5
-    100050: Character002
-    100052: Cylinder001
-    100054: //RootNode
-    100056: Group31689
-    400000: Box002
-    400002: Box003
-    400004: CATRigHub001
-    400006: CATRigHub001Bone005
-    400008: CATRigLArm1
-    400010: CATRigLArmCollarbone
-    400012: CATRigLArmPalm
-    400014: CATRigLLeg1
-    400016: CATRigLLeg1 1
-    400018: CATRigLLeg2
-    400020: CATRigLLeg2 1
-    400022: CATRigLLegAnkle
-    400024: CATRigLLegAnkle 1
-    400026: CATRigLLegDigit11
-    400028: CATRigLLegDigit11 1
-    400030: CATRigLLegPlatform
-    400032: CATRigLLegPlatform 1
-    400034: CATRigRArm1
-    400036: CATRigRArmCollarbone
-    400038: CATRigRArmPalm
-    400040: CATRigTail1
-    400042: CATRigTail2
-    400044: CATRigTail3
-    400046: CATRigTail4
-    400048: CATRigTail5
-    400050: Character002
-    400052: Cylinder001
-    400054: //RootNode
-    400056: Group31689
-    2300000: Box002
-    2300002: Box003
-    2300004: Cylinder001
-    3300000: Box002
-    3300002: Box003
-    3300004: Cylinder001
-    4300000: Group31689
-    4300002: Cylinder001
-    4300004: Box003
-    4300006: Box002
+    100000: CATRigHub001
+    100002: CATRigLArm1
+    100004: CATRigLArmCollarbone
+    100006: CATRigLArmPalm
+    100008: CATRigLLeg1
+    100010: CATRigLLeg1 1
+    100012: CATRigLLeg2
+    100014: CATRigLLeg2 1
+    100016: CATRigLLegAnkle
+    100018: CATRigLLegAnkle 1
+    100020: CATRigLLegDigit11
+    100022: CATRigLLegDigit11 1
+    100024: CATRigLLegPlatform
+    100026: CATRigLLegPlatform 1
+    100028: CATRigRArm1
+    100030: CATRigRArmCollarbone
+    100032: CATRigRArmPalm
+    100034: CATRigTail1
+    100036: CATRigTail2
+    100038: CATRigTail3
+    100040: CATRigTail4
+    100042: CATRigTail5
+    100044: Character002
+    100046: Group16659
+    100048: Group33316
+    100050: Group33317
+    100052: Group33318
+    100054: Group33319
+    100056: //RootNode
+    400000: CATRigHub001
+    400002: CATRigLArm1
+    400004: CATRigLArmCollarbone
+    400006: CATRigLArmPalm
+    400008: CATRigLLeg1
+    400010: CATRigLLeg1 1
+    400012: CATRigLLeg2
+    400014: CATRigLLeg2 1
+    400016: CATRigLLegAnkle
+    400018: CATRigLLegAnkle 1
+    400020: CATRigLLegDigit11
+    400022: CATRigLLegDigit11 1
+    400024: CATRigLLegPlatform
+    400026: CATRigLLegPlatform 1
+    400028: CATRigRArm1
+    400030: CATRigRArmCollarbone
+    400032: CATRigRArmPalm
+    400034: CATRigTail1
+    400036: CATRigTail2
+    400038: CATRigTail3
+    400040: CATRigTail4
+    400042: CATRigTail5
+    400044: Character002
+    400046: Group16659
+    400048: Group33316
+    400050: Group33317
+    400052: Group33318
+    400054: Group33319
+    400056: //RootNode
+    4300000: Group33316
+    4300002: Group33317
+    4300004: Group33318
+    4300006: Group33319
+    4300008: Group16659
     7400000: walk
     7400002: idle
     7400004: look_around
     7400006: attack
     7400008: attack_2
+    7400010: attack_3
     9500000: //RootNode
     11100000: //RootNode
-    13700000: Group31689
+    13700000: Group16659
+    13700002: Group33316
+    13700004: Group33317
+    13700006: Group33318
+    13700008: Group33319
   materials:
     importMaterials: 1
     materialName: 0
@@ -125,8 +125,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001
         weight: 1
-      - path: CATRigHub001/CATRigHub001Bone005
-        weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone
         weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone/CATRigLArm1
@@ -156,12 +154,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm
         weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box002
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box003
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Cylinder001
-        weight: 1
       - path: CATRigHub001/CATRigTail1
         weight: 1
       - path: CATRigHub001/CATRigTail1/CATRigTail2
@@ -178,7 +170,15 @@ ModelImporter:
         weight: 1
       - path: Character002
         weight: 1
-      - path: Group31689
+      - path: Group16659
+        weight: 1
+      - path: Group33316
+        weight: 1
+      - path: Group33317
+        weight: 1
+      - path: Group33318
+        weight: 1
+      - path: Group33319
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -210,8 +210,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001
         weight: 1
-      - path: CATRigHub001/CATRigHub001Bone005
-        weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone
         weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone/CATRigLArm1
@@ -241,12 +239,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm
         weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box002
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box003
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Cylinder001
-        weight: 1
       - path: CATRigHub001/CATRigTail1
         weight: 1
       - path: CATRigHub001/CATRigTail1/CATRigTail2
@@ -263,7 +255,15 @@ ModelImporter:
         weight: 1
       - path: Character002
         weight: 1
-      - path: Group31689
+      - path: Group16659
+        weight: 1
+      - path: Group33316
+        weight: 1
+      - path: Group33317
+        weight: 1
+      - path: Group33318
+        weight: 1
+      - path: Group33319
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -295,8 +295,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001
         weight: 1
-      - path: CATRigHub001/CATRigHub001Bone005
-        weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone
         weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone/CATRigLArm1
@@ -326,12 +324,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm
         weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box002
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box003
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Cylinder001
-        weight: 1
       - path: CATRigHub001/CATRigTail1
         weight: 1
       - path: CATRigHub001/CATRigTail1/CATRigTail2
@@ -348,7 +340,15 @@ ModelImporter:
         weight: 1
       - path: Character002
         weight: 1
-      - path: Group31689
+      - path: Group16659
+        weight: 1
+      - path: Group33316
+        weight: 1
+      - path: Group33317
+        weight: 1
+      - path: Group33318
+        weight: 1
+      - path: Group33319
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -380,8 +380,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001
         weight: 1
-      - path: CATRigHub001/CATRigHub001Bone005
-        weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone
         weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone/CATRigLArm1
@@ -411,12 +409,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm
         weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box002
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box003
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Cylinder001
-        weight: 1
       - path: CATRigHub001/CATRigTail1
         weight: 1
       - path: CATRigHub001/CATRigTail1/CATRigTail2
@@ -433,7 +425,15 @@ ModelImporter:
         weight: 1
       - path: Character002
         weight: 1
-      - path: Group31689
+      - path: Group16659
+        weight: 1
+      - path: Group33316
+        weight: 1
+      - path: Group33317
+        weight: 1
+      - path: Group33318
+        weight: 1
+      - path: Group33319
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -465,7 +465,90 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001
         weight: 1
-      - path: CATRigHub001/CATRigHub001Bone005
+      - path: CATRigHub001/CATRigLArmCollarbone
+        weight: 1
+      - path: CATRigHub001/CATRigLArmCollarbone/CATRigLArm1
+        weight: 1
+      - path: CATRigHub001/CATRigLArmCollarbone/CATRigLArm1/CATRigLArmPalm
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle/CATRigLLegDigit11
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1 1
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1 1/CATRigLLeg2 1
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1 1/CATRigLLeg2 1/CATRigLLegAnkle 1
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1 1/CATRigLLeg2 1/CATRigLLegAnkle 1/CATRigLLegDigit11
+          1
+        weight: 1
+      - path: CATRigHub001/CATRigRArmCollarbone
+        weight: 1
+      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1
+        weight: 1
+      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm
+        weight: 1
+      - path: CATRigHub001/CATRigTail1
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3/CATRigTail4
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3/CATRigTail4/CATRigTail5
+        weight: 1
+      - path: CATRigLLegPlatform
+        weight: 1
+      - path: CATRigLLegPlatform 1
+        weight: 1
+      - path: Character002
+        weight: 1
+      - path: Group16659
+        weight: 1
+      - path: Group33316
+        weight: 1
+      - path: Group33317
+        weight: 1
+      - path: Group33318
+        weight: 1
+      - path: Group33319
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack_3
+      takeName: Take 001
+      firstFrame: 115
+      lastFrame: 126
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CATRigHub001
         weight: 1
       - path: CATRigHub001/CATRigLArmCollarbone
         weight: 1
@@ -496,12 +579,6 @@ ModelImporter:
         weight: 1
       - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm
         weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box002
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Box003
-        weight: 1
-      - path: CATRigHub001/CATRigRArmCollarbone/CATRigRArm1/CATRigRArmPalm/Cylinder001
-        weight: 1
       - path: CATRigHub001/CATRigTail1
         weight: 1
       - path: CATRigHub001/CATRigTail1/CATRigTail2
@@ -518,15 +595,23 @@ ModelImporter:
         weight: 1
       - path: Character002
         weight: 1
-      - path: Group31689
+      - path: Group16659
+        weight: 1
+      - path: Group33316
+        weight: 1
+      - path: Group33317
+        weight: 1
+      - path: Group33318
+        weight: 1
+      - path: Group33319
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 5
-    meshCompression: 0
+    globalScale: 30
+    meshCompression: 3
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
@@ -541,9 +626,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 25
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0

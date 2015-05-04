@@ -44,7 +44,6 @@ GameObject:
   - 4: {fileID: 443844}
   - 114: {fileID: 11419318}
   - 114: {fileID: 11473318}
-  - 114: {fileID: 11458588}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -191,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.30965042, y: -2.5, z: 0}
+  m_LocalPosition: {x: -6.44494057, y: -2.5, z: 0}
   m_LocalScale: {x: 1.79999995, y: 1.79999995, z: 1}
   m_Children:
   - {fileID: 414996}
@@ -347,18 +346,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11458588
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
 --- !u!114 &11463250
 MonoBehaviour:
   m_ObjectHideFlags: 1
