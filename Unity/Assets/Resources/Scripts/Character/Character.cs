@@ -204,7 +204,6 @@ namespace EpicSpirit.Game
             if ( _animations == null )
             {
                 throw new NullReferenceException( "Character must have Animation Component" );
-
             }
         }
         #endregion

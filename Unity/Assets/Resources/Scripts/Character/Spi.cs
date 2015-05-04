@@ -48,15 +48,24 @@ namespace EpicSpirit.Game
                 // Update the last attack
                 _dateOfLastAttack = Time.fixedTime;
 
-                // Get the right attack
-                if ( _attackCounter >= 2 )
+                switch(_attackCounter) 
                 {
-                    _attackCounter = 0;
-                    animationName = "attack_2" ;
-                }
-                else
-                {
-                    animationName = "attack" ;
+                    case 0:
+                        animationName = "attack";
+                        break;
+                    case 1:
+                        animationName = "attack_2";
+                        break;
+                    case 2:
+                        animationName = "attack_3";
+                        _attackCounter = 0;
+                        break;
+                    default :
+                        _attackCounter = 0;
+                        animationName = "attack";
+                        Debug.Log("Erreur dans la gestion du combo");
+                        break;
+
                 }
                 AnimationManager( animationName );
                 StopAttack( animationName );
@@ -65,8 +74,6 @@ namespace EpicSpirit.Game
 
             
         }
-
-        
 
         public override void Move( Vector3 direction )
         {
