@@ -26,6 +26,8 @@ namespace EpicSpirit.Game
                 // Pour le moment notre méchant ne fait QUE Invoquer des BadBoy :-)
                 SummonBadBoy();
                 Invoke( "StopAttack", _animations.GetClip( "invoke" ).length );
+                StopAttack( "invoke" );
+
             }
 
             

@@ -19,6 +19,7 @@ namespace EpicSpirit.Game
             if(isState(States.Attack) &&  justAttacked) {
                 justAttacked = false;
                 AnimationManager( "attack" );
+                StopAttack( "attack" );
             }
             
         }
@@ -37,7 +38,10 @@ namespace EpicSpirit.Game
         internal override void takeDamage( int force )
         {
             base.takeDamage( force );
-            AnimationManager( "damaged" );
+            if ( isState( States.Damaged ) )
+            {
+                AnimationManager( "damaged" );
+            }
         }
 
     }

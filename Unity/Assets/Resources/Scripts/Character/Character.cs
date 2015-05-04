@@ -160,20 +160,20 @@ namespace EpicSpirit.Game
         // TODO : Mettre avec le stateManager tout beau tout propre
         internal virtual void takeDamage ( int force )
         {
-            ParticleSystem[] particuleSystems = this.GetComponentsInChildren<ParticleSystem>();
-            foreach ( ParticleSystem particuleSystem in particuleSystems )
+            if ( ChangeState( States.Damaged ) )
             {
-                if ( particuleSystem.name == "DamageEffect" )
+                ParticuleManager( "DamageEffect" );
+                _health -= force;
+
+
+                if ( _health <= 0 )
                 {
-                    particuleSystem.Play();
+                    GameObject.Destroy( this.gameObject, 0.5f );
                 }
-            }
-
-            _health -= force;
-
-            if ( _health <= 0 )
-            {
-                GameObject.Destroy( this.gameObject, 0.5f );
+                else
+                {
+                    Invoke( "EndOfState", 1f );
+                }
             }
 
         }
