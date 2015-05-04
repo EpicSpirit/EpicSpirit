@@ -3,23 +3,27 @@ using System.Collections;
 
 public class MouseGesture : MonoBehaviour 
 {
-    //MeshRenderer text;
-	void Start () 
-    {
-       // text = GetComponent<MeshRenderer>();
-	}
-	
-	void Update () 
-    {
-	   //text.material.color = Color.green;
-	}
-    public void OnMouseEnter()
-    {
-        Debug.Log("aaaaaaa");
-    }
     public void OnMouseUp()
     {
-        Debug.Log( "bbbbb" );
+        if ( GetComponentInChildren<TextMesh>().text == "Play" )
+        {
+                GameObject.Find( "Spi" ).GetComponent<SpiController>().Fall( new Vector3( 0, 0, 10 ) );
+                Invoke( "Play", 0.2f );
+        }
+        else if ( GetComponentInChildren<TextMesh>().text == "Exit" )
+        {
+            GameObject.Find( "Spi" ).GetComponent<SpiController>().Fall( new Vector3( 0, 0, -10 ) );
+            Invoke( "Exit", 0.2f );
+        }
+    }
+
+    private void Play()
+    {
         Application.LoadLevel( "Scene1" );
+    }
+    private void Exit()
+    {
+        Debug.Log( "wtf!!!!" );
+        Application.Quit();
     }
 }
