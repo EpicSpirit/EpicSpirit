@@ -24423,6 +24423,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13769334, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f0e31e6da14754fa0be0a09921a3d4, type: 2}
+    - target: {fileID: 13754130, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f0e31e6da14754fa0be0a09921a3d4, type: 2}
+    - target: {fileID: 13787192, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f0e31e6da14754fa0be0a09921a3d4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
   m_IsPrefabParent: 0
@@ -26687,7 +26699,7 @@ Prefab:
       objectReference: {fileID: 509065471}
     - target: {fileID: 11486816, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
       propertyPath: _joystickOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
