@@ -10,7 +10,7 @@ namespace EpicSpirit.Game
             if ( GetComponentInChildren<TextMesh>().text == "Play" )
             {
                 GameObject.Find( "Spi" ).GetComponent<SpiController>().Fall( new Vector3( 0, 0, 10 ) );
-                Invoke( "Play", 0.2f );
+                Invoke( "Play", 0.3f );
             }
             else if ( GetComponentInChildren<TextMesh>().text == "Exit" )
             {
@@ -21,6 +21,9 @@ namespace EpicSpirit.Game
 
         private void Play()
         {
+            GameObject.FindWithTag( "Menu" ).transform.position = new Vector3( 40, 0, 0 );
+            GameObject.FindWithTag( "Loading Screen" ).transform.position = new Vector3( 1.328523f, 0.8545985f, 2.893902f );
+
             Application.LoadLevel( "scene" );
         }
         private void Exit()
