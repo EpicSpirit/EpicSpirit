@@ -17,7 +17,7 @@ namespace EpicSpirit.Game
             base.Start();
 
 
-            _health = 1000;
+            _health = 20;
             _lookAroundCount = 300;
             _attackCounter = 0;
             _comboAttackInterval = 0.9f;
@@ -95,6 +95,15 @@ namespace EpicSpirit.Game
                     _lookAroundCount = 300;
                     AnimationManager( "look_around" );
                 }
+            }
+        }
+
+        internal override void takeDamage ( int force )
+        {
+            base.takeDamage( force );
+            if ( _health <= 0 )
+            {
+                Application.LoadLevel( "main_menu" );
             }
         }
     
