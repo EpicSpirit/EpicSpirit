@@ -11,6 +11,7 @@ namespace EpicSpirit.Game
         float _dateOfLastAttack;
         float _comboAttackInterval;
         int _lookAroundCount;
+        float _lastReceivedDamage;
 
         public override void Start()
         {
@@ -22,12 +23,14 @@ namespace EpicSpirit.Game
             _attackCounter = 0;
             _comboAttackInterval = 0.9f;
             _dateOfLastAttack = Time.fixedTime;
+            _lastReceivedDamage = 0f;
         }
 
         public override void Update()
         {
             base.Update();
         }
+       
         public override void Attack()
         {
             string animationName;
@@ -98,12 +101,21 @@ namespace EpicSpirit.Game
             }
         }
 
+        private bool isInvincible () {
+            return _lastReceivedDamage + 1f >= Time.fixedTime;
+        }
+
         internal override void takeDamage ( int force )
         {
-            base.takeDamage( force );
-            if ( _health <= 0 )
+            if ( !isInvincible() )
             {
-                Application.LoadLevel( "main_menu" );
+                _lastReceivedDamage = Time.fixedTime;
+
+                base.takeDamage( force );
+                if ( _health <= 0 )
+                {
+                    Application.LoadLevel( "main_menu" );
+                }
             }
         }
     

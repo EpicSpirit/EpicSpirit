@@ -29,6 +29,8 @@ namespace EpicSpirit.Game
 
         // Attack
         internal bool justAttacked;
+        Character _enemy;
+
 
         #endregion
 
@@ -114,10 +116,16 @@ namespace EpicSpirit.Game
                 GetListOfTarget();
                 foreach ( Character enemy in _targets )
                 {
+                    _enemy = enemy;
+                    Invoke( "MoveBack", 0.5f );
                     enemy.takeDamage( 1 );
                 }
 
             }
+        }
+        private void MoveBack() 
+        {
+            _enemy.GetComponent<CharacterController>().Move( ( _enemy.transform.position - this.transform.position ) * 5 * Time.deltaTime );
         }
 
         internal void StopAttack (string animationName)
@@ -172,7 +180,7 @@ namespace EpicSpirit.Game
                 }
                 else
                 {
-                    Invoke( "EndOfState", 1f );
+                    Invoke( "EndOfState", 0.3f );
                 }
             }
 
