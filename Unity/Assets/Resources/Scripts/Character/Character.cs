@@ -9,11 +9,14 @@ namespace EpicSpirit.Game
     {
         #region Fields
 
-        public float _movementSpeed;
-        public float _attackRange;
+        public short _movementSpeed;
+        public short _attackRange;
+
+        public short _aggroMovementSpeed;
+        public int _aggroArea;
 
         // Character Statistic
-        internal float _speedRotation;
+       // internal float _speedRotation;
         internal int _attack;
         internal int _health;
         internal float _attackSpeed = 5f;
@@ -33,7 +36,7 @@ namespace EpicSpirit.Game
         #endregion
 
         #region Properties
-        public float MovementSpeed
+        public short MovementSpeed
         {
             set { _movementSpeed = value; }
             get { return _movementSpeed; }
