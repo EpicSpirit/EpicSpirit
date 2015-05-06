@@ -7,9 +7,7 @@ namespace EpicSpirit.Game
     public class AIController : MonoBehaviour
     {
         #region Fields
-        public float _randomMovementSpeed;
-        public float _aggroMovementSpeed;
-        public int _aggroArea;
+        private short _randomMovementSpeed;
 
         private Character _character;
         private static System.Random _randomGenerator = new System.Random();
@@ -34,6 +32,8 @@ namespace EpicSpirit.Game
             _character.MovementSpeed = 2;
             _changeDirection = 0;
             _randomDirection = 1;
+
+            _randomMovementSpeed = _character._movementSpeed;
         }
 
         void Update()
@@ -99,7 +99,7 @@ namespace EpicSpirit.Game
             if ( player != null )
             {
                 _direction = player.transform.position - _character.transform.position;
-                if ( _direction.magnitude < _aggroArea )
+                if ( _direction.magnitude <= _character._aggroArea )
                 {
                     return true;
                 }
@@ -110,7 +110,7 @@ namespace EpicSpirit.Game
 
         private void AggressiveMove()
         {
-            _character.MovementSpeed = _aggroMovementSpeed;
+            _character.MovementSpeed = _character._aggroMovementSpeed;
 
             // Attack the enemy if he is near
             if ( _direction.magnitude < _character._attackRange )
@@ -121,10 +121,7 @@ namespace EpicSpirit.Game
                     _character.Attack();
                 }
             }
-
-
-            _character.Move( _direction );
-
+                _character.Move( Vector3.ClampMagnitude( _direction, 1 ) );
         }
     }
 }

@@ -13,7 +13,7 @@ namespace EpicSpirit.Game
             base.Start();
 
             _health = 30;
-            _movementSpeed = 0.5f;
+            _movementSpeed = 1;
 
         }
 

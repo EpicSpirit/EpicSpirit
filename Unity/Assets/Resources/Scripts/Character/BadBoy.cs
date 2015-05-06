@@ -10,13 +10,13 @@ namespace EpicSpirit.Game
             base.Start();
 
             _health = 3;
-            _movementSpeed = 2;
 
         }
         public override void Attack ()
         {
             base.Attack();
-            if(isState(States.Attack) &&  justAttacked) {
+            if ( isState( States.Attack ) && justAttacked )
+            {
                 justAttacked = false;
                 AnimationManager( "attack" );
                 StopAttack( "attack" );
@@ -27,10 +27,11 @@ namespace EpicSpirit.Game
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if(isState(States.Idle)) {
+            if ( isState( States.Idle ) )
+            {
                 AnimationManager( "idle" );
             }
-            else if(isState(States.Walk))
+            else if ( isState( States.Walk ) )
             {
                 AnimationManager( "walk" );
             }
@@ -38,6 +39,7 @@ namespace EpicSpirit.Game
         internal override void takeDamage( int force )
         {
             base.takeDamage( force );
+
             if ( isState( States.Damaged ) )
             {
                 AnimationManager( "damaged" );
