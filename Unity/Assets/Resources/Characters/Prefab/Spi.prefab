@@ -909,7 +909,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 15
-  _attackRange: 1
+  _attackRange: 6
+  _aggroMovementSpeed: 0
+  _aggroArea: 0
+  _health: 20
 --- !u!137 &13705772
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
