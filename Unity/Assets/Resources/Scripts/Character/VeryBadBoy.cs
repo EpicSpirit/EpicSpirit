@@ -55,6 +55,15 @@ namespace EpicSpirit.Game
             Character enemy = badBoy.GetComponent<Character>();
             enemy.ParticuleManager( "Invokation" );
         }
+        internal override void takeDamage ( int force )
+        {
+            base.takeDamage( force );
+
+            if ( isState( States.Damaged ) )
+            {
+                AnimationManager( "damaged" );
+            }
+        }
 
         //Todo : Même code que BadBoy, rendre ça Dry avec une méthode générique ?
         public override void Move( Vector3 direction )
