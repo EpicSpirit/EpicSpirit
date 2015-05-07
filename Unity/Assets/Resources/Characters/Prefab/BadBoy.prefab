@@ -263,8 +263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b23177c4ac59044296fc6654e46ac5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 15
-  _attackRange: 3
+  _movementSpeed: 5
+  _attackRange: 4
+  _aggroMovementSpeed: 9
+  _aggroArea: 10
+  _health: 3
 --- !u!114 &11484202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,9 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d280d901d28e4de448f00823b85429ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _randomMovementSpeed: 5
-  _aggroMovementSpeed: 10
-  _aggroArea: 10
 --- !u!137 &13709438
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

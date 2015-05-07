@@ -244,11 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4237a1e887c61054f83e0ca83aa553b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 1
+  _movementSpeed: 3
   _attackRange: 10
-  _aggroMovementSpeed: 6
+  _aggroMovementSpeed: 10
   _aggroArea: 10
-  _health: 30
+  _health: 10
 --- !u!137 &13754912
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
