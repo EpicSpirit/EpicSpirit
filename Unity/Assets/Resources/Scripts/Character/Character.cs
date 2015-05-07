@@ -48,6 +48,10 @@ namespace EpicSpirit.Game
             set { _attackSpeed = value; }
             get { return _attackSpeed; }
         }
+        public int Health
+        {
+            get { return _health; }
+        }
 
         #endregion
 
