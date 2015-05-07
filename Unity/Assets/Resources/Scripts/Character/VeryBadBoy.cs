@@ -19,19 +19,19 @@ namespace EpicSpirit.Game
 
         public override void Attack()
         {
-            // Pas de base.Attadk()
-
+            // Pas de base.Attack()
             if(ChangeState(States.Attack))
             {
                 // Pour le moment notre méchant ne fait QUE Invoquer des BadBoy :-)
                 SummonBadBoy();
-                Invoke( "StopAttack", _animations.GetClip( "invoke" ).length );
-                StopAttack( "invoke" );
-
+                Invoke( "PrepareStopAttack", _animations.GetClip( "invoke" ).length );
+                
             }
+        }
 
-            
-
+        private void PrepareStopAttack ()
+        {
+            StopAttack( "invoke" );
         }
 
         // TODO : Revoir l'histoire du random pour avoir une bonne plage de valeur
