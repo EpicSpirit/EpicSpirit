@@ -24,7 +24,7 @@ namespace EpicSpirit.Game
             GameObject.FindWithTag( "Menu" ).transform.position = new Vector3( 40, 0, 0 );
             GameObject.FindWithTag( "Loading Screen" ).transform.position = new Vector3( 1.328523f, 0.8545985f, 2.893902f );
 
-            Application.LoadLevel( "scene" );
+            Application.LoadLevel( "beginStory" );
         }
         private void Exit()
         {
