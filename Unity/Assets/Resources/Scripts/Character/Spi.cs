@@ -112,7 +112,9 @@ namespace EpicSpirit.Game
                 _lastReceivedDamage = Time.fixedTime;
 
                 base.takeDamage( force );
-
+               
+                AnimationManager( "damaged" );
+                
             }
         }
     
