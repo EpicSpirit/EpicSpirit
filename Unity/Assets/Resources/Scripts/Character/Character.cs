@@ -204,7 +204,8 @@ namespace EpicSpirit.Game
 
             if ( _animations != null && !_animations.IsPlaying( anim ) )
             {
-                _animations.Play( anim );
+                _animations.CrossFade( anim, 0.1f );
+                //_animations.Play( anim );
             }
         }
 
