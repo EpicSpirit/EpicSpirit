@@ -60,7 +60,9 @@
      <Compile Include="Assets\Resources\Scripts\MainMenu\SplashScreen\ResponsiveImage.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStory.cs" />
+     <Compile Include="Assets\Resources\Scripts\Story\BeginStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStory.cs" />
+     <Compile Include="Assets\Resources\Scripts\Story\EndStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthHUD.cs" />
      <Compile Include="Assets\Resources\Scripts\img_responsive.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\NotImportant\Controller Examples\CameraFollowExample.cs" />
