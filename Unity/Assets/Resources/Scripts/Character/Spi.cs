@@ -112,10 +112,7 @@ namespace EpicSpirit.Game
                 _lastReceivedDamage = Time.fixedTime;
 
                 base.takeDamage( force );
-                if ( _health <= 0 )
-                {
-                    Application.LoadLevel( "main_menu" );
-                }
+
             }
         }
     

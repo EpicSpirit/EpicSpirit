@@ -5,6 +5,7 @@ using System;
 
 namespace EpicSpirit.Game
 {
+    [ExecuteInEditMode]
     public abstract class Character : MonoBehaviour
     {
         #region Fields
@@ -15,10 +16,11 @@ namespace EpicSpirit.Game
         public short _aggroMovementSpeed;
         public int _aggroArea;
 
+        public int _health;
+
         // Character Statistic
        // internal float _speedRotation;
         internal int _attack;
-        internal int _health;
         internal float _attackSpeed = 5f;
 
         // Utilities
@@ -184,6 +186,9 @@ namespace EpicSpirit.Game
                 if ( _health <= 0 )
                 {
                     GameObject.Destroy( this.gameObject, 0.5f );
+
+                    if ( GameObject.FindWithTag( "Player" ).GetComponent<Character>() == this )
+                    Application.LoadLevel( "game_over" );
                 }
                 else
                 {

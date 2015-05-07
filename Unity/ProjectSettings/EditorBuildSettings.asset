@@ -7,7 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Resources/Maps/Main_Menu/main_menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Maps/Map_Test/Scene1.unity
   - enabled: 1
     path: Assets/Resources/Maps/Map_Max/scene.unity
+  - enabled: 1
+    path: Assets/Resources/Maps/Game_Over/game_over.unity
