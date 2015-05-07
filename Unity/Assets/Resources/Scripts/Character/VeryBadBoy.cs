@@ -62,7 +62,17 @@ namespace EpicSpirit.Game
             if ( isState( States.Damaged ) )
             {
                 AnimationManager( "damaged" );
+
             }
+            if(_health <= 5) 
+            {
+                Invoke("LoadLevel", 1f);
+            }
+        }
+
+        void LoadLevel ()
+        {
+            Application.LoadLevel( "endstory" );
         }
 
         //Todo : Même code que BadBoy, rendre ça Dry avec une méthode générique ?
