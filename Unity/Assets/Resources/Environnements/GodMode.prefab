@@ -164,7 +164,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 10
+  near clip plane: 5
   far clip plane: 100
   field of view: 40
   orthographic: 0
@@ -311,14 +311,6 @@ CharacterController:
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005
   m_Center: {x: 0, y: 0, z: 0}
-  m_TreeDistance: 0
-  m_TreeBillboardDistance: 5
-  m_TreeCrossFadeLength: 0
-  m_TreeMaximumFullLODCount: 0
-  m_DetailObjectDistance: 0
-  m_DetailObjectDensity: 0
-  m_DrawTreesAndFoliage: 0
-  m_BakeLightProbesForTrees: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
