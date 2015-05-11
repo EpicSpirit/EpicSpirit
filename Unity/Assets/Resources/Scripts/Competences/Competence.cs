@@ -1,16 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Competence : MonoBehaviour {
+namespace EpicSpirit.Game {
 
-    // Fields
-    Animation _anim;
-    float _attackDuration;
-    float _delayTakeDamage;
-    int strengh;
+    public abstract class Competence : MonoBehaviour {
 
-	public virtual void Start () {
+        // Fields
+        Animation[] _animations;
+        float _attackDuration;
+        float _delayTakeDamage;
+        int _strengh;
+        Texture _image;
+        Character _character;
+        bool _isStoppable;
+
+	    public abstract void Start () {
+	        
+	    }
+
+        public virtual void Act ()
+        {
+            _character.
+        }
 	
-	}
-	
+    }
 }

@@ -9,6 +9,7 @@ namespace EpicSpirit.Game
         {
             PlayerPrefs.SetInt( "Spi_Health", spi.Health );
         }
+
         public static void GetSavSpi ( Spi spi )
         {
             if ( PlayerPrefs.HasKey( "Spi_Health" ) )
