@@ -13,10 +13,13 @@ namespace EpicSpirit.Game
         int _lookAroundCount;
         float _lastReceivedDamage;
 
+        Action comp;
+
         public override void Start()
         {
             base.Start();
 
+            comp = new SimpleSword( this );
             _health = 20;
             _lookAroundCount = 300;
             _attackCounter = 0;
@@ -43,48 +46,15 @@ namespace EpicSpirit.Game
        
         public override void Attack()
         {
-            string animationName;
             base.Attack();
-            // Gestion du tick
-            if ( isState(States.Attack) && justAttacked)
+            // Tick Management
+            if ( isState( States.Attack ) && justAttacked)
             {
                 justAttacked = false;
-                //Looking for the right attack phase 
-                if ( _dateOfLastAttack + _comboAttackInterval > Time.fixedTime )
-                {
-                    _attackCounter++;
-                }
-                else
-                {
-                    _attackCounter = 0;
-                }
-                // Update the last attack
-                _dateOfLastAttack = Time.fixedTime;
-
-                switch(_attackCounter) 
-                {
-                    case 0:
-                        animationName = "attack";
-                        break;
-                    case 1:
-                        animationName = "attack_2";
-                        break;
-                    case 2:
-                        animationName = "attack_3";
-                        _attackCounter = 0;
-                        break;
-                    default :
-                        _attackCounter = 0;
-                        animationName = "attack";
-                        Debug.Log("Erreur dans la gestion du combo");
-                        break;
-
-                }
-                AnimationManager( animationName );
-                StopAttack( animationName );
-                
+                comp.Act();
+                StopAttack(comp.AttackDuration);
             }
-
+            
             
         }
 

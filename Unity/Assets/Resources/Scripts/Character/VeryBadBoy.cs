@@ -31,7 +31,8 @@ namespace EpicSpirit.Game
 
         private void PrepareStopAttack ()
         {
-            StopAttack( "invoke" );
+            
+
         }
 
         // TODO : Revoir l'histoire du random pour avoir une bonne plage de valeur

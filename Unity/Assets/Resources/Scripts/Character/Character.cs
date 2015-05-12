@@ -68,10 +68,7 @@ namespace EpicSpirit.Game
             justAttacked = false;
 
             _health = 3;
-            _attackVectors = new List<Vector3>();
-            _attackVectors.Add( new Vector3( 0, 1, 2 ) );
-            _attackVectors.Add( new Vector3( -1, 1, 2 ) );
-            _attackVectors.Add( new Vector3( 1, 1, 2 ) );
+            
 
             _characterController = this.GetComponent<CharacterController>();
             if ( _characterController == null )
@@ -126,14 +123,8 @@ namespace EpicSpirit.Game
             if ( ChangeState(States.Attack) )
             {
                 justAttacked = true;
-                GetListOfTarget();
-                foreach ( Character enemy in _targets )
-                {
-                    _enemy = enemy;
-                    Invoke( "MoveBack", 0.5f );
-                    enemy.takeDamage( 1 );
-                }
-
+                // Sais pas encore ce que l'on doit mettre dedans du coup
+                
             }
         }
         private void MoveBack() 
@@ -141,39 +132,9 @@ namespace EpicSpirit.Game
             _enemy.GetComponent<CharacterController>().Move( ( _enemy.transform.position - this.transform.position ) * 5 * Time.deltaTime );
         }
 
-        internal void StopAttack (string animationName)
-        {
-            StopAttack(_animations.GetClip(animationName).length);
-        }
         internal void StopAttack ( float duration )
         {
             Invoke( "EndOfState", duration );
-        }
-        
-        // TODO : remettre l'origine de l'attaque au bon endroit
-        internal List<Character> GetListOfTarget ()
-        {
-            _targets = new List<Character>();
-            Vector3 realAttackOrigin = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z );
-
-            foreach ( Vector3 vector in _attackVectors )
-            {
-                Debug.DrawRay( realAttackOrigin, this.transform.TransformDirection( vector ), Color.yellow, 1.0f );
-
-                if ( Physics.Raycast( realAttackOrigin, this.transform.TransformDirection( vector ), out _hit ) )
-                {
-
-                    Character target = null;
-                    target = _hit.transform.GetComponent<Character>();
-
-                    if ( target != null && target.name != this.name )
-                    {
-                        _targets.Add( target );
-                    }
-                }
-            }
-            return _targets;
-
         }
 
         // TODO : Rendre ça plus propre au niveau algo

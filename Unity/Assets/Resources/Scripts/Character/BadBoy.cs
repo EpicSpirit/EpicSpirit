@@ -19,7 +19,7 @@ namespace EpicSpirit.Game
             {
                 justAttacked = false;
                 AnimationManager( "attack" );
-                StopAttack( "attack" );
+                EndOfState();
             }
             
         }
