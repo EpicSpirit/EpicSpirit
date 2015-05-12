@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace EpicSpirit.Game {
 
-    public abstract class Competence : MonoBehaviour {
+    public class Competence : MonoBehaviour {
 
         // Fields
         Animation[] _animations;
@@ -14,14 +14,9 @@ namespace EpicSpirit.Game {
         Character _character;
         bool _isStoppable;
 
-	    public abstract void Start () {
-	        
-	    }
+	    public virtual void Start () {}
 
-        public virtual void Act ()
-        {
-            _character.
-        }
+        public virtual void Act () { }
 	
     }
 }
