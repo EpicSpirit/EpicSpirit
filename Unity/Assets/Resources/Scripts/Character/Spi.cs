@@ -19,7 +19,7 @@ namespace EpicSpirit.Game
         {
             base.Start();
 
-            comp = new SimpleSword( this );
+            comp = new Sword( this );
             _health = 20;
             _lookAroundCount = 300;
             _attackCounter = 0;
@@ -54,8 +54,6 @@ namespace EpicSpirit.Game
                 comp.Act();
                 StopAttack(comp.AttackDuration);
             }
-            
-            
         }
 
         public override void Move( Vector3 direction )

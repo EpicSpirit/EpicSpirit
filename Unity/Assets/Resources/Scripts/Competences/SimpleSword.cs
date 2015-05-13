@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 namespace EpicSpirit.Game
 {
-    public class SimpleSword : Weapon
+    public class Sword : Weapon
     {
-        public SimpleSword ( Character character )
+        public Sword ( Character character ):base(character)
         {
-            base(character);
             var a = _character.GetComponentInChildren<Animation>();
             _animations.Add( a.GetClip( "SimpleSword_1" ) );
             _animations.Add( a.GetClip( "SimpleSword_2" ) );
@@ -24,13 +24,11 @@ namespace EpicSpirit.Game
             // Phase 1 : Play the animation
             _character.AnimationManager( "SimpleSword_1" );
 
-
             List<Character> targets = GetListOfTarget();
             foreach(Character character in targets)
             {
                 character.takeDamage( _strengh );
             }
-
         }
     }
 }

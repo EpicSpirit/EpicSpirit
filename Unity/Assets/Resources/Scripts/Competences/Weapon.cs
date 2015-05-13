@@ -5,9 +5,8 @@ namespace EpicSpirit.Game
 {
     public class Weapon : Action
     {
-        public Weapon ( Character character )
+        public Weapon ( Character character ):base(character)
         {
-            base( character );
         }
         
     }

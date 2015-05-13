@@ -6,7 +6,6 @@ namespace EpicSpirit.Game {
 
     public class Action : MonoBehaviour 
     {
-
         // Fields
         internal List<AnimationClip> _animations;
         internal float _attackDuration;
