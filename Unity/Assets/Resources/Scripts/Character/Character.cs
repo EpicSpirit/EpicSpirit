@@ -53,6 +53,11 @@ namespace EpicSpirit.Game
         public int Health
         {
             get { return _health; }
+            set 
+            {
+                if ( value < 0 ) throw new InvalidOperationException("health can't be negativ");
+                _health = value; 
+            }
         }
 
         #endregion
@@ -97,7 +102,6 @@ namespace EpicSpirit.Game
         public virtual void Move ( Vector3 direction )
         {
             direction.y = 0;
-            
             if ( direction != Vector3.zero && ChangeState(States.Walk))
             {
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );

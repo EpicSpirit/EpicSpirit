@@ -17,15 +17,25 @@ namespace EpicSpirit.Game
         {
             base.Start();
 
-
             _health = 20;
             _lookAroundCount = 300;
             _attackCounter = 0;
             _comboAttackInterval = 0.9f;
             _dateOfLastAttack = Time.fixedTime;
             _lastReceivedDamage = 0f;
+
+            _health = PlayerPrefs.GetInt("Spi_health");
+            if ( _health == 0)
+            {
+                _health = 20;
+                PlayerPrefs.SetInt( "Spi_health", _health );
+            }
+            
+
         }
 
+
+       
         public override void Update()
         {
             base.Update();
@@ -114,7 +124,7 @@ namespace EpicSpirit.Game
                 base.takeDamage( force );
                
                 AnimationManager( "damaged" );
-                
+                PlayerPrefs.SetInt( "Spi_health", _health );
             }
         }
     

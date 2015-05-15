@@ -46,26 +46,27 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Controller\AIController.cs" />
-     <Compile Include="Assets\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\GenericCharacterForUnitTests.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Competence.cs" />
+     <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
+     <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\MouseGesture.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SpiController.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SplashScreen\ResponsiveImage.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Resources\Scripts\SaveManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthHUD.cs" />
      <Compile Include="Assets\Resources\Scripts\img_responsive.cs" />
-     <Compile Include="Assets\Resources\UI\CNControls\NotImportant\Controller Examples\CameraFollowExample.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNAbstractController.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
