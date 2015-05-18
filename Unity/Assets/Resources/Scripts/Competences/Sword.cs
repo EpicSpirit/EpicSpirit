@@ -7,24 +7,36 @@ namespace EpicSpirit.Game
     public class Sword : Weapon
     {
         int _currentPhase;
-        public Sword ( Character character ) : base(character)
+        Animation a;
+
+        public override void Start ()
         {
-            _attackAnimations.Add( new AttackAnimation( "SimpleSword_1", 1f ) );
-            _attackAnimations.Add( new AttackAnimation( "SimpleSword_2", 1f ) );
-            _attackAnimations.Add( new AttackAnimation( "SimpleSword_3", 1f ) );
+            base.Start();
+
+            a = GetComponentInChildren<Animation>();
+            _attackAnimations.Add( new AttackAnimation( "SimpleSword_1", a.GetClip( "SimpleSword_1" ).length / 2 ) );
+            _attackAnimations.Add( new AttackAnimation( "SimpleSword_2", a.GetClip( "SimpleSword_2" ).length / 2 ) );
+            _attackAnimations.Add( new AttackAnimation( "SimpleSword_3", a.GetClip( "SimpleSword_3" ).length / 2 ) );
 
             _currentPhase = 0;
             _attackDuration = 1;
             _strengh = 1;
-            _image = Resources.Load<Texture>("./UI/Images/SimpleSword");
+            _image = Resources.Load<Texture>( "./UI/Images/SimpleSword" );
             _isStoppable = false;
+
+        }
+
+        public override float AttackDuration
+        {
+            get { return a.GetClip(_attackAnimations[_currentPhase].AnimationName).length; }
         }
 
         public override void Act ()
         {
             _character.AnimationManager( _attackAnimations[_currentPhase].AnimationName );
-            Invoke( "Dammage", 1f );
+            Invoke( "Dammage", _attackAnimations[_currentPhase].TimeAttack );
         }
+
         public void Dammage () 
         {
             List<Character> targets = GetListOfTarget();

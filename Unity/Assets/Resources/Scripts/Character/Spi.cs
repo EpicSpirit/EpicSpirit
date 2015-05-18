@@ -13,7 +13,9 @@ namespace EpicSpirit.Game
         int _lookAroundCount;
         float _lastReceivedDamage;
 
-        Action comp;
+        // TEST
+        public Weapon _weapon;
+        
 
         public override void Start()
         {
@@ -27,18 +29,14 @@ namespace EpicSpirit.Game
             _lastReceivedDamage = 0f;
 
             _health = PlayerPrefs.GetInt("Spi_health");
-            if ( _health == 0)
+            if ( _health == 0 )
             {
                 _health = 20;
                 PlayerPrefs.SetInt( "Spi_health", _health );
             }
 
-
-
-            /*
-             * ########## NEW ##########
-             * */
-            //comp = new Sword( this );
+            // Pour le moment on n'a pas encore de menu pour les comp donc on les rajoute manuellement
+            this.gameObject.AddComponent<Sword>();
         }
 
 
@@ -56,8 +54,8 @@ namespace EpicSpirit.Game
             if ( isState( States.Attack ) && justAttacked)
             {
                 justAttacked = false;
-                comp.Act();
-                StopAttack(comp.AttackDuration);
+                _weapon.Act();
+                StopAttack( _weapon.AttackDuration );
             }
         }
 

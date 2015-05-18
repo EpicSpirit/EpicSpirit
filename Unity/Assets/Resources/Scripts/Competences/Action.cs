@@ -18,14 +18,16 @@ namespace EpicSpirit.Game {
         List<Vector3> _attackVectors;
         RaycastHit _hit;
 
-        public float AttackDuration
+        public virtual float AttackDuration
         {
             get{ return _attackDuration; }
         }
 
-	    public Action (Character character) 
+        
+
+        public virtual void Start () 
         {
-            _character = character;
+            _character = GetComponent<Character>();
             _attackVectors = new List<Vector3>();
             _attackVectors.Add( new Vector3( 0, 1, 2 ) );
             _attackVectors.Add( new Vector3( -1, 1, 2 ) );

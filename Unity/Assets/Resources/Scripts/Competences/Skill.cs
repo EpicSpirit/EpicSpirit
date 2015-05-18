@@ -6,11 +6,7 @@ namespace EpicSpirit.Game
     public class Skill : Action
     {
 
-        public Skill ( Character character )
-            : base( character )
-        {
-
-        }
+        
 
         
     }
