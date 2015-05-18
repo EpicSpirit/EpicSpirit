@@ -6,16 +6,12 @@ namespace EpicSpirit.Game
     public class Object : Action
     {
 
-        // Use this for initialization
-        void Start ()
+        public Object ( Character character )
+            : base( character )
         {
 
         }
 
-        // Update is called once per frame
-        void Update ()
-        {
-
-        }
+        
     }
 }

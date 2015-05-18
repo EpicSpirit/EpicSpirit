@@ -54,9 +54,10 @@
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Action.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\AttackAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Object.cs" />
-     <Compile Include="Assets\Resources\Scripts\Competences\SimpleSword.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skill.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Sword.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Weapon.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />

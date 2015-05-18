@@ -7,7 +7,7 @@ namespace EpicSpirit.Game {
     public class Action : MonoBehaviour 
     {
         // Fields
-        internal List<AnimationClip> _animations;
+        internal List<AttackAnimation> _attackAnimations;
         internal float _attackDuration;
         internal float _delayTakeDamage;
         internal int _strengh;
@@ -30,7 +30,8 @@ namespace EpicSpirit.Game {
             _attackVectors.Add( new Vector3( 0, 1, 2 ) );
             _attackVectors.Add( new Vector3( -1, 1, 2 ) );
             _attackVectors.Add( new Vector3( 1, 1, 2 ) );
-        
+
+            _attackAnimations = new List<AttackAnimation>();
         }
 
         public virtual void Act () 
@@ -42,7 +43,7 @@ namespace EpicSpirit.Game {
         internal virtual List<Character> GetListOfTarget ()
         {
             List<Character> _targets = new List<Character>();
-            Vector3 realAttackOrigin = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z );
+            Vector3 realAttackOrigin = new Vector3( _character.transform.position.x, _character.transform.position.y + 1, _character.transform.position.z );
 
             foreach ( Vector3 vector in _attackVectors )
             {

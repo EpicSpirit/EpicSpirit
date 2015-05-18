@@ -19,7 +19,6 @@ namespace EpicSpirit.Game
         {
             base.Start();
 
-            comp = new Sword( this );
             _health = 20;
             _lookAroundCount = 300;
             _attackCounter = 0;
@@ -33,8 +32,13 @@ namespace EpicSpirit.Game
                 _health = 20;
                 PlayerPrefs.SetInt( "Spi_health", _health );
             }
-            
 
+
+
+            /*
+             * ########## NEW ##########
+             * */
+            //comp = new Sword( this );
         }
 
 
@@ -47,6 +51,7 @@ namespace EpicSpirit.Game
         public override void Attack()
         {
             base.Attack();
+
             // Tick Management
             if ( isState( States.Attack ) && justAttacked)
             {

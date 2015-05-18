@@ -5,7 +5,7 @@ using System;
 
 namespace EpicSpirit.Game
 {
-    [ExecuteInEditMode]
+
     public abstract class Character : MonoBehaviour
     {
         #region Fields
