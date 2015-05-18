@@ -13,10 +13,9 @@ namespace EpicSpirit.Game
         {
             base.Start();
 
-            a = GetComponentInChildren<Animation>();
-            _attackAnimations.Add( new AttackAnimation( "SimpleSword_1", a.GetClip( "SimpleSword_1" ).length / 2 ) );
-            _attackAnimations.Add( new AttackAnimation( "SimpleSword_2", a.GetClip( "SimpleSword_2" ).length / 2 ) );
-            _attackAnimations.Add( new AttackAnimation( "SimpleSword_3", a.GetClip( "SimpleSword_3" ).length / 2 ) );
+            _attackAnimations.Add( new AttackAnimation( "SimpleSword_1", _animation.GetClip( "SimpleSword_1" ).length / 2 ) );
+            _attackAnimations.Add( new AttackAnimation( "SimpleSword_2", _animation.GetClip( "SimpleSword_2" ).length / 2 ) );
+            _attackAnimations.Add( new AttackAnimation( "SimpleSword_3", _animation.GetClip( "SimpleSword_3" ).length / 2 ) );
 
             _currentPhase = 0;
             _attackDuration = 1;
@@ -28,16 +27,16 @@ namespace EpicSpirit.Game
 
         public override float AttackDuration
         {
-            get { return a.GetClip(_attackAnimations[_currentPhase].AnimationName).length; }
+            get { return _animation.GetClip( _attackAnimations [_currentPhase].AnimationName ).length; }
         }
 
         public override void Act ()
         {
             _character.AnimationManager( _attackAnimations[_currentPhase].AnimationName );
-            Invoke( "Dammage", _attackAnimations[_currentPhase].TimeAttack );
+            Invoke( "Damage", _attackAnimations[_currentPhase].TimeAttack );
         }
 
-        public void Dammage () 
+        public void Damage () 
         {
             List<Character> targets = GetListOfTarget();
             foreach(Character character in targets)

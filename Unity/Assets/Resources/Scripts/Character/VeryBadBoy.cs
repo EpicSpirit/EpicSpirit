@@ -6,7 +6,7 @@ namespace EpicSpirit.Game
     public class VeryBadBoy : Character
     {
         private static System.Random _randomGenerator = new System.Random();
-
+        Action attack;
 
         public override void Start()
         {
@@ -14,6 +14,7 @@ namespace EpicSpirit.Game
 
             _health = 30;
             _movementSpeed = 1;
+            attack = this.gameObject.AddComponent<SummonBadBoy>();
 
         }
 
@@ -23,16 +24,13 @@ namespace EpicSpirit.Game
             if(ChangeState(States.Attack))
             {
                 // Pour le moment notre méchant ne fait QUE Invoquer des BadBoy :-)
-                SummonBadBoy();
+                attack.Act();
+                StopAttack(attack.AttackDuration);
+
+                //SummonBadBoy
                 Invoke( "PrepareStopAttack", _animations.GetClip( "invoke" ).length );
                 
             }
-        }
-
-        private void PrepareStopAttack ()
-        {
-            
-
         }
 
         // TODO : Revoir l'histoire du random pour avoir une bonne plage de valeur
@@ -41,7 +39,6 @@ namespace EpicSpirit.Game
         {
             // Play the animation
             AnimationManager( "invoke" );
-
             Invoke( "RealSummon", _animations.GetClip( "invoke" ).length - 0.5f );
             
         }

@@ -48,13 +48,10 @@ namespace EpicSpirit.Game
        
         public override void Attack()
         {
-            base.Attack();
-
             // Tick Management
-            if ( isState( States.Attack ) && justAttacked)
+            if ( ChangeState( States.Attack ) )
             {
-                justAttacked = false;
-                _weapon.Act();
+                _weapon.Act();  // TMP
                 StopAttack( _weapon.AttackDuration );
             }
         }

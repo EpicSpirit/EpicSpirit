@@ -8,6 +8,8 @@ namespace EpicSpirit.Game {
     {
         // Fields
         internal List<AttackAnimation> _attackAnimations;
+        internal Animation _animation;
+
         internal float _attackDuration;
         internal float _delayTakeDamage;
         internal int _strengh;
@@ -34,12 +36,11 @@ namespace EpicSpirit.Game {
             _attackVectors.Add( new Vector3( 1, 1, 2 ) );
 
             _attackAnimations = new List<AttackAnimation>();
+            _animation = GetComponentInChildren<Animation>();
+
         }
 
-        public virtual void Act () 
-        {
-        
-        }
+        public virtual void Act () { }
 
         // TODO : remettre l'origine de l'attaque au bon endroit
         internal virtual List<Character> GetListOfTarget ()

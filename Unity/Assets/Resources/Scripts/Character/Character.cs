@@ -117,16 +117,8 @@ namespace EpicSpirit.Game
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
         // TODO : Invoke( "StopAttack", _animations.GetClip( "attack" ).length) Rendre ça générique pour les différentes animations 
-        public virtual void Attack ()
-        {
-            // Tick Management
-            if ( ChangeState(States.Attack) )
-            {
-                justAttacked = true;
-                // Sais pas encore ce que l'on doit mettre dedans du coup
-                
-            }
-        }
+        public abstract void Attack ();
+        
         private void MoveBack() 
         {
             _enemy.GetComponent<CharacterController>().Move( ( _enemy.transform.position - this.transform.position ) * 5 * Time.deltaTime );
