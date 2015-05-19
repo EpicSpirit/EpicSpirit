@@ -21,38 +21,15 @@ namespace EpicSpirit.Game
         public override void Attack()
         {
             // Pas de base.Attack()
-            if(ChangeState(States.Attack))
+            if ( ChangeState( States.Attack ) )
             {
                 // Pour le moment notre méchant ne fait QUE Invoquer des BadBoy :-)
                 attack.Act();
-                StopAttack(attack.AttackDuration);
-
-                //SummonBadBoy
-                Invoke( "PrepareStopAttack", _animations.GetClip( "invoke" ).length );
-                
+                StopAttack( attack.AttackDuration );
             }
         }
 
-        // TODO : Revoir l'histoire du random pour avoir une bonne plage de valeur
-        // TODO : Rendre la méthode un peu plus générique ? 
-        private void SummonBadBoy()
-        {
-            // Play the animation
-            AnimationManager( "invoke" );
-            Invoke( "RealSummon", _animations.GetClip( "invoke" ).length - 0.5f );
-            
-        }
-        private void RealSummon() {
-            // Real attack
-            Vector3 position = this.transform.position;
-
-            position.x += _randomGenerator.Next( 1, 5 );
-            position.z += _randomGenerator.Next( 1, 5 );
-
-            GameObject badBoy = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Characters/Prefab/BadBoy" ), position, this.transform.rotation ) as GameObject;
-            Character enemy = badBoy.GetComponent<Character>();
-            enemy.ParticuleManager( "Invokation" );
-        }
+        
         internal override void takeDamage ( int force )
         {
             base.takeDamage( force );
