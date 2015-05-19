@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 456932}
   - 212: {fileID: 21254422}
+  - 65: {fileID: 6521334}
   m_Layer: 0
   m_Name: arrows
   m_TagString: Untagged
@@ -22,12 +23,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176848}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: .5, y: -.500000119, z: .5, w: .49999994}
+  m_LocalPosition: {x: -2.71384907, y: 23.346096, z: -.172463417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!65 &6521334
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .930000007, y: .439999998, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &21254422
 SpriteRenderer:
   m_ObjectHideFlags: 1

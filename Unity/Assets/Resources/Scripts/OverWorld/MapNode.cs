@@ -1,43 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace EpicSpirit.Game
 {
 	public class MapNode : MonoBehaviour 
 	{
 		bool _isLocked;
-		string _name;
-		string _levelName;
 
-		[SerializeField]
-		MapNode _previousNode;
-		[SerializeField]
-		MapNode _nextNode;
-		[SerializeField]
-		MapNode _templeNode;
+        List<GameObject> _arrows;
 
-		public MapNode PreviousNode
-		{
-			get{ return _previousNode; }
-			set{ _previousNode = value; }
-		}
+        [SerializeField]
+        List<MapNode> _linkedNodes;
 
-		public MapNode NextNode
-		{
-			get{ return _nextNode; }
-			set{ _nextNode = value; }
-		}
-
-		public MapNode TempleNode
-		{
-			get{ return _templeNode; }
-			set{ _templeNode = value; }
-		}
+        public List<MapNode> LinkedNodes
+        {
+            get { return _linkedNodes; }
+            set { _linkedNodes = value; }
+        }
 
 		// Use this for initialization
 		void Start () 
 		{
-			_name = this.name;
 		}
 		
 		// Update is called once per frame
@@ -51,9 +35,39 @@ namespace EpicSpirit.Game
 		/// </summary>
 		public void Enter()
 		{
-			Instantiate (UnityEngine.Resources.Load<UnityEngine.Object>( "Images/Overworld/arrows" ), transform.position, transform.rotation);
+            Vector3 rotateEuler;
+            _arrows = new List<GameObject>();
 
+            foreach(MapNode node in LinkedNodes)
+            {
+                GameObject arrow = (GameObject)Instantiate( UnityEngine.Resources.Load<UnityEngine.Object>( "Images/Overworld/arrows" ), transform.position, Quaternion.LookRotation( node.transform.position - this.transform.position ) );
+
+                // Arrow rotation correction
+                rotateEuler = arrow.transform.localEulerAngles;
+                rotateEuler.x = 90;
+                rotateEuler.z = 90;
+                arrow.transform.rotation = Quaternion.Euler( rotateEuler );
+
+                // Arrow position
+                arrow.transform.localPosition = new Vector3( arrow.transform.localPosition.x + 1, arrow.transform.localPosition.y, arrow.transform.localPosition.z );
+
+                _arrows.Add(arrow);
+            }
 		}
+
+        public void Exit()
+        {
+            foreach(GameObject arrow in _arrows)
+            {
+                GameObject.Destroy( arrow );
+            }
+        }
+
+        public void LoadLevel()
+        {
+            Application.LoadLevel( name );
+        }
+
 		
 	}
 }
