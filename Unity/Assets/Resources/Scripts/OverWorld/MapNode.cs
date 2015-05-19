@@ -13,22 +13,16 @@ namespace EpicSpirit.Game
         [SerializeField]
         List<MapNode> _linkedNodes;
 
+        public List<GameObject> Arrows
+        {
+            get { return _arrows; }
+        }
+
         public List<MapNode> LinkedNodes
         {
             get { return _linkedNodes; }
             set { _linkedNodes = value; }
         }
-
-		// Use this for initialization
-		void Start () 
-		{
-		}
-		
-		// Update is called once per frame
-		void Update () 
-		{
-		
-		}
 
 		/// <summary>
 		/// Call it when the player enter in this node
@@ -49,7 +43,9 @@ namespace EpicSpirit.Game
                 arrow.transform.rotation = Quaternion.Euler( rotateEuler );
 
                 // Arrow position
-                arrow.transform.localPosition = new Vector3( arrow.transform.localPosition.x + 1, arrow.transform.localPosition.y, arrow.transform.localPosition.z );
+                arrow.transform.Translate( Vector3.right * 1.7f, Space.Self );
+
+                arrow.GetComponent<ArrowGesture>().LinkedNode = this;
 
                 _arrows.Add(arrow);
             }

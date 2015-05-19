@@ -60,6 +60,7 @@
      <Compile Include="Assets\Resources\Scripts\MainMenu\SpiController.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SplashScreen\ResponsiveImage.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Resources\Scripts\OverWorld\ArrowGesture.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\MapNode.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\OverworldPlayerController.cs" />

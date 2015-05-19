@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 401215891}
   - 114: {fileID: 401215890}
   m_Layer: 0
-  m_Name: Forest 1
+  m_Name: forest_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -236,7 +236,7 @@ GameObject:
   - 4: {fileID: 748952237}
   - 114: {fileID: 748952236}
   m_Layer: 0
-  m_Name: Mountain
+  m_Name: mountain_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 748952235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.77999997, y: 0, z: -.790000021}
+  m_LocalPosition: {x: 5.36000013, y: 0, z: -.25999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1938111752}
@@ -276,7 +276,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.34000015
+      value: -7.63000011
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -304,7 +304,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_LocalScale.x
@@ -324,7 +324,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11429926, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: _movementSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 14361218, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
+      propertyPath: m_Radius
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
@@ -440,7 +444,7 @@ GameObject:
   - 4: {fileID: 1206798374}
   - 114: {fileID: 1206798373}
   m_Layer: 0
-  m_Name: Forest Temple
+  m_Name: forest_temple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,7 +470,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1206798372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .239999995, y: 0, z: .49000001}
+  m_LocalPosition: {x: .239999995, y: 0, z: 2.24000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1938111752}
@@ -481,7 +485,7 @@ GameObject:
   - 4: {fileID: 1542310643}
   - 114: {fileID: 1542310645}
   m_Layer: 0
-  m_Name: Forest 2
+  m_Name: forest_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +498,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1542310642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .25999999, y: 0, z: -1.58000004}
+  m_LocalPosition: {x: 1.47000003, y: 0, z: -1.28999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1938111752}

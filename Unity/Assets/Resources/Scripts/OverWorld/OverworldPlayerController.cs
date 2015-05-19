@@ -11,30 +11,23 @@ namespace EpicSpirit.Game
 
 		void Start () 
 		{
-          //  _currentMapNode.LinkedNodes[0].LinkedNodes[0].Enter();
             _currentMapNode.Enter();
 		}
 		
 		void Update () 
 		{
-			if (Input.GetKeyDown(KeyCode.LeftArrow))
-			{
-				if( _currentMapNode.LinkedNodes[0] != null )
-				{
+            int i = 0;
+            foreach(GameObject arrow in _currentMapNode.Arrows)
+            {
+                if ( arrow.GetComponent<ArrowGesture>().Move )
+                {
                     _currentMapNode.Exit();
-                    _currentMapNode = _currentMapNode.LinkedNodes[0];
+                    _currentMapNode = _currentMapNode.LinkedNodes[i];
                     _currentMapNode.Enter();
-				}
-			}
-			else if (Input.GetKeyDown(KeyCode.RightArrow))
-			{
-                if ( _currentMapNode.LinkedNodes[1] != null )
-				{
-                    _currentMapNode.Exit();
-					_currentMapNode = _currentMapNode.LinkedNodes[1];
-                    _currentMapNode.Enter();
-				}
-			}
+                }
+                    i++;
+            }
+
             _player.MoveTo( _currentMapNode.transform.position ) ;
 		}
 	}
