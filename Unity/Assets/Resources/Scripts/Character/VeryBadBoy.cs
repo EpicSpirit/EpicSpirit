@@ -6,7 +6,6 @@ namespace EpicSpirit.Game
     public class VeryBadBoy : Character
     {
         private static System.Random _randomGenerator = new System.Random();
-        Action attack;
 
         public override void Start()
         {
@@ -14,22 +13,9 @@ namespace EpicSpirit.Game
 
             _health = 30;
             _movementSpeed = 1;
-            attack = this.gameObject.AddComponent<SummonBadBoy>();
+            _actions.Add( this.gameObject.AddComponent<SummonBadBoy>() );
 
         }
-
-        public override void Attack()
-        {
-            // Pas de base.Attack()
-            if ( ChangeState( States.Attack ) )
-            {
-                // Pour le moment notre méchant ne fait QUE Invoquer des BadBoy :-)
-                attack.Act();
-                StopAttack( attack.AttackDuration );
-            }
-        }
-
-        
         internal override void takeDamage ( int force )
         {
             base.takeDamage( force );

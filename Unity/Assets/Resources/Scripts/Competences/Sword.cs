@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace EpicSpirit.Game
 {
@@ -20,9 +21,8 @@ namespace EpicSpirit.Game
             _currentPhase = 0;
             _attackDuration = 1;
             _strengh = 1;
-            _image = Resources.Load<Texture>( "./UI/Images/SimpleSword" );
+            _image = Resources.Load<Image>( "./UI/Images/SimpleSword" );
             _isStoppable = false;
-
         }
 
         public override float AttackDuration

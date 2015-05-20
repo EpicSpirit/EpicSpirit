@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace EpicSpirit.Game {
 
@@ -13,7 +14,7 @@ namespace EpicSpirit.Game {
         internal float _attackDuration;
         internal float _delayTakeDamage;
         internal int _strengh;
-        internal Texture _image;
+        internal Image _image;
         internal Character _character;
         internal bool _isStoppable;
 
@@ -24,6 +25,7 @@ namespace EpicSpirit.Game {
         {
             get{ return _attackDuration; }
         }
+        public Image GetImage { get { return _image; } }
 
         
 

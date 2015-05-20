@@ -33,8 +33,7 @@ namespace EpicSpirit.Game
         private CharacterController _characterController;
 
         // Attack
-        internal bool justAttacked;
-        Character _enemy;
+        internal List<Action> _actions;
 
 
         #endregion
@@ -65,8 +64,8 @@ namespace EpicSpirit.Game
         public virtual void Start ()
         {
             InitializeAnimationManager();
-            justAttacked = false;
 
+            _actions = new List<Action>();
             _health = 3;
             
 
@@ -77,6 +76,7 @@ namespace EpicSpirit.Game
             }
 
             InitializeStateManager();
+
 
 
         }
@@ -117,12 +117,31 @@ namespace EpicSpirit.Game
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
         // TODO : Invoke( "StopAttack", _animations.GetClip( "attack" ).length) Rendre ça générique pour les différentes animations 
-        public abstract void Attack ();
+        public void Attack () 
+        {
+            Attack(0);
+        }
+        public void Attack (int indice) 
+        {
+            // Tick Management
+            if ( ChangeState( States.Attack ) )
+            {
+                _actions[indice].Act();  // TMP
+                StopAttack( _actions[indice].AttackDuration );
+            }
+        }
+
+        public Action GetAttack (int indice) 
+        {
+            return _actions[indice];
+        }
         
+        /*
         private void MoveBack() 
         {
             _enemy.GetComponent<CharacterController>().Move( ( _enemy.transform.position - this.transform.position ) * 5 * Time.deltaTime );
         }
+         * */
 
         internal void StopAttack ( float duration )
         {

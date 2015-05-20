@@ -26,9 +26,7 @@ namespace EpicSpirit.Game
         }
 
         public void Invoke () 
-        {
-            // Real attack
-            
+        {            
             Vector3 position = _character.transform.position;
 
             position.x += _randomGenerator.Next( 1, 5 );

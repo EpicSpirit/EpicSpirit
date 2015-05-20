@@ -145,6 +145,7 @@ GameObject:
   - 4: {fileID: 447552}
   - 143: {fileID: 14361218}
   - 114: {fileID: 11429926}
+  - 114: {fileID: 11408912}
   m_Layer: 0
   m_Name: Spi
   m_TagString: Player
@@ -561,7 +562,7 @@ Transform:
   m_LocalScale: {x: 1.15255272, y: 1.15255272, z: 1.15255272}
   m_Children: []
   m_Father: {fileID: 447552}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &423346
 Transform:
   m_ObjectHideFlags: 1
@@ -631,11 +632,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123834}
   m_LocalRotation: {x: 0, y: .708693504, z: 0, w: .705516517}
-  m_LocalPosition: {x: 14.1999998, y: .248395443, z: 23.7999992}
-  m_LocalScale: {x: 1.12263393, y: 1.12263393, z: 1.12263405}
+  m_LocalPosition: {x: 16.8999996, y: .300000012, z: 26.5}
+  m_LocalScale: {x: 1.47954631, y: 1.47954607, z: 1.47954631}
   m_Children:
-  - {fileID: 420210}
   - {fileID: 470906}
+  - {fileID: 420210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &454984
@@ -713,7 +714,7 @@ Transform:
   - {fileID: 411244}
   - {fileID: 410766}
   m_Father: {fileID: 447552}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &473894
 Transform:
   m_ObjectHideFlags: 1
@@ -898,6 +899,17 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &11408912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7a1b885c6bf6c4d957e20d58f63704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11429926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -914,6 +926,7 @@ MonoBehaviour:
   _aggroMovementSpeed: 0
   _aggroArea: 0
   _health: 20
+  _weapon: {fileID: 11408912}
 --- !u!137 &13712902
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

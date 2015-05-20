@@ -13,10 +13,6 @@ namespace EpicSpirit.Game
         int _lookAroundCount;
         float _lastReceivedDamage;
 
-        // TEST
-        public Weapon _weapon;
-        
-
         public override void Start()
         {
             base.Start();
@@ -36,7 +32,7 @@ namespace EpicSpirit.Game
             }
 
             // Pour le moment on n'a pas encore de menu pour les comp donc on les rajoute manuellement
-            this.gameObject.AddComponent<Sword>();
+            _actions.Add(this.gameObject.AddComponent<Sword>());
         }
 
 
@@ -44,16 +40,6 @@ namespace EpicSpirit.Game
         public override void Update()
         {
             base.Update();
-        }
-       
-        public override void Attack()
-        {
-            // Tick Management
-            if ( ChangeState( States.Attack ) )
-            {
-                _weapon.Act();  // TMP
-                StopAttack( _weapon.AttackDuration );
-            }
         }
 
         public override void Move( Vector3 direction )

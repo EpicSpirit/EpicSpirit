@@ -10,9 +10,6 @@ namespace EpicSpirit.Game
     /// </summary>
     public class GenericCharacterForUnitTests : Character
     {
-        public override void Attack ()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
