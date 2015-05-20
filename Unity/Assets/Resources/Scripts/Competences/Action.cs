@@ -14,7 +14,7 @@ namespace EpicSpirit.Game {
         internal float _attackDuration;
         internal float _delayTakeDamage;
         internal int _strengh;
-        internal Image _image;
+        internal Sprite _image;
         internal Character _character;
         internal bool _isStoppable;
 
@@ -25,7 +25,13 @@ namespace EpicSpirit.Game {
         {
             get{ return _attackDuration; }
         }
-        public Image GetImage { get { return _image; } }
+        public Sprite GetSprite
+        {
+            get
+            {
+                return _image;
+            }
+        }
 
         
 

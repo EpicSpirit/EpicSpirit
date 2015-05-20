@@ -126,7 +126,7 @@ namespace EpicSpirit.Game
             // Tick Management
             if ( ChangeState( States.Attack ) )
             {
-                _actions[indice].Act();  // TMP
+                _actions[indice].Act();
                 StopAttack( _actions[indice].AttackDuration );
             }
         }

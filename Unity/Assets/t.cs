@@ -8,14 +8,21 @@ namespace EpicSpirit.Game {
         Button b;
         public int _indice;
         public Character target;
+        bool a=false;
 
+	    void Update () 
+        {
+            if ( target.GetAttack( _indice ).GetSprite != null )
+            {
+                b = this.GetComponent<Button>();
+                b.image.overrideSprite = target.GetAttack( _indice ).GetSprite;
+                b.onClick.AddListener( () => target.Attack( _indice ) );
 
-	    // Use this for initialization
-	    void Start () {
-            b.image = target.GetAttack(_indice).GetImage;
-
-            b = this.GetComponent<Button>();
-            b.onClick.AddListener( () => target.Attack(_indice) );
+                this.enabled = false;
+               
+            }
+            Debug.Log("EEE");
+            
 	    }
 
     }

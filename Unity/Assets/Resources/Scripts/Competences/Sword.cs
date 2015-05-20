@@ -8,7 +8,6 @@ namespace EpicSpirit.Game
     public class Sword : Weapon
     {
         int _currentPhase;
-        Animation a;
 
         public override void Start ()
         {
@@ -21,7 +20,8 @@ namespace EpicSpirit.Game
             _currentPhase = 0;
             _attackDuration = 1;
             _strengh = 1;
-            _image = Resources.Load<Image>( "./UI/Images/SimpleSword" );
+            _image = Resources.Load<Sprite>( "UI/Images/SimpleSword" );
+            
             _isStoppable = false;
         }
 

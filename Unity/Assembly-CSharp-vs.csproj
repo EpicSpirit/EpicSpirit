@@ -56,8 +56,9 @@
      <Compile Include="Assets\Resources\Scripts\Competences\Action.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\AttackAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\BadBoy\Tacle.cs" />
-     <Compile Include="Assets\Resources\Scripts\Competences\Object.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Item.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skill.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Spi\HealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Sword.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\VeryBadBoy\SummonBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Weapon.cs" />
