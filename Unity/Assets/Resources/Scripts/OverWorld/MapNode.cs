@@ -34,6 +34,7 @@ namespace EpicSpirit.Game
 
             foreach(MapNode node in LinkedNodes)
             {
+                // Directionnal arrows managment
                 GameObject arrow = (GameObject)Instantiate( UnityEngine.Resources.Load<UnityEngine.Object>( "Images/Overworld/arrows" ), transform.position, Quaternion.LookRotation( node.transform.position - this.transform.position ) );
 
                 // Arrow rotation correction
@@ -58,12 +59,5 @@ namespace EpicSpirit.Game
                 GameObject.Destroy( arrow );
             }
         }
-
-        public void LoadLevel()
-        {
-            Application.LoadLevel( name );
-        }
-
-		
 	}
 }
