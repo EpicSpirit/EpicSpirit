@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +68,10 @@
      <Compile Include="Assets\Resources\Scripts\MainMenu\SpiController.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SplashScreen\ResponsiveImage.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Resources\Scripts\OverWorld\ArrowGesture.cs" />
+     <Compile Include="Assets\Resources\Scripts\OverWorld\CameraFollow.cs" />
+     <Compile Include="Assets\Resources\Scripts\OverWorld\MapNode.cs" />
+     <Compile Include="Assets\Resources\Scripts\OverWorld\OverworldPlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\SaveManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStoryScriptAlArrache.cs" />
@@ -82,7 +86,7 @@
      <Compile Include="Assets\aaa.cs" />
      <Compile Include="Assets\t.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

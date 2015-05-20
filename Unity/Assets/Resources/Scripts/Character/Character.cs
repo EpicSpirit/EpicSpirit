@@ -113,6 +113,32 @@ namespace EpicSpirit.Game
                 // Nothing 
             }
         }
+        /// <summary>
+        /// Move the character to destination. This method have to be called on all updates.
+        /// </summary>
+        /// <param name="destination">The destination to go</param>
+        /// <returns>Return true if the character is moving</returns>
+        public bool MoveTo(Vector3 destination)
+        {
+            Vector3 direction = new Vector3();
+            // Change magicNumer if character destination is incorrect
+            float magicNumber = 0.2f;
+            if(
+                ( ( destination.x - transform.position.x ) >= magicNumber ) || ( ( destination.x - transform.position.x ) <= -magicNumber ) ||
+                ( ( destination.z - transform.position.z ) >= magicNumber ) || ( ( destination.z - transform.position.z ) <= -magicNumber ) 
+                )
+            {
+                direction = destination - transform.position;
+            }
+            else
+            {
+                direction = Vector3.zero;
+            }
+
+            Move( direction );
+            return !( direction == Vector3.zero );
+        }
+
 
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
