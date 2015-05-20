@@ -10,6 +10,6 @@ namespace EpicSpirit.Game
     /// </summary>
     public class GenericCharacterForUnitTests : Character
     {
-
+        
     }
 }

@@ -1,0 +1,33 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+namespace EpicSpirit.Game
+{
+    public class Tacle : Weapon
+    {
+        public override void Start ()
+        {
+            base.Start();
+
+            _attackAnimations.Add(new AttackAnimation("tacle", _animation.GetClip("tacle").length/2));
+            _attackDuration = _animation.GetClip( "tacle" ).length;
+            _strengh = 1;
+            _isStoppable = true;
+        }
+        public override void Act ()
+        {
+            _character.AnimationManager(_attackAnimations[0].AnimationName);
+            Invoke("Damage", _attackAnimations[0].TimeAttack);
+        }
+
+        public void Damage ()
+        {
+            List<Character> targets = GetListOfTarget();
+            foreach ( Character character in targets )
+            {
+                character.takeDamage( _strengh );
+            }
+        }
+
+    }
+}

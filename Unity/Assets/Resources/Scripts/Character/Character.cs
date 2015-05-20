@@ -5,7 +5,7 @@ using System;
 
 namespace EpicSpirit.Game
 {
-    [ExecuteInEditMode]
+
     public abstract class Character : MonoBehaviour
     {
         #region Fields
@@ -33,8 +33,7 @@ namespace EpicSpirit.Game
         private CharacterController _characterController;
 
         // Attack
-        internal bool justAttacked;
-        Character _enemy;
+        internal List<Action> _actions;
 
 
         #endregion
@@ -65,13 +64,10 @@ namespace EpicSpirit.Game
         public virtual void Start ()
         {
             InitializeAnimationManager();
-            justAttacked = false;
 
+            _actions = new List<Action>();
             _health = 3;
-            _attackVectors = new List<Vector3>();
-            _attackVectors.Add( new Vector3( 0, 1, 2 ) );
-            _attackVectors.Add( new Vector3( -1, 1, 2 ) );
-            _attackVectors.Add( new Vector3( 1, 1, 2 ) );
+            
 
             _characterController = this.GetComponent<CharacterController>();
             if ( _characterController == null )
@@ -80,6 +76,7 @@ namespace EpicSpirit.Game
             }
 
             InitializeStateManager();
+
 
 
         }
@@ -120,60 +117,35 @@ namespace EpicSpirit.Game
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
         // TODO : Invoke( "StopAttack", _animations.GetClip( "attack" ).length) Rendre ça générique pour les différentes animations 
-        public virtual void Attack ()
+        public void Attack () 
+        {
+            Attack(0);
+        }
+        public void Attack (int indice) 
         {
             // Tick Management
-            if ( ChangeState(States.Attack) )
+            if ( ChangeState( States.Attack ) )
             {
-                justAttacked = true;
-                GetListOfTarget();
-                foreach ( Character enemy in _targets )
-                {
-                    _enemy = enemy;
-                    Invoke( "MoveBack", 0.5f );
-                    enemy.takeDamage( 1 );
-                }
-
+                _actions[indice].Act();
+                StopAttack( _actions[indice].AttackDuration );
             }
         }
+
+        public Action GetAttack (int indice) 
+        {
+            return _actions[indice];
+        }
+        
+        /*
         private void MoveBack() 
         {
             _enemy.GetComponent<CharacterController>().Move( ( _enemy.transform.position - this.transform.position ) * 5 * Time.deltaTime );
         }
+         * */
 
-        internal void StopAttack (string animationName)
-        {
-            StopAttack(_animations.GetClip(animationName).length);
-        }
         internal void StopAttack ( float duration )
         {
             Invoke( "EndOfState", duration );
-        }
-        
-        // TODO : remettre l'origine de l'attaque au bon endroit
-        internal List<Character> GetListOfTarget ()
-        {
-            _targets = new List<Character>();
-            Vector3 realAttackOrigin = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z );
-
-            foreach ( Vector3 vector in _attackVectors )
-            {
-                Debug.DrawRay( realAttackOrigin, this.transform.TransformDirection( vector ), Color.yellow, 1.0f );
-
-                if ( Physics.Raycast( realAttackOrigin, this.transform.TransformDirection( vector ), out _hit ) )
-                {
-
-                    Character target = null;
-                    target = _hit.transform.GetComponent<Character>();
-
-                    if ( target != null && target.name != this.name )
-                    {
-                        _targets.Add( target );
-                    }
-                }
-            }
-            return _targets;
-
         }
 
         // TODO : Rendre ça plus propre au niveau algo

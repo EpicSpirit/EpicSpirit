@@ -51,9 +51,17 @@
      <Compile Include="Assets\Resources\Scripts\Character\GenericCharacterForUnitTests.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
-     <Compile Include="Assets\Resources\Scripts\Competences\Competence.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Action.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\AttackAnimation.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\BadBoy\Tacle.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Item.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Skill.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Spi\HealthPotion.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Sword.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\VeryBadBoy\SummonBadBoy.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Weapon.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\MouseGesture.cs" />
@@ -71,6 +79,7 @@
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNTouchpad.cs" />
+     <Compile Include="Assets\aaa.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

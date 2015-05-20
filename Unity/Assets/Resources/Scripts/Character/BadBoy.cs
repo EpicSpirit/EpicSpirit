@@ -5,24 +5,16 @@ namespace EpicSpirit.Game
 {
     public class BadBoy : Character
     {
+        Action attack;
         public override void Start()
         {
             base.Start();
 
             _health = 3;
+            _actions.Add(this.gameObject.AddComponent<Tacle>());
 
         }
-        public override void Attack ()
-        {
-            base.Attack();
-            if ( isState( States.Attack ) && justAttacked )
-            {
-                justAttacked = false;
-                AnimationManager( "attack" );
-                StopAttack( "attack" );
-            }
-            
-        }
+        
 
         //Todo : Même code que VeryBadBoy, rendre ça Dry avec une méthode générique ?
         public override void Move( Vector3 direction )

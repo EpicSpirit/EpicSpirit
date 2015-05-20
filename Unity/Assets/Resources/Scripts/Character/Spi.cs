@@ -25,12 +25,15 @@ namespace EpicSpirit.Game
             _lastReceivedDamage = 0f;
 
             _health = PlayerPrefs.GetInt("Spi_health");
-            if ( _health == 0)
+            if ( _health == 0 )
             {
                 _health = 20;
                 PlayerPrefs.SetInt( "Spi_health", _health );
             }
-            
+
+            // Pour le moment on n'a pas encore de menu pour les comp donc on les rajoute manuellement
+            _actions.Add(this.gameObject.AddComponent<Sword>());
+            _actions.Add( this.gameObject.AddComponent<HealthPotion>() );
 
         }
 
@@ -39,53 +42,6 @@ namespace EpicSpirit.Game
         public override void Update()
         {
             base.Update();
-        }
-       
-        public override void Attack()
-        {
-            string animationName;
-            base.Attack();
-            // Gestion du tick
-            if ( isState(States.Attack) && justAttacked)
-            {
-                justAttacked = false;
-                //Looking for the right attack phase 
-                if ( _dateOfLastAttack + _comboAttackInterval > Time.fixedTime )
-                {
-                    _attackCounter++;
-                }
-                else
-                {
-                    _attackCounter = 0;
-                }
-                // Update the last attack
-                _dateOfLastAttack = Time.fixedTime;
-
-                switch(_attackCounter) 
-                {
-                    case 0:
-                        animationName = "attack";
-                        break;
-                    case 1:
-                        animationName = "attack_2";
-                        break;
-                    case 2:
-                        animationName = "attack_3";
-                        _attackCounter = 0;
-                        break;
-                    default :
-                        _attackCounter = 0;
-                        animationName = "attack";
-                        Debug.Log("Erreur dans la gestion du combo");
-                        break;
-
-                }
-                AnimationManager( animationName );
-                StopAttack( animationName );
-                
-            }
-
-            
         }
 
         public override void Move( Vector3 direction )
