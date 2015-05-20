@@ -27,7 +27,6 @@ namespace EpicSpirit.Game
         public void OnMouseUp()
         {
             _move = true;
-            Debug.Log( "La" );
         }
     }
 }
