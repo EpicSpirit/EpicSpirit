@@ -4,20 +4,19 @@ using System.Collections.Generic;
 
 namespace EpicSpirit.Game 
 {
-    public  class  ProgressionManager : MonoBehaviour 
+    public class  ProgressionManager : MonoBehaviour 
     {
         List<Skill> _skills;
         List<Weapon> _weapons;
         List<Item> _items;
 
         public List<Skill> Skills { get { return _skills; } }
-        public List<Weapon> Weapon { get { return _weapons; } }
+        public List<Weapon> Weapons { get { return _weapons; } }
         public List<Item> Items { get { return _items; } }
 
         public void Start () 
         {
             _skills = new List<Skill>();
-            //_skills.Add();
             _weapons = new List<Weapon>();
             _items = new List<Item>();
 
@@ -32,6 +31,7 @@ namespace EpicSpirit.Game
             #endregion
 
             #region Skills
+            _skills.Add(this.gameObject.AddComponent<FireBall>());
             #endregion
 
         }
