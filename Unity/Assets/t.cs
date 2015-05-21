@@ -21,7 +21,6 @@ namespace EpicSpirit.Game {
                 this.enabled = false;
                
             }
-            Debug.Log("EEE");
             
 	    }
 

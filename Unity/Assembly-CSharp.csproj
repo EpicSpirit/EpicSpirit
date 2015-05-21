@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -56,10 +56,13 @@
      <Compile Include="Assets\Resources\Scripts\Competences\BadBoy\Tacle.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Item.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skill.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Skills\FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Spi\HealthPotion.cs" />
-     <Compile Include="Assets\Resources\Scripts\Competences\Sword.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\VeryBadBoy\SummonBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Weapon.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Weapons\Excalibur.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Weapons\Masamune.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Weapons\Sword.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
@@ -72,6 +75,7 @@
      <Compile Include="Assets\Resources\Scripts\OverWorld\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\MapNode.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\OverworldPlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\ProgressionManager.cs" />
      <Compile Include="Assets\Resources\Scripts\SaveManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStoryScriptAlArrache.cs" />
@@ -86,7 +90,7 @@
      <Compile Include="Assets\aaa.cs" />
      <Compile Include="Assets\t.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
