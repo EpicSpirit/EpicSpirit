@@ -4,11 +4,17 @@ using UnityEngine.UI;
 
 namespace EpicSpirit.Game {
     public class t : MonoBehaviour {
-
+        // ouuhh le truc dégueulasse !
         Button b;
         public int _indice;
         public Character target;
         bool a=false;
+        
+        void Start()
+        {
+            gameObject.AddComponent<Image>();
+            gameObject.AddComponent<Button>();
+        }
 
 	    void Update () 
         {
@@ -20,10 +26,7 @@ namespace EpicSpirit.Game {
 
                 this.enabled = false;
                
-            }
-            Debug.Log("EEE");
-            
+            }            
 	    }
-
     }
 }
