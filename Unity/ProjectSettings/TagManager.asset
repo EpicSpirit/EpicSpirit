@@ -7,6 +7,8 @@ TagManager:
   - Ennemi
   - Menu
   - Loading Screen
+  - ActionIcon
+  - SaveManager
   layers:
   - Default
   - TransparentFX

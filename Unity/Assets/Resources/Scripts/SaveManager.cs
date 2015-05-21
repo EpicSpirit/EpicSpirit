@@ -7,17 +7,21 @@ namespace EpicSpirit.Game
 {
     public class SaveManager : MonoBehaviour
     {
-        static ProgressionManager _progressionManager;
+        ProgressionManager _progressionManager;
 
         public void Start () 
         {
-            _progressionManager = this.gameObject.AddComponent<ProgressionManager>();
+            if (_progressionManager == null )
+            {
+                _progressionManager = this.gameObject.AddComponent<ProgressionManager>();
+            }
+            
         }
-        public static void SavSpi ( Spi spi )
+        public void SavSpi ( Spi spi )
         {
             PlayerPrefs.SetInt( "Spi_Health", spi.Health );
         }
-        public static void GetSavSpi ( Spi spi )
+        public void GetSavSpi ( Spi spi )
         {
             if ( PlayerPrefs.HasKey( "Spi_Health" ) )
             {
@@ -29,13 +33,13 @@ namespace EpicSpirit.Game
             }
         }
 
-        public static List<Action> LoadAllSkills () 
+        public List<Action> LoadAllSkills () 
         {
 
             return new List<Action>();
         }
 
-        public static void InitializeSkillList () 
+        public void InitializeSkillList () 
         {
             string message ="";
             
@@ -45,7 +49,7 @@ namespace EpicSpirit.Game
             }
             PlayerPrefs.SetString( "Skills", message );
         }
-        public static void InitializeWeaponList ()
+        public void InitializeWeaponList ()
         {
             string message ="";
             for ( int i=0; i < _progressionManager.Weapons.Count; i++ )
@@ -54,7 +58,7 @@ namespace EpicSpirit.Game
             }
             PlayerPrefs.SetString( "Weapons", message );
         }
-        public static void InitializeItemList ()
+        public void InitializeItemList ()
         {
             string message ="";
             for ( int i=0; i < _progressionManager.Items.Count; i++ )
@@ -65,7 +69,7 @@ namespace EpicSpirit.Game
         }
         
         // TODO : World managment
-        public static void ResetSave()
+        public void ResetSave()
         {
             InitializeItemList();
             InitializeSkillList();
@@ -74,26 +78,26 @@ namespace EpicSpirit.Game
             UnlockWeapon( 0 );
         }
 
-        public static void UnlockSkill ( int index)
+        public void UnlockSkill ( int index)
         {
             Char[] skillFlags = PlayerPrefs.GetString( "Skills" ).ToCharArray();
             skillFlags [index] = '1';
             PlayerPrefs.SetString( "Weapons", skillFlags.ToString() );
         }
-        public static void UnlockWeapon ( int index )
+        public void UnlockWeapon ( int index )
         {
             Char[] WeaponFlags = PlayerPrefs.GetString( "Skills" ).ToCharArray();
             WeaponFlags [index] = '1';
             PlayerPrefs.SetString( "Weapons", WeaponFlags.ToString() );
         }
-        public static void UnlockItem ( int index )
+        public void UnlockItem ( int index )
         {
             Char[] itemFlags = PlayerPrefs.GetString( "Skills" ).ToCharArray();
             itemFlags [index] = '1';
             PlayerPrefs.SetString( "Weapons", itemFlags.ToString() );
         }
 
-        public static List<Skill> LoadAllUnlockSkills()
+        public List<Skill> LoadAllUnlockSkills()
         {
             List<Skill> unlockSkills = new List<Skill>();
             Char[] skillsFlags = PlayerPrefs.GetString( "Skills" ).ToCharArray();
@@ -106,12 +110,14 @@ namespace EpicSpirit.Game
 
             return unlockSkills;
         }
-        public static List<Weapon> LoadAllUnlockWeapons ()
+        public List<Weapon> LoadAllUnlockWeapons ()
         {
             List<Weapon> unlockWeapons = new List<Weapon>();
             Char[] skillsWeapons = PlayerPrefs.GetString( "Skills" ).ToCharArray();
+                
+            Debug.Log( "Progression manager" + _progressionManager.Skills );
 
-            for ( int i=0; i < _progressionManager.Skills.Count; i++ )
+            for ( int i = 0 ; i < _progressionManager.Skills.Count; i++ )
             {
                 if ( skillsWeapons [i] == '1' )
                     unlockWeapons.Add( _progressionManager.Weapons [i] );
@@ -119,7 +125,7 @@ namespace EpicSpirit.Game
 
             return unlockWeapons;
         }
-        public static List<Item> LoadAllUnlockItems ()
+        public List<Item> LoadAllUnlockItems ()
         {
             List<Item> unlockItems = new List<Item>();
             Char[] skillsItems = PlayerPrefs.GetString( "Skills" ).ToCharArray();
@@ -132,6 +138,5 @@ namespace EpicSpirit.Game
 
             return unlockItems;
         }
-
     }
 }
