@@ -96,6 +96,19 @@ namespace EpicSpirit.Game
             PlayerPrefs.SetString( "Weapons", itemFlags.ToString() );
         }
 
+        public static List<Skill> LoadAllUnlockSkills()
+        {
+            List<Skill> unlockSkills = new List<Skill>();
+            Char[] skillsFlags = PlayerPrefs.GetString( "Skills" ).ToCharArray();
+
+            for(int i=0; i< _progressionManager.Skills.Count; i++)
+            {
+                if ( skillsFlags [i] == '1' )
+                    unlockSkills.Add( _progressionManager.Skills [i] );
+            }
+
+            return unlockSkills;
+        }
 
     }
 }
