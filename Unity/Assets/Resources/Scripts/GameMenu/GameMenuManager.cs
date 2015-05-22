@@ -25,8 +25,8 @@ namespace EpicSpirit.Game
 
         void Start ()
         {
-            _saveManager = GameObject.FindWithTag( "SaveManager" ).GetComponent<SaveManager>();
 
+            _saveManager = GameObject.FindWithTag( "SaveManager" ).GetComponent<SaveManager>();
             _weapons = _saveManager.LoadAllUnlockWeapons();
             _items = _saveManager.LoadAllUnlockItems();
             _skills = _saveManager.LoadAllUnlockSkills();
@@ -36,8 +36,6 @@ namespace EpicSpirit.Game
             _offset = 1;
 
             WeaponMenu();
-
-
         }
 
         public void RefreshMenu()
@@ -69,6 +67,10 @@ namespace EpicSpirit.Game
                         AddIcon( item );
                     }
                     break;
+                default:
+                    Debug.Log("Probleme TypeOfContent");
+                    break;
+
 
             }
             
@@ -77,7 +79,7 @@ namespace EpicSpirit.Game
         // TODO : modifier le boutton ensuite
         public void AddIcon(Action action)
         {
-            
+            Debug.Log("blou");
             Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _x * _offset, _y * _offset, 0 ), new Quaternion() );
             
 
@@ -87,6 +89,8 @@ namespace EpicSpirit.Game
                 _y++;
             }
         }
+
+        
 
         public void WeaponMenu()
         {

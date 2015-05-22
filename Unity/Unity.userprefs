@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\Competences\Weapons\Sword.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\SaveManager.cs">
     <Files>
-      <File FileName="Assets\Resources\Scripts\SaveManager.cs" Line="120" Column="1" />
-      <File FileName="Assets\Resources\Scripts\GameMenu\GameMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\SaveManager.cs" Line="123" Column="20" />
+      <File FileName="Assets\Resources\Scripts\GameMenu\GameMenuManager.cs" Line="30" Column="45" />
       <File FileName="Assets\Resources\Scripts\ProgressionManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Competences\Weapons\Sword.cs" Line="16" Column="1" />
+      <File FileName="Assets\Resources\Scripts\Competences\Weapons\Sword.cs" Line="26" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ClassPad">
@@ -18,8 +18,6 @@
     <BreakpointStore>
       <Breakpoint file="C:\Users\Red\Documents\UnityProject\EpicSpirit\EpicSpirit\EpicSpirit\Unity\Assets\Resources\Scripts\Competences\Sword.cs" line="26" />
       <Breakpoint file="C:\Users\Red\Documents\UnityProject\EpicSpirit\EpicSpirit\EpicSpirit\Unity\Assets\t.cs" line="18" />
-      <Breakpoint file="C:\Users\Red\Documents\UnityProject\EpicSpirit\EpicSpirit\EpicSpirit\Unity\Assets\Resources\Scripts\SaveManager.cs" line="114" />
-      <Breakpoint file="C:\Users\Red\Documents\UnityProject\EpicSpirit\EpicSpirit\EpicSpirit\Unity\Assets\Resources\Scripts\SaveManager.cs" line="14" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

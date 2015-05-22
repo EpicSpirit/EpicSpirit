@@ -14,8 +14,10 @@ namespace EpicSpirit.Game
         public List<Weapon> Weapons { get { return _weapons; } }
         public List<Item> Items { get { return _items; } }
 
-        public void Start () 
+        public void CustomStart () 
         {
+            Debug.Log( "ProgressionManager START" );
+
             _skills = new List<Skill>();
             _weapons = new List<Weapon>();
             _items = new List<Item>();
