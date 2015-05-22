@@ -9,10 +9,16 @@ namespace EpicSpirit.Game
     {
         int _currentPhase;
 
+        // TMP
+        public void Awake()
+        {
+            _image = Resources.Load<Sprite>( "UI/Images/SimpleSword" );
+        }
+
         public override void Start ()
         {
             base.Start();
-
+            Debug.Log("Chargement epee");
             // _animation is null if we aren't in Character (for Progression Manager for example.)
             if(_animation != null) 
             {
@@ -25,7 +31,6 @@ namespace EpicSpirit.Game
             _attackDuration = 1;
             _strengh = 1;
             _image = Resources.Load<Sprite>( "UI/Images/SimpleSword" );
-            
             _isStoppable = false;
         }
 

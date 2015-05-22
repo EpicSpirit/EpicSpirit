@@ -32,7 +32,7 @@ namespace EpicSpirit.Game {
                 return _image;
             }
         }
-
+        
         
 
         public virtual void Start () 
@@ -45,7 +45,7 @@ namespace EpicSpirit.Game {
 
             _attackAnimations = new List<AttackAnimation>();
             _animation = GetComponentInChildren<Animation>();
-
+            _image = Resources.Load<Sprite>( "UI/Images/default" );
         }
 
         public virtual void Act () { }

@@ -12,14 +12,13 @@ namespace EpicSpirit.Game
 
         public void Start () 
         {
-            Debug.Log( "SaveManager START" );
+
 
             _progressionManager = this.gameObject.AddComponent<ProgressionManager>();
             _progressionManager.CustomStart();
 
             ResetSave();    // TMP
 
-            Debug.Log( "Start : progressionManager : "+_progressionManager );
         }
         public void SavSpi ( Spi spi )
         {
@@ -142,9 +141,6 @@ namespace EpicSpirit.Game
         public List<Weapon> LoadAllUnlockWeapons ()
         {
             List<Weapon> unlockWeapons = new List<Weapon>();
-            
-            var a = PlayerPrefs.GetString("Weapons", "error");
-            Debug.Log (a);
             Char[] weaponsFlags = PlayerPrefs.GetString( "Weapons" ).ToCharArray();
 
             for ( int i = 0 ; i < _progressionManager.Weapons.Count; i++ )
@@ -152,7 +148,6 @@ namespace EpicSpirit.Game
                 if ( i < weaponsFlags.Length && weaponsFlags [i] == '1' )
                 {
                     unlockWeapons.Add( _progressionManager.Weapons [i] );
-                    Debug.Log(":D");
                 }
             }
 

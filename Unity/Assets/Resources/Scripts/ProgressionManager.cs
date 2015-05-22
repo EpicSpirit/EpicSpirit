@@ -16,7 +16,7 @@ namespace EpicSpirit.Game
 
         public void CustomStart () 
         {
-            Debug.Log( "ProgressionManager START" );
+
 
             _skills = new List<Skill>();
             _weapons = new List<Weapon>();

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace EpicSpirit.Game
 {
@@ -79,8 +80,9 @@ namespace EpicSpirit.Game
         // TODO : modifier le boutton ensuite
         public void AddIcon(Action action)
         {
-            Debug.Log("blou");
-            Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _x * _offset, _y * _offset, 0 ), new Quaternion() );
+            GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _x * _offset, _y * _offset, 0 ), new Quaternion() );
+            var ai = gameObject.GetComponent<actionicone>();
+            ai.MyAction = action;
             
 
             if( ++_x >= 3)
