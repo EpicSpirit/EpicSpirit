@@ -18,7 +18,7 @@ namespace EpicSpirit.Game
 		
         void Refresh()
         {
-            Debug.Log("Changementimage ");
+
             this.GetComponent<Button>().image.sprite = _action.GetSprite;
         }
 

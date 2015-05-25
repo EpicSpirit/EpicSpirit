@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 namespace EpicSpirit.Game
 {
@@ -14,7 +15,14 @@ namespace EpicSpirit.Game
         List<Weapon> _weapons;
         List<Skill> _skills;
         List<Item> _items;
+        actionicone _selectedAction;
 
+        // TODO : Rendre ça propre ensuite
+        public GameObject description;
+        public GameObject slot_1;
+        public GameObject slot_2;
+        public GameObject slot_3;
+        public GameObject cache;
         public GameObject target;
 
         public enum TypeOfContent
@@ -30,11 +38,12 @@ namespace EpicSpirit.Game
 
         void Start ()
         {
-
+            _selectedAction = null;
             _saveManager = GameObject.FindWithTag( "SaveManager" ).GetComponent<SaveManager>();
             _weapons = _saveManager.LoadAllUnlockWeapons();
             _items = _saveManager.LoadAllUnlockItems();
             _skills = _saveManager.LoadAllUnlockSkills();
+            _typeOfContent = TypeOfContent.Weapons;
 
             _x = 0;
             _y = 0;
@@ -47,6 +56,8 @@ namespace EpicSpirit.Game
 
         public void RefreshMenu()
         {
+            _x = 0;
+            _y = 0;
             // Destroy all ActionIcon
             foreach ( GameObject actionIcon in GameObject.FindGameObjectsWithTag( "ActionIcon" ))
             {
@@ -59,7 +70,7 @@ namespace EpicSpirit.Game
                 case TypeOfContent.Weapons:
                     foreach ( Weapon weapon in _weapons )
                     {
-                        Debug.Log("Adding Weapon");
+
                         AddIcon( weapon );
                     }
                     break;
@@ -84,7 +95,6 @@ namespace EpicSpirit.Game
             
         }
 
-        // TODO : modifier le boutton ensuite
         public void AddIcon(Action action)
         {
             GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _beginX +( _x * _offset), _beginY + (_y * _offset), 0 ), new Quaternion() );
@@ -102,30 +112,93 @@ namespace EpicSpirit.Game
                 _y++;
             }
         }
+        
         private void GetDescription( actionicone ai)
         {
-            Debug.Log(ai.Action.Name);
+            cache.SetActive( false );
+
+            _selectedAction = ai;
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = ai.Action.Name;
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = ai.Action.Description;
         }
         
+        public void AddToSlot(int index)
+        {
+            string key,value;
+
+            if ( _selectedAction.Action is Weapon )
+            {
+                key = "ActualWeapon";
+            }
+            else if ( _selectedAction.Action is Item )
+            {
+                key = "ActualItem";
+            }
+            else if ( _selectedAction.Action is Skill )
+            {
+                key = "ActualSkill_" + index;
+            }
+            else
+            {
+                Debug.LogException(new Exception("action must be Weapon,Item or Skill"));
+                key = "";
+                value = "";
+            }
+            value = _selectedAction.Action.Name;
+
+            PlayerPrefs.SetString(key,value);
+            Debug.Log( key + " => " + value );
+
+        }
 
         public void WeaponMenu()
         {
             _typeOfContent = TypeOfContent.Weapons;
+            cache.SetActive( true );
+            slot_1.SetActive( false );
+            slot_3.SetActive( false );
+
+            GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
+            GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
+
+            slot_2.GetComponentInChildren<Text>().text = "Slot 1";
+
             RefreshMenu();
         }
         public void ItemMenu ()
         {
             _typeOfContent = TypeOfContent.Items;
-            RefreshMenu();
+            cache.SetActive( true );
 
+            slot_1.SetActive( false );
+            slot_3.SetActive( false );
+            GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
+            GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
+
+            slot_2.GetComponentInChildren<Text>().text = "Slot 1";
+
+            RefreshMenu();
         }
         public void SkillMenu ()
         {
+            cache.SetActive( true );
+
             _typeOfContent = TypeOfContent.Skills;
+            slot_1.SetActive( true );
+            slot_3.SetActive( true );
+            GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
+            GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
+
+            slot_2.GetComponentInChildren<Text>().text = "Slot 2";
+
+
             RefreshMenu();
         }
-    
+
+        public void ExitMenu ()
+        {
+            Application.LoadLevel( "overworld" );
+        }
+
     }
 }

@@ -18,7 +18,7 @@ namespace EpicSpirit.Game
         public override void Start ()
         {
             base.Start();
-            Debug.Log("Chargement epee");
+
             // _animation is null if we aren't in Character (for Progression Manager for example.)
             if(_animation != null) 
             {
