@@ -14,6 +14,9 @@ namespace EpicSpirit.Game
         List<Weapon> _weapons;
         List<Skill> _skills;
         List<Item> _items;
+
+        public GameObject target;
+
         public enum TypeOfContent
         {
             Weapons,
@@ -23,6 +26,7 @@ namespace EpicSpirit.Game
         TypeOfContent _typeOfContent;
         int _x, _y;
         float _offset;
+        int _beginX, _beginY;
 
         void Start ()
         {
@@ -34,7 +38,9 @@ namespace EpicSpirit.Game
 
             _x = 0;
             _y = 0;
-            _offset = 1;
+            _offset = 80;
+            _beginY = 280;
+            _beginX = 80;
 
             WeaponMenu();
         }
@@ -53,6 +59,7 @@ namespace EpicSpirit.Game
                 case TypeOfContent.Weapons:
                     foreach ( Weapon weapon in _weapons )
                     {
+                        Debug.Log("Adding Weapon");
                         AddIcon( weapon );
                     }
                     break;
@@ -80,9 +87,13 @@ namespace EpicSpirit.Game
         // TODO : modifier le boutton ensuite
         public void AddIcon(Action action)
         {
-            GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _x * _offset, _y * _offset, 0 ), new Quaternion() );
+            GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _beginX +( _x * _offset), _beginY + (_y * _offset), 0 ), new Quaternion() );
+            gameObject.transform.parent = target.transform;
+            gameObject.transform.localScale = new Vector3(5,5,5);
             var ai = gameObject.GetComponent<actionicone>();
-            ai.MyAction = action;
+            ai.Action = action;
+            var b = gameObject.GetComponent<Button>();
+            b.onClick.AddListener( () => GetDescription(ai));
             
 
             if( ++_x >= 3)
@@ -91,7 +102,12 @@ namespace EpicSpirit.Game
                 _y++;
             }
         }
-
+        private void GetDescription( actionicone ai)
+        {
+            Debug.Log(ai.Action.Name);
+            GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = ai.Action.Name;
+            GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = ai.Action.Description;
+        }
         
 
         public void WeaponMenu()
@@ -110,5 +126,6 @@ namespace EpicSpirit.Game
             _typeOfContent = TypeOfContent.Skills;
             RefreshMenu();
         }
+    
     }
 }

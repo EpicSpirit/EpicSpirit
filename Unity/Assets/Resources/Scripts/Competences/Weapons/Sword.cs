@@ -32,6 +32,8 @@ namespace EpicSpirit.Game
             _strengh = 1;
             _image = Resources.Load<Sprite>( "UI/Images/SimpleSword" );
             _isStoppable = false;
+            _name = "Sword";
+            _description = "Superbe Sword OTD !";
         }
 
         public override float AttackDuration

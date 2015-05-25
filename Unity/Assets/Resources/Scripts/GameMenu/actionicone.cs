@@ -10,19 +10,19 @@ namespace EpicSpirit.Game
 
         Action _action;
 
-        public Action MyAction
+        public Action Action
         {
             get { return _action; }
             set { _action = value; Refresh(); }
         }
-		void Start() {}
 		
         void Refresh()
         {
-        	Start();
             Debug.Log("Changementimage ");
             this.GetComponent<Button>().image.sprite = _action.GetSprite;
         }
+
+        
         
     }
 }
