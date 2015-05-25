@@ -25,10 +25,10 @@ public class BeginStory : MonoBehaviour
 	
 	private void LoadForest()
 	{
-		Application.LoadLevel( "scene" );
+        Application.LoadLevel( "overworld" );
 	}
 	private void OnMouseUp()
-	{		
-		Application.LoadLevel( "scene" );
+	{
+        Application.LoadLevel( "overworld" );
 	}
 }
