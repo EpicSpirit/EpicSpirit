@@ -20,6 +20,9 @@ namespace EpicSpirit.Game {
 
         List<Vector3> _attackVectors;
         RaycastHit _hit;
+        internal string _name;
+        internal string _description;
+
 
         public virtual float AttackDuration
         {
@@ -32,7 +35,14 @@ namespace EpicSpirit.Game {
                 return _image;
             }
         }
-
+        public string Name
+        {
+            get { return _name; }
+        }
+        public string Description
+        {
+            get { return _description; }
+        }
         
 
         public virtual void Start () 
@@ -45,7 +55,8 @@ namespace EpicSpirit.Game {
 
             _attackAnimations = new List<AttackAnimation>();
             _animation = GetComponentInChildren<Animation>();
-
+            _image = Resources.Load<Sprite>( "UI/Images/default" );
+            _name = "NoName";
         }
 
         public virtual void Act () { }

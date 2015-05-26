@@ -40,5 +40,10 @@ namespace EpicSpirit.Game
         {
             Application.LoadLevel( _currentMapNode.name );
         }
+
+        public void LoadMenu ()
+        {
+            Application.LoadLevel( "game_menu" );
+        }
     }
 }

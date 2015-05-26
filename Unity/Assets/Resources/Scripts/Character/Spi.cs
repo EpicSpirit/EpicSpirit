@@ -7,6 +7,8 @@ namespace EpicSpirit.Game
 {
     public class Spi : Character
     {
+        SaveManager _saveManager;
+
         int _attackCounter;
         float _dateOfLastAttack;
         float _comboAttackInterval;
