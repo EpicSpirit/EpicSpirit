@@ -4,13 +4,13 @@ using System.Collections;
 public class SceneTransition : MonoBehaviour 
 {
 
-    public Object scene;
+    public string scene;
 
 	public void OnTriggerEnter(Collider c)
     {
         if(c.gameObject.name == "Spi")
         {
-            Application.LoadLevel(scene.name);
+            Application.LoadLevel(scene);
         }
     }
 
