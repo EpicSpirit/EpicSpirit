@@ -44,7 +44,7 @@ LevelGameManager:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -21980,6 +21980,7 @@ GameObject:
   - 4: {fileID: 1173204818}
   - 65: {fileID: 1173204817}
   - 114: {fileID: 1173204819}
+  - 114: {fileID: 1173204820}
   m_Layer: 0
   m_Name: ChangeScene
   m_TagString: Untagged
@@ -22005,8 +22006,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1173204816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.4300003, y: 3.83999991, z: 414.779999}
+  m_LocalRotation: {x: 0, y: -.496517241, z: 0, w: .868026853}
+  m_LocalPosition: {x: 115.599998, y: 0, z: 136.199997}
   m_LocalScale: {x: 25.4242001, y: 8.3016758, z: 8.3016758}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22022,6 +22023,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f919b0bbf4a8560438879de039a1bf9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1173204820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1173204816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f7a7e613b1a644b89ea4549124b7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: {fileID: 102900000, guid: 71bdc05f839f46a428e866ec4302791a, type: 3}
 --- !u!1001 &1175137106
 Prefab:
   m_ObjectHideFlags: 0
@@ -35174,6 +35187,10 @@ Prefab:
     - target: {fileID: 2052136, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
       propertyPath: near clip plane
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 10884714, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
+      propertyPath: m_Intensity
+      value: .670000017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
