@@ -44,7 +44,7 @@ namespace EpicSpirit.Game
                 arrow.transform.rotation = Quaternion.Euler( rotateEuler );
 
                 // Arrow position
-                arrow.transform.Translate( Vector3.right * 1.7f, Space.Self );
+                arrow.transform.Translate( Vector3.right * 3.0f, Space.Self );
 
                 arrow.GetComponent<ArrowGesture>().LinkedNode = this;
 
