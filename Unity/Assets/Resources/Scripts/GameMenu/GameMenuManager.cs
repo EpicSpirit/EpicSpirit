@@ -48,7 +48,7 @@ namespace EpicSpirit.Game
             _x = 0;
             _y = 0;
             _offset = 80;
-            _beginY = 280;
+            _beginY = 450;
             _beginX = 80;
 
             WeaponMenu();
