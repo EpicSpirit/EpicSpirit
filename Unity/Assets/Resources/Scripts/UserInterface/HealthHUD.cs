@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 
 namespace EpicSpirit.Game
 {
@@ -12,7 +12,7 @@ namespace EpicSpirit.Game
         }
         void Update()
         {
-            GetComponentInChildren<TextMesh>().text = "HP : " + GameObject.FindWithTag( "Player" ).GetComponent<Character>().Health.ToString();
+            GetComponent<Text>().text = "HP : " + GameObject.FindWithTag( "Player" ).GetComponent<Character>().Health.ToString();
         }
     }
 }
