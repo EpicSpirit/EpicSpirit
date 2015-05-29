@@ -19740,10 +19740,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11152498, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
-      propertyPath: m_Animations.Array.size
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 45.4000015
@@ -19776,10 +19772,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 11152498, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
-      propertyPath: m_Animations.Array.data[7]
-      value: 
-      objectReference: {fileID: 7400002, guid: 60da041fba0021b40973733c210e0b91, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
   m_IsPrefabParent: 0
@@ -29690,21 +29682,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 494200, guid: b41c38aac8d7b7040802a291bc470fcc, type: 2}
   m_PrefabInternal: {fileID: 2098781341}
---- !u!1 &1018761577
-GameObject:
-  m_PrefabParentObject: {fileID: 153564, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
-  m_PrefabInternal: {fileID: 1961321953}
---- !u!114 &1018761579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1018761577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea10432f7ae4545498dae9ca4d514dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1021500643
 Prefab:
   m_ObjectHideFlags: 0
@@ -55957,26 +55934,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11472246, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
-      propertyPath: _target
-      value: 
-      objectReference: {fileID: 1012613926}
     - target: {fileID: 11486816, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
       propertyPath: _character
       value: 
       objectReference: {fileID: 1012613928}
-    - target: {fileID: 11486816, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
-      propertyPath: _movementJoystick
+    - target: {fileID: 11472246, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
+      propertyPath: _target
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11486816, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
-      propertyPath: _joystickOn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2052136, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
-      propertyPath: near clip plane
-      value: 5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1012613926}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
   m_IsPrefabParent: 0
