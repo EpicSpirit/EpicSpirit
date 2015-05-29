@@ -84,7 +84,6 @@
      <Compile Include="Assets\Resources\Scripts\Story\EndStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthHUD.cs" />
-     <Compile Include="Assets\Resources\Scripts\img_responsive.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNAbstractController.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
