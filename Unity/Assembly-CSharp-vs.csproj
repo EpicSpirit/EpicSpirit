@@ -88,6 +88,7 @@
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNTouchpad.cs" />
+     <Compile Include="Assets\TempleSwitch.cs" />
      <Compile Include="Assets\t.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
