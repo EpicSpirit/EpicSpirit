@@ -54,9 +54,6 @@
      <Compile Include="Assets\Resources\UI\CNControls\Editor\CNThrowableTouchpadInspector.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Editor\CNTouchpadCreatorMenu.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Editor\CNTouchpadInspector.cs" />
- <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/Red/Documents/UnityProject/EpicSpirit/EpicSpirit/EpicSpirit/Unity/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
