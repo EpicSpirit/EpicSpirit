@@ -28,15 +28,11 @@ namespace EpicSpirit.Game
         {
             if ( _character != null )
             {
-                if ( _joystickOn )
-                {
+                
                     JoystickMove();
-                }
-                else
-                {
                     KeyboardMove();
                     Attack();
-                }
+                
             }
             else
             {

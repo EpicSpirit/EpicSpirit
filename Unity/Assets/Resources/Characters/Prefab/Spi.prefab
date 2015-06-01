@@ -631,8 +631,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123834}
-  m_LocalRotation: {x: 0, y: .708693504, z: 0, w: .705516517}
-  m_LocalPosition: {x: 16.8999996, y: .300000012, z: 26.5}
+  m_LocalRotation: {x: 0, y: .0220298413, z: 0, w: .999757349}
+  m_LocalPosition: {x: 45.4000015, y: .300000012, z: 72.0999985}
   m_LocalScale: {x: 1.47954631, y: 1.47954607, z: 1.47954631}
   m_Children:
   - {fileID: 470906}
@@ -895,6 +895,7 @@ Animation:
   - {fileID: 7400008, guid: cfaf55ad17dbc904caf528d910b48c97, type: 3}
   - {fileID: 7400010, guid: cfaf55ad17dbc904caf528d910b48c97, type: 3}
   - {fileID: 7400012, guid: cfaf55ad17dbc904caf528d910b48c97, type: 3}
+  - {fileID: 7400002, guid: 60da041fba0021b40973733c210e0b91, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -926,7 +927,6 @@ MonoBehaviour:
   _aggroMovementSpeed: 0
   _aggroArea: 0
   _health: 20
-  _weapon: {fileID: 11408912}
 --- !u!137 &13712902
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
