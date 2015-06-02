@@ -15,7 +15,7 @@ namespace EpicSpirit.Game
             }
 
             _image = Resources.Load<Sprite>( "UI/Images/button_fireball" );
-            _attackDuration = 1f;
+            _attackDuration = _animation.GetClip( "throwball" ).length;
         }
 
         public override void Act ()
