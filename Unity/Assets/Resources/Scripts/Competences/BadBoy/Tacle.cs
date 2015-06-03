@@ -14,10 +14,18 @@ namespace EpicSpirit.Game
             _strengh = 1;
             _isStoppable = true;
         }
-        public override void Act ()
+        public override bool Act ()
         {
-            _character.AnimationManager(_attackAnimations[0].AnimationName);
-            Invoke("Damage", _attackAnimations[0].TimeAttack);
+            if ( base.Act() )
+            {
+                _character.AnimationManager( _attackAnimations [0].AnimationName );
+                Invoke( "Damage", _attackAnimations [0].TimeAttack );
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Damage ()

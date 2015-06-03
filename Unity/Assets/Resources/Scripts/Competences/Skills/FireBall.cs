@@ -8,7 +8,7 @@ namespace EpicSpirit.Game
         public override void Start ()
         {
             base.Start();
-
+            _cooldown = 5f;
             if ( _animation != null )
             {
                 _attackAnimations.Add( new AttackAnimation( "throwball", _animation.GetClip( "throwball" ).length * 0.6f ) );
@@ -18,10 +18,16 @@ namespace EpicSpirit.Game
             _attackDuration = _animation.GetClip( "throwball" ).length;
         }
 
-        public override void Act ()
-        {
-            _character.AnimationManager( _attackAnimations [0].AnimationName );
-            Invoke("ThrowFireBall", _attackAnimations[0].TimeAttack);
+        public override bool Act ()
+        { 
+            if ( base.Act() )
+            {
+                _character.AnimationManager( _attackAnimations [0].AnimationName );
+                Invoke( "ThrowFireBall", _attackAnimations [0].TimeAttack );
+                return true;
+            }
+            
+            return false;
         }
         public void ThrowFireBall()
         {

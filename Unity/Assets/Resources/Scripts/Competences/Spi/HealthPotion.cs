@@ -17,11 +17,20 @@ namespace EpicSpirit.Game
             _isStoppable = false;
         }
 
-        public override void Act ()
+        public override bool Act ()
         {
-            _character.AnimationManager( _attackAnimations [0].AnimationName );
+            if ( base.Act() )
+            {
 
-            _character.Health += 5;
+                _character.AnimationManager( _attackAnimations [0].AnimationName );
+
+                _character.Health += 5;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

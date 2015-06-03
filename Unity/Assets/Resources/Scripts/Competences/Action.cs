@@ -17,12 +17,13 @@ namespace EpicSpirit.Game {
         internal Sprite _image;
         internal Character _character;
         internal bool _isStoppable;
+        internal float _cooldown;
+        internal bool _isEnable;
 
         List<Vector3> _attackVectors;
         RaycastHit _hit;
         internal string _name;
         internal string _description;
-
 
         public virtual float AttackDuration
         {
@@ -43,15 +44,16 @@ namespace EpicSpirit.Game {
         {
             get { return _description; }
         }
-        
 
         public virtual void Start () 
         {
+            _isEnable = true;
             _character = GetComponent<Character>();
             _attackVectors = new List<Vector3>();
             _attackVectors.Add( new Vector3( 0, 1, 2 ) );
             _attackVectors.Add( new Vector3( -1, 1, 2 ) );
             _attackVectors.Add( new Vector3( 1, 1, 2 ) );
+            _cooldown = 1f;
 
             _attackAnimations = new List<AttackAnimation>();
             _animation = GetComponentInChildren<Animation>();
@@ -59,7 +61,20 @@ namespace EpicSpirit.Game {
             _name = "NoName";
         }
 
-        public virtual void Act () { }
+        public virtual bool Act () 
+        {
+            if(_isEnable)
+            {
+                _isEnable = false;
+                Invoke("EnableAttack",_cooldown);
+                return true;
+            }
+            return false;
+        }
+        private void EnableAttack()
+        {
+            _isEnable = true;
+        }
 
         // TODO : remettre l'origine de l'attaque au bon endroit
         internal virtual List<Character> GetListOfTarget ()

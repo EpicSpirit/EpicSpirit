@@ -19,10 +19,18 @@ namespace EpicSpirit.Game
             _isStoppable = false;
         }
 
-        public override void Act ()
+        public override bool Act ()
         {
-            _character.AnimationManager(_attackAnimations[0].AnimationName);
-            Invoke("Invoke", _attackAnimations[0].TimeAttack);
+            if ( base.Act() )
+            {
+                _character.AnimationManager( _attackAnimations [0].AnimationName );
+                Invoke( "Invoke", _attackAnimations [0].TimeAttack );
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Invoke () 

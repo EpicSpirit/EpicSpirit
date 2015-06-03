@@ -41,10 +41,18 @@ namespace EpicSpirit.Game
             get { return _animation.GetClip( _attackAnimations [_currentPhase].AnimationName ).length; }
         }
 
-        public override void Act ()
+        public override bool Act ()
         {
-            _character.AnimationManager( _attackAnimations[_currentPhase].AnimationName );
-            Invoke( "Damage", _attackAnimations[_currentPhase].TimeAttack );
+            if ( base.Act() )
+            {
+                _character.AnimationManager( _attackAnimations [_currentPhase].AnimationName );
+                Invoke( "Damage", _attackAnimations [_currentPhase].TimeAttack );
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Damage () 

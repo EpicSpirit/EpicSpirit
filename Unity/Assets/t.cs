@@ -8,25 +8,40 @@ namespace EpicSpirit.Game {
         Button b;
         public int _indice;
         public Character target;
-        bool a=false;
+        public bool a;
         
+            
         void Start()
         {
+            a = true;
             gameObject.AddComponent<Image>();
-            gameObject.AddComponent<Button>();
+            b=gameObject.AddComponent<Button>();
         }
 
-	    void Update () 
+	    void Update()
         {
-            if ( target.GetAttack( _indice ).GetSprite != null )
+            if ( a )
             {
-                b = this.GetComponent<Button>();
-                b.image.overrideSprite = target.GetAttack( _indice ).GetSprite;
-                b.onClick.AddListener( () => target.Attack( _indice ) );
+                a = false;
+                if ( target.GetAttack( _indice ).GetSprite != null )
+                {
+                    b.image.overrideSprite = target.GetAttack( _indice ).GetSprite;
+                    b.onClick.AddListener( () => {
+                        Disable();
+                        target.Attack( _indice ); 
+                        Invoke( "Enable", target.GetAttack( _indice )._cooldown ); 
+                    } );
+                }
+            }
+        }
 
-                this.enabled = false;
-               
-            }            
-	    }
+        void Disable()
+        {
+            Debug.Log( "Disable :D" );
+        }
+        void Enable ()
+        {
+            Debug.Log( "Enable :D" );
+        }
     }
 }

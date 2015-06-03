@@ -7,7 +7,10 @@ namespace EpicSpirit.Game
     {
 
         public override void Start () { base.Start(); }
-
+        public override bool Act ()
+        {
+            return base.Act();
+        }
         
     }
 }
