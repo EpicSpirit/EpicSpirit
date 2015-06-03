@@ -52,6 +52,8 @@ namespace EpicSpirit.Game {
             _attackVectors.Add( new Vector3( 0, 1, 2 ) );
             _attackVectors.Add( new Vector3( -1, 1, 2 ) );
             _attackVectors.Add( new Vector3( 1, 1, 2 ) );
+            _attackVectors.Add( new Vector3( -2, 1, 2 ) );
+            _attackVectors.Add( new Vector3( 2, 1, 2 ) );
 
             _attackAnimations = new List<AttackAnimation>();
             _animation = GetComponentInChildren<Animation>();
