@@ -33,6 +33,7 @@ namespace EpicSpirit.Game
                     GetComponentsInChildren<ParticleSystem>() [1].Stop();
                     GetComponentsInChildren<ParticleSystem>() [2].Play();
                     target.takeDamage( 10 );
+                    target.MoveBack( this.gameObject, 100 );
                 }
                 CancelInvoke( "AutoDestroy" );
                 Destroy( this.gameObject,0.15f );

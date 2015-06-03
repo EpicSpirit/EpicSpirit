@@ -53,9 +53,12 @@ namespace EpicSpirit.Game
             foreach(Character character in targets)
             {
                 character.takeDamage( _strengh );
+                character.MoveBack( this.gameObject,50 );
             }
             _currentPhase ++;
             if ( _currentPhase > 2 ) _currentPhase = 0;
         }
+
+        
     }
 }

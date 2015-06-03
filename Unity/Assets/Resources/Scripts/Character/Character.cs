@@ -200,6 +200,11 @@ namespace EpicSpirit.Game
 
         }
 
+        public void MoveBack(GameObject c, float strengh)
+        {
+            this.GetComponent<CharacterController>().Move( ( this.transform.position - c.transform.position ) * strengh * Time.deltaTime );
+        }
+
         #region AnimationManager
         public void AnimationManager ( string anim )
         {
