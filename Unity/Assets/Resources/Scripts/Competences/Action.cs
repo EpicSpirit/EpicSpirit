@@ -23,7 +23,7 @@ namespace EpicSpirit.Game {
         internal float _currentCoolDown;
         internal float _cooldown;
         internal bool _isEnable;
-        Func<UISkill,bool> _function;
+        Func<UISkill,float,bool> _function;
         UISkill _textButton;
 
 
@@ -122,22 +122,19 @@ namespace EpicSpirit.Game {
             return _targets;
         }
 
-        public void StartCoolDown ( Func<UISkill, bool> function, UISkill textButton )
+        public void StartCoolDown ( Func<UISkill,float, bool> function, UISkill textButton )
         {
             _currentCoolDown = _cooldown;
             _function = function;
             _textButton = textButton;
-            Invoke( "DecrementCoolDown", 1f );
+            Invoke( "DecrementCoolDown", 0f );
             Debug.Log( "StartCoolDown" );
         }
 
         private void DecrementCoolDown ()
         {
-
-
-            _currentCoolDown--;
-            _function( _textButton );
-            if ( _currentCoolDown != 0 ) Invoke( "DecrementCoolDown", 1f );
+            _function( _textButton, _currentCoolDown-- );
+            if ( _currentCoolDown >= 0 ) Invoke( "DecrementCoolDown", 1f );
         }
 
     }

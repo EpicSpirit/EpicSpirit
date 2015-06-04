@@ -7,7 +7,7 @@ namespace EpicSpirit.Game
 {
     public class UISkill : MonoBehaviour
     {
-        Text _cooldown;
+        internal Text _cooldown;
         Button _button;
         UIAction _action;
 
@@ -18,20 +18,29 @@ namespace EpicSpirit.Game
             _cooldown.fontStyle = FontStyle.Bold;
             _cooldown.font = Resources.Load<Font>( "UI/BLKCHCRY" );
             _cooldown.resizeTextForBestFit = true;
+            _cooldown.alignment = TextAnchor.MiddleCenter;
             _action = this.GetComponentInParent<UIAction>();
         }
         public void Start ()
         {
             _button = this.GetComponentInParent<Button>();
-            _action.target.GetAttack( _action._indice ).StartCoolDown( (uiSkill) => uiSkill.Timer(), this );
-            Timer();
+
+            _action.target.GetAttack( _action._indice ).StartCoolDown( ( uiSkill, ccd ) => {
+                if ( ccd == 0 ) { 
+                    uiSkill._cooldown.text = ""; 
+                }
+                else 
+                { 
+                    uiSkill._cooldown.text = ccd.ToString(); 
+                }
+                return true; 
+            }, this );
+
         }
+
+        
  
-        bool Timer ()
-        {
-            _cooldown.text = _action.target.GetAttack( _action._indice ).CurrentCoolDown.ToString();
-            return true;
-        }
+        
         
 
 
