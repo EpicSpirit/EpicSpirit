@@ -8,8 +8,8 @@ namespace EpicSpirit.Game
     public class UIItem : MonoBehaviour
     {
         Text _itemCount;
-        Button button;
-        UIAction action;
+        Button _button;
+        UIAction _action;
         public void Awake ()
         {
             _itemCount = gameObject.AddComponent<Text>();
@@ -18,17 +18,17 @@ namespace EpicSpirit.Game
             _itemCount.fontStyle = FontStyle.Bold;
             _itemCount.font = Resources.Load<Font>("UI/BLKCHCRY");
             _itemCount.resizeTextForBestFit = true;
-            action = this.GetComponentInParent<UIAction>();
+            _action = this.GetComponentInParent<UIAction>();
 
             
 
         }
         public void Start()
         {
-            button = this.GetComponentInParent<Button>();
-            Item item = action.target.GetAttack( action._indice ) as Item;
+            _button = this.GetComponentInParent<Button>();
+            Item item = _action.target.GetAttack( _action._indice ) as Item;
             _itemCount.text = item.Quantity.ToString();
-            button.onClick.AddListener( () => _itemCount.text=item.Quantity.ToString() );
+            _button.onClick.AddListener( () => _itemCount.text=item.Quantity.ToString() );
         }
 
     }

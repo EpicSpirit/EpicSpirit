@@ -10,14 +10,14 @@ namespace EpicSpirit.Game
         Button _button;
         public int _indice;
         public Character target;
-        public bool a;
+        public bool isSkillEnabled;
         
             
         public void Awake ()
         {
-            a = true;
+            isSkillEnabled = true;
             gameObject.AddComponent<Image>();
-            b=gameObject.AddComponent<Button>();
+            _button =gameObject.AddComponent<Button>();
         }
 
 	    void Start () 
@@ -26,7 +26,14 @@ namespace EpicSpirit.Game
             {
                 _button = this.GetComponent<Button>();
                 _button.image.overrideSprite = target.GetAttack( _indice ).GetSprite;
-                _button.onClick.AddListener( () => target.Attack( _indice ) );
+                _button.onClick.AddListener( () => {
+                    if ( isSkillEnabled )
+                    {
+                        Disable();
+                        target.Attack( _indice );
+                        Invoke( "Enable", target.GetAttack( _indice ).CoolDown );
+                    }
+                } );
 
                 this.enabled = false;
                
@@ -34,11 +41,12 @@ namespace EpicSpirit.Game
 	    }
 	    void Disable()
         {
-            Debug.Log( "Disable :D" );
+            isSkillEnabled = false;
         }
         void Enable ()
         {
-            Debug.Log( "Enable :D" );
+
+            isSkillEnabled = true;
         }
     }
 }

@@ -25,6 +25,11 @@ namespace EpicSpirit.Game {
         internal string _name;
         internal string _description;
 
+        public float CoolDown
+        {
+            get { return _cooldown; }
+        }
+
         public virtual float AttackDuration
         {
             get{ return _attackDuration; }
@@ -54,7 +59,7 @@ namespace EpicSpirit.Game {
             _attackVectors.Add( new Vector3( -1, 1, 2 ) );
             _attackVectors.Add( new Vector3( 1, 1, 2 ) );
             _attackVectors.Add( new Vector3( -2, 1, 2 ) );
-            _cooldown = 1f;
+            _cooldown = 0f;
             _attackVectors.Add( new Vector3( 2, 1, 2 ) );
 
             _attackAnimations = new List<AttackAnimation>();
@@ -62,6 +67,8 @@ namespace EpicSpirit.Game {
             _image = Resources.Load<Sprite>( "UI/Images/default" );
             _name = "NoName";
         }
+
+        public virtual void Start () { }
 
         public virtual bool Act () 
         {

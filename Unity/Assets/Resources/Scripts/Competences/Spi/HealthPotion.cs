@@ -28,10 +28,9 @@ namespace EpicSpirit.Game
 
         public override bool Act ()
         {
-            if ( base.Act() )
+            base.Act();
             if ( Quantity > 0 )
             {
-
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
 
                 _character.Health += 5;
@@ -40,8 +39,6 @@ namespace EpicSpirit.Game
             }
             else
             {
-
-
                 return false;
             }
             

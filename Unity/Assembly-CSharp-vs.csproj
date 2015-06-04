@@ -95,6 +95,7 @@
      <Compile Include="Assets\TempleSwitch.cs" />
      <Compile Include="Assets\UIAction.cs" />
      <Compile Include="Assets\UIItem.cs" />
+     <Compile Include="Assets\UISkill.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

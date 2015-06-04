@@ -54,7 +54,7 @@ namespace EpicSpirit.Game
             get { return _health; }
             set 
             {
-                if ( value < 0 ) throw new InvalidOperationException("health can't be negativ");
+                if ( value < 0 ) Die();
                 _health = value; 
             }
         }
@@ -195,10 +195,7 @@ namespace EpicSpirit.Game
 
                 if ( _health <= 0 )
                 {
-                    GameObject.Destroy( this.gameObject, 0.5f );
-
-                    if ( GameObject.FindWithTag( "Player" ).GetComponent<Character>() == this )
-                    Application.LoadLevel( "game_over" );
+                    Die();
                 }
                 else
                 {
@@ -207,6 +204,14 @@ namespace EpicSpirit.Game
 
             }
 
+        }
+
+        internal virtual void Die()
+        {
+            GameObject.Destroy( this.gameObject, 0.5f );
+
+            if ( GameObject.FindWithTag( "Player" ).GetComponent<Character>() == this )
+                Application.LoadLevel( "game_over" );
         }
 
         public void MoveBack(GameObject c, float strengh)
