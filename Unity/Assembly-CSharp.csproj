@@ -93,7 +93,8 @@
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNTouchpad.cs" />
      <Compile Include="Assets\SceneTransition.cs" />
      <Compile Include="Assets\TempleSwitch.cs" />
-     <Compile Include="Assets\t.cs" />
+     <Compile Include="Assets\UIAction.cs" />
+     <Compile Include="Assets\UIItem.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

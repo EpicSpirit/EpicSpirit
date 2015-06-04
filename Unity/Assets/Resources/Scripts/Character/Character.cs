@@ -159,6 +159,7 @@ namespace EpicSpirit.Game
 
         public Action GetAttack (int indice) 
         {
+            Debug.Log( indice );
             return _actions[indice];
         }
         
