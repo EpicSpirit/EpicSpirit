@@ -5,6 +5,11 @@ namespace EpicSpirit.Game
 {
     public class HealthPotion : Item
     {
+        public override void Awake()
+        {
+            base.Awake();
+            _name="HealthPotion";
+        }
         public override void Start ()
         {
             base.Start();
@@ -19,10 +24,22 @@ namespace EpicSpirit.Game
 
         public override void Act ()
         {
-            _character.AnimationManager( _attackAnimations [0].AnimationName );
+            base.Act();
+            if ( Quantity > 0 )
+            {
+                _character.AnimationManager( _attackAnimations [0].AnimationName );
 
-            _character.Health += 5;
+                _character.Health += 5;
+                this.Remove();
+            }
+            else
+            {
+
+            }
+            
         }
+
+
 
     }
 }

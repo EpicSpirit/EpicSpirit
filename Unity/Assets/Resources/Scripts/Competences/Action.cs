@@ -44,6 +44,11 @@ namespace EpicSpirit.Game {
             get { return _description; }
         }
         
+        public virtual void Awake()
+        {
+            _name = "NoName";
+
+        }
 
         public virtual void Start () 
         {
@@ -58,7 +63,6 @@ namespace EpicSpirit.Game {
             _attackAnimations = new List<AttackAnimation>();
             _animation = GetComponentInChildren<Animation>();
             _image = Resources.Load<Sprite>( "UI/Images/default" );
-            _name = "NoName";
         }
 
         public virtual void Act () { }

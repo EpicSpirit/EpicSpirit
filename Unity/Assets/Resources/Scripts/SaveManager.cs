@@ -68,8 +68,13 @@ namespace EpicSpirit.Game
             for ( int i = 0; i < _progressionManager.Items.Count; i++ )
             {
                 message += "0";
+
+                PlayerPrefs.SetInt( _progressionManager.Items [i].Name, 0 );
             }
             PlayerPrefs.SetString( "Items", message );
+            PlayerPrefs.SetInt( _progressionManager.Items [0].Name, 5);
+
+            
         }
         
         // TODO : World managment
@@ -165,6 +170,27 @@ namespace EpicSpirit.Game
             }
 
             return unlockItems;
+        }
+
+        public static void AddItem(Item i)
+        {
+            PlayerPrefs.SetInt( i.Name, i.Quantity + 1 );
+        }
+
+        public static void RemoveItem(Item i)
+        {
+            if(i.Quantity >0)
+            {
+                PlayerPrefs.SetInt( i.Name, i.Quantity - 1 );
+            }
+            else
+            {
+                Debug.Log("0 item");
+            }
+        }
+        public static int GetItemQuantity(Item i)
+        {
+            return PlayerPrefs.GetInt( i.Name );
         }
     }
 }
