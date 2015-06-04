@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 namespace EpicSpirit.Game {
 
@@ -17,8 +18,21 @@ namespace EpicSpirit.Game {
         internal Sprite _image;
         internal Character _character;
         internal bool _isStoppable;
+
+        // CoolDown Managment
+        internal float _currentCoolDown;
         internal float _cooldown;
         internal bool _isEnable;
+        Func<UISkill,bool> _function;
+        UISkill _textButton;
+
+
+        
+        public float CurrentCoolDown
+        {
+            get { return _currentCoolDown; }
+        }
+
 
         List<Vector3> _attackVectors;
         RaycastHit _hit;
@@ -52,6 +66,7 @@ namespace EpicSpirit.Game {
 
         public virtual void Awake ()
         {
+            _currentCoolDown = 0;
             _isEnable = true;
             _character = GetComponent<Character>();
             _attackVectors = new List<Vector3>();
@@ -105,6 +120,24 @@ namespace EpicSpirit.Game {
                 }
             }
             return _targets;
+        }
+
+        public void StartCoolDown ( Func<UISkill, bool> function, UISkill textButton )
+        {
+            _currentCoolDown = _cooldown;
+            _function = function;
+            _textButton = textButton;
+            Invoke( "DecrementCoolDown", 1f );
+            Debug.Log( "StartCoolDown" );
+        }
+
+        private void DecrementCoolDown ()
+        {
+
+
+            _currentCoolDown--;
+            _function( _textButton );
+            if ( _currentCoolDown != 0 ) Invoke( "DecrementCoolDown", 1f );
         }
 
     }

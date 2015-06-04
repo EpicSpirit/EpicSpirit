@@ -8,7 +8,6 @@ namespace EpicSpirit.Game
     public class UISkill : MonoBehaviour
     {
         Text _cooldown;
-        float _currentCoolDown;
         Button _button;
         UIAction _action;
 
@@ -24,20 +23,17 @@ namespace EpicSpirit.Game
         public void Start ()
         {
             _button = this.GetComponentInParent<Button>();
-            _currentCoolDown = _action.target.GetAttack( _action._indice ).CoolDown;
-            _cooldown.text = _currentCoolDown.ToString();
-            StartCoolDown();
+            _action.target.GetAttack( _action._indice ).StartCoolDown( (uiSkill) => uiSkill.Timer(), this );
+            Timer();
         }
-        public void StartCoolDown()
+ 
+        bool Timer ()
         {
-            Invoke( "DecrementCoolDown", 1f );
+            _cooldown.text = _action.target.GetAttack( _action._indice ).CurrentCoolDown.ToString();
+            return true;
         }
-        private void DecrementCoolDown ()
-        {
-            _currentCoolDown--;
-            _cooldown.text = _currentCoolDown.ToString();
-            if ( _currentCoolDown != 0 ) Invoke( "DecrementCoolDown", 1f );
-        }
+        
+
 
     }
 }
