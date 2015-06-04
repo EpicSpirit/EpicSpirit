@@ -18,7 +18,7 @@ namespace EpicSpirit.Game
             gameObject.AddComponent<Button>();
         }
 
-	    void Update () 
+	    void Start () 
         {
             if ( target.GetAttack( _indice ).GetSprite != null )
             {

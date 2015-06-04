@@ -65,7 +65,7 @@ namespace EpicSpirit.Game {
             
         }
 
-        public virtual void Act () { }
+        public virtual bool Act () { return true; }
 
         // TODO : remettre l'origine de l'attaque au bon endroit
         internal virtual List<Character> GetListOfTarget ()

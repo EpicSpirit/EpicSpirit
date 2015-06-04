@@ -24,10 +24,11 @@ namespace EpicSpirit.Game
             base.Start();
         }
 
-        public override void Act ()
+        public override bool Act ()
         {
             _character.AnimationManager(_attackAnimations[0].AnimationName);
             Invoke("Invoke", _attackAnimations[0].TimeAttack);
+            return true;
         }
 
         public void Invoke () 

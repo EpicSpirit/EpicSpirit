@@ -13,10 +13,11 @@ namespace EpicSpirit.Game
             if ( _animation != null )
             {
                 _attackAnimations.Add( new AttackAnimation( "HealthPotion", _animation.GetClip( "HealthPotion" ).length / 2 ) );
+                _attackDuration = _animation.GetClip( "HealthPotion" ).length;
+
             }
 
             _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
-            _attackDuration = 1;
             _isStoppable = false;
         }
         public override void Start ()
@@ -25,7 +26,7 @@ namespace EpicSpirit.Game
             
         }
 
-        public override void Act ()
+        public override bool Act ()
         {
             base.Act();
             if ( Quantity > 0 )
@@ -34,10 +35,13 @@ namespace EpicSpirit.Game
 
                 _character.Health += 5;
                 this.Remove();
+                return true;
             }
             else
             {
 
+
+                return false;
             }
             
         }
