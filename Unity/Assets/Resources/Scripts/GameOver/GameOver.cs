@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameOver : MonoBehaviour
 {
-	void Start () 
+	void Awake () 
     {
         Invoke( "BackMenu", 4f );
 	}

@@ -19,7 +19,7 @@ namespace EpicSpirit.Game
             set { _linkedNode = value; }
         }
 
-        void Start()
+        void Awake ()
         {
             _move = false;
         }

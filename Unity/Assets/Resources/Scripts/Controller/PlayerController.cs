@@ -19,9 +19,13 @@ namespace EpicSpirit.Game
         // Main camera transform used for joystick
         private Transform _mainCameraTransform;
 
-        void Start()
+        void Awake ()
         {
             _mainCameraTransform = Camera.main.GetComponent<Transform>();
+
+        }
+        void Start()
+        {
         }
 
         void Update()

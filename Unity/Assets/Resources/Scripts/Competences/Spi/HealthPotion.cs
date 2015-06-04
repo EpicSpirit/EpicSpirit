@@ -9,17 +9,20 @@ namespace EpicSpirit.Game
         {
             base.Awake();
             _name="HealthPotion";
+
+            if ( _animation != null )
+            {
+                _attackAnimations.Add( new AttackAnimation( "HealthPotion", _animation.GetClip( "HealthPotion" ).length / 2 ) );
+            }
+
+            _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
+            _attackDuration = 1;
+            _isStoppable = false;
         }
         public override void Start ()
         {
             base.Start();
-            if(_animation != null)
-            {
-                _attackAnimations.Add( new AttackAnimation( "HealthPotion", _animation.GetClip( "HealthPotion" ).length / 2 ) );
-            }
-            _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
-            _attackDuration = 1;
-            _isStoppable = false;
+            
         }
 
         public override void Act ()

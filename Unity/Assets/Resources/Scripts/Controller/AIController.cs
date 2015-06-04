@@ -24,7 +24,7 @@ namespace EpicSpirit.Game
         private float _lastAttack;
         #endregion
 
-        void Start()
+        void Awake ()
         {
             _direction = new Vector3();
             _lastAttack = Time.fixedTime;
@@ -34,6 +34,10 @@ namespace EpicSpirit.Game
             _randomDirection = 1;
 
             _randomMovementSpeed = _character._movementSpeed;
+        }
+        void Start()
+        {
+            
         }
 
         void Update()

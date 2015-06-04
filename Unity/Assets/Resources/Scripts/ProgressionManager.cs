@@ -14,10 +14,8 @@ namespace EpicSpirit.Game
         public List<Weapon> Weapons { get { return _weapons; } }
         public List<Item> Items { get { return _items; } }
 
-        public void CustomStart () 
+        public void Awake () 
         {
-
-
             _skills = new List<Skill>();
             _weapons = new List<Weapon>();
             _items = new List<Item>();

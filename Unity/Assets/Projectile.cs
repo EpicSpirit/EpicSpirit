@@ -7,7 +7,7 @@ namespace EpicSpirit.Game
     public class Projectile : MonoBehaviour
     {
         bool move;
-        public void Start()
+        public void Awake()
         {
             Invoke( "AutoDestroy", 1f );
             GetComponentsInChildren<ParticleSystem>()[0].Play();

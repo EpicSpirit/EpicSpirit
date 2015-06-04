@@ -36,7 +36,7 @@ namespace EpicSpirit.Game
         float _offset;
         int _beginX, _beginY;
 
-        void Start ()
+        void Awake ()
         {
             _selectedAction = null;
             _saveManager = GameObject.FindWithTag( "SaveManager" ).GetComponent<SaveManager>();
@@ -50,7 +50,10 @@ namespace EpicSpirit.Game
             _offset = 80;
             _beginY = 450;
             _beginX = 80;
+        }
 
+        void Start ()
+        {
             WeaponMenu();
         }
 

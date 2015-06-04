@@ -7,14 +7,21 @@ namespace EpicSpirit.Game
     {
         private static System.Random _randomGenerator = new System.Random();
 
-        public override void Start()
+        public override void Awake ()
         {
-            base.Start();
+            base.Awake();
 
             _health = 30;
             _movementSpeed = 1;
             _actions.Add( this.gameObject.AddComponent<SummonBadBoy>() );
 
+        }
+
+        public override void Start()
+        {
+            base.Start();
+
+            
         }
         internal override void takeDamage ( int force )
         {

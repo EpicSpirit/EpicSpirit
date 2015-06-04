@@ -10,21 +10,29 @@ namespace EpicSpirit.Game
     {
         ProgressionManager _progressionManager;
 
-        public void Start () 
+        public void Awake () 
         {
-
-
             _progressionManager = this.gameObject.AddComponent<ProgressionManager>();
-            _progressionManager.CustomStart();
 
             ResetSave();    // TMP
 
         }
-        public void SavSpi ( Spi spi )
+
+        public void SaveSpi ( Spi spi )
         {
-            PlayerPrefs.SetInt( "Spi_Health", spi.Health );
+            SaveSpiHealth( spi._health );
         }
-        public void GetSavSpi ( Spi spi )
+
+        internal static void SaveSpiHealth ( int health )
+        {
+            PlayerPrefs.SetInt( "Spi_Health", health );
+        }
+        internal static int GetSpiHealth ()
+        {
+            return PlayerPrefs.GetInt( "Spi_Health");
+        }
+
+        public  void GetSaveSpi ( Spi spi )
         {
             if ( PlayerPrefs.HasKey( "Spi_Health" ) )
             {
@@ -84,6 +92,9 @@ namespace EpicSpirit.Game
             InitializeItemList();
             InitializeSkillList();
             InitializeWeaponList();
+
+            // Initialization Spi's Health
+            PlayerPrefs.SetInt( "Spi_Health", 20 );
 
             UnlockWeapon( 0 );
         }
@@ -192,5 +203,7 @@ namespace EpicSpirit.Game
         {
             return PlayerPrefs.GetInt( i.Name );
         }
+
+        
     }
 }

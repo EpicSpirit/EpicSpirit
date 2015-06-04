@@ -10,17 +10,12 @@ namespace EpicSpirit.Game
         int _currentPhase;
 
         // TMP
-        public void Awake()
+        public override void Awake()
         {
-            _image = Resources.Load<Sprite>( "UI/Images/SimpleSword" );
-        }
-
-        public override void Start ()
-        {
-            base.Start();
+            base.Awake();
 
             // _animation is null if we aren't in Character (for Progression Manager for example.)
-            if(_animation != null) 
+            if ( _animation != null )
             {
                 _attackAnimations.Add( new AttackAnimation( "SimpleSword_1", _animation.GetClip( "SimpleSword_1" ).length / 2 ) );
                 _attackAnimations.Add( new AttackAnimation( "SimpleSword_2", _animation.GetClip( "SimpleSword_2" ).length / 2 ) );
@@ -34,6 +29,11 @@ namespace EpicSpirit.Game
             _isStoppable = false;
             _name = "Sword";
             _description = "Superbe Sword OTD !";
+        }
+
+        public override void Start ()
+        {
+            base.Start();
         }
 
         public override float AttackDuration

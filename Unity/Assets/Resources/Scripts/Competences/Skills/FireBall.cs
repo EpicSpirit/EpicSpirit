@@ -5,9 +5,9 @@ namespace EpicSpirit.Game
 {
     public class FireBall : Skill
     {
-        public override void Start ()
+        public override void Awake ()
         {
-            base.Start();
+            base.Awake();
 
             if ( _animation != null )
             {
@@ -17,6 +17,10 @@ namespace EpicSpirit.Game
             }
 
             _image = Resources.Load<Sprite>( "UI/Images/button_fireball" );
+        }
+        public override void Start ()
+        {
+            base.Start();
         }
 
         public override void Act ()

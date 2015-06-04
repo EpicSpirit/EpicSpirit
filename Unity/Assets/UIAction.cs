@@ -2,10 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
-namespace EpicSpirit.Game {
-    public class UIAction : MonoBehaviour {
-        // ouuhh le truc dégueulasse !
-        Button b;
+namespace EpicSpirit.Game 
+{
+    public class UIAction : MonoBehaviour 
+    {
+
+        Button _button;
         public int _indice;
         public Character target;
         bool a=false;
@@ -20,9 +22,9 @@ namespace EpicSpirit.Game {
         {
             if ( target.GetAttack( _indice ).GetSprite != null )
             {
-                b = this.GetComponent<Button>();
-                b.image.overrideSprite = target.GetAttack( _indice ).GetSprite;
-                b.onClick.AddListener( () => target.Attack( _indice ) );
+                _button = this.GetComponent<Button>();
+                _button.image.overrideSprite = target.GetAttack( _indice ).GetSprite;
+                _button.onClick.AddListener( () => target.Attack( _indice ) );
 
                 this.enabled = false;
                

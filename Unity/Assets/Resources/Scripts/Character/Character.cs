@@ -49,7 +49,7 @@ namespace EpicSpirit.Game
             set { _attackSpeed = value; }
             get { return _attackSpeed; }
         }
-        public int Health
+        public virtual int Health
         {
             get { return _health; }
             set 
@@ -61,7 +61,7 @@ namespace EpicSpirit.Game
 
         #endregion
 
-        public virtual void Start ()
+        public virtual void Awake()
         {
             InitializeAnimationManager();
 
@@ -76,8 +76,10 @@ namespace EpicSpirit.Game
             }
 
             InitializeStateManager();
+        }
 
-
+        public virtual void Start ()
+        {
 
         }
 
@@ -159,7 +161,7 @@ namespace EpicSpirit.Game
 
         public Action GetAttack (int indice) 
         {
-            Debug.Log( indice );
+
             return _actions[indice];
         }
         
@@ -183,8 +185,7 @@ namespace EpicSpirit.Game
             if ( ChangeState( States.Damaged ) )
             {
                 ParticuleManager( "DamageEffect" );
-                _health -= force;
-
+                Health -= force;
 
                 if ( _health <= 0 )
                 {
@@ -197,6 +198,7 @@ namespace EpicSpirit.Game
                 {
                     Invoke( "EndOfState", 0.3f );
                 }
+
             }
 
         }

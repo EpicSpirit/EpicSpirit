@@ -6,7 +6,7 @@ namespace EpicSpirit.Game
     public class InGameMenu : MonoBehaviour
     {
 
-        void Start()
+        void Awake()
         {
            // gameObject.SetActive( false );
         }

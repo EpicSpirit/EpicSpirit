@@ -17,14 +17,13 @@ namespace EpicSpirit.Game
 		}
 
 
-		void Start () 
+		void Awake () 
 		{
 			_isOn = false;
 		}
+        public override void Start () { }
 
-		void Update()
-		{
-		}
+        public override void Update () { }
 
 		internal override void takeDamage (int force)
 		{

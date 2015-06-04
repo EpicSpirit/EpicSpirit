@@ -7,16 +7,21 @@ namespace EpicSpirit.Game
     {
         private static System.Random _randomGenerator;
 
+        public override void Awake ()
+        {
+            base.Awake();
+
+            _randomGenerator = new System.Random();
+            _attackAnimations.Add( new AttackAnimation( "invoke", _animation.GetClip( "invoke" ).length / 2 ) );
+            _attackDuration = _animation.GetClip( "invoke" ).length;
+            _strengh = 0;
+            _isStoppable = false;
+        }
+
         // Use this for initialization
         public override void Start ()
         {
             base.Start();
-
-            _randomGenerator = new System.Random();
-            _attackAnimations.Add( new AttackAnimation( "invoke" , _animation.GetClip("invoke").length/2) );
-            _attackDuration = _animation.GetClip( "invoke" ).length;
-            _strengh = 0;
-            _isStoppable = false;
         }
 
         public override void Act ()

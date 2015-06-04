@@ -14,7 +14,7 @@ namespace EpicSpirit.Game
             get { return _currentMapNode; }
         }
 
-		void Start () 
+		void Awake () 
 		{
             _currentMapNode.Enter();
 		}

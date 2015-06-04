@@ -15,30 +15,43 @@ namespace EpicSpirit.Game
         int _lookAroundCount;
         float _lastReceivedDamage;
 
-        public override void Start()
+        public virtual int Health
         {
-            base.Start();
+            get { return _health; }
+            set
+            {
+                if ( value < 0 ) throw new InvalidOperationException( "health can't be negative" );
+                SaveManager.SaveSpiHealth( _health );
+                _health = value;
+            }
+        }
 
-            _health = 20;
+        public override void Awake ()
+        {
+            base.Awake();
+
             _lookAroundCount = 300;
             _attackCounter = 0;
             _comboAttackInterval = 0.9f;
             _dateOfLastAttack = Time.fixedTime;
             _lastReceivedDamage = 0f;
 
-            _health = PlayerPrefs.GetInt("Spi_health");
-            if ( _health == 0 )
+            _health = SaveManager.GetSpiHealth();
+            if ( Health == 0 )
             {
-                _health = 20;
-                PlayerPrefs.SetInt( "Spi_health", _health );
+                Health = 20;
             }
 
             // Pour le moment on n'a pas encore de menu pour les comp donc on les rajoute manuellement
-            _actions.Add(this.gameObject.AddComponent<Sword>());
+            _actions.Add( this.gameObject.AddComponent<Sword>() );
             _actions.Add( this.gameObject.AddComponent<HealthPotion>() );
             _actions.Add( this.gameObject.AddComponent<FireBall>() );
 
+        }
 
+        public override void Start()
+        {
+            base.Start();
         }
 
 
@@ -84,7 +97,6 @@ namespace EpicSpirit.Game
                 base.takeDamage( force );
                
                 AnimationManager( "damaged" );
-                PlayerPrefs.SetInt( "Spi_health", _health );
             }
         }
     

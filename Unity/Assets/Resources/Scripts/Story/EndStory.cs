@@ -9,7 +9,7 @@ public class EndStory : MonoBehaviour
 	
 	Transform _splashScreenTransform;
 	
-	void Start ()
+	void Awake ()
 	{
 		_defaultWidth = 1366;
 		_defaultHeight = 768;

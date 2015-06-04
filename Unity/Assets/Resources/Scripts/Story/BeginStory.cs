@@ -8,8 +8,8 @@ public class BeginStory : MonoBehaviour
 	Vector3 _scale;
 	
 	Transform _splashScreenTransform;
-	
-	void Start ()
+
+    void Awake ()
 	{
 		_defaultWidth = 1366;
 		_defaultHeight = 768;

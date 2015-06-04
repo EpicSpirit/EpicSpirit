@@ -7,8 +7,9 @@ namespace EpicSpirit.Game
     public class HealthHUD : MonoBehaviour
     {
 		Text _hp;
+        Character _character;
 
-        void Start()
+        void Awake()
         {
 			_hp = gameObject.AddComponent<Text>();
 			_hp.fontSize = 56;
@@ -19,10 +20,12 @@ namespace EpicSpirit.Game
 			// bon ici gros problème à résoudre. Si je mets n'importe quelle couleur il va me sortir un rouge vif.
 			// Exemple new Color(191,0,0) new Color -10,0,0) c'est pareil.
 			// Moi je veux ça exactement : (200,0,0)
+            _character = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
+
         }
         void Update()
         {
-            _hp.text = "HP : " + GameObject.FindWithTag( "Player" ).GetComponent<Character>().Health.ToString();
+            _hp.text = "HP : " + _character.Health.ToString();
         }
     }
 }

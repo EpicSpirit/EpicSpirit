@@ -9,7 +9,7 @@ public class ResponsiveImage : MonoBehaviour
 
     Transform _splashScreenTransform;
 
-	void Start ()
+	void Awake ()
     {
         _defaultWidth = 1366;
         _defaultHeight = 768;

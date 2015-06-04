@@ -6,13 +6,19 @@ namespace EpicSpirit.Game
     public class BadBoy : Character
     {
         Action attack;
+
+        public override void Awake ()
+        {
+            base.Awake();
+
+            _health = 3;
+            _actions.Add( this.gameObject.AddComponent<Tacle>() );
+
+        }
+
         public override void Start()
         {
             base.Start();
-
-            _health = 3;
-            _actions.Add(this.gameObject.AddComponent<Tacle>());
-
         }
         
 

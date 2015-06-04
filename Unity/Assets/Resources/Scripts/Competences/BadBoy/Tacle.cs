@@ -5,14 +5,19 @@ namespace EpicSpirit.Game
 {
     public class Tacle : Weapon
     {
-        public override void Start ()
-        {
-            base.Start();
 
-            _attackAnimations.Add(new AttackAnimation("tacle", _animation.GetClip("tacle").length/2));
+        public override void Awake ()
+        {
+            base.Awake();
+
+            _attackAnimations.Add( new AttackAnimation( "tacle", _animation.GetClip( "tacle" ).length / 2 ) );
             _attackDuration = _animation.GetClip( "tacle" ).length;
             _strengh = 1;
             _isStoppable = true;
+        }
+        public override void Start ()
+        {
+            base.Start();
         }
         public override void Act ()
         {
