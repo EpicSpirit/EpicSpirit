@@ -25,10 +25,15 @@ namespace EpicSpirit.Game
         }
 
         public override bool Act ()
-        {
-            _character.AnimationManager(_attackAnimations[0].AnimationName);
-            Invoke("Invoke", _attackAnimations[0].TimeAttack);
-            return true;
+            {
+                _character.AnimationManager( _attackAnimations [0].AnimationName );
+                Invoke( "Invoke", _attackAnimations [0].TimeAttack );
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Invoke () 

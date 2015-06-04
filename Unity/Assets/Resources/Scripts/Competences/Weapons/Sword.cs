@@ -43,9 +43,16 @@ namespace EpicSpirit.Game
 
         public override bool Act ()
         {
-            _character.AnimationManager( _attackAnimations[_currentPhase].AnimationName );
-            Invoke( "Damage", _attackAnimations[_currentPhase].TimeAttack );
-            return true;
+            if ( base.Act() )
+            {
+                _character.AnimationManager( _attackAnimations [_currentPhase].AnimationName );
+                Invoke( "Damage", _attackAnimations [_currentPhase].TimeAttack );
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Damage () 

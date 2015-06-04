@@ -14,6 +14,11 @@ namespace EpicSpirit.Game
             base.Start();
         }
 
+
+        public override bool Act ()
+        {
+            return base.Act();
+        }
         
     }
 }

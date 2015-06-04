@@ -10,12 +10,14 @@ namespace EpicSpirit.Game
         Button _button;
         public int _indice;
         public Character target;
-        bool a=false;
-
+        public bool a;
+        
+            
         public void Awake ()
         {
+            a = true;
             gameObject.AddComponent<Image>();
-            gameObject.AddComponent<Button>();
+            b=gameObject.AddComponent<Button>();
         }
 
 	    void Start () 
@@ -30,5 +32,13 @@ namespace EpicSpirit.Game
                
             }            
 	    }
+	    void Disable()
+        {
+            Debug.Log( "Disable :D" );
+        }
+        void Enable ()
+        {
+            Debug.Log( "Enable :D" );
+        }
     }
 }
