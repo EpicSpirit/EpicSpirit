@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ed8951856eaa3204aa33ea554b7bb2e2
-timeCreated: 1433542544
+guid: 84066368c817b044fbc8bdcfbbda64d3
+timeCreated: 1433545152
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -175,9 +175,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 0
     splitTangentsAcrossUV: 1
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0

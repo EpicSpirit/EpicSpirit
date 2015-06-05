@@ -8,7 +8,7 @@ namespace EpicSpirit.Game
 
         void Start ()
         {
-            float t = this.GetComponent<Animation>().GetClip("Take 001").length+0.5f;
+            float t = this.GetComponent<Animation>().GetClip("Take 001").length+0.2f;
             Invoke( "AutoDestroy", t );
         }
 
@@ -18,11 +18,12 @@ namespace EpicSpirit.Game
         }
 
         public void OnTriggerEnter ( Collider c )
-    {
-        if(c.name != "Spi")
         {
-            c.GetComponent<Character>().takeDamage( 10 );
+            if(c.name != "Spi")
+            {
+                c.GetComponent<Character>().takeDamage( 2 );
+                c.GetComponent<Character>().Iced(5f);
+            }
         }
-    }
     }
 }
