@@ -35,7 +35,7 @@ namespace EpicSpirit.Game
         }
         public void ThrowFrozenPick ()
         {
-            GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Frozen_Pick_Prefab" ), this.transform.position + this.transform.TransformDirection(Vector3.forward*6) , this.transform.rotation ) as GameObject;
+            GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Frozen_Pick_Prefab" ), this.transform.position + this.transform.TransformDirection(Vector3.forward*8) , this.transform.rotation ) as GameObject;
 
         }
     }
