@@ -35,6 +35,8 @@ namespace EpicSpirit.Game
         // Attack
         internal List<Action> _actions;
 
+        
+
 
         #endregion
 
@@ -67,6 +69,7 @@ namespace EpicSpirit.Game
 
             _actions = new List<Action>();
             _health = 3;
+
             
 
             _characterController = this.GetComponent<CharacterController>();
@@ -105,6 +108,7 @@ namespace EpicSpirit.Game
                 _animations.Stop();
                 return; 
             }
+            
             else if ( direction != Vector3.zero && ChangeState(States.Walk))
             {
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
@@ -116,6 +120,7 @@ namespace EpicSpirit.Game
             }
             else
             {
+                
                 // Nothing 
                 // TEST
                 
@@ -221,9 +226,20 @@ namespace EpicSpirit.Game
                 Application.LoadLevel( "game_over" );
         }
 
+        public void MoveBack(Vector3 v)
+        {
+            this.GetComponent<CharacterController>().Move( v * Time.deltaTime );
+        }
+
+        
         public void MoveBack(GameObject c, float strengh)
         {
-            this.GetComponent<CharacterController>().Move( ( this.transform.position - c.transform.position ) * strengh * Time.deltaTime );
+            MoveBack( ( this.transform.position - c.transform.position )* strengh);
+        }
+
+        public void MoveBack(float strengh)
+        {
+            MoveBack( this.transform.TransformDirection( Vector3.back * strengh ));
         }
 
         #region AnimationManager
@@ -419,5 +435,6 @@ namespace EpicSpirit.Game
             Iced
         }
         #endregion
+    
     }
 }

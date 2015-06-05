@@ -10,7 +10,7 @@ namespace EpicSpirit.Game
         Button _button;
         public int _indice;
         public Character target;
-        public bool isSkillEnabled;
+        bool isSkillEnabled;
         UISkill _uis;
             
         public void Awake ()

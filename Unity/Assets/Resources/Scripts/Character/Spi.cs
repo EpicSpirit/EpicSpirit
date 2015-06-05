@@ -46,6 +46,7 @@ namespace EpicSpirit.Game
             _actions.Add( this.gameObject.AddComponent<Sword>() );
             _actions.Add( this.gameObject.AddComponent<HealthPotion>() );
             _actions.Add( this.gameObject.AddComponent<FrozenPick>() );
+            _actions.Add( this.gameObject.AddComponent<Dodge>() );
 
         }
 
@@ -54,16 +55,19 @@ namespace EpicSpirit.Game
             base.Start();
         }
 
-
+        
        
         public override void Update()
         {
             base.Update();
+
         }
 
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
+
+
             if ( isState(States.Walk) )
             {
                 AnimationManager( "walk" );
@@ -83,6 +87,7 @@ namespace EpicSpirit.Game
                     AnimationManager( "look_around" );
                 }
             }
+            
         }
 
         private bool isInvincible () {

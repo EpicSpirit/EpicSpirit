@@ -61,6 +61,7 @@
      <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS_FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS_FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skill.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Skills\Dodge.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Spi\HealthPotion.cs" />
