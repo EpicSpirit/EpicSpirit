@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
             _cooldown = 5f;
             if ( _animation != null )
             {
-                _attackAnimations.Add( new AttackAnimation( "throwball", _animation.GetClip( "throwball" ).length * 0.6f ) );
+                _attackAnimations.Add( new AttackAnimation( "throwball", _animation.GetClip( "throwball" ).length * 0.7f ) );
                 _attackDuration = _animation.GetClip( "throwball" ).length;
 
             }
@@ -35,7 +35,7 @@ namespace EpicSpirit.Game
         }
         public void ThrowFrozenPick ()
         {
-            GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Projectile_FrozenPick" ), this.transform.position + Vector3.up, this.transform.rotation ) as GameObject;
+            GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Frozen_Pick_Prefab" ), this.transform.position + Vector3.forward*6 , this.transform.rotation ) as GameObject;
 
         }
     }

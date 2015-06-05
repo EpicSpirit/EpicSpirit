@@ -59,11 +59,11 @@
      <Compile Include="Assets\Resources\Scripts\Competences\Item.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS_FireBall.cs" />
-     <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS_FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skill.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\Dodge.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FrozenPick.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Skills\FrozenPick_Object.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Spi\HealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\VeryBadBoy\SummonBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Weapon.cs" />
