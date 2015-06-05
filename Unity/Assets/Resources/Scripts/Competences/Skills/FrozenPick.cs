@@ -3,12 +3,12 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-    public class FireBall : Skill
+    public class FrozenPick : Skill
     {
         public override void Awake ()
         {
             base.Awake();
-            _cooldown = 5f ;
+            _cooldown = 5f;
             if ( _animation != null )
             {
                 _attackAnimations.Add( new AttackAnimation( "throwball", _animation.GetClip( "throwball" ).length * 0.6f ) );
@@ -16,7 +16,7 @@ namespace EpicSpirit.Game
 
             }
 
-            _image = Resources.Load<Sprite>( "UI/Images/button_fireball" );
+            _image = Resources.Load<Sprite>( "UI/Images/button_frozenpick" );
         }
         public override void Start ()
         {
@@ -24,19 +24,19 @@ namespace EpicSpirit.Game
         }
 
         public override bool Act ()
-        { 
+        {
             if ( base.Act() )
             {
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
-                Invoke( "ThrowFireBall", _attackAnimations [0].TimeAttack );
+                Invoke( "ThrowFrozenPick", _attackAnimations [0].TimeAttack );
                 return true;
             }
             return false;
         }
-        public void ThrowFireBall()
+        public void ThrowFrozenPick ()
         {
-            GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Projectile_FireBall" ), this.transform.position+Vector3.up, this.transform.rotation ) as GameObject;
-            
+            GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Projectile_FrozenPick" ), this.transform.position + Vector3.up, this.transform.rotation ) as GameObject;
+
         }
     }
 }

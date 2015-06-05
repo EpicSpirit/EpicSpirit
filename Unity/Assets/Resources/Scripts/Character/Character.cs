@@ -97,11 +97,15 @@ namespace EpicSpirit.Game
             }
         }
 
-        // TODO : Factoriser cette méthode, tout les perso n'ont pas un look around
         public virtual void Move ( Vector3 direction )
         {
             direction.y = 0;
-            if ( direction != Vector3.zero && ChangeState(States.Walk))
+            if ( _effect != Effect.None )
+            {
+                _animations.Stop();
+                return; 
+            }
+            else if ( direction != Vector3.zero && ChangeState(States.Walk))
             {
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
                 _characterController.transform.rotation = Quaternion.LookRotation( direction );
@@ -113,6 +117,8 @@ namespace EpicSpirit.Game
             else
             {
                 // Nothing 
+                // TEST
+                
             }
         }
         /// <summary>
@@ -149,6 +155,7 @@ namespace EpicSpirit.Game
         {
             Attack(0);
         }
+        
         public void Attack (int indice) 
         {
             // Tick Management
@@ -324,6 +331,9 @@ namespace EpicSpirit.Game
         {
             if ( state == null ) { throw new ArgumentNullException(); }
 
+            // EffectGestion
+            if ( _effect != Effect.None ) return false;
+
             if ( isPriority( _state, state ) )
             {
                 _state = state;
@@ -355,6 +365,7 @@ namespace EpicSpirit.Game
 					0, 1, 28, 2, 29, 14, 24, 3, 30, 22, 20, 15, 25, 17, 4, 8, 
 					31, 27, 13, 23, 21, 19, 16, 7, 26, 12, 18, 6, 11, 5, 10, 9 
 				};
+        private  Effect _effect;
 
         /// <summary>
         /// Compute the Log2 (logarithm base 2) of a given number.
@@ -391,5 +402,22 @@ namespace EpicSpirit.Game
         }
         #endregion
 
+        #region EffectManagment
+        internal void Iced ( float time )
+        {
+            _effect = Effect.Iced;
+            Invoke( "ReturnNormalState", time );
+        }
+        private void ReturnNormalState()
+        {
+            _effect = Effect.None;
+        }
+
+        public enum Effect
+        {
+            None,
+            Iced
+        }
+        #endregion
     }
 }

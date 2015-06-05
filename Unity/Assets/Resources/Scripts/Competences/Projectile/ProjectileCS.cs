@@ -4,10 +4,9 @@ using System.Collections;
 namespace EpicSpirit.Game
 {
 
-    public class Projectile : MonoBehaviour
+    public abstract class ProjectileCS : MonoBehaviour
     {
-        bool move;
-        public void Awake()
+        public virtual void Awake()
         {
             Invoke( "AutoDestroy", 1f );
             GetComponentsInChildren<ParticleSystem>()[0].Play();
@@ -15,11 +14,9 @@ namespace EpicSpirit.Game
 
         }
 
-        public void Update ()
+        public virtual void Update ()
         {
-            
-                this.transform.transform.Translate( 0, 0, 1, Space.Self);
-            
+            this.transform.transform.Translate( 0, 0, 1, Space.Self);
         }
 
         public void OnTriggerEnter(Collider c)
@@ -30,10 +27,7 @@ namespace EpicSpirit.Game
                 target = c.GetComponent<Character>();
                 if(target != null)
                 {
-                    GetComponentsInChildren<ParticleSystem>() [1].Stop();
-                    GetComponentsInChildren<ParticleSystem>() [2].Play();
-                    target.takeDamage( 10 );
-                    target.MoveBack( this.gameObject, 100 );
+                    Effect( target );
                 }
                 CancelInvoke( "AutoDestroy" );
                 Destroy( this.gameObject,0.15f );
@@ -44,6 +38,8 @@ namespace EpicSpirit.Game
         {
             Destroy( this.gameObject );
         }
+
+        public abstract void Effect (Character target);
         
     }
 }

@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\InGameButtonMenu.cs" />
      <Compile Include="Assets\InGameMenu.cs" />
-     <Compile Include="Assets\Projectile.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\GenericCharacterForUnitTests.cs" />
@@ -58,8 +57,12 @@
      <Compile Include="Assets\Resources\Scripts\Competences\AttackAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\BadBoy\Tacle.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Item.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS_FireBall.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Projectile\ProjectileCS_FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skill.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FireBall.cs" />
+     <Compile Include="Assets\Resources\Scripts\Competences\Skills\FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Spi\HealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\VeryBadBoy\SummonBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Weapon.cs" />
