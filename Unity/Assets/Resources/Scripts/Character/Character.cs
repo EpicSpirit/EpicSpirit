@@ -160,12 +160,13 @@ namespace EpicSpirit.Game
         {
             Attack(0);
         }
-        
+        Action _actualAction;
         public void Attack (int indice) 
         {
             // Tick Management
             if ( ChangeState( States.Attack ) )
             {
+                _actualAction = _actions [indice];
                 if ( _actions [indice].Act() )
                 {
                     StopAttack( _actions [indice].AttackDuration );
@@ -192,6 +193,7 @@ namespace EpicSpirit.Game
 
         internal void StopAttack ( float duration )
         {
+            
             Invoke( "EndOfState", duration );
         }
 
@@ -200,6 +202,8 @@ namespace EpicSpirit.Game
         // TODO : Mettre avec le stateManager tout beau tout propre
         internal virtual void takeDamage ( int force )
         {
+            if ( isState( States.Attack ) && !_actualAction.IsStoppable ) return;
+
             if ( ChangeState( States.Damaged ) )
             {
                 ParticuleManager( "DamageEffect" );
@@ -317,6 +321,7 @@ namespace EpicSpirit.Game
 
         internal void EndOfState ()
         {
+            _actualAction = null;
             _state = States.Idle;
         }
 

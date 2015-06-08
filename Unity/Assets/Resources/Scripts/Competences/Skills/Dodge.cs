@@ -14,7 +14,7 @@ namespace EpicSpirit.Game
                 _attackAnimations.Add( new AttackAnimation( "dodge", 0f ) );
                 _attackDuration = _animation.GetClip( "dodge" ).length;
             }
-
+            _isStoppable = false;
             _image = Resources.Load<Sprite>( "UI/Images/button_retreat" );
         }
         public override void Start ()

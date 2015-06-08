@@ -45,7 +45,7 @@ namespace EpicSpirit.Game
             // Pour le moment on n'a pas encore de menu pour les comp donc on les rajoute manuellement
             _actions.Add( this.gameObject.AddComponent<Sword>() );
             _actions.Add( this.gameObject.AddComponent<HealthPotion>() );
-            _actions.Add( this.gameObject.AddComponent<FrozenPick>() );
+            _actions.Add( this.gameObject.AddComponent<FireBall>() );
             _actions.Add( this.gameObject.AddComponent<Dodge>() );
 
         }
@@ -99,9 +99,7 @@ namespace EpicSpirit.Game
             if ( !isInvincible() )
             {
                 _lastReceivedDamage = Time.fixedTime;
-
                 base.takeDamage( force );
-               
                 AnimationManager( "damaged" );
             }
         }

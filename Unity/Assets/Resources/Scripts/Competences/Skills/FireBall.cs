@@ -15,8 +15,16 @@ namespace EpicSpirit.Game
                 _attackDuration = _animation.GetClip( "throwball" ).length;
 
             }
-
+            _isStoppable = true;
             _image = Resources.Load<Sprite>( "UI/Images/button_fireball" );
+        }
+        public override void StopAction ()
+        {
+            base.StopAction();
+            if ( _isStoppable )
+            {
+                CancelInvoke();
+            }
         }
         public override void Start ()
         {

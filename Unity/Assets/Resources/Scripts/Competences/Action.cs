@@ -63,6 +63,10 @@ namespace EpicSpirit.Game {
         {
             get { return _description; }
         }
+        public bool IsStoppable
+        {
+            get { return _isStoppable; }
+        }
 
         public virtual void Awake ()
         {
@@ -136,6 +140,8 @@ namespace EpicSpirit.Game {
             _function( _textButton, _currentCoolDown-- );
             if ( _currentCoolDown >= 0 ) Invoke( "DecrementCoolDown", 1f );
         }
+
+        public virtual void StopAction() {}
 
     }
 }
