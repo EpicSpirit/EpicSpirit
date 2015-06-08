@@ -127,29 +127,34 @@ namespace EpicSpirit.Game
         
         public void AddToSlot(int index)
         {
-            string key,value;
+            var p = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
+
+            string key;
+            int value;
 
             if ( _selectedAction.Action is Weapon )
             {
                 key = "ActualWeapon";
+                value = p.Weapons.IndexOf( (Weapon)_selectedAction.Action );
             }
             else if ( _selectedAction.Action is Item )
             {
                 key = "ActualItem";
+                value = p.Items.IndexOf( (Item)_selectedAction.Action );
             }
             else if ( _selectedAction.Action is Skill )
             {
                 key = "ActualSkill_" + index;
+                value = p.Skills.IndexOf( (Skill)_selectedAction.Action );
             }
             else
             {
                 Debug.LogException(new Exception("action must be Weapon,Item or Skill"));
                 key = "";
-                value = "";
+                value = -1;
             }
-            value = _selectedAction.Action.Name;
 
-            PlayerPrefs.SetString(key,value);
+            PlayerPrefs.SetInt(key,value);
             Debug.Log( key + " => " + value );
 
         }

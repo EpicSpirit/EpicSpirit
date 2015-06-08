@@ -42,13 +42,31 @@ namespace EpicSpirit.Game
                 Health = 20;
             }
 
+
+            
+            _actions = SaveManager.LoadAction();
+
+            for ( int i=0; i < _actions.Count;i++ )
+            {
+                _actions [i] = _actions [i].AddActionToPerso( this.gameObject );
+
+            }
+            
+
+            //this.gameObject.AddComponent<Action>();
+
             // Pour le moment on n'a pas encore de menu pour les comp donc on les rajoute manuellement
+            /*
             _actions.Add( this.gameObject.AddComponent<Sword>() );
             _actions.Add( this.gameObject.AddComponent<HealthPotion>() );
             _actions.Add( this.gameObject.AddComponent<FireBall>() );
+            _actions.Add( this.gameObject.AddComponent<FrozenPick>() );
             _actions.Add( this.gameObject.AddComponent<Dodge>() );
+            */
 
         }
+
+
 
         public override void Start()
         {

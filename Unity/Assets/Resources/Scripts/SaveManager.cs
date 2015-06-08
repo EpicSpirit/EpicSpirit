@@ -12,8 +12,8 @@ namespace EpicSpirit.Game
 
         public void Awake () 
         {
-            _progressionManager = this.gameObject.AddComponent<ProgressionManager>();
-
+            //_progressionManager = this.gameObject.AddComponent<ProgressionManager>();
+            _progressionManager = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
             ResetSave();    // TMP
 
         }
@@ -46,6 +46,7 @@ namespace EpicSpirit.Game
 
         public List<Action> LoadAllSkills () 
         {
+            var p = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
 
             return new List<Action>();
         }
@@ -122,6 +123,22 @@ namespace EpicSpirit.Game
 
             PlayerPrefs.SetString( "Skills", stringbuilder.ToString() );
         }
+
+        public static List<Action> LoadAction ()
+        {
+            List<Action> a = new List<Action>();
+            var p = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
+
+            a.Add( p.Weapons [PlayerPrefs.GetInt( "ActualWeapon" )] );
+            a.Add( p.Items [PlayerPrefs.GetInt( "ActualItem" )] );
+            a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_1" )] );
+            a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_2" )] );
+            a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_3" )] );
+
+            return a;
+        }
+
+
         public void UnlockWeapon ( int index )
         {
             Char[] WeaponFlags = PlayerPrefs.GetString( "Weapons" ).ToCharArray();

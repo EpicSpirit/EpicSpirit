@@ -20,6 +20,12 @@ namespace EpicSpirit.Game
             _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
             _isStoppable = false;
         }
+
+        public override Action AddActionToPerso ( GameObject go )
+        {
+            return go.AddComponent<HealthPotion>();
+        }
+
         public override void Start ()
         {
             base.Start();

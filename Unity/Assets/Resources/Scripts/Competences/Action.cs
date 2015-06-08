@@ -87,6 +87,12 @@ namespace EpicSpirit.Game {
             _name = "NoName";
         }
 
+        public virtual Action AddActionToPerso(GameObject go)
+        { 
+            Debug.Log("MustBe Implemented");
+            return null;
+        }
+
         public virtual void Start () { }
 
         public virtual bool Act () 
@@ -132,7 +138,6 @@ namespace EpicSpirit.Game {
             _function = function;
             _textButton = textButton;
             Invoke( "DecrementCoolDown", 0f );
-            Debug.Log( "StartCoolDown" );
         }
 
         private void DecrementCoolDown ()

@@ -20,6 +20,12 @@ namespace EpicSpirit.Game
             _name = "FrozenPick";
             _description = "Sort des piques de glace. Fait bobo et gèle les ennemis";
         }
+
+        public override Action AddActionToPerso ( GameObject go )
+        {
+            return go.AddComponent<FrozenPick>(); 
+        }
+       
         public override void Start ()
         {
             base.Start();

@@ -31,6 +31,11 @@ namespace EpicSpirit.Game
             _description = "Superbe Sword OTD !";
         }
 
+        public override Action AddActionToPerso ( GameObject go )
+        {
+            return go.AddComponent<Sword>();
+        }
+
         public override void Start ()
         {
             base.Start();

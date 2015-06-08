@@ -35,9 +35,6 @@ namespace EpicSpirit.Game
         // Attack
         internal List<Action> _actions;
 
-        
-
-
         #endregion
 
         #region Properties
@@ -62,6 +59,9 @@ namespace EpicSpirit.Game
         }
 
         #endregion
+
+       
+
 
         public virtual void Awake()
         {

@@ -20,6 +20,11 @@ namespace EpicSpirit.Game
             _name = "FireBall";
             _description = "Envoi une superbe boule de feu OF THE DEAD qui tue sa maman";
         }
+
+        public override Action AddActionToPerso ( GameObject go )
+        {
+            return go.AddComponent<FireBall>();
+        }
         public override void StopAction ()
         {
             base.StopAction();

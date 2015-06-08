@@ -8,7 +8,7 @@ namespace EpicSpirit.Game
         public override void Awake ()
         {
             base.Awake();
-            _cooldown = 2f;
+            _cooldown = 1f;
             if ( _animation != null )
             {
                 _attackAnimations.Add( new AttackAnimation( "dodge", 0f ) );
@@ -20,6 +20,12 @@ namespace EpicSpirit.Game
             _name = "Dodge";
             _description = "Superbe esquive otd.";
         }
+
+        public override Action AddActionToPerso ( GameObject go )
+        {
+            return go.AddComponent<Dodge>();
+        }
+
         public override void Start ()
         {
             base.Start();
