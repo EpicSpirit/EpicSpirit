@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 5
-  _attackRange: 4
+  _attackRange: 2
   _aggroMovementSpeed: 9
   _aggroArea: 10
   _health: 3
