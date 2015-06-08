@@ -34,8 +34,8 @@ namespace EpicSpirit.Game
         }
         TypeOfContent _typeOfContent;
         int _x, _y;
-        float _offset;
-        float _beginX, _beginY;
+        float _xOffset;
+        float _yOffset;
 
         void Awake ()
         {
@@ -48,9 +48,8 @@ namespace EpicSpirit.Game
 
             _x = 0;
             _y = 0;
-            _offset = 170;
-            _beginX = 100;
-            _beginY = 400;
+            _xOffset = Screen.width / 5f;
+            _yOffset = Screen.height / 3.8f;
         }
 
         void Start ()
@@ -101,8 +100,11 @@ namespace EpicSpirit.Game
 
         public void AddIcon(Action action)
         {
-            GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _beginX +( _x * _offset), _beginY - (_y * _offset), 0 ), new Quaternion() );
+            GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( target.transform.position.x +( _x * _xOffset), target.transform.position.y - (_y * _yOffset), 0 ), new Quaternion() );
             gameObject.transform.parent = target.transform;
+            Debug.Log( "parent" + target.transform.position );
+            Debug.Log( "target" + gameObject.transform.position );
+
             gameObject.transform.localScale = new Vector3(5,5,5);
             var ai = gameObject.GetComponent<actionicone>();
             ai.Action = action;
