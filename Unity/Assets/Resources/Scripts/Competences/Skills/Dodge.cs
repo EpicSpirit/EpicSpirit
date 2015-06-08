@@ -16,6 +16,9 @@ namespace EpicSpirit.Game
             }
             _isStoppable = false;
             _image = Resources.Load<Sprite>( "UI/Images/button_retreat" );
+
+            _name = "Dodge";
+            _description = "Superbe esquive otd.";
         }
         public override void Start ()
         {

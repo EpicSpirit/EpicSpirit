@@ -24,6 +24,7 @@ namespace EpicSpirit.Game
         public GameObject slot_3;
         public GameObject cache;
         public GameObject target;
+        public GameObject origin;
 
         public enum TypeOfContent
         {
@@ -34,7 +35,7 @@ namespace EpicSpirit.Game
         TypeOfContent _typeOfContent;
         int _x, _y;
         float _offset;
-        int _beginX, _beginY;
+        float _beginX, _beginY;
 
         void Awake ()
         {
@@ -47,9 +48,9 @@ namespace EpicSpirit.Game
 
             _x = 0;
             _y = 0;
-            _offset = 80;
-            _beginY = 450;
-            _beginX = 80;
+            _offset = 170;
+            _beginX = 100;
+            _beginY = 400;
         }
 
         void Start ()
@@ -77,13 +78,13 @@ namespace EpicSpirit.Game
                         AddIcon( weapon );
                     }
                     break;
-                case TypeOfContent.Items:
+                case TypeOfContent.Skills:
                     foreach ( Skill skill in _skills )
                     {
                         AddIcon( skill );
                     }
                     break;
-                case TypeOfContent.Skills:
+                case TypeOfContent.Items:
                     foreach ( Item item in _items )
                     {
                         AddIcon( item );
@@ -100,7 +101,7 @@ namespace EpicSpirit.Game
 
         public void AddIcon(Action action)
         {
-            GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _beginX +( _x * _offset), _beginY + (_y * _offset), 0 ), new Quaternion() );
+            GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( _beginX +( _x * _offset), _beginY - (_y * _offset), 0 ), new Quaternion() );
             gameObject.transform.parent = target.transform;
             gameObject.transform.localScale = new Vector3(5,5,5);
             var ai = gameObject.GetComponent<actionicone>();
@@ -108,7 +109,6 @@ namespace EpicSpirit.Game
             var b = gameObject.GetComponent<Button>();
             b.onClick.AddListener( () => GetDescription(ai));
             
-
             if( ++_x >= 3)
             {
                 _x = 0;
@@ -170,6 +170,7 @@ namespace EpicSpirit.Game
         }
         public void ItemMenu ()
         {
+            Debug.Log( "aaa" );
             _typeOfContent = TypeOfContent.Items;
             cache.SetActive( true );
 

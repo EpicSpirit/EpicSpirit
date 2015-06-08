@@ -97,6 +97,16 @@ namespace EpicSpirit.Game
             PlayerPrefs.SetInt( "Spi_Health", 20 );
 
             UnlockWeapon( 0 );
+
+            UnlockSkill( 0 );   // FireBall
+            UnlockSkill( 1 );   // FrozenPick
+            UnlockSkill( 2 );   // Dodge
+            UnlockSkill( 3 );   // Dodge
+            UnlockSkill( 4 );   // Dodge
+            UnlockSkill( 5 );   // Dodge
+            UnlockSkill( 6 );   // Dodge
+            UnlockSkill( 7 );   // Dodge
+
         }
 
         public void UnlockSkill ( int index)

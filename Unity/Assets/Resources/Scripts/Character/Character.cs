@@ -167,9 +167,9 @@ namespace EpicSpirit.Game
             if ( ChangeState( States.Attack ) )
             {
                 _actualAction = _actions [indice];
-                if ( _actions [indice].Act() )
+                if ( _actualAction.Act() )
                 {
-                    StopAttack( _actions [indice].AttackDuration );
+                    StopAttack( _actualAction.AttackDuration );
                 }
                 else
                 {

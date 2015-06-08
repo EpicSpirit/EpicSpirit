@@ -17,6 +17,8 @@ namespace EpicSpirit.Game
             }
             _isStoppable = true;
             _image = Resources.Load<Sprite>( "UI/Images/button_fireball" );
+            _name = "FireBall";
+            _description = "Envoi une superbe boule de feu OF THE DEAD qui tue sa maman";
         }
         public override void StopAction ()
         {

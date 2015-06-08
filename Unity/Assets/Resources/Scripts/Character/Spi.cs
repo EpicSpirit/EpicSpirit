@@ -54,13 +54,10 @@ namespace EpicSpirit.Game
         {
             base.Start();
         }
-
-        
        
         public override void Update()
         {
             base.Update();
-
         }
 
         public override void Move( Vector3 direction )
