@@ -46,10 +46,13 @@ namespace EpicSpirit.Game
             
             _actions = SaveManager.LoadAction();
 
-            for ( int i=0; i < _actions.Count;i++ )
+            if ( _actions != null )
             {
-                _actions [i] = _actions [i].AddActionToPerso( this.gameObject );
+                for ( int i=0; i < _actions.Count; i++ )
+                {
+                    _actions [i] = _actions [i].AddActionToPerso( this.gameObject );
 
+                }
             }
             
 

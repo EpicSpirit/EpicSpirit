@@ -127,15 +127,24 @@ namespace EpicSpirit.Game
         public static List<Action> LoadAction ()
         {
             List<Action> a = new List<Action>();
-            var p = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
+            var go=GameObject.Find( "ProgressionManager" );
+            if(go != null)
+            {
+                var p = go.GetComponent<ProgressionManager>();
 
-            a.Add( p.Weapons [PlayerPrefs.GetInt( "ActualWeapon" )] );
-            a.Add( p.Items [PlayerPrefs.GetInt( "ActualItem" )] );
-            a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_1" )] );
-            a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_2" )] );
-            a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_3" )] );
+                if ( p != null )
+                {
+                    a.Add( p.Weapons [PlayerPrefs.GetInt( "ActualWeapon" )] );
+                    a.Add( p.Items [PlayerPrefs.GetInt( "ActualItem" )] );
+                    a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_1" )] );
+                    a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_2" )] );
+                    a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_3" )] );
 
-            return a;
+                    return a;
+                }
+            }
+            Debug.Log("Progression manager not found");
+            return null;
         }
 
 
