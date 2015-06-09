@@ -13,6 +13,8 @@ namespace EpicSpirit.Game {
                 _cinematique.Begin();
             else
                 Debug.Log(c.name+"Entered in the triggerEvent "+this.gameObject.name);
+
+            
         }
     }
 }

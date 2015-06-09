@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\CinematiqueManager\Cinematique.cs" />
      <Compile Include="Assets\CinematiqueManager\CinematiqueTrigger.cs" />
+     <Compile Include="Assets\CinematiqueManager\Cinematique_TEST\Cinematique_Block_and_Move_Camera.cs" />
      <Compile Include="Assets\CinematiqueManager\Cinematique_TEST\Cinematique_TEST.cs" />
      <Compile Include="Assets\CinematiqueSpawnPoint.cs" />
      <Compile Include="Assets\InGameButtonMenu.cs" />

@@ -10,6 +10,12 @@ namespace EpicSpirit.Game
         public int x_delta;
         public int y_delta;
         public int z_delta;
+        public float _cameraSpeed;
+
+        void Start()
+        {
+            _cameraSpeed = 0.4f;
+        }
         /*
          * TODO: Rendre le code plus propre et générique (gérer notament la rotation de la caméra)
          * */
@@ -24,7 +30,7 @@ namespace EpicSpirit.Game
                 movement.y = _target.transform.position.y + y_delta;
 
                 //this.transform.position = movement;
-                this.transform.position = Vector3.Lerp( this.transform.position, movement, 0.4f );
+                this.transform.position = Vector3.Lerp( this.transform.position, movement, _cameraSpeed );
             }
 
 
