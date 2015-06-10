@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-    public class BadBoy : Character
+    public class BadBoy : Enemy
     {
         Action attack;
 

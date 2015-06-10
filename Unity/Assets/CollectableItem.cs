@@ -6,20 +6,32 @@ namespace EpicSpirit.Game
     public class CollectableItem : MonoBehaviour {
 
         public Item item;
-
+        public bool enableCollect;
+        
 	    void Awake () {
+            enableCollect = false;
+
             Invoke( "Extinction", 5f );
+            Invoke( "EnableCollect", 0.5f );
 	    }
-	
+
+        void EnableCollect ()
+        {
+            enableCollect = true;
+        }
+
 	    void Update () {
             this.transform.RotateAround( Vector3.up, 2*Time.deltaTime );
 	    }
 
-        public void OnTriggerEnter()
+        public void OnTriggerStay()
         {
-            SaveManager.AddItem( item );
-            UpdateItemButton();
-            Extinction();
+            if ( enableCollect )
+            {
+                SaveManager.AddItem( item );
+                UpdateItemButton();
+                Extinction();
+            }
         }
 
         public void Extinction ()

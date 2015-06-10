@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-    public class VeryBadBoy : Character
+    public class VeryBadBoy : Enemy
     {
         private static System.Random _randomGenerator = new System.Random();
 

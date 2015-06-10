@@ -47,15 +47,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CinematiqueManager\Cinematique.cs" />
+     <Compile Include="Assets\CinematiqueManager\CinematiqueSpawnPoint.cs" />
      <Compile Include="Assets\CinematiqueManager\CinematiqueTrigger.cs" />
      <Compile Include="Assets\CinematiqueManager\Cinematique_TEST\Cinematique_Block_and_Move_Camera.cs" />
      <Compile Include="Assets\CinematiqueManager\Cinematique_TEST\Cinematique_TEST.cs" />
-     <Compile Include="Assets\CinematiqueSpawnPoint.cs" />
      <Compile Include="Assets\CollectableItem.cs" />
      <Compile Include="Assets\InGameButtonMenu.cs" />
      <Compile Include="Assets\InGameMenu.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Enemy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\GenericCharacterForUnitTests.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />

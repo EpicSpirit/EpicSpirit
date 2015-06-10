@@ -222,7 +222,7 @@ namespace EpicSpirit.Game
         public static void AddItem(Item i)
         {
             PlayerPrefs.SetInt( i.Name, i.Quantity + 1 );
-            Debug.Log(i.Name+i.Quantity);
+
         }
 
         public static void RemoveItem(Item i)

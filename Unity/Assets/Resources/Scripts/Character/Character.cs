@@ -53,7 +53,7 @@ namespace EpicSpirit.Game
             get { return _health; }
             set 
             {
-                if ( value < 0 ) Die();
+                if ( value < 0 && !_dead) { Die(); _dead = true; }
                 _health = value; 
             }
         }
@@ -69,8 +69,7 @@ namespace EpicSpirit.Game
 
             _actions = new List<Action>();
             _health = 3;
-
-            
+            _dead = false;
 
             _characterController = this.GetComponent<CharacterController>();
             if ( _characterController == null )
@@ -85,6 +84,8 @@ namespace EpicSpirit.Game
         {
 
         }
+
+        
 
         public virtual void Update ()
         {
@@ -199,7 +200,6 @@ namespace EpicSpirit.Game
 
         // TODO : Rendre ça plus propre au niveau algo
         // TODO : Faire la migration dans le particule manager
-        // TODO : Mettre avec le stateManager tout beau tout propre
         internal virtual void takeDamage ( int force )
         {
             if ( isState( States.Attack ) && !_actualAction.IsStoppable ) return;
@@ -208,15 +208,8 @@ namespace EpicSpirit.Game
             {
                 ParticuleManager( "DamageEffect" );
                 Health -= force;
-
-                if ( _health <= 0 )
-                {
-                    Die();
-                }
-                else
-                {
-                    Invoke( "EndOfState", 0.3f );
-                }
+                Invoke( "EndOfState", 0.3f );
+                
 
             }
 
@@ -387,6 +380,7 @@ namespace EpicSpirit.Game
 					31, 27, 13, 23, 21, 19, 16, 7, 26, 12, 18, 6, 11, 5, 10, 9 
 				};
         private  Effect _effect;
+        private  bool _dead;
 
         /// <summary>
         /// Compute the Log2 (logarithm base 2) of a given number.
