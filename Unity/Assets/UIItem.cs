@@ -31,5 +31,11 @@ namespace EpicSpirit.Game
             _button.onClick.AddListener( () => _itemCount.text=item.Quantity.ToString() );
         }
 
+        public void UpdateCount ()
+        {
+            Item item = _action.target.GetAttack( _action._indice ) as Item;
+            _itemCount.text = item.Quantity.ToString();
+        }
+
     }
 }

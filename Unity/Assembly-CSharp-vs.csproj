@@ -51,6 +51,7 @@
      <Compile Include="Assets\CinematiqueManager\Cinematique_TEST\Cinematique_Block_and_Move_Camera.cs" />
      <Compile Include="Assets\CinematiqueManager\Cinematique_TEST\Cinematique_TEST.cs" />
      <Compile Include="Assets\CinematiqueSpawnPoint.cs" />
+     <Compile Include="Assets\CollectableItem.cs" />
      <Compile Include="Assets\InGameButtonMenu.cs" />
      <Compile Include="Assets\InGameMenu.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
@@ -69,7 +70,6 @@
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Skills\FrozenPick_Object.cs" />
-     <Compile Include="Assets\Resources\Scripts\Competences\Spi\HealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\VeryBadBoy\SummonBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Weapon.cs" />
      <Compile Include="Assets\Resources\Scripts\Competences\Weapons\Excalibur.cs" />
@@ -81,6 +81,7 @@
      <Compile Include="Assets\Resources\Scripts\GameMenu\GameMenuManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\actionicone.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
+     <Compile Include="Assets\Resources\Scripts\Item\HealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\MouseGesture.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SpiController.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SplashScreen\ResponsiveImage.cs" />
