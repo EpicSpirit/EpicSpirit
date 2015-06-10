@@ -20980,6 +20980,10 @@ Prefab:
       propertyPath: m_TagString
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 11467294, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 607632496}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
   m_IsPrefabParent: 0
@@ -28515,7 +28519,7 @@ Transform:
   - {fileID: 1271016951}
   - {fileID: 2039385783}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
 --- !u!1001 &1608496051
 Prefab:
   m_ObjectHideFlags: 0
@@ -30035,7 +30039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59c8d13493003549bb235d103a7329b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 108640, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
 --- !u!1001 &1701968122
 Prefab:
   m_ObjectHideFlags: 0
@@ -30711,7 +30714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59c8d13493003549bb235d103a7329b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 108640, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
 --- !u!1001 &1733085450
 Prefab:
   m_ObjectHideFlags: 0
@@ -31811,7 +31813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59c8d13493003549bb235d103a7329b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 108640, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
 --- !u!4 &1788880285
 Transform:
   m_ObjectHideFlags: 0
@@ -33393,7 +33394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59c8d13493003549bb235d103a7329b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 108640, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
 --- !u!1001 &1882790490
 Prefab:
   m_ObjectHideFlags: 0
@@ -35157,7 +35157,7 @@ Transform:
   - {fileID: 959410537}
   - {fileID: 832624096}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
 --- !u!4 &1994708673 stripped
 Transform:
   m_PrefabParentObject: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}

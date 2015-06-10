@@ -13,7 +13,7 @@ namespace EpicSpirit.Game
         {
             BlockEveryCharacter(false);
             
-            MoveCamera( camerapoints[0]);
+            _camera.Move( camerapoints[0],MoveCamera.MEDIUM);
             Invoke( "SpawnVeryBadBoy", 1f );
 
         }

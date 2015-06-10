@@ -9,10 +9,13 @@ namespace EpicSpirit.Game
     {
         public bool _oneShot;
         bool _asBegin;
+        internal MoveCamera _camera;
+
 
         public void Awake ()
         {
             _asBegin = false;
+            _camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();
         }
 
         public abstract void LaunchCinematique ();
@@ -28,43 +31,34 @@ namespace EpicSpirit.Game
 
         }
 
-
-        // TODO : PoC, rendre ça beau et reflechit ^^
         internal void BlockEveryCharacter(bool value)
         {
             // Desactive tout les ennemis
-            var t = FindObjectsOfType<Character>();
-            foreach(var t_ in t)
+            AIController[] allAIController = FindObjectsOfType<AIController>();
+            foreach ( AIController aiController in allAIController )
             {
-                t_.enabled = value;
+                aiController.enabled = value;
+                aiController.GetComponent<Character>().AnimationManager( "idle" );
             }
 
             // Desactive toute l'UI
-            var a = GameObject.FindGameObjectWithTag( "UI" );
-            var b = a.GetComponentsInChildren<MonoBehaviour>();
-            foreach(var b_ in b)
+            GameObject ui = GameObject.FindGameObjectWithTag( "UI" );
+            MonoBehaviour[] allBehaviour = ui.GetComponentsInChildren<MonoBehaviour>();
+            foreach(var behaviour in allBehaviour)
             {
-                if ( b_ != null )
+                if ( behaviour != null )
                 {
-                    b_.enabled = value;
+                    behaviour.enabled = value;
                 }
             }
 
             // Desactive la gestion des touches
-            var c = GameObject.Find( "Controller" ).GetComponent<PlayerController>().enabled = value; 
-            
+            GameObject.Find( "Controller" ).GetComponent<PlayerController>().enabled = value;
+
             // Met à Spi l'Idle
             GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AnimationManager( "idle" );
         }
 
-        internal void MoveCamera(GameObject target)
-        {
-            var camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();
-            camera._cameraSpeed = 0.1f;
-            camera._target = target;
-        }
-
-        // TODO : RENDRE CA BEAU 
         internal void BackCameraToSpi()
         {
             var camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();

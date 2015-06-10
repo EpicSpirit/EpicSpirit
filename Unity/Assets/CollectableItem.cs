@@ -12,7 +12,7 @@ namespace EpicSpirit.Game
             enableCollect = false;
 
             Invoke( "Extinction", 5f );
-            Invoke( "EnableCollect", 0.5f );
+            Invoke( "EnableCollect", 0.7f );
 	    }
 
         void EnableCollect ()

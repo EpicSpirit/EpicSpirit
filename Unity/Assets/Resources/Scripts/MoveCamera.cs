@@ -12,9 +12,19 @@ namespace EpicSpirit.Game
         public int z_delta;
         public float _cameraSpeed;
 
+        public const float SLOW= 0.05f;
+        public const float MEDIUM=0.1f;
+        public const float HIGH=0.4f;
+
         void Start()
         {
             _cameraSpeed = 0.4f;
+        }
+
+        public void Move(GameObject target,float speed)
+        {
+            _target = target;
+            _cameraSpeed = speed;
         }
         /*
          * TODO: Rendre le code plus propre et générique (gérer notament la rotation de la caméra)
