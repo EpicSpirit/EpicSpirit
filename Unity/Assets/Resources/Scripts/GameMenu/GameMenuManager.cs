@@ -168,10 +168,13 @@ namespace EpicSpirit.Game
             slot_1.SetActive( false );
             slot_3.SetActive( false );
 
+            ActiveButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
+            DesactiveButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
+            DesactiveButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
+
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
 
-            slot_2.GetComponentInChildren<Text>().text = "Slot 1";
 
             RefreshMenu();
         }
@@ -186,7 +189,10 @@ namespace EpicSpirit.Game
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
 
-            slot_2.GetComponentInChildren<Text>().text = "Slot 1";
+            ActiveButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
+            DesactiveButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
+            DesactiveButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
+
 
             RefreshMenu();
         }
@@ -200,7 +206,10 @@ namespace EpicSpirit.Game
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
 
-            slot_2.GetComponentInChildren<Text>().text = "Slot 2";
+            ActiveButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
+            DesactiveButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
+            DesactiveButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
+
 
 
             RefreshMenu();
@@ -209,6 +218,16 @@ namespace EpicSpirit.Game
         public void ExitMenu ()
         {
             Application.LoadLevel( "overworld" );
+        }
+
+        void ActiveButton ( Button b )
+        {
+            b.image.color = Color.white;
+
+        }
+        void DesactiveButton ( Button b )
+        {
+            b.image.color = Color.clear;
         }
 
     }
