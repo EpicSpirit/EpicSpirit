@@ -13,7 +13,7 @@ namespace EpicSpirit.Game
 
             _health = 3;
             _actions.Add( this.gameObject.AddComponent<Tacle>() );
-
+            
         }
 
         public override void Start()
