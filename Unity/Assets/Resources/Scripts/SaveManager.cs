@@ -102,11 +102,8 @@ namespace EpicSpirit.Game
             UnlockSkill( 0 );   // FireBall
             UnlockSkill( 1 );   // FrozenPick
             UnlockSkill( 2 );   // Dodge
-            UnlockSkill( 3 );   // Dodge
-            UnlockSkill( 4 );   // Dodge
-            UnlockSkill( 5 );   // Dodge
-            UnlockSkill( 6 );   // Dodge
-            UnlockSkill( 7 );   // Dodge
+
+            UnlockItem( 0 );
 
         }
 

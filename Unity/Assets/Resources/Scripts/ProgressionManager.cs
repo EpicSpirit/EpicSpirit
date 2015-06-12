@@ -36,12 +36,6 @@ namespace EpicSpirit.Game
             _skills.Add(this.gameObject.AddComponent<FireBall>());
             _skills.Add( this.gameObject.AddComponent<FrozenPick>() );
             _skills.Add( this.gameObject.AddComponent<Dodge>() );
-            _skills.Add( this.gameObject.AddComponent<Dodge>() );
-            _skills.Add( this.gameObject.AddComponent<Dodge>() );
-            _skills.Add( this.gameObject.AddComponent<Dodge>() );
-            _skills.Add( this.gameObject.AddComponent<Dodge>() );
-            _skills.Add( this.gameObject.AddComponent<Dodge>() );
-            _skills.Add( this.gameObject.AddComponent<Dodge>() );
             #endregion
 
         }

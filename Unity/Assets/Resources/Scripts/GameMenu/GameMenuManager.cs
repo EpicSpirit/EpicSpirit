@@ -19,10 +19,7 @@ namespace EpicSpirit.Game
 
         // TODO : Rendre ça propre ensuite
         public GameObject description;
-        public GameObject slot_1;
-        public GameObject slot_2;
-        public GameObject slot_3;
-        public GameObject cache;
+        public List<GameObject> _slots;
         public GameObject target;
         public GameObject origin;
 
@@ -68,34 +65,39 @@ namespace EpicSpirit.Game
             }
 
             // Refresh
+            List<Action> _actions = SaveManager.LoadAction();
+
+
             switch ( _typeOfContent )
             {
                 case TypeOfContent.Weapons:
                     foreach ( Weapon weapon in _weapons )
                     {
-
                         AddIcon( weapon );
                     }
+                    _slots[1].GetComponent<Image>().sprite = _actions[0].GetSprite;
                     break;
                 case TypeOfContent.Skills:
                     foreach ( Skill skill in _skills )
                     {
                         AddIcon( skill );
                     }
+                    _slots[0].GetComponent<Image>().sprite = _actions[2].GetSprite;
+                    _slots[1].GetComponent<Image>().sprite = _actions[3].GetSprite;
+                    _slots[2].GetComponent<Image>().sprite = _actions[4].GetSprite;
                     break;
                 case TypeOfContent.Items:
                     foreach ( Item item in _items )
                     {
                         AddIcon( item );
                     }
+                    _slots[1].GetComponent<Image>().sprite = _actions[1].GetSprite;
+
                     break;
                 default:
                     Debug.Log("Probleme TypeOfContent");
                     break;
-
-
-            }
-            
+            }            
         }
 
         public void AddIcon(Action action)
@@ -120,8 +122,6 @@ namespace EpicSpirit.Game
         
         private void GetDescription( actionicone ai)
         {
-            cache.SetActive( false );
-
             _selectedAction = ai;
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = ai.Action.Name;
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = ai.Action.Description;
@@ -129,7 +129,7 @@ namespace EpicSpirit.Game
         
         public void AddToSlot(int index)
         {
-            var p = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
+            ProgressionManager progressionManager = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
 
             string key;
             int value;
@@ -137,17 +137,17 @@ namespace EpicSpirit.Game
             if ( _selectedAction.Action is Weapon )
             {
                 key = "ActualWeapon";
-                value = p.Weapons.IndexOf( (Weapon)_selectedAction.Action );
+                value = progressionManager.Weapons.IndexOf( (Weapon)_selectedAction.Action );
             }
             else if ( _selectedAction.Action is Item )
             {
                 key = "ActualItem";
-                value = p.Items.IndexOf( (Item)_selectedAction.Action );
+                value = progressionManager.Items.IndexOf( (Item)_selectedAction.Action );
             }
             else if ( _selectedAction.Action is Skill )
             {
                 key = "ActualSkill_" + index;
-                value = p.Skills.IndexOf( (Skill)_selectedAction.Action );
+                value = progressionManager.Skills.IndexOf( (Skill)_selectedAction.Action );
             }
             else
             {
@@ -158,19 +158,18 @@ namespace EpicSpirit.Game
 
             PlayerPrefs.SetInt(key,value);
             Debug.Log( key + " => " + value );
-
+            RefreshMenu();
         }
 
         public void WeaponMenu()
         {
             _typeOfContent = TypeOfContent.Weapons;
-            cache.SetActive( true );
-            slot_1.SetActive( false );
-            slot_3.SetActive( false );
+            _slots[0].SetActive( false );
+            _slots[2].SetActive( false );
 
-            ActiveButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
-            DesactiveButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
-            DesactiveButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
+            EnableButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
+            DisableButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
+            DisableButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
 
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
@@ -182,33 +181,30 @@ namespace EpicSpirit.Game
         {
             Debug.Log( "aaa" );
             _typeOfContent = TypeOfContent.Items;
-            cache.SetActive( true );
 
-            slot_1.SetActive( false );
-            slot_3.SetActive( false );
+            _slots[0].SetActive( false );
+            _slots[2].SetActive( false );
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
 
-            ActiveButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
-            DesactiveButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
-            DesactiveButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
+            EnableButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
+            DisableButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
+            DisableButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
 
 
             RefreshMenu();
         }
         public void SkillMenu ()
         {
-            cache.SetActive( true );
-
             _typeOfContent = TypeOfContent.Skills;
-            slot_1.SetActive( true );
-            slot_3.SetActive( true );
+            _slots[0].SetActive( true );
+            _slots[2].SetActive( true );
             GameObject.Find( "DescriptionTitle" ).GetComponent<Text>().text = "";
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = "";
 
-            ActiveButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
-            DesactiveButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
-            DesactiveButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
+            EnableButton( GameObject.Find( "SkillButton" ).GetComponent<Button>() );
+            DisableButton( GameObject.Find( "ObjectButton" ).GetComponent<Button>() );
+            DisableButton( GameObject.Find( "WeaponButton" ).GetComponent<Button>() );
 
 
 
@@ -220,12 +216,12 @@ namespace EpicSpirit.Game
             Application.LoadLevel( "overworld" );
         }
 
-        void ActiveButton ( Button b )
+        void EnableButton ( Button b )
         {
             b.image.color = Color.white;
 
         }
-        void DesactiveButton ( Button b )
+        void DisableButton ( Button b )
         {
             b.image.color = Color.clear;
         }
