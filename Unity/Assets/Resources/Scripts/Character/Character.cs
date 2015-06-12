@@ -229,9 +229,9 @@ namespace EpicSpirit.Game
         }
 
         
-        public void MoveBack(GameObject c, float strengh)
+		public virtual void MoveBack(GameObject c, float strengh)
         {
-            MoveBack( ( this.transform.position - c.transform.position )* strengh);
+            MoveBack( ( this.transform.position - c.transform.position ).normalized * strengh);
         }
 
         public void MoveBack(float strengh)

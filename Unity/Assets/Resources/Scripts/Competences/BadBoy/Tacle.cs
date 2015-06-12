@@ -14,6 +14,7 @@ namespace EpicSpirit.Game
             _attackDuration = _animation.GetClip( "tacle" ).length;
             _strengh = 1;
             _isStoppable = true;
+			_range = 3;
         }
 
         public override void Start ()

@@ -18,6 +18,7 @@ namespace EpicSpirit.Game {
         internal Sprite _image;
         internal Character _character;
         internal bool _isStoppable;
+		internal int _range;
 
         // CoolDown Managment
         internal float _currentCoolDown;
@@ -78,9 +79,16 @@ namespace EpicSpirit.Game {
             _attackVectors.Add( new Vector3( -1, 1, 2 ) );
             _attackVectors.Add( new Vector3( 1, 1, 2 ) );
             _attackVectors.Add( new Vector3( -2, 1, 2 ) );
-            _cooldown = 0f;
-            _attackVectors.Add( new Vector3( 2, 1, 2 ) );
+			_attackVectors.Add( new Vector3( 2, 1, 2 ) );
 
+			_attackVectors.Add( new Vector3( 0, 0, 2 ) );
+			_attackVectors.Add( new Vector3( -1, 0, 2 ) );
+			_attackVectors.Add( new Vector3( 1, 0, 2 ) );
+			_attackVectors.Add( new Vector3( -2, 0, 2 ) );
+			_attackVectors.Add( new Vector3( 2, 0, 2 ) );
+
+
+			_cooldown = 0f;
             _attackAnimations = new List<AttackAnimation>();
             _animation = GetComponentInChildren<Animation>();
             _image = Resources.Load<Sprite>( "UI/Images/default" );
@@ -118,12 +126,13 @@ namespace EpicSpirit.Game {
 
             foreach ( Vector3 vector in _attackVectors )
             {
-                Debug.DrawRay( realAttackOrigin, _character.transform.TransformDirection( vector ), Color.yellow, 1.0f );
-                if ( Physics.Raycast( realAttackOrigin, _character.transform.TransformDirection( vector ), out _hit ) )
+				Ray ray = new Ray(realAttackOrigin, _character.transform.TransformDirection( vector )*2);
+                Debug.DrawRay( ray.origin, ray.direction, Color.yellow, 1.0f );
+                if ( Physics.Raycast( ray, out _hit, _range ) )
                 {
                     Character target = null;
                     target = _hit.transform.GetComponent<Character>();
-                    if ( target != null && target.name != _character.name )
+                    if ( target != null && target.name != _character.name && !_targets.Contains(target))
                     {
                         _targets.Add( target );
                     }

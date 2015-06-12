@@ -51,5 +51,7 @@ namespace EpicSpirit.Game
 			}
 
 		}
+
+		public override void MoveBack(GameObject c, float strengh){}
 	}
 }

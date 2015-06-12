@@ -29,6 +29,7 @@ namespace EpicSpirit.Game
             _isStoppable = false;
             _name = "Sword";
             _description = "Superbe Sword OTD !";
+			_range = 3;
         }
 
         public override Action AddActionToPerso ( GameObject go )
