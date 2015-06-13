@@ -17,7 +17,7 @@ namespace EpicSpirit.Game
             }
             _isStoppable = true;
             _image = Resources.Load<Sprite>( "UI/Images/button_fireball" );
-            _name = "FireBall";
+            _name = "Fire Ball";
 			_description = "Call a powerfull fire spirit wich reduces everything to ashes on its way";
         }
 

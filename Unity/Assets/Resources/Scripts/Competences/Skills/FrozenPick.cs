@@ -17,8 +17,8 @@ namespace EpicSpirit.Game
             }
 
             _image = Resources.Load<Sprite>( "UI/Images/button_frozenpick" );
-            _name = "FrozenPick";
-            _description = "Sort des piques de glace. Fait bobo et gèle les ennemis";
+            _name = "Frozen Pick";
+			_description = "Summons holy ice spikes that attack with extreme cold and freeze enemies.";
         }
 
         public override Action AddActionToPerso ( GameObject go )

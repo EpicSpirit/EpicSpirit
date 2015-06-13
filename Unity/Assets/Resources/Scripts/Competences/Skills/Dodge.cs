@@ -17,8 +17,8 @@ namespace EpicSpirit.Game
             _isStoppable = false;
             _image = Resources.Load<Sprite>( "UI/Images/button_retreat" );
 
-            _name = "Dodge";
-            _description = "Superbe esquive otd.";
+            _name = "Retreat";
+			_description = "Jump out from the battle quickly.";
         }
 
         public override Action AddActionToPerso ( GameObject go )
