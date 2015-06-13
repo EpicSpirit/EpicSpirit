@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
 	    void Awake () {
             enableCollect = false;
 
-            Invoke( "Extinction", 5f );
+            Invoke( "Extinction", 20f );
             Invoke( "EnableCollect", 0.7f );
 	    }
 
@@ -41,7 +41,7 @@ namespace EpicSpirit.Game
 
         public void UpdateItemButton()
         {
-            GameObject.Find( "Item_Button" ).GetComponentInChildren<UIItem>().UpdateCount();
+            GameObject.Find( "Item" ).GetComponentInChildren<UIItem>().UpdateCount();
         }
     }
 }
