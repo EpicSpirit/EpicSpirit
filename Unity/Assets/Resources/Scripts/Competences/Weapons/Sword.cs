@@ -28,7 +28,7 @@ namespace EpicSpirit.Game
             _image = Resources.Load<Sprite>( "UI/Images/SimpleSword" );
             _isStoppable = false;
             _name = "Sword";
-            _description = "Superbe Sword OTD !";
+			_description = "Although it comes from the forest heart, this blade seems banal.";
 			_range = 3;
         }
 

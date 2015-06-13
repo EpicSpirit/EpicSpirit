@@ -8,7 +8,8 @@ namespace EpicSpirit.Game
         public override void Awake()
         {
             base.Awake();
-            _name="HealthPotion";
+            _name="Health Potion";
+			_description = "Restaure a swall amount of hp.";
 
             if ( _animation != null )
             {
