@@ -32,7 +32,7 @@ namespace EpicSpirit.Game
         {
             if ( _character != null )
             {
-                if ( _joystickOn )
+				if (Application.platform == RuntimePlatform.Android)
                 {
                     JoystickMove();
                 }
