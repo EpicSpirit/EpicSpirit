@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-
+	// Que veux dire CS ?
     public abstract class ProjectileCS : MonoBehaviour
     {
         public virtual void Awake()

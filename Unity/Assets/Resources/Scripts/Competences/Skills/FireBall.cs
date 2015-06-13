@@ -18,7 +18,7 @@ namespace EpicSpirit.Game
             _isStoppable = true;
             _image = Resources.Load<Sprite>( "UI/Images/button_fireball" );
             _name = "FireBall";
-            _description = "Envoi une superbe boule de feu OF THE DEAD qui tue sa maman";
+			_description = "Call a powerfull fire spirit wich reduces everything to ashes on its way";
         }
 
         public override Action AddActionToPerso ( GameObject go )

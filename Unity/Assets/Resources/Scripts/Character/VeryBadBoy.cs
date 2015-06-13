@@ -11,8 +11,10 @@ namespace EpicSpirit.Game
         {
             base.Awake();
 
-            _health = 30;
+            _health = 9999;
             _movementSpeed = 1;
+			_aggroArea = 15;
+			_aggroMovementSpeed = 7;
             _actions.Add( this.gameObject.AddComponent<SummonBadBoy>() );
 
         }
@@ -32,7 +34,7 @@ namespace EpicSpirit.Game
                 AnimationManager( "damaged" );
 
             }
-            if(_health <= 5) 
+            if(_health <= 0) 
             {
                 Invoke("LoadLevel", 1f);
             }
@@ -40,10 +42,10 @@ namespace EpicSpirit.Game
 
         void LoadLevel ()
         {
-            Application.LoadLevel( "endstory" );
+           // Application.LoadLevel( "endstory" );
         }
 
-        //Todo : Même code que BadBoy, rendre ça Dry avec une méthode générique ?
+        //Todo : Même code que BadBoy, rendre ça Dry avec une méthode générique ? // Bah du coup on peut le placer dans enemy ?
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
