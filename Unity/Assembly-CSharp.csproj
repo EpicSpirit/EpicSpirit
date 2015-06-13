@@ -92,6 +92,8 @@
      <Compile Include="Assets\Resources\Scripts\OverWorld\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\MapNode.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\OverworldPlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\PauseMenu\PauseManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\PauseMenu\ResumeGame.cs" />
      <Compile Include="Assets\Resources\Scripts\ProgressionManager.cs" />
      <Compile Include="Assets\Resources\Scripts\SaveManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\BeginStory.cs" />
