@@ -20978,7 +20978,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 165878, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: m_TagString
-      value: UI
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 11467294, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: target
