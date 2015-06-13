@@ -53,7 +53,6 @@
      <Compile Include="Assets\CinematiqueManager\Cinematique_TEST\Cinematique_TEST.cs" />
      <Compile Include="Assets\CollectableItem.cs" />
      <Compile Include="Assets\InGameButtonMenu.cs" />
-     <Compile Include="Assets\InGameMenu.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Enemy.cs" />
@@ -92,6 +91,8 @@
      <Compile Include="Assets\Resources\Scripts\OverWorld\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\MapNode.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\OverworldPlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\PauseMenu\ExitLevelToOverworld.cs" />
+     <Compile Include="Assets\Resources\Scripts\PauseMenu\ExitToMainMenu.cs" />
      <Compile Include="Assets\Resources\Scripts\PauseMenu\PauseManager.cs" />
      <Compile Include="Assets\Resources\Scripts\PauseMenu\ResumeGame.cs" />
      <Compile Include="Assets\Resources\Scripts\ProgressionManager.cs" />

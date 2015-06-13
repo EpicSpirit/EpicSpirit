@@ -12,21 +12,18 @@ namespace EpicSpirit.Game
         void Awake()
         {
             gameObject.AddComponent<Image>();
-            gameObject.AddComponent<Button>();
-
-           _button = GetComponent<Button>();
+			_button = gameObject.AddComponent<Button>();
 			_button.image.overrideSprite = Resources.Load<Sprite>( "Images/PauseMenu/ButtonReturnToOverworld" );
 
            _menu = GameObject.FindWithTag( "Menu" );
-
-           _menu.SetActive( false );
-
         }
         void Start()
         {
+			_menu.SetActive( false );
 			_button.onClick.AddListener( () => 
 			{
 				_menu.SetActive(true) ;
+				Debug.Log("Ici");
 				PauseManager.BlockEveryCharacter(true);
 			});
 
