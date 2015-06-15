@@ -9,15 +9,15 @@ namespace EpicSpirit.Game
 
         Button _button;
         public int _indice;
-        public Character target;
-        bool isSkillEnabled;
+        internal Character _target;
+        bool _isSkillEnabled;
         UISkill _uis;
             
         public void Awake ()
         {
 
-			target = GameObject.FindWithTag ("Player").GetComponent<Character>();
-            isSkillEnabled = true;
+            Debug.Log( _target = GameObject.FindWithTag( "Player" ).GetComponent<Character>() );
+            _isSkillEnabled = true;
             gameObject.AddComponent<Image>();
             _button =gameObject.AddComponent<Button>();
             _uis = GetComponentInChildren<UISkill>();
@@ -27,16 +27,16 @@ namespace EpicSpirit.Game
 
 	    void Start () 
         {
-            if ( target.GetAttack( _indice ).GetSprite != null )
+            if ( _target.GetAttack( _indice ).GetSprite != null )
             {
                 _button = this.GetComponent<Button>();
-                _button.image.overrideSprite = target.GetAttack( _indice ).GetSprite;
+                _button.image.overrideSprite = _target.GetAttack( _indice ).GetSprite;
                 _button.onClick.AddListener( () => {
-                    if ( isSkillEnabled )
+                    if ( _isSkillEnabled )
                     {
                         Disable();
-                        target.Attack( _indice );
-                        Invoke( "Enable", target.GetAttack( _indice ).CoolDown );
+                        _target.Attack( _indice );
+                        Invoke( "Enable", _target.GetAttack( _indice ).CoolDown );
                     }
                 } );               
             }            
@@ -44,18 +44,18 @@ namespace EpicSpirit.Game
 	    void Disable()
         {
             RunCoolDown();
-            isSkillEnabled = false;
+            _isSkillEnabled = false;
         }
         void Enable ()
         {
-            isSkillEnabled = true;
+            _isSkillEnabled = true;
         }
 
         void RunCoolDown ()
         {
             if ( _uis != null )
             {
-                target.GetAttack( _indice ).StartCoolDown( ( uiSkill, ccd ) =>
+                _target.GetAttack( _indice ).StartCoolDown( ( uiSkill, ccd ) =>
                 {
                     if ( ccd <=0 )
                     {

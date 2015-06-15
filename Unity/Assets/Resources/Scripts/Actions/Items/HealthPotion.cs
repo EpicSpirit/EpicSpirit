@@ -5,11 +5,20 @@ namespace EpicSpirit.Game
 {
     public class HealthPotion : Item
     {
+        int _healingAmount;
+
+        public int HealingAmount
+        {
+            get { return _healingAmount; }
+            set { _healingAmount = value; }
+        }
         public override void Awake()
         {
             base.Awake();
             _name="Health Potion";
 			_description = "Restaure a swall amount of hp.";
+            HealingAmount = 1;
+
 
             if ( _animation != null )
             {
@@ -40,7 +49,7 @@ namespace EpicSpirit.Game
             {
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
 
-                _character.Health += 5;
+                _character.Health += HealingAmount;
                 this.Remove();
                 return true;
             }

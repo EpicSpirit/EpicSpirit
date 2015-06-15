@@ -26,14 +26,14 @@ namespace EpicSpirit.Game
         public void Start()
         {
             _button = this.GetComponentInParent<Button>();
-            Item item = _action.target.GetAttack( _action._indice ) as Item;
+            Item item = _action._target.GetAttack( _action._indice ) as Item;
             _itemCount.text = item.Quantity.ToString();
             _button.onClick.AddListener( () => _itemCount.text=item.Quantity.ToString() );
         }
 
         public void UpdateCount ()
         {
-            Item item = _action.target.GetAttack( _action._indice ) as Item;
+            Item item = _action._target.GetAttack( _action._indice ) as Item;
             _itemCount.text = item.Quantity.ToString();
         }
 

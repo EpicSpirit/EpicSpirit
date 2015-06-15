@@ -104,6 +104,9 @@ namespace EpicSpirit.Game
             UnlockSkill( 2 );   // Dodge
 
             UnlockItem( 0 );
+            UnlockItem( 1 );
+            UnlockItem( 2 );
+
 
         }
 
@@ -133,6 +136,7 @@ namespace EpicSpirit.Game
                 {
                     a.Add( p.Weapons [PlayerPrefs.GetInt( "ActualWeapon" )] );
                     a.Add( p.Items [PlayerPrefs.GetInt( "ActualItem" )] );
+                    Debug.Log( p.Items[PlayerPrefs.GetInt( "ActualItem" )] );
                     a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_1" )] );
                     a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_2" )] );
                     a.Add( p.Skills [PlayerPrefs.GetInt( "ActualSkill_3" )] );

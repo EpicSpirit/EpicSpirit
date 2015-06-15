@@ -25,7 +25,7 @@ namespace EpicSpirit.Game
         {
             _button = this.GetComponentInParent<Button>();
 
-            _action.target.GetAttack( _action._indice ).StartCoolDown( ( uiSkill, ccd ) => {
+            _action._target.GetAttack( _action._indice ).StartCoolDown( ( uiSkill, ccd ) => {
                 if ( ccd == 0 ) { 
                     uiSkill._cooldown.text = ""; 
                 }

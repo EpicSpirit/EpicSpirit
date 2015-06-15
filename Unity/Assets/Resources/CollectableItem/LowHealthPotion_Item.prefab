@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11495590}
   - 65: {fileID: 6568594}
   m_Layer: 0
-  m_Name: HealthPotion_Item
+  m_Name: LowHealthPotion_Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 152648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cc3cb36c93696b49b883700daa40bed, type: 3}
+  m_Script: {fileID: 11500000, guid: 397f7e487f92a3b46b4214e44c8b587a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11495590

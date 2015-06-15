@@ -44,6 +44,10 @@ namespace EpicSpirit.Game
                 AnimationManager( "damaged" );
             }
         }
-
+        internal override void Die()
+        {
+            Loot( (UnityEngine.Object)UnityEngine.Resources.Load<UnityEngine.Object>( "CollectableItem/LowHealthPotion_Item" ) );
+            base.Die();
+        }
     }
 }

@@ -3,12 +3,14 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-    public class CollectableItem : MonoBehaviour {
+    public class CollectableItem : MonoBehaviour 
+    {
 
         public Item item;
         public bool enableCollect;
         
-	    void Awake () {
+	    void Awake () 
+        {
             enableCollect = false;
 
             Invoke( "Extinction", 20f );
@@ -20,7 +22,8 @@ namespace EpicSpirit.Game
             enableCollect = true;
         }
 
-	    void Update () {
+	    void Update () 
+        {
             this.transform.RotateAround( Vector3.up, 2*Time.deltaTime );
 	    }
 

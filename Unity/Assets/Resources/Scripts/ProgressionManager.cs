@@ -29,7 +29,9 @@ namespace EpicSpirit.Game
             #endregion
 
             #region Items
-            _items.Add( this.gameObject.AddComponent<HealthPotion>() );
+            _items.Add( this.gameObject.AddComponent<LowHealthPotion>() );
+            _items.Add( this.gameObject.AddComponent<MiddleHealthPotion>() );
+            _items.Add( this.gameObject.AddComponent<GreaterHealthPotion>() );
             #endregion
 
             #region Skills

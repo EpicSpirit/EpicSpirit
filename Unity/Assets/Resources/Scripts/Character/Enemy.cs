@@ -7,12 +7,13 @@ namespace EpicSpirit.Game
     {
         internal override void Die ()
         {
-            var num = Random.Range( 1, 100 );
-            if ( num > 80 )
-                Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "CollectableItem/HealthPotion_Item" ), this.transform.position, this.transform.rotation );
-
             base.Die();
         }
-
+        internal virtual void Loot (UnityEngine.Object item)
+        {
+            var num = Random.Range( 1, 100 );
+            if ( num > 50 )
+                Instantiate( item, this.transform.position, this.transform.rotation );
+        }
     }
 }
