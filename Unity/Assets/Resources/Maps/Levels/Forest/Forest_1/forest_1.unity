@@ -13011,10 +13011,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11429926, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
-      propertyPath: _movementSpeed
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 680ab0eeb321a5a458da05227957d94e, type: 2}
   m_IsPrefabParent: 0
@@ -21320,22 +21316,6 @@ Prefab:
     - target: {fileID: 108640, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
       propertyPath: m_Name
       value: BadBoy 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400476, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
-      propertyPath: _movementSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400476, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
-      propertyPath: _attackRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400476, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
-      propertyPath: _aggroMovementSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400476, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
-      propertyPath: _aggroArea
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}

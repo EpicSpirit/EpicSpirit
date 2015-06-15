@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.2000008, y: 2.29999995, z: 136.800003}
+  m_LocalPosition: {x: 63.2999992, y: 1.78765702, z: 140}
   m_LocalScale: {x: 31.0482712, y: 31.0483093, z: 31.0483093}
   m_Children:
   - {fileID: 453308}
@@ -264,8 +264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 5
-  _attackRange: 4
-  _aggroMovementSpeed: 9
+  _attackRange: 5
+  _aggroMovementSpeed: 8
   _aggroArea: 10
   _health: 3
 --- !u!114 &11484202
