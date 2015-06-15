@@ -9,10 +9,10 @@ namespace EpicSpirit.Game
         {
             base.Awake();
             _cooldown = 5f;
-            if ( _animation != null )
+            if ( _animations != null )
             {
-                _attackAnimations.Add( new AttackAnimation( "throwball", _animation.GetClip( "throwball" ).length * 0.7f ) );
-                _attackDuration = _animation.GetClip( "throwball" ).length;
+                _attackAnimations.Add( new AttackAnimation( "throwball", _animations.GetClip( "throwball" ).length * 0.7f ) );
+                _attackDuration = _animations.GetClip( "throwball" ).length;
 
             }
 

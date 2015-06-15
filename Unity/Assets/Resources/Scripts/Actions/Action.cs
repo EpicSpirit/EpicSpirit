@@ -10,7 +10,7 @@ namespace EpicSpirit.Game {
     {
         // Fields
         internal List<AttackAnimation> _attackAnimations;
-        internal Animation _animation;
+        internal Animation _animations;
 
         internal float _attackDuration;
         internal float _delayTakeDamage;
@@ -90,7 +90,7 @@ namespace EpicSpirit.Game {
 
 			_cooldown = 0f;
             _attackAnimations = new List<AttackAnimation>();
-            _animation = GetComponentInChildren<Animation>();
+            _animations = GetComponentInChildren<Animation>();
             _image = Resources.Load<Sprite>( "UI/Images/default" );
             _name = "NoName";
         }

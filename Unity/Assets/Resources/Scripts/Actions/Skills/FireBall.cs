@@ -9,10 +9,10 @@ namespace EpicSpirit.Game
         {
             base.Awake();
             _cooldown = 5f ;
-            if ( _animation != null )
+            if ( _animations != null )
             {
-                _attackAnimations.Add( new AttackAnimation( "throwball", _animation.GetClip( "throwball" ).length * 0.6f ) );
-                _attackDuration = _animation.GetClip( "throwball" ).length;
+                _attackAnimations.Add( new AttackAnimation( "throwball", _animations.GetClip( "throwball" ).length * 0.6f ) );
+                _attackDuration = _animations.GetClip( "throwball" ).length;
 
             }
             _isStoppable = true;
@@ -52,8 +52,8 @@ namespace EpicSpirit.Game
         }
         public void ThrowFireBall()
         {
-            GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Projectile_FireBall" ), this.transform.position+Vector3.up, this.transform.rotation ) as GameObject;
-            
+            //GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Projectile_FireBall" ), this.transform.position+Vector3.up, this.transform.rotation ) as GameObject;
+            Projectile.Create( Resources.Load<GameObject>( "Prefab/Projectile_FireBall" ), this._character );
         }
     }
 }

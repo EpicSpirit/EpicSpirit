@@ -9,10 +9,10 @@ namespace EpicSpirit.Game
         {
             base.Awake();
             _cooldown = 1f;
-            if ( _animation != null )
+            if ( _animations != null )
             {
                 _attackAnimations.Add( new AttackAnimation( "dodge", 0f ) );
-                _attackDuration = _animation.GetClip( "dodge" ).length;
+                _attackDuration = _animations.GetClip( "dodge" ).length;
             }
             _isStoppable = false;
             _image = Resources.Load<Sprite>( "UI/Images/button_retreat" );

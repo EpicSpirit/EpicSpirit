@@ -54,8 +54,8 @@
      <Compile Include="Assets\Resources\Scripts\Actions\Items\HealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\LowHealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\MiddleHealthPotion.cs" />
-     <Compile Include="Assets\Resources\Scripts\Actions\Projectiles\ProjectileCS.cs" />
-     <Compile Include="Assets\Resources\Scripts\Actions\Projectiles\ProjectileCS_FireBall.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\Projectiles\Projectile.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\Projectiles\Projectile_FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skill.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\Dodge.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\FireBall.cs" />

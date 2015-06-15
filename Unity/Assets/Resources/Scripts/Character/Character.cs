@@ -38,6 +38,10 @@ namespace EpicSpirit.Game
         #endregion
 
         #region Properties
+        public CharacterController CharacterController
+        {
+            get { return _characterController; }
+        }
         public short MovementSpeed
         {
             set { _movementSpeed = value; }

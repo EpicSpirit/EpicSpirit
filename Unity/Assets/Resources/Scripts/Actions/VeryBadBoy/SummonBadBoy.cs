@@ -12,8 +12,8 @@ namespace EpicSpirit.Game
             base.Awake();
 
             _randomGenerator = new System.Random();
-            _attackAnimations.Add( new AttackAnimation( "invoke", _animation.GetClip( "invoke" ).length / 2 ) );
-            _attackDuration = _animation.GetClip( "invoke" ).length;
+            _attackAnimations.Add( new AttackAnimation( "invoke", _animations.GetClip( "invoke" ).length / 2 ) );
+            _attackDuration = _animations.GetClip( "invoke" ).length;
             _strengh = 0;
             _isStoppable = false;
         }

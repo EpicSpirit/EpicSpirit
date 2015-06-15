@@ -8,10 +8,10 @@ namespace EpicSpirit.Game
         public override void Awake ()
         {
             base.Awake();
-            AnimationClip animation = _animation.GetClip( "impulse" );
+            AnimationClip ImpulseAnimation = _animations.GetClip( "impulse" );
 
-            _attackAnimations.Add( new AttackAnimation( "impulse", animation.length / 2 ) );
-            _attackDuration = animation.length;
+            _attackAnimations.Add( new AttackAnimation( "impulse", ImpulseAnimation.length / 2 ) );
+            _attackDuration = ImpulseAnimation.length;
             _strengh = 1;
             _isStoppable = true;
 			_range = 3;
@@ -25,7 +25,7 @@ namespace EpicSpirit.Game
         public override bool Act ()
         {
             _character.AnimationManager(_attackAnimations[0].AnimationName);
-            Invoke("Damage", _attackAnimations[0].TimeAttack);
+            Invoke( "Damages", _attackAnimations [0].TimeAttack );
             return true;
         }
 

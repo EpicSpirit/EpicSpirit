@@ -7,6 +7,8 @@ namespace EpicSpirit.Game
     {
         int _healingAmount;
 
+
+
         /// <summary>
         /// Amount of HP recovered by using method Act
         /// </summary>
@@ -23,12 +25,12 @@ namespace EpicSpirit.Game
 			_description = "Restaure a swall amount of hp.";
             HealingAmount = 1;
 
-
-            if ( _animation != null )
+            if ( _animations != null )
             {
-                _attackAnimations.Add( new AttackAnimation( "HealthPotion", _animation.GetClip( "HealthPotion" ).length / 2 ) );
-                _attackDuration = _animation.GetClip( "HealthPotion" ).length;
+                AnimationClip HealthPotionAnimation = _animations.GetClip( "HealthPotion" );
 
+                _attackAnimations.Add( new AttackAnimation( "HealthPotion", HealthPotionAnimation.length / 2 ) );
+                _attackDuration = HealthPotionAnimation.length;
             }
 
             _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
@@ -43,16 +45,14 @@ namespace EpicSpirit.Game
         public override void Start ()
         {
             base.Start();
-            
         }
 
         public override bool Act ()
         {
-            base.Act();
             if ( Quantity > 0 )
             {
+                base.Act();
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
-
                 _character.Health += HealingAmount;
                 this.Remove();
                 return true;
@@ -61,10 +61,6 @@ namespace EpicSpirit.Game
             {
                 return false;
             }
-            
         }
-
-
-
     }
 }
