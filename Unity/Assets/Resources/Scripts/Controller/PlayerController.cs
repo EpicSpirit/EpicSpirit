@@ -32,7 +32,7 @@ namespace EpicSpirit.Game
         {
             if ( _character != null )
             {
-				if (Application.platform == RuntimePlatform.Android)
+				if (Application.platform == RuntimePlatform.Android || _joystickOn )
                 {
                     JoystickMove();
                 }
@@ -84,14 +84,15 @@ namespace EpicSpirit.Game
 
         private void JoystickMove()
         {
-            var movement = new Vector3(
-                _movementJoystick.GetAxis( "Horizontal" ),
+			var movement = new Vector3 (
+                _movementJoystick.GetAxis ("Horizontal"),
                 0f,
-                _movementJoystick.GetAxis( "Vertical" ) );
+                _movementJoystick.GetAxis ("Vertical"));
 
-            movement = _mainCameraTransform.TransformDirection( movement );
-            movement.y = 0f;
-            movement.Normalize();
+			//movement = _mainCameraTransform.TransformDirection (movement);
+			movement.y = 0f;
+			//  movement.Normalize();
+		// Si le devant du perso est différent de la direction empruntée, faire une rotation en fonction du temps à la place du déplacement.
 
             _character.Move( movement );
         }
