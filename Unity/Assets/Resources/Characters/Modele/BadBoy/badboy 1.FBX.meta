@@ -16,7 +16,7 @@ ModelImporter:
     4300000: Group15959
     7400000: idle
     7400002: walk
-    7400004: tacle
+    7400004: impulse
     7400006: damaged
     9500000: //RootNode
     11100000: //RootNode
@@ -106,7 +106,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: tacle
+      name: impulse
       takeName: Take 001
       firstFrame: 46
       lastFrame: 70

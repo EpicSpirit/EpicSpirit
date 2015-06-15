@@ -7,11 +7,15 @@ namespace EpicSpirit.Game
     {
         int _healingAmount;
 
+        /// <summary>
+        /// Amount of HP recovered by using method Act
+        /// </summary>
         public int HealingAmount
         {
             get { return _healingAmount; }
             set { _healingAmount = value; }
         }
+
         public override void Awake()
         {
             base.Awake();

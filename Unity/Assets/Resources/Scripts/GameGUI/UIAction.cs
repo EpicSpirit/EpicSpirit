@@ -16,7 +16,7 @@ namespace EpicSpirit.Game
         public void Awake ()
         {
 
-            Debug.Log( _target = GameObject.FindWithTag( "Player" ).GetComponent<Character>() );
+            _target = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
             _isSkillEnabled = true;
             gameObject.AddComponent<Image>();
             _button =gameObject.AddComponent<Button>();

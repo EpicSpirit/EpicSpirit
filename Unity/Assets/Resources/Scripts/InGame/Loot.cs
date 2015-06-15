@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-    public class CollectableItem : MonoBehaviour 
+    public class Loot : MonoBehaviour 
     {
 
         public Item item;

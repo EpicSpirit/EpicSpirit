@@ -36,6 +36,7 @@ namespace EpicSpirit.Game
             if ( base.Act() )
             {
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
+                _character.GetComponent<AudioSource>().PlayOneShot( Resources.Load<AudioClip>( "Audio/Effect/dodge" ) );
 
                 Invoke( "UpdatePosition", 0f );
                 Invoke( "StopUpdatePosition", _attackDuration );

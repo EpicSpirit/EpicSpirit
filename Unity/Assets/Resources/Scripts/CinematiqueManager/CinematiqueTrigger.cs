@@ -11,8 +11,7 @@ namespace EpicSpirit.Game {
         {
             if ( c.name == "Spi" )
                 _cinematique.Begin();
-            else
-                Debug.Log(c.name+"Entered in the triggerEvent "+this.gameObject.name);
+
 
             
         }
