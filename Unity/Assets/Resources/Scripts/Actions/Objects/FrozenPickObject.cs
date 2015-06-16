@@ -3,13 +3,11 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-    public class FrozenPick_Object : MonoBehaviour
+    public class FrozenPickObject : MonoBehaviour
     {
-
         void Start ()
         {
-            float t = this.GetComponent<Animation>().GetClip("Take 001").length+0.2f;
-            Invoke( "AutoDestroy", t );
+            Invoke( "AutoDestroy", GetComponent<Animation>().GetClip( "Take 001" ).length + 0.2f );
         }
 
         public void AutoDestroy ()

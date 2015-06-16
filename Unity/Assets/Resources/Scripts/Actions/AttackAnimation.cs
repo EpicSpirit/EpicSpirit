@@ -3,24 +3,24 @@ using System.Collections;
 
 namespace EpicSpirit.Game
 {
-    public class AttackAnimation
+    public struct AttackAnimation
     {
-        string _animationName;
-        float _timeAttack;
+        string _attackAnimationName;
+        float _timeToWaitBeforeHit;
 
         public float TimeAttack
         {
-            get { return _timeAttack; }
+            get { return _timeToWaitBeforeHit; }
         }
         public string AnimationName
         {
-            get { return _animationName; }
+            get { return _attackAnimationName; }
         }
 
-        public AttackAnimation (string a, float t)
+        public AttackAnimation (string attackAnimationName, float timeToWaitBeforeHit)
         {
-            _animationName = a;
-            _timeAttack = t;
+            _attackAnimationName = attackAnimationName;
+            _timeToWaitBeforeHit = timeToWaitBeforeHit;
         }
     }
 }

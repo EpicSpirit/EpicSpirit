@@ -24,7 +24,7 @@ public class FPSDisplay : MonoBehaviour
 	}
     private void DisplayFPS()
     {
-        _text.text = ( 1 / Time.deltaTime ).ToString();
+        _text.text = ((int)( 1 / Time.deltaTime )).ToString();
         _count = 0;
     }
 }

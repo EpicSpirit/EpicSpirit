@@ -1,21 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace EpicSpirit.Game
 {
     public class HealthPotion : Item
     {
-        int _healingAmount;
-
-
+        byte _healingAmount;
 
         /// <summary>
         /// Amount of HP recovered by using method Act
         /// </summary>
-        public int HealingAmount
+        public byte HealingAmount
         {
             get { return _healingAmount; }
-            set { _healingAmount = value; }
+            set 
+            {
+                if ( value > 124 )
+                    throw new ArgumentException( "Too much HP for a byte" );
+                _healingAmount = value; 
+            }
         }
 
         public override void Awake()
