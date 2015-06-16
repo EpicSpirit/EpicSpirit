@@ -27,6 +27,9 @@ namespace EpicSpirit.Game {
         Func<UISkill,float,bool> _function;
         UISkill _textButton;
 
+        //Sound Managment
+        internal AudioSource _audioSource;
+
 
         
         public float CurrentCoolDown
@@ -91,6 +94,7 @@ namespace EpicSpirit.Game {
 			_cooldown = 0f;
             _attackAnimations = new List<AttackAnimation>();
             _animations = GetComponentInChildren<Animation>();
+            _audioSource = GetComponent<AudioSource>();
             _image = Resources.Load<Sprite>( "UI/Images/default" );
             _name = "NoName";
         }

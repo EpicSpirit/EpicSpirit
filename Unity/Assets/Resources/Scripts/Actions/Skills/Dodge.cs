@@ -36,6 +36,7 @@ namespace EpicSpirit.Game
             if ( base.Act() )
             {
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
+                SoundManager.PlaySound( _audioSource ,SoundManager.Sound.Effect_Fireball );
                 _character.GetComponent<AudioSource>().PlayOneShot( Resources.Load<AudioClip>( "Audio/Effect/dodge" ) );
 
                 Invoke( "UpdatePosition", 0f );

@@ -17,6 +17,8 @@ namespace EpicSpirit.Game
         public int _aggroArea;
 
         public int _health;
+        internal AudioSource _audioSource;
+        
 
         // Character Statistic
        // internal float _speedRotation;
@@ -41,6 +43,17 @@ namespace EpicSpirit.Game
         public CharacterController CharacterController
         {
             get { return _characterController; }
+        }
+        public AudioSource AudioSource
+        {
+            get
+            {
+                return _audioSource;
+            }
+            set
+            {
+                _audioSource = value;
+            }
         }
         public short MovementSpeed
         {
@@ -76,6 +89,7 @@ namespace EpicSpirit.Game
             _dead = false;
 
             _characterController = this.GetComponent<CharacterController>();
+            AudioSource = this.GetComponent<AudioSource>();
             if ( _characterController == null )
             {
                 throw new NullReferenceException( "Character must have a CharacterController" );

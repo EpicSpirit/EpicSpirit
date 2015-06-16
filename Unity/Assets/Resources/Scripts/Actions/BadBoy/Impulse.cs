@@ -8,10 +8,12 @@ namespace EpicSpirit.Game
         public override void Awake ()
         {
             base.Awake();
-            AnimationClip ImpulseAnimation = _animations.GetClip( "impulse" );
-
-            _attackAnimations.Add( new AttackAnimation( "impulse", ImpulseAnimation.length / 2 ) );
-            _attackDuration = ImpulseAnimation.length;
+            if ( _animations )
+            {
+                AnimationClip ImpulseAnimation = _animations.GetClip( "impulse" );
+                _attackAnimations.Add( new AttackAnimation( "impulse", ImpulseAnimation.length / 2 ) );
+                _attackDuration = ImpulseAnimation.length;
+            }
             _strengh = 1;
             _isStoppable = true;
 			_range = 3;

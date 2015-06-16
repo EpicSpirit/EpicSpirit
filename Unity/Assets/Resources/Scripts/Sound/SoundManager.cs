@@ -21,6 +21,12 @@ namespace EpicSpirit.Game
 
         static public void PlaySound ( AudioSource audioSource, Sound s, bool isLooping )
         {
+            if ( audioSource == null )
+            {
+                Debug.Log("Don't have AudioSource.");
+                return;
+            }
+
             string path = Enum.GetName( typeof( Sound ), s );
 
             path = _soundDirectory +path.Replace( "_", "/" );
