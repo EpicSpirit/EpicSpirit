@@ -23,7 +23,7 @@ namespace EpicSpirit.Game
         // Time of the last Attack
         private float _lastAttack;
         #endregion
-
+        public OnInvisibleOptimization a;
         void Awake ()
         {
             _direction = new Vector3();
@@ -34,10 +34,12 @@ namespace EpicSpirit.Game
             _randomDirection = 1;
 
             _randomMovementSpeed = _character._movementSpeed;
+            a = OnInvisibleOptimization.Initialize( this );
+
         }
+
         void Start()
         {
-            
         }
 
         void Update()
@@ -50,6 +52,11 @@ namespace EpicSpirit.Game
             {
                 RandomMove();
             }
+        }
+
+        void OnBecameVisible()
+        {
+            Debug.Log("visible");
         }
 
         // TODO: Mettre le vecteur du mouvement en random entre -1 et 1 pour tout les axes sauf Y

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\FPSDisplay.cs" />
+     <Compile Include="Assets\OnInvisibleOptimization.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Action.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\Impulse.cs" />

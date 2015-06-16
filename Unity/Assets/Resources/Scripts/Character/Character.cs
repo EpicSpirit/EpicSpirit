@@ -89,8 +89,6 @@ namespace EpicSpirit.Game
 
         }
 
-        
-
         public virtual void Update ()
         {
             Gravity();
@@ -117,7 +115,8 @@ namespace EpicSpirit.Game
             else if ( direction != Vector3.zero && ChangeState(States.Walk))
             {
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
-                _characterController.transform.rotation = Quaternion.LookRotation( direction );
+                //_characterController.transform.rotation = Quaternion.LookRotation( direction );
+                this.transform.rotation = Quaternion.Slerp( this.transform.rotation, Quaternion.LookRotation( direction ), 5 * Time.deltaTime );
             } 
             else if( direction == Vector3.zero && State <= States.Walk) 
             {
