@@ -8,8 +8,32 @@ namespace EpicSpirit.Game
     public abstract class Cinematique : MonoBehaviour
     {
         public bool _oneShot;
-        bool _asBegin;
+        bool _asBegin; // has began ? :p
         internal MoveCamera _camera;
+		[SerializeField]
+		string _topSubtitles;
+		[SerializeField]
+		string _bottomSubtitles;
+		[SerializeField]
+		bool _allowBlackBars = true;
+
+		public bool AllowBlackBars
+		{
+			get { return _allowBlackBars; }
+			set { _allowBlackBars = value; }
+		}
+
+		public string TopSubTitles
+		{
+			get { return _topSubtitles; }
+			set { _topSubtitles = value; }
+		}
+
+		public string BottomSubTitles
+		{
+			get { return _bottomSubtitles; }
+			set { _bottomSubtitles = value; }
+		}
 
 
         public void Awake ()
@@ -18,7 +42,10 @@ namespace EpicSpirit.Game
             _camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();
         }
 
-        public abstract void LaunchCinematique ();
+        public virtual void LaunchCinematique ()
+		{
+			// Subtitles + black bars
+		}
 
         public void Begin ()
         {

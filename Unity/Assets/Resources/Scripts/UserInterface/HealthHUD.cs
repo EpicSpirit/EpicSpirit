@@ -23,9 +23,15 @@ namespace EpicSpirit.Game
             _character = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
 
         }
+		byte _count = 0;
         void Update()
         {
-            _hp.text = "HP : " + _character.Health.ToString();
+			_count++;
+			if (_count >= 20) 
+			{
+				_hp.text = "HP : " + _character.Health.ToString ();
+				_count = 0;
+			}
         }
     }
 }
