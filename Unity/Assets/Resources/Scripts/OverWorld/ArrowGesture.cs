@@ -22,10 +22,12 @@ namespace EpicSpirit.Game
         void Awake ()
         {
             _move = false;
+            
         }
 
         public void OnMouseUp()
         {
+            //_move = _linkedNode.IsLocked ? false : true;
             _move = true;
         }
     }

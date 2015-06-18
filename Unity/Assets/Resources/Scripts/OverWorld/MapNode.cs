@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EpicSpirit.Game
 {
@@ -18,10 +19,21 @@ namespace EpicSpirit.Game
             get { return _arrows; }
         }
 
+        public bool IsLocked
+        {
+            get { return _isLocked; }
+        }
+
         public List<MapNode> LinkedNodes
         {
             get { return _linkedNodes; }
             set { _linkedNodes = value; }
+        }
+
+        public void Start()
+        {
+            _isLocked = SaveManager.IsMapIsLocked( this.name );
+            Debug.Log(this.name + " => "+IsLocked);
         }
 
 		/// <summary>
@@ -32,7 +44,7 @@ namespace EpicSpirit.Game
             Vector3 rotateEuler;
             _arrows = new List<GameObject>();
 
-            foreach(MapNode node in LinkedNodes)
+            foreach ( MapNode node in LinkedNodes.Where( ( n ) => !SaveManager.IsMapIsLocked( n.name ) ) )
             {
                 // Directionnal arrows managment
                 GameObject arrow = (GameObject)Instantiate( UnityEngine.Resources.Load<UnityEngine.Object>( "Images/Overworld/arrows" ), transform.position, Quaternion.LookRotation( node.transform.position - this.transform.position ) );
@@ -45,12 +57,26 @@ namespace EpicSpirit.Game
 
                 // Arrow position
                 arrow.transform.Translate( Vector3.right * 3.0f, Space.Self );
-
                 arrow.GetComponent<ArrowGesture>().LinkedNode = this;
-
                 _arrows.Add(arrow);
+
             }
 		}
+
+        public bool Unlock()
+        {
+            Debug.Log(this.name+"Est débloqué !");
+
+            if ( SaveManager.IsMapIsLocked( this.name ) )
+            {
+                SaveManager.UnlockMap( this.name);
+                _isLocked = SaveManager.IsMapIsLocked( this.name );
+                this.GetComponentInChildren<ParticleSystem>().Play();
+                return true;
+            }
+
+            return false;
+        }
 
         public void Exit()
         {
