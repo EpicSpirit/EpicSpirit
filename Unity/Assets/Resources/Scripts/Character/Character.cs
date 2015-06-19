@@ -79,7 +79,6 @@ namespace EpicSpirit.Game
             set 
             {
                 if ( value <= 0 && !_dead) { Die(); _dead = true; }
-                if ( value < 0 ) throw new InvalidOperationException( "health can't be negative" );
                 _currentHealth = value;
             }
         }
