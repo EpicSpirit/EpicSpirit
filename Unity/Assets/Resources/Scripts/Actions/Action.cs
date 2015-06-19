@@ -30,8 +30,18 @@ namespace EpicSpirit.Game {
         //Sound Managment
         internal AudioSource _audioSource;
 
-
-        
+        public virtual void CancelAttack()
+        {
+            // Nothing
+        }
+        public void CancelAttack(string methodName)
+        {
+            if ( _isStoppable )
+                CancelInvoke( methodName );
+            else
+                Debug.Log("Don't have to Cancel the Attack");
+                
+        }
         public float CurrentCoolDown
         {
             get { return _currentCoolDown; }

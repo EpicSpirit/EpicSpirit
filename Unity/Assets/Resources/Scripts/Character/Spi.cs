@@ -15,14 +15,13 @@ namespace EpicSpirit.Game
         int _lookAroundCount;
         float _lastReceivedDamage;
 
-        public virtual int Health
+        public virtual int CurrentHealth
         {
-            get { return _health; }
+            get { return _currentHealth; }
             set
             {
-                if ( value < 0 ) throw new InvalidOperationException( "health can't be negative" );
-                SaveManager.SaveSpiHealth( _health );
-                _health = value;
+                SaveManager.SaveSpiHealth( _currentHealth );
+                _currentHealth = value;
             }
         }
 
@@ -36,11 +35,13 @@ namespace EpicSpirit.Game
             _dateOfLastAttack = Time.fixedTime;
             _lastReceivedDamage = 0f;
 
-            _health = SaveManager.GetSpiHealth();
-            if ( Health == 0 )
+            _currentHealth = SaveManager.GetSpiHealth();
+            _maxHealth = 20;
+            if ( CurrentHealth == 0 )
             {
-                Health = 20;
+                CurrentHealth = 20;
             }
+
             
             _actions = SaveManager.LoadAction();
 

@@ -14,13 +14,57 @@ namespace EpicSpirit.Game
         {
             //_progressionManager = this.gameObject.AddComponent<ProgressionManager>();
             _progressionManager = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
-            ResetSave();    // TMP
+            //ResetSave();    // TMP
 
         }
 
         public void SaveSpi ( Spi spi )
         {
-            SaveSpiHealth( spi._health );
+            SaveSpiHealth( spi._currentHealth );
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>true -> locked, false -> unlocked</returns>
+        public static bool IsMapIsLocked ( string name )
+        {
+            return PlayerPrefs.GetString( name ,"1") == "1" ? true : false;
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value">true -> locked, false -> unlocked</param>
+        private static void SetInfoMap ( string name, bool value )
+        {
+            PlayerPrefs.SetString( name, value ? "1" : "0" );
+        }
+
+        public static void BlockMap(string name)
+        {
+            SetInfoMap(name,true);
+        }
+        public static void UnlockMap ( string name )
+        {
+            SetInfoMap( name, false );
+        }
+
+        public static void BlockAllMap ()
+        {
+            List<string> listMapName = new List<string>();
+            listMapName.Add( "forest_1" );
+            listMapName.Add( "forest_2" );
+            listMapName.Add( "forest_temple" );
+            listMapName.Add( "mountain_1" );
+
+            foreach ( string mapName in listMapName )
+            {
+                BlockMap( mapName );
+            }
         }
 
         internal static void SaveSpiHealth ( int health )
@@ -32,11 +76,11 @@ namespace EpicSpirit.Game
             return PlayerPrefs.GetInt( "Spi_Health");
         }
 
-        public  void GetSaveSpi ( Spi spi )
+        public static void GetSaveSpi ( Spi spi )
         {
             if ( PlayerPrefs.HasKey( "Spi_Health" ) )
             {
-                spi.Health = PlayerPrefs.GetInt( "Spi_Health" );
+                spi.CurrentHealth = PlayerPrefs.GetInt( "Spi_Health" );
             }
             else
             {
@@ -107,6 +151,11 @@ namespace EpicSpirit.Game
             UnlockItem( 1 );
             UnlockItem( 2 );
 
+
+            // Gestion des maps
+            BlockAllMap();
+            UnlockMap( "forest_1");
+            UnlockMap( "forest_1.3");   // A enlever quand on a fini le debug
 
         }
 

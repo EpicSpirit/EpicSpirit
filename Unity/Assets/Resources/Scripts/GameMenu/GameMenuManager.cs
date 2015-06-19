@@ -104,8 +104,6 @@ namespace EpicSpirit.Game
         {
             GameObject gameObject = (GameObject)Instantiate( Resources.Load<GameObject>( "UI/GameMenu/ActionIcon" ), new Vector3( target.transform.position.x +( _x * _xOffset), target.transform.position.y - (_y * _yOffset), 0 ), new Quaternion() );
             gameObject.transform.parent = target.transform;
-            Debug.Log( "parent" + target.transform.position );
-            Debug.Log( "target" + gameObject.transform.position );
 
             gameObject.transform.localScale = new Vector3(5,5,5);
             var ai = gameObject.GetComponent<actionicone>();
@@ -179,7 +177,6 @@ namespace EpicSpirit.Game
         }
         public void ItemMenu ()
         {
-            Debug.Log( "aaa" );
             _typeOfContent = TypeOfContent.Items;
 
             _slots[0].SetActive( false );

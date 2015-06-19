@@ -20,6 +20,10 @@ namespace EpicSpirit.Game
             _name = "Fire Ball";
 			_description = "Call a powerfull fire spirit wich reduces everything to ashes on its way";
         }
+        public override void CancelAttack ()
+        {
+            CancelAttack( "ThrowFireBall" );
+        }
 
         public override Action AddActionToPerso ( GameObject go )
         {

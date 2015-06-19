@@ -6,22 +6,15 @@ namespace EpicSpirit.Game
 {
     public class HealthHUD : MonoBehaviour
     {
-		Text _hp;
+		Image _hp;
         Character _character;
 
+        int _count;
         void Awake()
         {
-			_hp = gameObject.AddComponent<Text>();
-			_hp.fontSize = 56;
-			_hp.fontStyle = FontStyle.Bold;
-			_hp.font = (Font)Resources.Load("UI/BLKCHCRY");
-			_hp.color = Color.red;
-			// Pourquoi il me sort 52530 à la place de 206 ? wtfff putain omg fils de pute !
-			// bon ici gros problème à résoudre. Si je mets n'importe quelle couleur il va me sortir un rouge vif.
-			// Exemple new Color(191,0,0) new Color -10,0,0) c'est pareil.
-			// Moi je veux ça exactement : (200,0,0)
+            _hp = GetComponent<Image>();
             _character = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
-
+            _count = 0;
         }
 		byte _count = 0;
         void Update()
@@ -29,9 +22,25 @@ namespace EpicSpirit.Game
 			_count++;
 			if (_count >= 20) 
 			{
-				_hp.text = "HP : " + _character.Health.ToString ();
+                UpdateHealthBar();
 				_count = 0;
 			}
+        }
+        private void UpdateHealthBar()
+        {
+            _hp.fillAmount = ( 0.9f * (float)_character.CurrentHealth / (float)_character.MaxHealth ) + 0.1f;
+            if ( _hp.fillAmount >= 0.5 )
+            {
+                _hp.color = Color.green;
+            }
+            else if ( _hp.fillAmount >= 0.2 )
+            {
+                _hp.color = Color.yellow;
+            }
+            else
+            {
+                _hp.color = Color.red;
+            }
         }
     }
 }

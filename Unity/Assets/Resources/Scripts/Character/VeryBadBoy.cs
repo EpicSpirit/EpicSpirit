@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
         {
             base.Awake();
 
-            _health = 9999;
+            _currentHealth = 9999;
             _movementSpeed = 1;
 			_aggroArea = 15;
 			_aggroMovementSpeed = 7;
@@ -34,7 +34,7 @@ namespace EpicSpirit.Game
                 AnimationManager( "damaged" );
 
             }
-            if(_health <= 0) 
+            if(_currentHealth <= 0) 
             {
                 Invoke("LoadLevel", 1f);
             }

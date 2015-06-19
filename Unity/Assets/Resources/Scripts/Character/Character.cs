@@ -16,7 +16,9 @@ namespace EpicSpirit.Game
         public short _aggroMovementSpeed;
         public int _aggroArea;
 
-        public int _health;
+        public int _currentHealth;
+        public int _maxHealth;
+
         internal AudioSource _audioSource;
         
 
@@ -65,27 +67,30 @@ namespace EpicSpirit.Game
             set { _attackSpeed = value; }
             get { return _attackSpeed; }
         }
-        public virtual int Health
+
+        public virtual int MaxHealth
         {
-            get { return _health; }
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
+        }
+        public virtual int CurrentHealth
+        {
+            get { return _currentHealth; }
             set 
             {
-                if ( value < 0 && !_dead) { Die(); _dead = true; }
-                _health = value; 
+                if ( value <= 0 && !_dead) { Die(); _dead = true; }
+                _currentHealth = value;
             }
         }
 
         #endregion
-
-       
-
 
         public virtual void Awake()
         {
             InitializeAnimationManager();
 
             _actions = new List<Action>();
-            _health = 3;
+            _currentHealth = 3;
             _dead = false;
 
             _characterController = this.GetComponent<CharacterController>();
@@ -165,7 +170,8 @@ namespace EpicSpirit.Game
             {
                 direction = Vector3.zero;
             }
-
+            direction.Normalize();
+            direction *= 4;
             Move( direction );
             return !( direction == Vector3.zero );
         }
@@ -219,12 +225,19 @@ namespace EpicSpirit.Game
         // TODO : Faire la migration dans le particule manager
         internal virtual void takeDamage ( int force )
         {
-            if ( isState( States.Attack ) && !_actualAction.IsStoppable ) return;
+            if ( isState( States.Attack ) )
+            {
+
+                if ( !_actualAction.IsStoppable ) return;
+                else _actualAction.CancelAttack();
+            }
+            
+
 
             if ( ChangeState( States.Damaged ) )
             {
                 ParticuleManager( "DamageEffect" );
-                Health -= force;
+                CurrentHealth -= force;
                 Invoke( "EndOfState", 0.3f );
                 
 
@@ -363,7 +376,7 @@ namespace EpicSpirit.Game
             if ( state == null ) { throw new ArgumentNullException(); }
 
             // EffectGestion
-            if ( _effect != Effect.None ) return false;
+            if ( _effect != Effect.None && state != States.Damaged) return false;
 
             if ( isPriority( _state, state ) )
             {
