@@ -20,7 +20,6 @@ namespace EpicSpirit.Game
 		{
 			_button.onClick.AddListener( () => 
 			{
-				Debug.Log("ExitLevelToOverworld");
 				_menu.SetActive(false) ;
 				Application.LoadLevel("overworld");
 			});

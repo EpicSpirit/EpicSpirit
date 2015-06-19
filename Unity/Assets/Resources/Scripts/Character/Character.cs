@@ -77,9 +77,6 @@ namespace EpicSpirit.Game
 
         #endregion
 
-       
-
-
         public virtual void Awake()
         {
             InitializeAnimationManager();
@@ -165,7 +162,8 @@ namespace EpicSpirit.Game
             {
                 direction = Vector3.zero;
             }
-
+            direction.Normalize();
+            direction *= 4;
             Move( direction );
             return !( direction == Vector3.zero );
         }
@@ -219,7 +217,14 @@ namespace EpicSpirit.Game
         // TODO : Faire la migration dans le particule manager
         internal virtual void takeDamage ( int force )
         {
-            if ( isState( States.Attack ) && !_actualAction.IsStoppable ) return;
+            if ( isState( States.Attack ) )
+            {
+
+                if ( !_actualAction.IsStoppable ) return;
+                else _actualAction.CancelAttack();
+            }
+            
+
 
             if ( ChangeState( States.Damaged ) )
             {
@@ -363,7 +368,7 @@ namespace EpicSpirit.Game
             if ( state == null ) { throw new ArgumentNullException(); }
 
             // EffectGestion
-            if ( _effect != Effect.None ) return false;
+            if ( _effect != Effect.None && state != States.Damaged) return false;
 
             if ( isPriority( _state, state ) )
             {

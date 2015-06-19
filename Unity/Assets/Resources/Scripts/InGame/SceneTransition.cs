@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SceneTransition : MonoBehaviour
+
+namespace EpicSpirit.Game
 {
-
-    public string scene;
-
-    public void OnTriggerEnter ( Collider c )
+    public class SceneTransition : MonoBehaviour
     {
-        if ( c.gameObject.name == "Spi" )
+
+        public string scene;
+
+        public void OnTriggerEnter ( Collider c )
         {
-            Application.LoadLevel( scene );
+            if ( c.gameObject.name == "Spi" )
+            {
+                //Application.LoadLevel( scene );
+                LevelManager.LoadLevel( scene );
+            }
         }
+
+
     }
-
-
 }
