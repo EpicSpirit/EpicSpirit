@@ -177,7 +177,6 @@ namespace EpicSpirit.Game
         }
         public void ItemMenu ()
         {
-            Debug.Log( "aaa" );
             _typeOfContent = TypeOfContent.Items;
 
             _slots[0].SetActive( false );

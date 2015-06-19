@@ -23,7 +23,6 @@ namespace EpicSpirit.Game
 			_button.onClick.AddListener( () => 
 			{
 				_menu.SetActive(true) ;
-				Debug.Log("Ici");
 				PauseManager.BlockEveryCharacter(true);
 			});
 

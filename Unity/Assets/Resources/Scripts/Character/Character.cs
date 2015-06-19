@@ -165,7 +165,8 @@ namespace EpicSpirit.Game
             {
                 direction = Vector3.zero;
             }
-
+            direction.Normalize();
+            direction *= 4;
             Move( direction );
             return !( direction == Vector3.zero );
         }

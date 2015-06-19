@@ -33,7 +33,6 @@ namespace EpicSpirit.Game
         public void Start()
         {
             _isLocked = SaveManager.IsMapIsLocked( this.name );
-            Debug.Log(this.name + " => "+IsLocked);
         }
 
 		/// <summary>
@@ -65,8 +64,6 @@ namespace EpicSpirit.Game
 
         public bool Unlock()
         {
-            Debug.Log(this.name+"Est débloqué !");
-
             if ( SaveManager.IsMapIsLocked( this.name ) )
             {
                 SaveManager.UnlockMap( this.name);
