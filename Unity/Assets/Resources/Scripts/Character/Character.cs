@@ -364,7 +364,7 @@ namespace EpicSpirit.Game
             if ( state == null ) { throw new ArgumentNullException(); }
 
             // EffectGestion
-            if ( _effect != Effect.None ) return false;
+            if ( _effect != Effect.None && state != States.Damaged) return false;
 
             if ( isPriority( _state, state ) )
             {
