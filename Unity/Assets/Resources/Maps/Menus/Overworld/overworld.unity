@@ -418,7 +418,7 @@ GameObject:
   - 4: {fileID: 401215891}
   - 114: {fileID: 401215890}
   m_Layer: 0
-  m_Name: forest_1.3
+  m_Name: forest_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7693,7 +7693,8 @@ MonoBehaviour:
   _attackRange: 6
   _aggroMovementSpeed: 0
   _aggroArea: 0
-  _health: 3
+  _currentHealth: 0
+  _maxHealth: 0
 --- !u!114 &2022813969
 MonoBehaviour:
   m_ObjectHideFlags: 0
