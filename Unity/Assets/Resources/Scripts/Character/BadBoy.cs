@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
         {
             base.Awake();
 
-            _health = 3;
+            _currentHealth = 3;
             _actions.Add( this.gameObject.AddComponent<Impulse>() );
 
         }

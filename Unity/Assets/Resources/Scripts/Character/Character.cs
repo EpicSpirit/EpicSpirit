@@ -16,7 +16,9 @@ namespace EpicSpirit.Game
         public short _aggroMovementSpeed;
         public int _aggroArea;
 
-        public int _health;
+        public int _currentHealth;
+        public int _maxHealth;
+
         internal AudioSource _audioSource;
         
 
@@ -65,13 +67,20 @@ namespace EpicSpirit.Game
             set { _attackSpeed = value; }
             get { return _attackSpeed; }
         }
-        public virtual int Health
+
+        public virtual int MaxHealth
         {
-            get { return _health; }
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
+        }
+        public virtual int CurrentHealth
+        {
+            get { return _currentHealth; }
             set 
             {
-                if ( value < 0 && !_dead) { Die(); _dead = true; }
-                _health = value; 
+                if ( value <= 0 && !_dead) { Die(); _dead = true; }
+                if ( value < 0 ) throw new InvalidOperationException( "health can't be negative" );
+                _currentHealth = value;
             }
         }
 
@@ -82,7 +91,7 @@ namespace EpicSpirit.Game
             InitializeAnimationManager();
 
             _actions = new List<Action>();
-            _health = 3;
+            _currentHealth = 3;
             _dead = false;
 
             _characterController = this.GetComponent<CharacterController>();
@@ -229,7 +238,7 @@ namespace EpicSpirit.Game
             if ( ChangeState( States.Damaged ) )
             {
                 ParticuleManager( "DamageEffect" );
-                Health -= force;
+                CurrentHealth -= force;
                 Invoke( "EndOfState", 0.3f );
                 
 

@@ -20,7 +20,7 @@ namespace EpicSpirit.Game
 
         public void SaveSpi ( Spi spi )
         {
-            SaveSpiHealth( spi._health );
+            SaveSpiHealth( spi._currentHealth );
         }
 
 
@@ -80,7 +80,7 @@ namespace EpicSpirit.Game
         {
             if ( PlayerPrefs.HasKey( "Spi_Health" ) )
             {
-                spi.Health = PlayerPrefs.GetInt( "Spi_Health" );
+                spi.CurrentHealth = PlayerPrefs.GetInt( "Spi_Health" );
             }
             else
             {

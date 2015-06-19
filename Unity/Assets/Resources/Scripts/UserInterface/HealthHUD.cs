@@ -6,22 +6,18 @@ namespace EpicSpirit.Game
 {
     public class HealthHUD : MonoBehaviour
     {
-		Text _hp;
+		Image _hp;
         Character _character;
 
         void Awake()
         {
-			_hp = gameObject.AddComponent<Text>();
-			_hp.fontSize = 56;
-			_hp.fontStyle = FontStyle.Bold;
-			_hp.font = (Font)Resources.Load("UI/BLKCHCRY");
-			_hp.color = Color.red;
+            _hp = GetComponent<Image>();
             _character = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
 
         }
         void Update()
         {
-            _hp.text = "HP : " + _character.Health.ToString();
+            _hp.fillAmount = (0.9f * (float)_character.CurrentHealth / (float)_character.MaxHealth) + 0.1f;
         }
     }
 }
