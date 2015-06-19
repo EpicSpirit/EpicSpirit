@@ -77,9 +77,6 @@ namespace EpicSpirit.Game
 
         #endregion
 
-       
-
-
         public virtual void Awake()
         {
             InitializeAnimationManager();
@@ -220,7 +217,14 @@ namespace EpicSpirit.Game
         // TODO : Faire la migration dans le particule manager
         internal virtual void takeDamage ( int force )
         {
-            if ( isState( States.Attack ) && !_actualAction.IsStoppable ) return;
+            if ( isState( States.Attack ) )
+            {
+
+                if ( !_actualAction.IsStoppable ) return;
+                else _actualAction.CancelAttack();
+            }
+            
+
 
             if ( ChangeState( States.Damaged ) )
             {
