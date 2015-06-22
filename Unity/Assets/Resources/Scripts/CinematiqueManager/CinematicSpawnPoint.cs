@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CinematiqueSpawnPoint : MonoBehaviour {
+public class CinematicSpawnPoint : MonoBehaviour 
+{
 
     public GameObject Prefab;
 

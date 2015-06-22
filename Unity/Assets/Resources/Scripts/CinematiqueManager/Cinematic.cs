@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace EpicSpirit.Game
 {
-    public abstract class Cinematique : MonoBehaviour
+    public abstract class Cinematic : MonoBehaviour
     {
         public bool _oneShot;
         bool _asBegin;
@@ -18,7 +18,7 @@ namespace EpicSpirit.Game
             _camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();
         }
 
-        public abstract void LaunchCinematique ();
+        public abstract void LaunchCinematic ();
 
         public void Begin ()
         {
@@ -26,7 +26,7 @@ namespace EpicSpirit.Game
             {
                 _asBegin = true;
                 
-                LaunchCinematique();
+                LaunchCinematic();
             }
 
         }
@@ -37,7 +37,7 @@ namespace EpicSpirit.Game
             AIController[] allAIController = FindObjectsOfType<AIController>();
             foreach ( AIController aiController in allAIController )
             {
-                aiController.enabled = value;
+                aiController.enabled = !value;
                 aiController.GetComponent<Character>().AnimationManager( "idle" );
             }
 
@@ -48,12 +48,12 @@ namespace EpicSpirit.Game
             {
                 if ( behaviour != null )
                 {
-                    behaviour.enabled = value;
+                    behaviour.enabled = !value;
                 }
             }
 
             // Desactive la gestion des touches
-            GameObject.Find( "Controller" ).GetComponent<PlayerController>().enabled = value;
+            GameObject.Find( "Controller" ).GetComponent<PlayerController>().enabled = !value;
 
             // Met à Spi l'Idle
             GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AnimationManager( "idle" );

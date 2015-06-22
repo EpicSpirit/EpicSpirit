@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace EpicSpirit.Game
 {
-    public class Cinematique_Block_and_Move_Camera : Cinematique
+    public class Cinematic_Block_and_Move_Camera : Cinematic
     {
         public List<GameObject> camerapoints;
         public GameObject VeryBadBoyPlace;
 
-        public override void LaunchCinematique ()
+        public override void LaunchCinematic ()
         {
-            BlockEveryCharacter(false);
+            BlockEveryCharacter(true);
             
             _camera.Move( camerapoints[0],MoveCamera.MEDIUM);
             Invoke( "SpawnVeryBadBoy", 1f );
@@ -26,7 +26,7 @@ namespace EpicSpirit.Game
         public void ReturnToSpi()
         {
             BackCameraToSpi();
-            BlockEveryCharacter(true);
+            BlockEveryCharacter(false);
         }
     }
 }
