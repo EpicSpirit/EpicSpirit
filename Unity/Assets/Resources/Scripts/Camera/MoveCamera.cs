@@ -16,9 +16,19 @@ namespace EpicSpirit.Game
         public const float MEDIUM=0.1f;
         public const float HIGH=0.4f;
 
+        Vector3 _movement;
+
+		// Zoom camera when raycast detect wall
+		float _zOffset;
+		RaycastHit _hitBackward;
+		RaycastHit _hitForward;
+        //Transform _originTransform; on peut utiliser transform.position.z - zoffset
+
+
         void Start()
         {
             _cameraSpeed = 0.4f;
+            _movement = this.transform.position;
         }
 
         public void Move(GameObject target,float speed)
@@ -33,14 +43,37 @@ namespace EpicSpirit.Game
         {
             if ( _target != null )
             {
-                Vector3 movement = this.transform.position;
+                #region new camera
+                // enlever le && false pour passer dans ce code
+				if( Application.loadedLevelName == "forest_temple" && false)
+                {
+                    _movement.x = _target.transform.position.x + x_delta;
+                    _movement.z = _target.transform.position.z + z_delta;
+                    _movement.y = _target.transform.position.y + y_delta;
+                    RaycastHit hit;
+                    // Si il y a un obj entre Spi et la cam, on avance la caméra
+                    Debug.DrawRay( this.transform.position, _target.transform.position - this.transform.position, Color.red );
+                    if(Physics.Raycast(new Ray(this.transform.position, _target.transform.position-this.transform.position),out hit))
+                    {
+                        if ( hit.collider.name.Contains( "Wall" ) )
+                        {
+                            _movement += ( hit.point - this.transform.position );
+                        }
+                    }
+                    
+                }
+                #endregion
+                #region Old Camera
+                else
+                {
+                    _movement.x = _target.transform.position.x + x_delta;
+                    _movement.z = _target.transform.position.z + z_delta;
+                    _movement.y = _target.transform.position.y + y_delta;
+                }
+                #endregion
 
-                movement.x = _target.transform.position.x+x_delta;
-                movement.z = _target.transform.position.z +z_delta;
-                movement.y = _target.transform.position.y + y_delta;
-
-                //this.transform.position = movement;
-                this.transform.position = Vector3.Lerp( this.transform.position, movement, _cameraSpeed );
+                this.transform.position = Vector3.Lerp( this.transform.position, _movement, 0.4f );
+               
             }
 
 
