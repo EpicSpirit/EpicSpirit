@@ -2,15 +2,15 @@
 using System.Collections;
 
 namespace EpicSpirit.Game {
-    public class CinematiqueTrigger : MonoBehaviour {
-        Cinematique _cinematique;
+    public class CinematicTrigger : MonoBehaviour {
+        Cinematic _cinematic;
 	    void Awake () {
-            _cinematique = GetComponentInParent<Cinematique>();
+            _cinematic = GetComponentInParent<Cinematic>();
 	    }
         void OnTriggerEnter (Collider c)
         {
             if ( c.name == "Spi" )
-                _cinematique.Begin();
+                _cinematic.Begin();
 
 
             

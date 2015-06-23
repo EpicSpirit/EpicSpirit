@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_0_2;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_0_2;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\EndLevel.cs" />
-     <Compile Include="Assets\FPSDisplay.cs" />
      <Compile Include="Assets\OnInvisibleOptimization.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Action.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
@@ -77,17 +76,15 @@
      <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitch.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematique.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematiqueSpawnPoint.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematiqueTrigger.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematique_TEST\Cinematique_Block_and_Move_Camera.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematique_TEST\Cinematique_TEST.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematic.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematicSpawnPoint.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematicTrigger.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\CinematicOnlyMove.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_Block_and_Move_Camera.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_TEST.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UIAction.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UIItem.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UISkill.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\GameMenuManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\actionicone.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
@@ -114,7 +111,12 @@
      <Compile Include="Assets\Resources\Scripts\Story\BeginStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStoryScriptAlArrache.cs" />
-     <Compile Include="Assets\Resources\Scripts\UserInterface\HealthHUD.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIAction.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIItem.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UISkill.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\FPSDisplay.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthAmount.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthBackground.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNAbstractController.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />

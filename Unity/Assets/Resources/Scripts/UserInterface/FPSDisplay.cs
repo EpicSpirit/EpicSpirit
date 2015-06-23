@@ -13,6 +13,8 @@ public class FPSDisplay : MonoBehaviour
         _text.fontStyle = FontStyle.Bold;
         _text.font = (Font)Resources.Load( "UI/BLKCHCRY" );
         _text.color = Color.black;
+        _text.horizontalOverflow = HorizontalWrapMode.Overflow;
+        _text.verticalOverflow = VerticalWrapMode.Overflow;
 
         _count = 0;
     }
