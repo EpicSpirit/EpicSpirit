@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\EndLevel.cs" />
-     <Compile Include="Assets\FPSDisplay.cs" />
      <Compile Include="Assets\OnInvisibleOptimization.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Action.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
@@ -86,9 +85,6 @@
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UIAction.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UIItem.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UISkill.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\GameMenuManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\actionicone.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
@@ -115,6 +111,10 @@
      <Compile Include="Assets\Resources\Scripts\Story\BeginStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStoryScriptAlArrache.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIAction.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIItem.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UISkill.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\FPSDisplay.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthAmount.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthBackground.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNAbstractController.cs" />
