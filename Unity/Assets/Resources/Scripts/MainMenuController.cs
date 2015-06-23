@@ -79,7 +79,6 @@ namespace EpicSpirit.Game
             }
             Invoke( "ChangeIMG", timeNextInvoke );
         }
-
         public void Continue()
         {
             Application.LoadLevel( "overworld" );
@@ -93,10 +92,8 @@ namespace EpicSpirit.Game
         {
             Debug.Log("Pas encore de menu d'option pour le moment.");
         }
-
         private void AnimSword ()
         {
-            Debug.Log("a");
             sword.transform.Translate( -Vector2.up * 50 );
             if(sword.transform.position.y >= title.transform.position.y)
                 Invoke( "AnimSword", 0.01f);

@@ -33,6 +33,7 @@ namespace EpicSpirit.Game
         public void Start()
         {
             _isLocked = SaveManager.IsMapIsLocked( this.name );
+            if(!_isLocked)   GetComponentInChildren<SphereCollider>().gameObject.SetActive( false );
         }
 
 		/// <summary>
@@ -56,10 +57,12 @@ namespace EpicSpirit.Game
 
                 // Arrow position
                 arrow.transform.Translate( Vector3.right * 3.0f, Space.Self );
-                arrow.GetComponent<ArrowGesture>().LinkedNode = this;
+                arrow.GetComponent<ArrowGesture>().BaseNode = this;
+                arrow.GetComponent<ArrowGesture>().LinkedNode = node;
                 _arrows.Add(arrow);
 
             }
+
 		}
 
         public bool Unlock()
@@ -80,6 +83,27 @@ namespace EpicSpirit.Game
             foreach(GameObject arrow in _arrows)
             {
                 GameObject.Destroy( arrow );
+            }
+        }
+
+        public void OnMouseUp()
+        {
+            var opc = GameObject.Find( "Controller" ).GetComponent<OverworldPlayerController>();
+            if( opc.CurrentMapNode.LinkedNodes.Contains(this))
+            {
+                foreach(var arrow in opc.CurrentMapNode.Arrows)
+                {
+
+                    var a = arrow.GetComponent<ArrowGesture>();
+                    Debug.Log(a.LinkedNode.name);
+
+                    if( a.LinkedNode == this)
+                    {
+                        Debug.Log("WIN");
+                        a.Move = true;
+                        return;
+                    }
+                }
             }
         }
 	}
