@@ -89,17 +89,20 @@ namespace EpicSpirit.Game
         public void OnMouseUp()
         {
             var opc = GameObject.Find( "Controller" ).GetComponent<OverworldPlayerController>();
+
+            if ( opc.CurrentMapNode == this )
+            {
+                opc.LoadLevel();
+            }
+
             if( opc.CurrentMapNode.LinkedNodes.Contains(this))
             {
                 foreach(var arrow in opc.CurrentMapNode.Arrows)
                 {
-
                     var a = arrow.GetComponent<ArrowGesture>();
-                    Debug.Log(a.LinkedNode.name);
 
                     if( a.LinkedNode == this)
                     {
-                        Debug.Log("WIN");
                         a.Move = true;
                         return;
                     }
