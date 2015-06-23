@@ -7,7 +7,7 @@ public class LoadingScreen : MonoBehaviour
     Text _loadingText;
 
     public Sprite _loadingSprite;
-    public string _loadingString = "Loading...";
+    public string _loadingString;
 
     /*
     /// <summary>

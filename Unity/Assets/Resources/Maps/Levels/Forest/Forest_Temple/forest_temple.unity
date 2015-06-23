@@ -1341,7 +1341,8 @@ MonoBehaviour:
   _attackRange: 0
   _aggroMovementSpeed: 0
   _aggroArea: 0
-  _health: 0
+  _currentHealth: 0
+  _maxHealth: 0
   _gates: []
 --- !u!1 &152383882
 GameObject:
@@ -3199,7 +3200,8 @@ MonoBehaviour:
   _attackRange: 0
   _aggroMovementSpeed: 0
   _aggroArea: 0
-  _health: 0
+  _currentHealth: 0
+  _maxHealth: 0
   _gates:
   - {fileID: 2127029078}
 --- !u!1001 &580534795
@@ -3287,7 +3289,8 @@ MonoBehaviour:
   _attackRange: 0
   _aggroMovementSpeed: 0
   _aggroArea: 0
-  _health: 0
+  _currentHealth: 0
+  _maxHealth: 0
   _gates:
   - {fileID: 251835663}
   - {fileID: 323066311}
@@ -6504,57 +6507,11 @@ Transform:
   - {fileID: 147553418}
   m_Father: {fileID: 1517401812}
   m_RootOrder: 0
---- !u!1001 &994204043
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.42671394
-      objectReference: {fileID: 0}
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -.000170707703
-      objectReference: {fileID: 0}
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 31.0367832
-      objectReference: {fileID: 0}
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 165878, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-      propertyPath: m_Name
-      value: UI
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
-  m_IsPrefabParent: 0
 --- !u!114 &1019924888 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11459960, guid: c56e747b2e4caf54cb263782771dcd25,
+  m_PrefabParentObject: {fileID: 11424920, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0,
     type: 2}
-  m_PrefabInternal: {fileID: 994204043}
+  m_PrefabInternal: {fileID: 1450960658}
   m_Script: {fileID: 11500000, guid: ed91a055bc3f60a46a64e83aee3676ba, type: 3}
 --- !u!4 &1035514970 stripped
 Transform:
@@ -7062,7 +7019,8 @@ MonoBehaviour:
   _attackRange: 0
   _aggroMovementSpeed: 0
   _aggroArea: 0
-  _health: 0
+  _currentHealth: 0
+  _maxHealth: 0
   _gates:
   - {fileID: 1916255605}
   - {fileID: 1669644200}
@@ -7223,6 +7181,48 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1473540514}
   m_Script: {fileID: 11500000, guid: 13e0cb1ffc250624ba8b0de5dffa515f, type: 3}
+--- !u!1001 &1450960658
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.42671394
+      objectReference: {fileID: 0}
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.000170707703
+      objectReference: {fileID: 0}
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 31.0367832
+      objectReference: {fileID: 0}
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 463648, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1c0ddb02067d7a34e883bdeeb2a7c3a0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1473540514
 Prefab:
   m_ObjectHideFlags: 0
@@ -10074,7 +10074,8 @@ MonoBehaviour:
   _attackRange: 0
   _aggroMovementSpeed: 0
   _aggroArea: 0
-  _health: 0
+  _currentHealth: 0
+  _maxHealth: 0
   _gates:
   - {fileID: 1694920913}
   - {fileID: 90413209}
@@ -11912,7 +11913,8 @@ MonoBehaviour:
   _attackRange: 0
   _aggroMovementSpeed: 0
   _aggroArea: 0
-  _health: 0
+  _currentHealth: 0
+  _maxHealth: 0
   _gates: []
 --- !u!1 &1999860158
 GameObject:
