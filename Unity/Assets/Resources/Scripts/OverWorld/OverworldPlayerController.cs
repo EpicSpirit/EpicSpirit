@@ -24,7 +24,7 @@ namespace EpicSpirit.Game
             }
             catch ( Exception e )
             {
-                _currentMapNode = GameObject.Find( "forest_1.3" ).GetComponent<MapNode>();
+                _currentMapNode = GameObject.Find( "forest_1" ).GetComponent<MapNode>();
             }
 
             GameObject.FindWithTag( "Player" ).transform.position = _currentMapNode.transform.position;

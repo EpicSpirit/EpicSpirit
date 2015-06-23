@@ -10,13 +10,15 @@ namespace EpicSpirit.Game
         {
             Classique,
             Lightning1,
+            Classique2,
             Lightning2,
             End
         }
 
         StateOfAnim _soa;
         public List<GameObject> _backgroundImages;
-        public GameObject title;
+        public GameObject epc;
+        public GameObject sprit;
         public GameObject sword;
         int counter;
 
@@ -25,7 +27,8 @@ namespace EpicSpirit.Game
         {
             counter = 0;
             _soa = StateOfAnim.Classique;
-            title.SetActive( false );
+            epc.SetActive( false );
+            sprit.SetActive( false );
             sword.SetActive( false );
             _backgroundImages [0].SetActive( true );
             _backgroundImages [1].SetActive( true );
@@ -45,30 +48,34 @@ namespace EpicSpirit.Game
             switch(_soa)
             {
                 case StateOfAnim.Classique :
-                    title.SetActive( false );
                     _backgroundImages [0].SetActive( false );
                     timeNextInvoke = 0.2f;
                     _soa = StateOfAnim.Lightning1;
                     break;
+
                 case StateOfAnim.Lightning1 :
-                    _backgroundImages [1].SetActive( false );
+                    _backgroundImages [0].SetActive( true );
                     timeNextInvoke = 0.2f;
+                    _soa = StateOfAnim.Classique2;
+                    epc.SetActive( true );
+                    break;
+                case StateOfAnim.Classique2 :
+                    epc.SetActive( false );
+                    timeNextInvoke = 0.2f;
+                    _backgroundImages [0].SetActive( false );
+                    _backgroundImages [1].SetActive( false );
                     _soa = StateOfAnim.Lightning2;
                     break;
                 case StateOfAnim.Lightning2 :
                     counter++;
+                    epc.SetActive( true );
+                    sprit.SetActive( true );
                     _backgroundImages [0].SetActive( true );
                     _backgroundImages [1].SetActive( true );
                     _backgroundImages [2].SetActive( true );
-                    timeNextInvoke = 2f;
-                    _soa = StateOfAnim.Classique;
-                    title.SetActive( true );
-                    if ( counter == 2 )
-                    {
-                        sword.SetActive( true );
-                        AnimSword();
-                        _soa = StateOfAnim.End;
-                    }
+                    timeNextInvoke = 0f;
+                    _soa = StateOfAnim.End;
+                    Invoke( "Lauch", 1f );
                     break;
                 case StateOfAnim.End :
                     // Nothing
@@ -77,9 +84,9 @@ namespace EpicSpirit.Game
                     Debug.Log("Erreur enum");
                     break;
             }
-            Invoke( "ChangeIMG", timeNextInvoke );
+            if(timeNextInvoke != 0f)
+                Invoke( "ChangeIMG", timeNextInvoke );
         }
-
         public void Continue()
         {
             Application.LoadLevel( "overworld" );
@@ -93,13 +100,27 @@ namespace EpicSpirit.Game
         {
             Debug.Log("Pas encore de menu d'option pour le moment.");
         }
+        float swordPositionY;
+        float _acceleration;
+        public void Lauch()
+        {
+            _acceleration = 1f;
+            swordPositionY=sword.transform.position.y;
+            sword.SetActive( true );
+            sword.transform.position = new Vector3( sword.transform.position.x, sword.transform.position.y + 470, sword.transform.position.z );
+            AnimSword();
+            //Invoke( "AnimSword", 1f );
+        }
 
         private void AnimSword ()
         {
-            Debug.Log("a");
-            sword.transform.Translate( -Vector2.up * 50 );
-            if(sword.transform.position.y >= title.transform.position.y)
-                Invoke( "AnimSword", 0.01f);
+            //sword.transform.Translate( -Vector2.up * 10 );
+            _acceleration += 0.8f;
+            sword.transform.position = new Vector3( sword.transform.position.x, sword.transform.position.y-(6*_acceleration), sword.transform.position.z );
+            if ( sword.transform.position.y >= swordPositionY + 30 )
+                Invoke( "AnimSword", 0.01f );
+            else
+                sword.transform.position = new Vector3(sword.transform.position.x,swordPositionY,sword.transform.position.z);
         }
     }
 }

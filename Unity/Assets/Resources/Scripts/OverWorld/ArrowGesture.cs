@@ -5,14 +5,21 @@ namespace EpicSpirit.Game
 {
     public class ArrowGesture : MonoBehaviour
     {
+        MapNode _baseNode;
         MapNode _linkedNode;
         bool _move;
 
         public bool Move
         {
             get { return _move; }
+            set { _move = value; }
         }
 
+        public MapNode BaseNode
+        {
+            get { return _baseNode; }
+            set { _baseNode = value; }
+        }
         public MapNode LinkedNode
         {
             get { return _linkedNode; }
@@ -22,7 +29,6 @@ namespace EpicSpirit.Game
         void Awake ()
         {
             _move = false;
-            
         }
 
         public void OnMouseUp()
