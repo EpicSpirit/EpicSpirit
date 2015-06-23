@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace EpicSpirit.Game
 {
-    public class HealthHUD : MonoBehaviour
+    public class HealthAmount : MonoBehaviour
     {
 		Image _hp;
         Character _character;
@@ -12,7 +12,16 @@ namespace EpicSpirit.Game
         int _count;
         void Awake()
         {
-            _hp = GetComponent<Image>();
+            _hp = gameObject.AddComponent<Image>();
+            _hp.type = Image.Type.Filled;
+            _hp.sprite = Resources.Load<Sprite>("UI/Images/health_top");
+            _hp.color = Color.white;
+
+            _hp.fillMethod = Image.FillMethod.Horizontal;
+            _hp.fillOrigin = 0;
+            _hp.fillAmount = 1;
+            _hp.preserveAspect = true;
+
             _character = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
             _count = 0;
         }
