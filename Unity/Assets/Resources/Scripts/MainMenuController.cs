@@ -30,11 +30,10 @@ namespace EpicSpirit.Game
             epc.SetActive( false );
             sprit.SetActive( false );
             sword.SetActive( false );
-            _backgroundImages [0].SetActive( true );
-            _backgroundImages [1].SetActive( true );
-            _backgroundImages [2].SetActive( true );
+            _backgroundImages [0].SetActive( false );
+            _backgroundImages [1].SetActive( false );
 
-            if ( _backgroundImages.Count != 3 ) Debug.Log( "Nombre d'images de background étrange. 3 images attendues" );
+            if ( _backgroundImages.Count != 2 ) Debug.Log( "Nombre d'images de background étrange. 3 images attendues" );
             else 
             {
                 Invoke( "ChangeIMG", 3f );
@@ -48,13 +47,13 @@ namespace EpicSpirit.Game
             switch(_soa)
             {
                 case StateOfAnim.Classique :
-                    _backgroundImages [0].SetActive( false );
+                    _backgroundImages [0].SetActive( true );
                     timeNextInvoke = 0.2f;
                     _soa = StateOfAnim.Lightning1;
                     break;
 
                 case StateOfAnim.Lightning1 :
-                    _backgroundImages [0].SetActive( true );
+                    _backgroundImages [0].SetActive( false );
                     timeNextInvoke = 0.2f;
                     _soa = StateOfAnim.Classique2;
                     epc.SetActive( true );
@@ -62,17 +61,14 @@ namespace EpicSpirit.Game
                 case StateOfAnim.Classique2 :
                     epc.SetActive( false );
                     timeNextInvoke = 0.2f;
-                    _backgroundImages [0].SetActive( false );
-                    _backgroundImages [1].SetActive( false );
+                    _backgroundImages [1].SetActive( true );
                     _soa = StateOfAnim.Lightning2;
                     break;
                 case StateOfAnim.Lightning2 :
                     counter++;
                     epc.SetActive( true );
                     sprit.SetActive( true );
-                    _backgroundImages [0].SetActive( true );
-                    _backgroundImages [1].SetActive( true );
-                    _backgroundImages [2].SetActive( true );
+                    _backgroundImages [1].SetActive( false );
                     timeNextInvoke = 0f;
                     _soa = StateOfAnim.End;
                     Invoke( "Lauch", 1f );
