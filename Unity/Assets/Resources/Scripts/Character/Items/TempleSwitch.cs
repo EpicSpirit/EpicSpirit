@@ -30,12 +30,12 @@ namespace EpicSpirit.Game
 			if (_isOn == false) 
 			{
 				_isOn = true;
-				transform.Rotate( new Vector3 ( 90 ,0 ,0  ) );
+				//transform.Rotate( new Vector3 ( 90 ,0 ,0  ) );
 			} 
 			else
 			{
 				_isOn = false;
-				transform.Rotate (new Vector3 (-90, 0, 0));
+				//transform.Rotate (new Vector3 (-90, 0, 0));
 			}
 
 			foreach( GameObject gate in _gates )
