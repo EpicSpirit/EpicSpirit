@@ -11589,60 +11589,11 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2039385783}
-    m_Modifications:
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.899999976
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -9.39999962
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_RootOrder
-      value: 333
-      objectReference: {fileID: 0}
-    - target: {fileID: 124170, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_Name
-      value: arbresombre 726
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .621298075
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .621297538
-      objectReference: {fileID: 0}
-    - target: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: .621297598
-      objectReference: {fileID: 0}
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
+  m_ParentPrefab: {fileID: 0}
   m_IsPrefabParent: 0
-      value: -8.29423046
 --- !u!1001 &650893497
 Prefab:
   m_ObjectHideFlags: 0
@@ -21099,7 +21050,7 @@ Transform:
   m_LocalScale: {x: 25.4242001, y: 8.3016758, z: 8.3016758}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!114 &1173204819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28716,7 +28667,7 @@ Transform:
   - {fileID: 1271016951}
   - {fileID: 2039385783}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
 --- !u!1001 &1608496051
 Prefab:
   m_ObjectHideFlags: 0
@@ -32393,8 +32344,8 @@ RectTransform:
   m_Children:
   - {fileID: 1215713807}
   - {fileID: 829182827}
-  m_Father: {fileID: 1454061081}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 3.05175781e-05, y: .149748504}
@@ -33020,10 +32971,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcd2fd0f8bad3b74b9b097a27b8843d8, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1857617058 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
-  m_PrefabInternal: {fileID: 649875433}
 --- !u!4 &1857705731 stripped
 Transform:
   m_PrefabParentObject: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
@@ -35431,7 +35378,7 @@ Transform:
   - {fileID: 959410537}
   - {fileID: 832624096}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!4 &1994708673 stripped
 Transform:
   m_PrefabParentObject: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
@@ -36596,7 +36543,6 @@ Transform:
   - {fileID: 486992886}
   - {fileID: 1539539192}
   - {fileID: 1051362244}
-  - {fileID: 1857617058}
   - {fileID: 957496774}
   - {fileID: 983719288}
   - {fileID: 966668704}
