@@ -21,6 +21,17 @@ namespace EpicSpirit.Game
 			_player = GameObject.FindWithTag ("Player");
         }
 
+		public void Update()
+		{
+			if ( Input.GetKeyDown( KeyCode.A ) )
+			{
+				CancelInvoke();
+				BlockEveryCharacter(false);
+				BackCameraToPlayer();
+			}
+
+		}
+
         public abstract void LaunchCinematic ();
 
         public void Begin ()
