@@ -22,6 +22,8 @@ namespace EpicSpirit.Game
         void Awake ()
         {
             _mainCameraTransform = Camera.main.GetComponent<Transform>();
+            if ( _character == null ) _character = GameObject.Find( "Spi" ).GetComponent<Character>();
+            if ( _movementJoystick == null ) _movementJoystick = GameObject.Find( "CNJoystick" ).GetComponent<CNAbstractController>();
 
         }
         void Start()

@@ -29,6 +29,7 @@ namespace EpicSpirit.Game
         {
             _cameraSpeed = 0.4f;
             _movement = this.transform.position;
+            if ( _target == null ) _target = GameObject.Find( "Spi" );
         }
 
         public void Move(GameObject target,float speed)
