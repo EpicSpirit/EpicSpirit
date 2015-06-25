@@ -9,13 +9,16 @@ namespace EpicSpirit.Game
     {
         public bool _oneShot;
         bool _asBegin;
-        internal MoveCamera _camera;
-
+        internal MoveCamera _cameraController;
+		internal GameObject _camera;
+		GameObject _player;
 
         public void Awake ()
         {
             _asBegin = false;
-            _camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();
+			_camera = GameObject.Find("Camera");
+            _cameraController = _camera.GetComponent<MoveCamera>();
+			_player = GameObject.FindWithTag ("Player");
         }
 
         public abstract void LaunchCinematic ();
@@ -56,15 +59,14 @@ namespace EpicSpirit.Game
             GameObject.Find( "Controller" ).GetComponent<PlayerController>().enabled = !value;
 
             // Met à Spi l'Idle
-            GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AnimationManager( "idle" );
+			_player.GetComponent<Character>().AnimationManager( "idle" );
         }
 
-        internal void BackCameraToSpi()
+        internal void BackCameraToPlayer()
         {
-            var camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();
-            var spi = GameObject.Find( "Spi" );
-            camera._target = spi;
-            camera._cameraSpeed = 0.4f;
+            
+			_cameraController._target = _player;
+			_cameraController.CameraSpeed = 0.4f;
         }
 
 

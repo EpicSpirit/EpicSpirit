@@ -33,17 +33,17 @@ namespace EpicSpirit.Game
             {
                 Invoke("MoveToNextPoint", TimeOfCinematicPoint * i);
             }
-            Invoke("ReturnToSpi", TimeOfCinematicPoint * CameraPoints.Count);
+			Invoke("ReturnToPlayer", TimeOfCinematicPoint * CameraPoints.Count);
         }
 
         public void MoveToNextPoint()
         {
             if(CameraPoints.Count >= _count)
-                _camera.Move(CameraPoints[_count++], MoveCamera.MEDIUM);
+                _cameraController.Move(CameraPoints[_count++], MoveCamera.MEDIUM);
         }
-        public void ReturnToSpi()
+        public void ReturnToPlayer()
         {
-            BackCameraToSpi();
+            BackCameraToPlayer();
             BlockEveryCharacter(false);
         }
     }

@@ -25,6 +25,12 @@ namespace EpicSpirit.Game
         //Transform _originTransform; on peut utiliser transform.position.z - zoffset
 
 
+		public float CameraSpeed 
+		{
+			get{ return _cameraSpeed; }
+			set{ _cameraSpeed = value; }
+		}
+
         void Start()
         {
             _cameraSpeed = 0.4f;
