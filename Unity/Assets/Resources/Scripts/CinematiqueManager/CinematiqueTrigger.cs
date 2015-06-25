@@ -9,14 +9,9 @@ namespace EpicSpirit.Game {
 	    }
         void OnTriggerEnter (Collider c)
         {
-            if (c.tag == "Player") 
-			{
-				_cinematique.Begin ();
-				if (_cinematique._oneShot)
-				{
-					Destroy(gameObject);
-				}
-			}
+            if ( c.name == "Spi" )
+                _cinematique.Begin();
+
 
             
         }

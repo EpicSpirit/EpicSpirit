@@ -20,6 +20,7 @@ namespace EpicSpirit.Game
 		{
             // On récupère le bon niveau
             LoadActualLevel();
+                _currentMapNode = GameObject.Find( "forest_1" ).GetComponent<MapNode>();
 
             // On débloque les maps si on vient de finir un level // Plutot dans le start ça non ?
             UnlockLevels();
@@ -86,6 +87,16 @@ namespace EpicSpirit.Game
         }
 
         public void LoadMenu ()
+        {
+            GameObject.Find( "GameMenu 2" ).GetComponent<Animator>().SetBool( "open", true );
+            Invoke( "StopAnimation", 0.2f );
+            Invoke( "LoadMenu_Step2", 0.3f );
+        }
+        private void StopAnimation()
+        {
+            GameObject.Find( "GameMenu 2" ).GetComponent<Animator>().SetBool( "open", false );
+        }
+        public void LoadMenu_Step2()
         {
             LevelManager.SetParameter( "ended", false );
             Application.LoadLevel( "game_menu" );

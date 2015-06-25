@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\EndLevel.cs" />
-     <Compile Include="Assets\FPSDisplay.cs" />
      <Compile Include="Assets\OnInvisibleOptimization.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Action.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
@@ -77,26 +76,26 @@
      <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitch.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematique.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematiqueSpawnPoint.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematiqueTrigger.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematique_TEST\Cinematique_Block_and_Move_Camera.cs" />
-     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematique_TEST\Cinematique_TEST.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematic.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematicSpawnPoint.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\CinematicTrigger.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\CinematicOnlyMove.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_Block_and_Move_Camera.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_TEST.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UIAction.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UIItem.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameGUI\UISkill.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\GameMenuManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\actionicone.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
      <Compile Include="Assets\Resources\Scripts\InGame\Loot.cs" />
      <Compile Include="Assets\Resources\Scripts\InGame\SceneTransition.cs" />
      <Compile Include="Assets\Resources\Scripts\LevelManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\LoadingScreen\LoadingScreen.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\MouseGesture.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SpiController.cs" />
      <Compile Include="Assets\Resources\Scripts\MainMenu\SplashScreen\ResponsiveImage.cs" />
+     <Compile Include="Assets\Resources\Scripts\MainMenuController.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\ArrowGesture.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\OverWorld\MapNode.cs" />
@@ -114,7 +113,13 @@
      <Compile Include="Assets\Resources\Scripts\Story\EndStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\BlackBar.cs" />
-     <Compile Include="Assets\Resources\Scripts\UserInterface\HealthHUD.cs" />
+     <Compile Include="Assets\Resources\Scripts\Tutorials\CheckPoint.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIAction.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIItem.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UISkill.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\FPSDisplay.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthAmount.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthBackground.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNAbstractController.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
