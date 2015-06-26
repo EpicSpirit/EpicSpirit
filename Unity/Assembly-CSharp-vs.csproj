@@ -116,6 +116,7 @@
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIAction.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIItem.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UISkill.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\BlackBar.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\FPSDisplay.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthAmount.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthBackground.cs" />

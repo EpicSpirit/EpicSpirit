@@ -9,7 +9,7 @@ namespace EpicSpirit.Game
 		Image _hp;
         Character _character;
 
-        int _count;
+        byte _count;
         void Awake()
         {
             _hp = gameObject.AddComponent<Image>();
@@ -25,14 +25,15 @@ namespace EpicSpirit.Game
             _character = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
             _count = 0;
         }
+
         void Update()
         {
-            _count++;
-            if (_count >= 20)
-            {
+			_count++;
+			if (_count >= 20) 
+			{
                 UpdateHealthBar();
-                _count = 0;
-            }            
+				_count = 0;
+			}
         }
         private void UpdateHealthBar()
         {
