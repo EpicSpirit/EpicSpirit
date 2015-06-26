@@ -8,13 +8,19 @@ namespace EpicSpirit.Game
 	{
 		internal bool _isOn;
         [SerializeField]
-        internal bool _allOn;
+        internal List<GameObject> _allOn;
         [SerializeField]
         internal bool _oneShot;
 		[SerializeField]
 		List<GameObject> _gates;
 
 		public List<GameObject> Gates
+		{
+			get{ return _gates; }
+			set{ _gates = value; }
+		}
+		
+		public List<GameObject> AllOn
 		{
 			get{ return _gates; }
 			set{ _gates = value; }
@@ -35,13 +41,11 @@ namespace EpicSpirit.Game
         /// <param name="force">No use here</param>
         internal override void takeDamage( int force )
         {
-            if ( _allOn )
-            {
-                foreach ( GameObject gate in Gates )
+            foreach ( GameObject allOn in AllOn )
                 {
-                    gate.SetActive( true );
+                    allOn.SetActive( true );
                 }
-            }
+            
             if ( _oneShot )
             {
                 GameObject.Destroy( this );
