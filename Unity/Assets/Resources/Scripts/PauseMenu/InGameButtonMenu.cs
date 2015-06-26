@@ -14,7 +14,7 @@ namespace EpicSpirit.Game
             gameObject.AddComponent<Image>();
 			_button = gameObject.AddComponent<Button>();
 			_button.image.overrideSprite = Resources.Load<Sprite>( "Images/PauseMenu/ButtonReturnToOverworld" );
-
+            _button.image.preserveAspect = true;
            _menu = GameObject.FindWithTag( "Menu" );
         }
         void Start()

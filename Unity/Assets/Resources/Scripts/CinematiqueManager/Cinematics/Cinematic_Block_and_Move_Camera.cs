@@ -13,7 +13,7 @@ namespace EpicSpirit.Game
         {
             BlockEveryCharacter(true);
             
-            _camera.Move( camerapoints[0],MoveCamera.MEDIUM);
+            _cameraController.Move( camerapoints[0],MoveCamera.MEDIUM);
             Invoke( "SpawnVeryBadBoy", 1f );
 
         }
@@ -21,11 +21,11 @@ namespace EpicSpirit.Game
         public void SpawnVeryBadBoy()
         {
             Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Characters/Prefab/VeryBadBoy" ), VeryBadBoyPlace.transform.position, VeryBadBoyPlace.transform.rotation );
-            Invoke("ReturnToSpi",1f);
+            Invoke("ReturnToPlayer",1f);
         }
-        public void ReturnToSpi()
+        public void ReturnToPlayer()
         {
-            BackCameraToSpi();
+            BackCameraToPlayer();
             BlockEveryCharacter(false);
         }
     }

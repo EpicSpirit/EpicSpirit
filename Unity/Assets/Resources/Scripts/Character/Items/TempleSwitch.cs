@@ -4,9 +4,13 @@ using System.Collections.Generic;
 
 namespace EpicSpirit.Game
 {
-	public class TempleSwitch : Character
+	public abstract class TempleSwitch : Character
 	{
-		bool _isOn;
+		internal bool _isOn;
+        [SerializeField]
+        internal bool _allOn;
+        [SerializeField]
+        internal bool _oneShot;
 		[SerializeField]
 		List<GameObject> _gates;
 
@@ -25,32 +29,24 @@ namespace EpicSpirit.Game
 
         public override void Update () { }
 
-		internal override void takeDamage (int force)
-		{
-			if (_isOn == false) 
-			{
-				_isOn = true;
-				//transform.Rotate( new Vector3 ( 90 ,0 ,0  ) );
-			} 
-			else
-			{
-				_isOn = false;
-				//transform.Rotate (new Vector3 (-90, 0, 0));
-			}
-
-			foreach( GameObject gate in _gates )
-			{
-				if( gate.activeSelf )
-				{
-					gate.SetActive(false);
-				}
-				else
-				{
-					gate.SetActive(true);
-				}
-			}
-
-		}
+        /// <summary>
+        /// Call it in child class at the end of the method
+        /// </summary>
+        /// <param name="force">No use here</param>
+        internal override void takeDamage( int force )
+        {
+            if ( _allOn )
+            {
+                foreach ( GameObject gate in Gates )
+                {
+                    gate.SetActive( true );
+                }
+            }
+            if ( _oneShot )
+            {
+                GameObject.Destroy( this );
+            }
+        }
 
 		public override void MoveBack(GameObject c, float strengh){}
 	}
