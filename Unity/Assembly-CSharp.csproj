@@ -76,6 +76,9 @@
      <Compile Include="Assets\Resources\Scripts\Character\Enemy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\GenericCharacterForUnitTests.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitch.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitchPole.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitchPoleSpawnEnemies.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitchStone.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematic.cs" />
@@ -118,6 +121,7 @@
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIAction.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIItem.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UISkill.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\BlackBar.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\FPSDisplay.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthAmount.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\HealthBar\HealthBackground.cs" />
