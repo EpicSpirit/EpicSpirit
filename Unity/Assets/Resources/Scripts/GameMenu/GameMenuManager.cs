@@ -125,8 +125,19 @@ namespace EpicSpirit.Game
             GameObject.Find( "DescriptionText" ).GetComponent<Text>().text = ai.Action.Description;
         }
         
+        private bool AlreadyExist(Action a)
+        {
+            var pm = GameObject.Find("ProgressionManager").GetComponent<ProgressionManager>();
+            if (a is Skill ) 
+            else if (a is Item)
+            else if (a is Weapon)
+            else Debug.Log("Error");
+
+        }
+
         public void AddToSlot(int index)
         {
+            if(AlreadyExist(_selectedAction))
             ProgressionManager progressionManager = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
 
             string key;

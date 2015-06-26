@@ -29,12 +29,14 @@ namespace EpicSpirit.Game
             #endregion
 
             #region Items
+            _items.Add( this.gameObject.AddComponent<EmptyItem>() );
             _items.Add( this.gameObject.AddComponent<LowHealthPotion>() );
             _items.Add( this.gameObject.AddComponent<MiddleHealthPotion>() );
             _items.Add( this.gameObject.AddComponent<GreaterHealthPotion>() );
             #endregion
 
             #region Skills
+            _skills.Add( this.gameObject.AddComponent<EmptySkill>() );
             _skills.Add(this.gameObject.AddComponent<FireBall>());
             _skills.Add( this.gameObject.AddComponent<FrozenPick>() );
             _skills.Add( this.gameObject.AddComponent<Dodge>() );
