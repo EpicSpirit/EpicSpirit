@@ -165,6 +165,7 @@ namespace EpicSpirit.Game
         // TODO : World managment
         public void ResetSave()
         {
+            PlayerPrefs.SetInt( "Save", 1 );
             Debug.Log("ResetSave");
             InitializeItemList();
             InitializeSkillList();
@@ -321,6 +322,9 @@ namespace EpicSpirit.Game
             return PlayerPrefs.GetInt( i.Name );
         }
 
-        
+        internal static bool HasSave ()
+        {
+            return PlayerPrefs.GetInt( "Save", 0 ) == 1 ? true : false;
+        }
     }
 }
