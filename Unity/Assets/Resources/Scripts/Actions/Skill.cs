@@ -8,7 +8,7 @@ namespace EpicSpirit.Game
         public override void Awake ()
         {
             base.Awake();
-            _cooldown = 20f;
+            _cooldown = 0f;
         }
         
 
