@@ -757,33 +757,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &52300121
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 649875433}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 52300122}
-  m_Layer: 0
-  m_Name: Missing Prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &52300122
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 649875433}
-  m_GameObject: {fileID: 52300121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
 --- !u!4 &52631203 stripped
 Transform:
   m_PrefabParentObject: {fileID: 460100, guid: fe4d1f14b28cab342a5b0220521b9287, type: 2}
@@ -11588,16 +11561,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 460100, guid: fe4d1f14b28cab342a5b0220521b9287, type: 2}
   m_PrefabInternal: {fileID: 415936041}
---- !u!1001 &649875433
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_IsPrefabParent: 0
 --- !u!1001 &650893497
 Prefab:
   m_ObjectHideFlags: 0
@@ -21003,7 +20966,7 @@ Transform:
   m_LocalScale: {x: 25.4242001, y: 8.3016758, z: 8.3016758}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!114 &1173204819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28568,7 +28531,7 @@ Transform:
   - {fileID: 1271016951}
   - {fileID: 2039385783}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1001 &1608496051
 Prefab:
   m_ObjectHideFlags: 0
@@ -35206,7 +35169,7 @@ Transform:
   - {fileID: 959410537}
   - {fileID: 832624096}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!4 &1994708673 stripped
 Transform:
   m_PrefabParentObject: {fileID: 438462, guid: e0dba1ec162c3d74daa76f0ae7156c1e, type: 2}
