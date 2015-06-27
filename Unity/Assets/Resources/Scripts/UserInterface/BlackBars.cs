@@ -47,8 +47,8 @@ namespace EpicSpirit.Game
         {
             set
             {
-                _topSubtitle.enabled = value;
-                _bottomSubtitle.enabled = value;
+				EnabledBlackBars = false;
+				EnabledSubtitles = false;
             }
         }
 		void Awake()
@@ -84,4 +84,4 @@ namespace EpicSpirit.Game
 		}
 
 	}
-}1
+}
