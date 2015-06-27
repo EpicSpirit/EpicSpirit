@@ -22,8 +22,8 @@ namespace EpicSpirit.Game
 		
 		public List<GameObject> AllOn
 		{
-			get{ return _gates; }
-			set{ _gates = value; }
+			get{ return _allOn; }
+			set{ _allOn = value; }
 		}
 
 
