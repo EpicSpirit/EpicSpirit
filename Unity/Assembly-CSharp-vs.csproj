@@ -52,6 +52,7 @@
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\Impulse.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Item.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\Items\EmptyItem.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\GreaterHealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\HealthPotion.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\LowHealthPotion.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Resources\Scripts\Actions\Projectiles\Projectile_FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skill.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\Dodge.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\Skills\EmptySkill.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\VeryBadBoy\SummonBadBoy.cs" />
@@ -127,6 +129,7 @@
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNTouchpad.cs" />
+     <Compile Include="Assets\splashScreen.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace EpicSpirit.Game
 {
@@ -21,10 +22,17 @@ namespace EpicSpirit.Game
         public GameObject sprit;
         public GameObject sword;
         int counter;
-
+        bool canContinue;
 
         void Start ()
         {
+
+            if ( !SaveManager.HasSave() )
+            {
+                GameObject.Find( "Continue" ).GetComponent<Image>().color = new Color( 1f, 1f, 1f, 0.5f );
+                canContinue = false;
+            }
+            else canContinue = true;
             counter = 0;
             _soa = StateOfAnim.Classique;
             epc.SetActive( false );
@@ -85,7 +93,8 @@ namespace EpicSpirit.Game
         }
         public void Continue()
         {
-            Application.LoadLevel( "overworld" );
+            if(canContinue)
+                Application.LoadLevel( "overworld" );
         }
         public void NewGame ()
         {
