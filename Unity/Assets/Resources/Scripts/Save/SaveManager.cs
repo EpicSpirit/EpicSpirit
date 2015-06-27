@@ -10,7 +10,17 @@ namespace EpicSpirit.Game
     {
         ProgressionManager _progressionManager;
 
+        public enum IconType
+        {
+            ActualWeapon,
+            ActualItem,
+            ActualSkill_1,
+            ActualSkill_2,
+            ActualSkill_3
+        }
+
         public void Awake () 
+
         {
             //_progressionManager = this.gameObject.AddComponent<ProgressionManager>();
             _progressionManager = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
@@ -44,10 +54,32 @@ namespace EpicSpirit.Game
             PlayerPrefs.SetString( name, value ? "1" : "0" );
         }
 
+        public static void SetIconAttack ( IconType it, int i )
+        {
+            PlayerPrefs.SetInt( Enum.GetName( typeof( IconType ), it ), i );
+        }
+        public static void SetIconAttack ( string s, int i )
+        {
+            PlayerPrefs.SetInt( s, i );
+        }
+        public static void SetIconAttack ( IconType it, Action a)
+        {
+            var pm = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
+            int indice=-1;
+
+            if(a is Skill)  indice = pm.Skills.FindIndex( (s) => {return s == a;} );
+            else if(a is Item)  indice = pm.Items.FindIndex( (s) => {return s == a;} );
+            else if ( a is Weapon ) indice = pm.Weapons.FindIndex( ( s ) => { return s == a; } );
+            else    Debug.Log( "Error" );
+
+            PlayerPrefs.SetInt( Enum.GetName( typeof( IconType ), it ), indice );
+        }
+
         public static void BlockMap(string name)
         {
             SetInfoMap(name,true);
         }
+        
         public static void UnlockMap ( string name )
         {
             SetInfoMap( name, false );
@@ -133,6 +165,7 @@ namespace EpicSpirit.Game
         // TODO : World managment
         public void ResetSave()
         {
+            PlayerPrefs.SetInt( "Save", 1 );
             Debug.Log("ResetSave");
             InitializeItemList();
             InitializeSkillList();
@@ -142,20 +175,18 @@ namespace EpicSpirit.Game
             PlayerPrefs.SetInt( "Spi_Health", 20 );
 
             UnlockWeapon( 0 );
-
-            UnlockSkill( 0 );   // FireBall
-            UnlockSkill( 1 );   // FrozenPick
-            UnlockSkill( 2 );   // Dodge
-
+            UnlockSkill( 0 );
             UnlockItem( 0 );
-            UnlockItem( 1 );
-            UnlockItem( 2 );
 
+            SetIconAttack( IconType.ActualItem, _progressionManager.Items [0] );
+            SetIconAttack( IconType.ActualWeapon, _progressionManager.Weapons [0] );
+            SetIconAttack( IconType.ActualSkill_1, _progressionManager.Skills [0] );
+            SetIconAttack( IconType.ActualSkill_2, _progressionManager.Skills [0] );
+            SetIconAttack( IconType.ActualSkill_3, _progressionManager.Skills [0] );
 
             // Gestion des maps
             BlockAllMap();
             UnlockMap( "forest_1");
-            UnlockMap( "forest_1.3");   // A enlever quand on a fini le debug
 
         }
 
@@ -291,6 +322,9 @@ namespace EpicSpirit.Game
             return PlayerPrefs.GetInt( i.Name );
         }
 
-        
+        internal static bool HasSave ()
+        {
+            return PlayerPrefs.GetInt( "Save", 0 ) == 1 ? true : false;
+        }
     }
 }
