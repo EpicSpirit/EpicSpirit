@@ -157,7 +157,6 @@ namespace EpicSpirit.Game
                 PlayerPrefs.SetInt( _progressionManager.Items [i].Name, 0 );
             }
             PlayerPrefs.SetString( "Items", message );
-            PlayerPrefs.SetInt( _progressionManager.Items [0].Name, 5);
 
             
         }
