@@ -23,6 +23,12 @@ namespace EpicSpirit.Game
             _uis = GetComponentInChildren<UISkill>();
             if ( _uis != null )
                 _uis.enabled = false;
+
+            Action action = _target.GetAttack( _indice );
+            
+            if ( action.Name == "" )
+                this.gameObject.SetActive( false );
+            
         }
 
 	    void Start () 
