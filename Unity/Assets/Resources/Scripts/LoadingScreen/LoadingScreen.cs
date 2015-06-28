@@ -78,12 +78,10 @@ public class LoadingScreen : MonoBehaviour
         if ( Application.isLoadingLevel )
         {
             show();
-            Debug.Log( "true" );
         }
 
         else
         {
-            Debug.Log( "false" );
             hide();
         }
 
