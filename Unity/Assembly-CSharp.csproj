@@ -53,6 +53,7 @@
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\Impulse.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\Split.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\SplitLastShape.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Item.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\EmptyItem.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\GreaterHealthPotion.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Resources\Scripts\Camera\MoveCamera.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoySplitter.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\BadBoySplitterLastShape.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Enemy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\GenericCharacterForUnitTests.cs" />
