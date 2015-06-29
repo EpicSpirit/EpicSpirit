@@ -13,7 +13,6 @@ namespace EpicSpirit.Game
                 AnimationClip SplitAnimation = _animations.GetClip( "split" );
                 _attackAnimations.Add( new AttackAnimation( "split", SplitAnimation.length / 2 ) );
                 _attackDuration = SplitAnimation.length;
-                Debug.Log(_attackDuration);
             }
             _isStoppable = false;
         }
