@@ -181,6 +181,32 @@ namespace EpicSpirit.Game
             return !( direction == Vector3.zero );
         }
 
+        /// <summary>
+        /// Move the character on a side (x axis).
+        /// </summary>
+        /// <param name="speed">Movement distance (on x axis)</param>
+        /// <returns>True</returns>
+        public bool MoveAsideTo( float speed )
+        {
+            float destination = 0f;
+            Vector3 direction = new Vector3();
+            direction = transform.position;
+            // Change magicNumer if character destination is incorrect
+            float magicNumber = 0.2f;
+            if (( ( destination - transform.position.x ) >= magicNumber ) || ( ( destination - transform.position.x ) <= -magicNumber ) )
+            {
+                direction.x = destination - transform.position.x;
+            }
+            else
+            {
+                direction = Vector3.zero;
+            }
+            Debug.Log("a");
+            direction.Normalize();
+            direction *= 4;
+            CharacterController.Move( direction * speed * Time.deltaTime );
+            return !( direction == Vector3.zero );
+        }
 
         // TODO: Mettre en place les vecteur d'attaque en fonction du attack_range
         // TODO: Gérer la force d'attaque
