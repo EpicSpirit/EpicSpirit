@@ -8,6 +8,7 @@ namespace EpicSpirit.Game
         BadBoy _badBoy1;
         BadBoy _badBoy2;
         bool _started;
+        internal string _child;
 
         public override void Awake()
         {
@@ -20,6 +21,7 @@ namespace EpicSpirit.Game
             }
             _isStoppable = false;
             _started = false;
+            _child = "Characters/Prefab/BadBoySplitterLastShape";
         }
 
         public override void Start()
@@ -46,8 +48,8 @@ namespace EpicSpirit.Game
             Vector3 spawnPoint2 = _character.transform.position;
             spawnPoint2.x -= 0;
             
-            _badBoy1 = Instantiate( UnityEngine.Resources.Load<BadBoy>( "Characters/Prefab/BadBoy" ), spawnPoint1, _character.transform.rotation ) as BadBoy;
-            _badBoy2 = Instantiate( UnityEngine.Resources.Load<BadBoy>( "Characters/Prefab/BadBoy" ), spawnPoint2, _character.transform.rotation ) as BadBoy;
+            _badBoy1 = Instantiate( UnityEngine.Resources.Load<BadBoy>( _child ), spawnPoint1, _character.transform.rotation ) as BadBoy;
+            _badBoy2 = Instantiate( UnityEngine.Resources.Load<BadBoy>( _child ), spawnPoint2, _character.transform.rotation ) as BadBoy;
             _started = true;
 
             return true;

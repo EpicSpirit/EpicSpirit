@@ -201,7 +201,6 @@ namespace EpicSpirit.Game
             {
                 direction = Vector3.zero;
             }
-            Debug.Log("a");
             direction.Normalize();
             direction *= 4;
             CharacterController.Move( direction * speed * Time.deltaTime );
