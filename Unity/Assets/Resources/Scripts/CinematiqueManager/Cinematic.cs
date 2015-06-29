@@ -10,39 +10,26 @@ namespace EpicSpirit.Game
         public bool _oneShot;
         bool _asBegin; // has began ? :p
         internal MoveCamera _cameraController;
-		[SerializeField]
-		string _topSubtitles;
 		internal GameObject _camera;
 		GameObject _player;
-		[SerializeField]
-		string _bottomSubtitles;
-		[SerializeField]
-		bool _allowBlackBars = true;
 
-		public bool AllowBlackBars
+        BlackBars _blackBars;
+        [SerializeField]
+        bool _allowBlackBars;
+
+		public BlackBars BlackBars
 		{
-			get { return _allowBlackBars; }
-			set { _allowBlackBars = value; }
+			get { return _blackBars;     }
+			set { _blackBars = value; }
 		}
-
-		public string TopSubTitles
-		{
-			get { return _topSubtitles; }
-			set { _topSubtitles = value; }
-		}
-
-		public string BottomSubTitles
-		{
-			get { return _bottomSubtitles; }
-			set { _bottomSubtitles = value; }
-		}
-
         public void Awake ()
         {
             _asBegin = false;
 			_camera = GameObject.Find("Camera");
             _cameraController = _camera.GetComponent<MoveCamera>();
 			_player = GameObject.FindWithTag ("Player");
+
+            _blackBars = GameObject.Find( "Black Bars" ).GetComponent<BlackBars>();
         }
 
 		public void Update()
@@ -62,6 +49,11 @@ namespace EpicSpirit.Game
         {
             if ( !_oneShot || ( _oneShot && !_asBegin) )
             {
+                if ( _allowBlackBars )
+                {
+                    _blackBars.EnableSubtitlesAndBlackBars = true;
+                }
+
                 _asBegin = true;
                 
                 LaunchCinematic();
@@ -102,6 +94,7 @@ namespace EpicSpirit.Game
             
 			_cameraController._target = _player;
 			_cameraController.CameraSpeed = 0.4f;
+            BlackBars.EnableSubtitlesAndBlackBars = false;
         }
 
 

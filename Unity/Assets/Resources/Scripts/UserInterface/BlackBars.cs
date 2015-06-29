@@ -23,7 +23,7 @@ namespace EpicSpirit.Game
             get { return _bottomSubtitle.text; }
             set { _bottomSubtitle.text = value; }
         }
-        public bool EnabledBlackBars
+        public bool EnableBlackBars
         {
             get { return _topBlackBar.enabled; }
             set 
@@ -32,7 +32,7 @@ namespace EpicSpirit.Game
                 _bottomBlackBar.enabled = value;
             }
         }
-        public bool EnabledSubtitles
+        public bool EnableSubtitles
         {
             get { return _topSubtitle.enabled; }
             set
@@ -43,12 +43,12 @@ namespace EpicSpirit.Game
                 _bottomSubtitle.enabled = value;
             }
         }
-        public bool EnabledSubtitlesAndBlackBars
+        public bool EnableSubtitlesAndBlackBars
         {
             set
             {
-				EnabledBlackBars = false;
-				EnabledSubtitles = false;
+				EnableBlackBars = value;
+				EnableSubtitles = value;
             }
         }
 		void Awake()
@@ -79,7 +79,7 @@ namespace EpicSpirit.Game
             _bottomSubtitle.resizeTextMinSize = 20;
             _bottomSubtitle.resizeTextMaxSize = 40;
 
-            EnabledSubtitlesAndBlackBars = false;
+            EnableSubtitlesAndBlackBars = false;
 			
 		}
 

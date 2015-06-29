@@ -10,6 +10,10 @@ namespace EpicSpirit.Game
         List<GameObject> _cameraPoints;
         [SerializeField]
         float _timeOfCinematicPoint;
+        [SerializeField]
+        List<string> _topSubtitles;
+        [SerializeField]
+        List<string> _bottomSubtitles;
 
         int _count;
 
@@ -38,8 +42,13 @@ namespace EpicSpirit.Game
 
         public void MoveToNextPoint()
         {
-            if(CameraPoints.Count >= _count)
-                _cameraController.Move(CameraPoints[_count++], MoveCamera.MEDIUM);
+            if ( _count <= CameraPoints.Count )
+            {
+                BlackBars.BottomSubtitleText = _bottomSubtitles[_count];
+                BlackBars.TopSubtitleText = _topSubtitles[_count];
+                _cameraController.Move( CameraPoints[_count++], MoveCamera.MEDIUM );
+            }
+                
         }
         public void ReturnToPlayer()
         {
