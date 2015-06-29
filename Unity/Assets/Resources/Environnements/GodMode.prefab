@@ -28,7 +28,6 @@ GameObject:
   - 20: {fileID: 2052136}
   - 124: {fileID: 12481948}
   - 92: {fileID: 9299682}
-  - 81: {fileID: 8195110}
   - 114: {fileID: 11472246}
   m_Layer: 0
   m_Name: Camera
@@ -238,13 +237,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
---- !u!81 &8195110
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140008}
-  m_Enabled: 1
 --- !u!92 &9299682
 Behaviour:
   m_ObjectHideFlags: 1
@@ -262,7 +254,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: .610294104, g: .610294104, b: .610294104, a: 1}
-  m_Intensity: 2.1400001
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -293,8 +285,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .99000001
+  m_Color: {r: .168627456, g: .301960796, b: .592156887, a: 1}
+  m_Intensity: 2.0999999
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -312,7 +304,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -342,6 +334,7 @@ MonoBehaviour:
   x_delta: 0
   y_delta: 24
   z_delta: -20
+  _cameraSpeed: 0
 --- !u!114 &11480762
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -47,8 +47,7 @@ namespace EpicSpirit.Game
             if ( base.Act() )
             {
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
-                //_character.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Audio/Effect/Fireball"));
-                SoundManager.PlaySound( _character.GetComponent<AudioSource>(), SoundManager.Sound.Effect_Fireball );
+                SoundManager.GetSoundManager().PlaySound( SoundManager.Sound.Effect_Fireball );
                 Invoke( "ThrowFireBall", _attackAnimations [0].TimeAttack );
                 return true;
             }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.Audio;
 
 namespace EpicSpirit.Game
 {
@@ -11,29 +12,61 @@ namespace EpicSpirit.Game
         public enum Sound
         {
             Music_Forest,
+            Music_ForestTemple,
+            Music_GameMenu,
+            Music_Overworld,
             Effect_Fireball
         }
 
-        static public void PlaySound ( AudioSource audioSource, Sound s )
+        AudioSource _audioSource;
+        AudioListener _audioListener;
+        static SoundManager _soundManager;
+
+        public AudioSource AudioSource
         {
-            PlaySound( audioSource, s, false );
+            get { return _audioSource; }
         }
 
-        static public void PlaySound ( AudioSource audioSource, Sound s, bool isLooping )
+        void Awake()
         {
-            if ( audioSource == null )
-            {
-                Debug.Log("Don't have AudioSource.");
-                return;
-            }
+            _soundManager = this;
+            DontDestroyOnLoad( this.gameObject );
+            _audioSource = GetComponent<AudioSource>();
+            _audioListener = GetComponent<AudioListener>();
+        }
 
+        public void SetAndPlayBackgroundMusic(AudioClip clip)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+
+            _audioSource.PlayOneShot( clip );
+        }
+
+        public void SetAndPlayBackgroundMusic ( Sound sound )
+        {
+            SetAndPlayBackgroundMusic(GetAudioClip(sound));
+        }
+
+        static public AudioClip GetAudioClip(Sound s)
+        {
             string path = Enum.GetName( typeof( Sound ), s );
-
-            path = _soundDirectory +path.Replace( "_", "/" );
-
-            audioSource.PlayOneShot( Resources.Load<AudioClip>( path ) );
-
+            path = _soundDirectory + path.Replace( "_", "/" );
+            return Resources.Load<AudioClip>( path );
         }
 
+        public void PlaySound (Sound s)
+        {
+            _audioSource.PlayOneShot( GetAudioClip(s) );
+        }
+        
+        public static SoundManager GetSoundManager()
+        {
+            if ( _soundManager == null )
+            {
+                return _soundManager = GameObject.Instantiate<GameObject>( Resources.Load<GameObject>( "Audio/SoundManager" ) ).GetComponent<SoundManager>();
+            }
+            else return _soundManager;
+        }
     }
 }
