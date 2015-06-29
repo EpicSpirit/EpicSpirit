@@ -48,7 +48,7 @@ namespace EpicSpirit.Game
         }
 
 
-        List<Vector3> _attackVectors;
+        internal List<Vector3> _attackVectors;
         RaycastHit _hit;
         internal string _name;
         internal string _description;
@@ -100,7 +100,6 @@ namespace EpicSpirit.Game
 			_attackVectors.Add( new Vector3( -2, 0, 2 ) );
 			_attackVectors.Add( new Vector3( 2, 0, 2 ) );
 
-
 			_cooldown = 0f;
             _attackAnimations = new List<AttackAnimation>();
             _animations = GetComponentInChildren<Animation>();
@@ -133,6 +132,7 @@ namespace EpicSpirit.Game
         }
 
         // TODO : remettre l'origine de l'attaque au bon endroit
+		// TODO donner des parametres à la methode, exemple :  Cercle, cone... et amplitude.
         internal virtual List<Character> GetListOfTarget ()
         {
             List<Character> _targets = new List<Character>();
@@ -141,7 +141,7 @@ namespace EpicSpirit.Game
             foreach ( Vector3 vector in _attackVectors )
             {
 				Ray ray = new Ray(realAttackOrigin, _character.transform.TransformDirection( vector )*2);
-                Debug.DrawRay( ray.origin, ray.direction, Color.yellow, 1.0f );
+                Debug.DrawRay( ray.origin, ray.direction, Color.yellow, 1.0f );//TODO comment it
                 if ( Physics.Raycast( ray, out _hit, _range ) )
                 {
                     Character target = null;
