@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 
-namespace EpicSpirit.Game {
-
+namespace EpicSpirit.Game
+{
     public class Action : MonoBehaviour 
     {
         // Fields
