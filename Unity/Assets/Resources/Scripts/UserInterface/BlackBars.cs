@@ -12,7 +12,6 @@ namespace EpicSpirit.Game
 		Image _topBlackBar;
         Image _bottomBlackBar;
 
-
         public string TopSubtitleText
         {
             get { return _topSubtitle.text; }
@@ -82,6 +81,12 @@ namespace EpicSpirit.Game
             EnableSubtitlesAndBlackBars = false;
 			
 		}
+
+        public void ResetText()
+        {
+            _topSubtitle.text = "";
+            _bottomSubtitle.text = "";
+        }
 
 	}
 }

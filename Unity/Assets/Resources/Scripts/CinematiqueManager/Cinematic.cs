@@ -51,7 +51,8 @@ namespace EpicSpirit.Game
             {
                 if ( _allowBlackBars )
                 {
-                    _blackBars.EnableSubtitlesAndBlackBars = true;
+                    BlackBars.EnableSubtitlesAndBlackBars = true;
+                    BlackBars.ResetText();
                 }
 
                 _asBegin = true;

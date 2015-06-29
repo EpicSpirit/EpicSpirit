@@ -192,12 +192,15 @@ namespace EpicSpirit.Game
         Action _actualAction;
         public void Attack (int indice) 
         {
+            
             // Tick Management
             if ( ChangeState( States.Attack ) )
             {
+                
                 _actualAction = _actions [indice];
                 if ( _actualAction.Act() )
                 {
+                    
                     StopAttack( _actualAction.AttackDuration );
                 }
                 else
@@ -356,6 +359,7 @@ namespace EpicSpirit.Game
         internal States State
         {
             get { return _state; }
+            set { _state = value; }
         }
 
 
