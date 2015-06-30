@@ -37,6 +37,7 @@ namespace EpicSpirit.Game
 
         public void SetAndPlayBackgroundMusic(AudioClip clip)
         {
+            if ( _audioSource.clip != null ) _audioSource.Stop();
             _audioSource.clip = clip;
             _audioSource.Play();
 
