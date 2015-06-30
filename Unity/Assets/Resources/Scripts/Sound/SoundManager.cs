@@ -41,7 +41,7 @@ namespace EpicSpirit.Game
             _audioSource.clip = clip;
             _audioSource.Play();
 
-            _audioSource.PlayOneShot( clip );
+            //_audioSource.PlayOneShot( clip );
         }
 
         public void SetAndPlayBackgroundMusic ( Sound sound )
