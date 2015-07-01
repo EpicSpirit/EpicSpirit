@@ -13,7 +13,6 @@ namespace EpicSpirit.Game
             _actions.Add( this.gameObject.AddComponent<Split>() );
 
         }
-
         internal override void Die()
         {
             State = States.Idle;

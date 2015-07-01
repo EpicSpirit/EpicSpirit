@@ -44,7 +44,9 @@ namespace EpicSpirit.Game
 
         public void UpdateItemButton()
         {
-            GameObject.Find( "Item" ).GetComponentInChildren<UIItem>().UpdateCount();
+            var item =  GameObject.Find( "Item" );
+            if(item != null)
+                item.GetComponentInChildren<UIItem>().UpdateCount();
         }
     }
 }

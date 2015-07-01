@@ -53,6 +53,7 @@
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\Impulse.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\Split.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\BadBoy\SplitLastShape.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Item.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\EmptyItem.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Items\GreaterHealthPotion.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\EmptySkill.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\FrozenPick.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\Skills\ShockWave.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\VeryBadBoy\SummonBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Weapon.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Weapons\Excalibur.cs" />
@@ -75,6 +77,7 @@
      <Compile Include="Assets\Resources\Scripts\Camera\MoveCamera.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoySplitter.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\BadBoySplitterLastShape.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Enemy.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\GenericCharacterForUnitTests.cs" />
@@ -93,6 +96,12 @@
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />
+     <Compile Include="Assets\Resources\Scripts\Environnement\Environnement.cs" />
+     <Compile Include="Assets\Resources\Scripts\Environnement\ForetEnvironnement.cs" />
+     <Compile Include="Assets\Resources\Scripts\Environnement\GameMenuEnvironnement.cs" />
+     <Compile Include="Assets\Resources\Scripts\Environnement\MainMenuEnvironnement.cs" />
+     <Compile Include="Assets\Resources\Scripts\Environnement\OverworldEnvironnement.cs" />
+     <Compile Include="Assets\Resources\Scripts\Environnement\TempleForestEnvironnement.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\GameMenuManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GameMenu\actionicone.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
