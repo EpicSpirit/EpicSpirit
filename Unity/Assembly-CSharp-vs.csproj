@@ -130,6 +130,7 @@
      <Compile Include="Assets\Resources\Scripts\Story\EndStory.cs" />
      <Compile Include="Assets\Resources\Scripts\Story\EndStoryScriptAlArrache.cs" />
      <Compile Include="Assets\Resources\Scripts\Tutorials\CheckPoint.cs" />
+     <Compile Include="Assets\Resources\Scripts\Tutorials\CheckPointTransition.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIAction.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIItem.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UISkill.cs" />
@@ -144,9 +145,6 @@
      <Compile Include="Assets\splashScreen.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

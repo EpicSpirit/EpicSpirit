@@ -5,7 +5,7 @@ namespace EpicSpirit.Game
 {
 	public class CheckPoint : MonoBehaviour 
 	{
-		public void OnTriggerEnter(Collider collider)
+		public virtual void OnTriggerEnter(Collider collider)
 		{
 			if (collider.tag == "Player") 
 			{
