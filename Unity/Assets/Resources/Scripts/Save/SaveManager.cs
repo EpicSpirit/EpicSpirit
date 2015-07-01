@@ -176,7 +176,7 @@ namespace EpicSpirit.Game
             UnlockWeapon( 0 );
             UnlockSkill( 0 );
             UnlockItem( 0 );
-			UnlockSkill (4);
+			//UnlockSkill (4);      // ShockWave
 			UnlockSkill (1);
 
             SetIconAttack( IconType.ActualItem, _progressionManager.Items [0] );
