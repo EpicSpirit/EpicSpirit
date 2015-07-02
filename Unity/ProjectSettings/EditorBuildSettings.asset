@@ -11,7 +11,7 @@ EditorBuildSettings:
     path: Assets/Resources/Maps/Menus/Main_Menu/main_menu.unity
   - enabled: 0
     path: Assets/Resources/Maps/Map_Test/Scene1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Maps/Levels/Forest/Forest_1/forest_1.3.unity
   - enabled: 1
     path: Assets/Resources/Maps/Others/Game_Over/game_over.unity
@@ -27,12 +27,14 @@ EditorBuildSettings:
     path: Assets/Resources/Maps/Menus/Game_Menu/game_menu.unity
   - enabled: 1
     path: Assets/Resources/Maps/Levels/Forest/Forest_1/forest_1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Maps/Levels/Forest/Forest_1/forest_1.2.unity
   - enabled: 1
     path: Assets/Resources/Maps/Levels/Forest/Forest_Temple/forest_temple.unity
   - enabled: 1
     path: Assets/Resources/Maps/Levels/Forest/Forest_2/forest_2.unity
+  - enabled: 1
+    path: Assets/Resources/Maps/Levels/Forest/Forest_1/forest_1.0.unity
   - enabled: 1
     path: Assets/Resources/Maps/end_level.unity
   - enabled: 1

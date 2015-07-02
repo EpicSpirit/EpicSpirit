@@ -15,6 +15,8 @@ namespace EpicSpirit.Game
 
         public short _aggroMovementSpeed;
         public int _aggroArea;
+        public int _aggroAreaAfterFirstAggro;
+        public bool _followEveryWhereAfterFirstAggro;
 
         public int _currentHealth;
         public int _maxHealth;
@@ -138,6 +140,7 @@ namespace EpicSpirit.Game
                 //this.transform.rotation = Quaternion.Lerp( this.transform.rotation, Quaternion.LookRotation( direction ), 5 * Time.deltaTime );
                
                 this.transform.rotation = Quaternion.Lerp( this.transform.rotation, Quaternion.LookRotation( direction ), 18 * Time.deltaTime );
+                Debug.Log( _movementSpeed );
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
 
                 
