@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Cinematic_CameraPoint.cs" />
+     <Compile Include="Assets\Cinematic_EndTrigger.cs" />
      <Compile Include="Assets\Coffre.cs" />
      <Compile Include="Assets\EndLevel.cs" />
      <Compile Include="Assets\FinTemple_1.cs" />
@@ -94,6 +96,7 @@
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\CinematicOnlyMove.cs" />
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_Block_and_Move_Camera.cs" />
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_TEST.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematique_Forest_1.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\VeryBadBoyAI.cs" />

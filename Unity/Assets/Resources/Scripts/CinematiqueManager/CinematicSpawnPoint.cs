@@ -5,10 +5,16 @@ public class CinematicSpawnPoint : MonoBehaviour
 {
 
     public GameObject Prefab;
+    internal GameObject _instance;
 
-    public void Spawn()
+    public GameObject Instance
     {
-        GameObject.Instantiate( Prefab, this.transform.position, this.transform.rotation );
+        get { return _instance; }
+    }
+
+    public GameObject Spawn()
+    {
+        return _instance = GameObject.Instantiate( Prefab, this.transform.position, this.transform.rotation ) as GameObject;
     }
         
 }
