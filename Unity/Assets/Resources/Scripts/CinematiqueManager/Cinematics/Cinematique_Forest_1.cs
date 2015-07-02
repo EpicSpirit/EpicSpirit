@@ -28,7 +28,6 @@ namespace EpicSpirit.Game
                 endTrigger.AddWatchers(spawner.Spawn());
             }
 
-
             // On fait apparaitre les murs
             _listWallSpawner = WallSpawner.GetComponentsInChildren<CinematicSpawnPoint>();
             foreach ( var spawner in _listWallSpawner )
@@ -42,25 +41,19 @@ namespace EpicSpirit.Game
             for ( var i=0; i < listCameraPoint.Length; i++ )
             {
                 camera = listCameraPoint [i];
-
                 if ( i == listCameraPoint.Length - 1 )
                     camera.Prepare( _cameraController, i * 1, _player );
                 else
                     camera.Prepare( _cameraController, i * 1 );
             }
-
         }
 
         public void EndOfCinematic()
         {
-            Debug.Log("EndOfCinematic");
-            Debug.Log( _listWallSpawner );
             foreach(var wallSpawner in _listWallSpawner)
             {
-                Debug.Log("destroy "+wallSpawner.name);
                 Destroy(wallSpawner.Instance);
             }
         }
-
     }
 }
