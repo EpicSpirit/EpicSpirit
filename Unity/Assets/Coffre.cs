@@ -23,7 +23,7 @@ namespace EpicSpirit.Game
                 Loot( loot, this.transform.position +this.transform.TransformDirection( Vector3.left *3), 0 );
                 _isEmpty = true;
             }
-            else Debug.Log( "Pas d'objet de loot configuré sur le coffre ou coffre déjà ouvert " + this.name + " ... " );
+            else if ( loot == null ) Debug.Log( "Pas d'objet de loot configuré sur le coffre " + this.name + " ... " );
         } 
         
     }
