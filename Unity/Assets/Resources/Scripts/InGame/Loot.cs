@@ -27,10 +27,11 @@ namespace EpicSpirit.Game
             this.transform.RotateAround( Vector3.up, 2*Time.deltaTime );
 	    }
 
-        public void OnTriggerStay()
+        public void OnTriggerStay(Collider collider)
         {
-            if ( enableCollect )
+            if ( enableCollect && collider.tag == "Player")
             {
+                Debug.Log("Collected");
                 SaveManager.AddItem( item );
                 UpdateItemButton();
                 Extinction();

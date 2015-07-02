@@ -25,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433244}
-  - 95: {fileID: 9597128}
+  - 111: {fileID: 11108394}
   m_Layer: 0
   m_Name: Coffre
   m_TagString: Untagged
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 232.425781, y: 0, z: 154.007935}
+  m_LocalPosition: {x: 367.027924, y: 0, z: 222.077606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477274}
@@ -150,23 +150,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105544}
   m_Mesh: {fileID: 4300002, guid: 9c2af62ee62bac64ca0dd3bab9b8679c, type: 3}
---- !u!95 &9597128
-Animator:
-  serializedVersion: 3
+--- !u!111 &11108394
+Animation:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125872}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9c2af62ee62bac64ca0dd3bab9b8679c, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9c2af62ee62bac64ca0dd3bab9b8679c, type: 3}
+  m_Animations:
+  - {fileID: 7400000, guid: 9c2af62ee62bac64ca0dd3bab9b8679c, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
