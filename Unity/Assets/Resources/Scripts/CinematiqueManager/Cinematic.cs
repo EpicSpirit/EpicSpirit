@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
         bool _asBegin; // has began ? :p
         internal MoveCamera _cameraController;
 		internal GameObject _camera;
-		GameObject _player;
+		internal GameObject _player;
 
         BlackBars _blackBars;
         [SerializeField]
@@ -22,7 +22,7 @@ namespace EpicSpirit.Game
 			get { return _blackBars;     }
 			set { _blackBars = value; }
 		}
-        public void Awake ()
+        public virtual void Awake ()
         {
             _asBegin = false;
 			_camera = GameObject.Find("Camera");
