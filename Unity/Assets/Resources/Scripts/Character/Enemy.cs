@@ -5,6 +5,15 @@ namespace EpicSpirit.Game
 {
     public class Enemy : Character
     {
+        [SerializeField]
+        bool _isSleeping;
+
+        public bool IsSleeping
+        {
+            get { return _isSleeping; }
+            set { _isSleeping = value; }
+        }
+
         internal override void Die ()
         {
             base.Die();

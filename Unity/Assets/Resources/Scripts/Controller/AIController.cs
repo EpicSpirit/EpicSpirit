@@ -9,7 +9,7 @@ namespace EpicSpirit.Game
         #region Fields
         private short _randomMovementSpeed;
 
-        private Character _character;
+        private Enemy _character;
         private static System.Random _randomGenerator = new System.Random();
 
         // Delay until the next move
@@ -28,10 +28,12 @@ namespace EpicSpirit.Game
         {
             _direction = new Vector3();
             _lastAttack = Time.fixedTime;
-            _character = GetComponent<Character>();
-            _character.MovementSpeed = 2;
+            _character = GetComponent<Enemy>();
             _changeDirection = 0;
             _randomDirection = 1;
+
+            if ( _character.IsSleeping )
+                _character.MovementSpeed = 0;
 
             _randomMovementSpeed = _character._movementSpeed;
             a = OnInvisibleOptimization.Initialize( this );
@@ -62,8 +64,6 @@ namespace EpicSpirit.Game
         // TODO: Mettre le vecteur du mouvement en random entre -1 et 1 pour tout les axes sauf Y
         private void RandomMove()
         {
-            _character.MovementSpeed = _randomMovementSpeed;
-
             // Attribute a new direction to the character
             if ( _changeDirection == 0 )
             {
@@ -94,12 +94,16 @@ namespace EpicSpirit.Game
 
             _timeOfMovement--;
 
-            //Move if direction is set
-            if ( _timeOfMovement > 0 )
+            if ( !_character.IsSleeping )
             {
-                _character.Move( _direction );
-            }
+                _character.MovementSpeed = _randomMovementSpeed;
 
+                //Move if direction is set
+                if ( _timeOfMovement > 0 )
+                {
+                    _character.Move( _direction );
+                }
+            }
             _changeDirection--;
 
         }
@@ -121,18 +125,32 @@ namespace EpicSpirit.Game
 
         private void AggressiveMove()
         {
-            _character.MovementSpeed = _character._aggroMovementSpeed;
-
-            // Attack the enemy if he is near
-            if ( _direction.magnitude < _character._attackRange )
+            // Add range to aggro area after first aggro
+            if(_character._followEveryWhereAfterFirstAggro)
             {
-                if ( _lastAttack + _character.AttackSpeed < Time.fixedTime )
+                _character._aggroArea = int.MaxValue;
+            }
+            else
+            {
+                _character._aggroArea = _character._aggroAreaAfterFirstAggro;
+            }
+
+            if ( !_character.IsSleeping )
+            {
+                _character.MovementSpeed = _character._aggroMovementSpeed;
+
+                // Attack the enemy if he is near
+                if ( _direction.magnitude < _character._attackRange )
                 {
-                    _lastAttack = Time.fixedTime;
-                    _character.Attack();
+                    if ( _lastAttack + _character.AttackSpeed < Time.fixedTime )
+                    {
+                        _lastAttack = Time.fixedTime;
+                        _character.Attack();
+                    }
                 }
             }
-                _character.Move( Vector3.ClampMagnitude( _direction, 1 ) );
+            _character.Move( Vector3.ClampMagnitude( _direction, 1 ) );
+
         }
     }
 }

@@ -10,7 +10,8 @@ namespace EpicSpirit.Game
         public override void Awake ()
         {
             base.Awake();
-
+            if(_aggroAreaAfterFirstAggro == 0)
+                _aggroAreaAfterFirstAggro = _aggroArea + 5;
             _currentHealth = 3;
             _actions.Add( this.gameObject.AddComponent<Impulse>() );
 
@@ -26,7 +27,7 @@ namespace EpicSpirit.Game
         public override void Move( Vector3 direction )
         {
             base.Move( direction );
-            if ( isState( States.Idle ) )
+            if ( isState( States.Idle ) && !IsSleeping )
             {
                 AnimationManager( "idle" );
             }
