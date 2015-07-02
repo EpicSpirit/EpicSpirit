@@ -140,7 +140,6 @@ namespace EpicSpirit.Game
                 //this.transform.rotation = Quaternion.Lerp( this.transform.rotation, Quaternion.LookRotation( direction ), 5 * Time.deltaTime );
                
                 this.transform.rotation = Quaternion.Lerp( this.transform.rotation, Quaternion.LookRotation( direction ), 18 * Time.deltaTime );
-                Debug.Log( _movementSpeed );
                 _characterController.Move( direction * _movementSpeed * Time.deltaTime );
 
                 
