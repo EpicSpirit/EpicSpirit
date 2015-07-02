@@ -15,6 +15,7 @@ namespace EpicSpirit.Game
         public const float SLOW= 0.05f;
         public const float MEDIUM=0.1f;
         public const float HIGH=0.4f;
+        public static Quaternion StandardRotation= new Quaternion( -0.4226173f, -0.002036214f, 0.0009495169f, -0.9063055f );
 
         Vector3 _movement;
 
@@ -30,6 +31,12 @@ namespace EpicSpirit.Game
 			get{ return _cameraSpeed; }
 			set{ _cameraSpeed = value; }
 		}
+
+        public Quaternion CameraRotation
+        {
+            set { this.transform.rotation = value; }
+            get { return this.transform.rotation; }
+        }
 
         void Start()
         {

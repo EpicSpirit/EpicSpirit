@@ -97,6 +97,7 @@
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\CinematicOnlyMove.cs" />
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_Block_and_Move_Camera.cs" />
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematic_TEST.cs" />
+     <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematique_ForestTemple_1.cs" />
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematics\Cinematique_Forest_1.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Resources\Scripts\Controller\PlayerController.cs" />
