@@ -53,10 +53,12 @@ namespace EpicSpirit.Game
 
         public void EndOfCinematic()
         {
+            Debug.Log("EndOfCinematic");
+            Debug.Log( _listWallSpawner );
             foreach(var wallSpawner in _listWallSpawner)
             {
-                //Destroy(wallSpawner.gameObject);
-                wallSpawner.gameObject.SetActiveRecursively( false );
+                Debug.Log("destroy "+wallSpawner.name);
+                Destroy(wallSpawner.Instance);
             }
         }
 
