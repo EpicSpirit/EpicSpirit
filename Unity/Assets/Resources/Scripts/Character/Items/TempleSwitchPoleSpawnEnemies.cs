@@ -6,36 +6,16 @@ namespace EpicSpirit.Game
 {
     public class TempleSwitchPoleSpawnEnemies : TempleSwitchPole
     {
-        [SerializeField]
-        List<CinematicSpawnPoint> _spawnPoints;
-
-        public List<CinematicSpawnPoint> SpawnPoints
-        {
-            get { return _spawnPoints; }
-            set { _spawnPoints = value; }
-        }
+        Cinematic_TempleForest1 _cinematic;
 
         public void Awake()
         {
-            if ( SpawnPoints.Count == 0 )
-            {
-                foreach ( CinematicSpawnPoint spawnPoint in GetComponentsInChildren<CinematicSpawnPoint>() )
-                {
-                    Debug.Log( "ajout" );
-                    SpawnPoints.Add( spawnPoint );
-                }
-            }
+            _cinematic = GetComponentInChildren<Cinematic_TempleForest1>();
         }
 
         internal override void takeDamage( int force )
         {
-         
-            foreach ( CinematicSpawnPoint spawnPoint in SpawnPoints )
-            {
-                spawnPoint.Spawn();
-                Debug.Log( "pese" );
-            }
-
+            _cinematic.LaunchCinematic();
             base.takeDamage( force );
         }
     }

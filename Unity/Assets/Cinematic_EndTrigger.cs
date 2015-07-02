@@ -24,6 +24,7 @@ namespace EpicSpirit.Game
         {
             if ( _begin )
             {
+
                 for ( var i=0; i < _listWatchers.Count; i++ )
                 {
                     // Si on a encore un élément, on ne balance pas la fin
@@ -31,6 +32,8 @@ namespace EpicSpirit.Game
 
                 }
                 // Si l'on est encore là c'est que l'on doit lancer la function de fin
+                Debug.Log( "fin" );
+
                 _endFunction.Invoke();
                 _begin = false;
             }

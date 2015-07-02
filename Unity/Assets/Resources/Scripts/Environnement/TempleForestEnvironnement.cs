@@ -9,7 +9,7 @@ namespace EpicSpirit.Game
         {
             SetEnvironnement( SoundManager.Sound.Music_ForestTemple );
 
-            SoundManager.GetSoundManager().AudioSource.PlayOneShot( SoundManager.GetAudioClip (SoundManager.Sound.Music_Forest));
+            SoundManager.GetSoundManager().AudioSource.PlayOneShot( SoundManager.GetAudioClip (SoundManager.Sound.Music_ForestTemple));
         }
     }
 }
