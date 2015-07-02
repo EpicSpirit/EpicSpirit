@@ -53,6 +53,7 @@ namespace EpicSpirit.Game
         }
         public void Etape4()
         {
+            // On débloque le skill fireball, et on le place en skill_1. Fin du niveau
             var fireball = GameObject.Find( "ProgressionManager" ).GetComponent<FireBall>();
             GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().UnlockSkill( fireball );
 
