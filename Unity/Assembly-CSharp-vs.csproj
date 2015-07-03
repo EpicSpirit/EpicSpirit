@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Cinematic_CameraPoint.cs" />
+     <Compile Include="Assets\Cinematic_Coffre.cs" />
      <Compile Include="Assets\Cinematic_EndTrigger.cs" />
      <Compile Include="Assets\Cinematic_TempleForest1.cs" />
      <Compile Include="Assets\Coffre.cs" />
