@@ -297,6 +297,8 @@ namespace EpicSpirit.Game
 
         public void AddAction(Action action, int index)
         {
+            action = action.AddActionToPerso( this.gameObject );
+
             _actions [index] = action;
         }
         
