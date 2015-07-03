@@ -22,8 +22,10 @@ namespace EpicSpirit.Game
                 SaveManager.SetIconAttack( SaveManager.IconType.ActualSkill_1, Skill );
 
                 // Solution temporaire :
+                GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( Skill, 2 );
+
+
                 var uiAction = GameObject.Find( "Skill_1" ).GetComponent<UIAction>();
-                GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( Skill, 1 );
                 uiAction.Awake();
                 uiAction.Start();
 

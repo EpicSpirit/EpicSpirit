@@ -31,7 +31,6 @@ namespace EpicSpirit.Game
                 _uis.enabled = false;
 
             Action action = _target.GetAttack( _indice );
-
             if ( action.Name == "" )
             {
                 _button.enabled = false ;
@@ -41,15 +40,17 @@ namespace EpicSpirit.Game
                 {
                     _itemCounter.SetActive( false );
                 }
-
             }
-            
         }
 
 	    public void Start () 
         {
+            Debug.Log( "Start of "+this.name );
             if ( _target.GetAttack( _indice ).GetSprite != null && _isActive )
             {
+                Debug.Log( "Set Button et tout" );
+                _button.enabled = true;
+                _image.enabled = true;
                 _button = this.GetComponent<Button>();
                 _button.image.overrideSprite = _target.GetAttack( _indice ).GetSprite;
                 _button.onClick.AddListener( () => {
