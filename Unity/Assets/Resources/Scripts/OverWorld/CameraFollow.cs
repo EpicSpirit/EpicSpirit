@@ -8,6 +8,12 @@ namespace EpicSpirit.Game
 		public GameObject _target;
 		public int _yOffset = 10;
 
+        void Start()
+        {
+            if ( _target == null )
+                _target = GameObject.FindGameObjectWithTag( "Player" );
+        }
+
 		void Update () 
 		{
 				if ( _target != null )

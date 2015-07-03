@@ -66,8 +66,9 @@ namespace EpicSpirit.Game
             List<Character> targets = GetListOfTarget();
             foreach(Character character in targets)
             {
-                character.takeDamage( _strengh );
-                character.MoveBack( this.gameObject,50 );
+                character.takeDamage( _strengh, this );
+                if(character.AllowMoveBack)
+                    character.MoveBack( this.gameObject,50 );
             }
             _currentPhase ++;
             if ( _currentPhase > 2 ) _currentPhase = 0;

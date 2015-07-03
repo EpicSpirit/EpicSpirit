@@ -22,6 +22,7 @@ namespace EpicSpirit.Game
         public int _maxHealth;
 
         internal AudioSource _audioSource;
+        internal bool _allowMoveBack;
         
 
         // Character Statistic
@@ -59,6 +60,12 @@ namespace EpicSpirit.Game
                 _audioSource = value;
             }
         }
+
+        public bool AllowMoveBack
+        {
+            get { return _allowMoveBack; }
+            set { _allowMoveBack = value; }
+        }
         public short MovementSpeed
         {
             set { _movementSpeed = value; }
@@ -90,7 +97,7 @@ namespace EpicSpirit.Game
         public virtual void Awake()
         {
             InitializeAnimationManager();
-
+            _allowMoveBack = true;
             _actions = new List<Action>();
             _currentHealth = 3;
             _dead = false;
@@ -219,15 +226,12 @@ namespace EpicSpirit.Game
         Action _actualAction;
         public void Attack (int indice) 
         {
-            
             // Tick Management
             if ( ChangeState( States.Attack ) )
             {
-                
                 _actualAction = _actions [indice];
                 if ( _actualAction.Act() )
                 {
-                    
                     StopAttack( _actualAction.AttackDuration );
                 }
                 else
@@ -242,13 +246,6 @@ namespace EpicSpirit.Game
 
             return _actions[indice];
         }
-        
-        /*
-        private void MoveBack() 
-        {
-            _enemy.GetComponent<CharacterController>().Move( ( _enemy.transform.position - this.transform.position ) * 5 * Time.deltaTime );
-        }
-         * */
 
         internal void StopAttack ( float duration )
         {
@@ -258,27 +255,22 @@ namespace EpicSpirit.Game
 
         // TODO : Rendre ça plus propre au niveau algo
         // TODO : Faire la migration dans le particule manager
-        internal virtual void takeDamage ( int force )
+        internal virtual void takeDamage ( int force, Action actionAttacker )
         {
             if ( isState( States.Attack ) )
             {
-
                 if ( !_actualAction.IsStoppable ) return;
                 else _actualAction.CancelAttack();
             }
             
-
-
             if ( ChangeState( States.Damaged ) )
             {
                 ParticuleManager( "DamageEffect" );
                 CurrentHealth -= force;
                 Invoke( "EndOfState", 0.3f );
-                
-
             }
-
         }
+
 
         internal virtual void Die()
         {
@@ -292,7 +284,6 @@ namespace EpicSpirit.Game
         {
             this.GetComponent<CharacterController>().Move( v * Time.deltaTime );
         }
-
         
 		public virtual void MoveBack(GameObject c, float strengh)
         {
@@ -330,7 +321,7 @@ namespace EpicSpirit.Game
 
             if ( _animations == null )
             {
-                throw new NullReferenceException( "Character must have Animation Component" );
+                Debug.Log( "Character must have Animation Component" );
             }
         }
         #endregion

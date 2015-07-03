@@ -56,7 +56,7 @@ namespace EpicSpirit.Game
         public void ThrowFireBall()
         {
             //GameObject p = Instantiate( ( UnityEngine.Object ) UnityEngine.Resources.Load<UnityEngine.Object>( "Prefab/Projectile_FireBall" ), this.transform.position+Vector3.up, this.transform.rotation ) as GameObject;
-            Projectile.Create( Resources.Load<GameObject>( "Prefab/Projectile_FireBall" ), this._character );
+            Projectile.Create( Resources.Load<GameObject>( "Prefab/Projectile_FireBall" ), this._character,this );
         }
     }
 }

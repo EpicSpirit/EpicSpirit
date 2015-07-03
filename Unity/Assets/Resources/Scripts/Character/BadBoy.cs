@@ -36,9 +36,9 @@ namespace EpicSpirit.Game
                 AnimationManager( "walk" );
             }
         }
-        internal override void takeDamage( int force )
+        internal override void takeDamage ( int force, Action actionAttacker )
         {
-            base.takeDamage( force );
+            base.takeDamage( force, actionAttacker );
 
             if ( isState( States.Damaged ) )
             {

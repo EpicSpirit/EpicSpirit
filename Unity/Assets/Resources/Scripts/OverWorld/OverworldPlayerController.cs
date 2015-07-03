@@ -18,6 +18,9 @@ namespace EpicSpirit.Game
 
 		void Awake () 
 		{
+            if ( _player == null )
+                _player = GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>();
+
             // On récupère le bon niveau
             LoadActualLevel();
                 _currentMapNode = GameObject.Find( "forest_1" ).GetComponent<MapNode>();

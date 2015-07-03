@@ -13,10 +13,10 @@ namespace EpicSpirit.Game
             _cinematic = GetComponentInChildren<Cinematic_TempleForest1>();
         }
 
-        internal override void takeDamage( int force )
+        internal override void takeDamage ( int force, Action actionAttacker )
         {
             _cinematic.LaunchCinematic();
-            base.takeDamage( force );
+            base.takeDamage( force, actionAttacker );
         }
     }
 }

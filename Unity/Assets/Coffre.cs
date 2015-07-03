@@ -15,7 +15,7 @@ namespace EpicSpirit.Game
             _isEmpty = false;
         }
 
-        internal override void takeDamage ( int force )
+        internal override void takeDamage ( int force, Action actionAttacker )
         {
             if ( loot != null && !_isEmpty )
             {

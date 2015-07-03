@@ -9,18 +9,25 @@ namespace EpicSpirit.Game
         Character _source;
         internal float _speed;
         internal float _autoDestroyDelay;
+        Action _action;
 
+        public Action Action
+        {
+            get { return _action; }
+            set { _action = value; }
+        }
         Character Source
         {
             get { return _source;}
             set { _source=value; }
         }
-        public static void Create (GameObject gameobject ,Character source)
+        public static void Create (GameObject gameobject ,Character source, Action action)
         {
             Projectile projectile = GameObject.Instantiate<GameObject>( gameobject ).GetComponent<Projectile>();
             projectile.transform.position = source.transform.position;
             projectile.transform.rotation = source.transform.rotation;
             projectile.Source = source;
+            projectile.Action = action;
         }
 
         public virtual void Awake()

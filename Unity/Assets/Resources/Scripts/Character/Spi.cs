@@ -99,12 +99,12 @@ namespace EpicSpirit.Game
             return _lastReceivedDamage + 1f >= Time.fixedTime;
         }
 
-        internal override void takeDamage ( int force )
+        internal override void takeDamage ( int force, Action actionAttacker )
         {
             if ( !isInvincible() )
             {
                 _lastReceivedDamage = Time.fixedTime;
-                base.takeDamage( force );
+                base.takeDamage( force, actionAttacker );
                 AnimationManager( "damaged" );
             }
         }

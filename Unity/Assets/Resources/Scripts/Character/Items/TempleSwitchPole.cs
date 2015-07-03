@@ -6,9 +6,9 @@ namespace EpicSpirit.Game
 {
     public class TempleSwitchPole : TempleSwitch
 	{
-		
 
-		internal override void takeDamage (int force)
+
+        internal override void takeDamage ( int force, Action actionAttacker )
 		{
 			if (_isOn == false) 
 			{
@@ -30,7 +30,7 @@ namespace EpicSpirit.Game
 					gate.SetActive(true);
 				}
 			}
-            base.takeDamage(force);
+            base.takeDamage(force, actionAttacker);
 		}
 
 	}

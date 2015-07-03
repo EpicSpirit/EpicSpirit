@@ -38,8 +38,9 @@ namespace EpicSpirit.Game
         {
             foreach ( Character character in GetListOfTarget() )
             {
-                character.takeDamage( _strengh );
-                character.MoveBack( this.gameObject, 50);
+                character.takeDamage( _strengh, this );
+                if(character.AllowMoveBack)
+                    character.MoveBack( this.gameObject, 50);
             }
         }
 

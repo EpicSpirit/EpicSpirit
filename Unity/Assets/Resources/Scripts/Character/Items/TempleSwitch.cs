@@ -30,6 +30,7 @@ namespace EpicSpirit.Game
 		void Awake () 
 		{
 			_isOn = false;
+            AllowMoveBack = false;
 		}
         public override void Start () { }
 
@@ -39,7 +40,7 @@ namespace EpicSpirit.Game
         /// Call it in child class at the end of the method
         /// </summary>
         /// <param name="force">No use here</param>
-        internal override void takeDamage( int force )
+        internal override void takeDamage ( int force, Action actionAttacker )
         {
             foreach ( GameObject allOn in AllOn )
                 {
@@ -51,7 +52,5 @@ namespace EpicSpirit.Game
                 GameObject.Destroy( this );
             }
         }
-
-		public override void MoveBack(GameObject c, float strengh){}
 	}
 }

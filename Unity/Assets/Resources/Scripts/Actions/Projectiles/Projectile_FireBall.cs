@@ -25,8 +25,9 @@ namespace EpicSpirit.Game
         {
             particuleSystems [1].Stop();
             particuleSystems [2].Play();
-            target.takeDamage( 3 );
-            target.MoveBack( this.gameObject, 100 );
+            target.takeDamage( 3, Action );
+            if(target.AllowMoveBack)
+                target.MoveBack( this.gameObject, 100 );
         }
     }
 }
