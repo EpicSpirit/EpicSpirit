@@ -124,7 +124,6 @@ namespace EpicSpirit.Game
 
         public void Gravity ()
         {
-            // Gravité // NON ! // Si ! C'est juste pour y aller Yolo pour le moment :p
             if ( !_characterController.isGrounded )
             {
                 _characterController.Move( Vector3.down );

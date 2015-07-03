@@ -195,7 +195,6 @@ namespace EpicSpirit.Game
 
         public void UnlockSkill ( int index)
         {
-            Debug.Log( "Unlock Skill :"+index );
             Char[] skillFlags = PlayerPrefs.GetString( "Skills" ).ToCharArray();
             skillFlags [index] = '1';
 
