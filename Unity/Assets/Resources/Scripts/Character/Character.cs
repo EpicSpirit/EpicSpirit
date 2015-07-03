@@ -295,6 +295,12 @@ namespace EpicSpirit.Game
             MoveBack( this.transform.TransformDirection( Vector3.back * strengh ));
         }
 
+        public void AddAction(Action action, int index)
+        {
+            _actions [index] = action;
+        }
+        
+
         #region AnimationManager
         public void AnimationManager ( string anim )
         {

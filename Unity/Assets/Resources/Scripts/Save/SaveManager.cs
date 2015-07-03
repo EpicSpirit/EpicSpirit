@@ -58,6 +58,8 @@ namespace EpicSpirit.Game
         {
             PlayerPrefs.SetInt( Enum.GetName( typeof( IconType ), it ), i );
         }
+
+
         public static void SetIconAttack ( string s, int i )
         {
             PlayerPrefs.SetInt( s, i );
@@ -67,9 +69,9 @@ namespace EpicSpirit.Game
             var pm = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
             int indice=-1;
 
-            if(a is Skill)  indice = pm.Skills.FindIndex( (s) => {return s == a;} );
-            else if(a is Item)  indice = pm.Items.FindIndex( (s) => {return s == a;} );
-            else if ( a is Weapon ) indice = pm.Weapons.FindIndex( ( s ) => { return s == a; } );
+            if(a is Skill)  indice = pm.Skills.FindIndex( (s) => {return s.Name == a.Name;} );
+            else if(a is Item)  indice = pm.Items.FindIndex( (s) => {return s.Name == a.Name;} );
+            else if ( a is Weapon ) indice = pm.Weapons.FindIndex( ( s ) => { return s.Name == a.Name; } );
             else    Debug.Log( "Error" );
 
             PlayerPrefs.SetInt( Enum.GetName( typeof( IconType ), it ), indice );
@@ -177,7 +179,7 @@ namespace EpicSpirit.Game
             UnlockSkill( 0 );
             UnlockItem( 0 );
 			//UnlockSkill (4);      // ShockWave
-			UnlockSkill (1);
+			//UnlockSkill (1);
 
             SetIconAttack( IconType.ActualItem, _progressionManager.Items [0] );
             SetIconAttack( IconType.ActualWeapon, _progressionManager.Weapons [0] );
@@ -193,6 +195,7 @@ namespace EpicSpirit.Game
 
         public void UnlockSkill ( int index)
         {
+            Debug.Log( "Unlock Skill :"+index );
             Char[] skillFlags = PlayerPrefs.GetString( "Skills" ).ToCharArray();
             skillFlags [index] = '1';
 
@@ -206,7 +209,22 @@ namespace EpicSpirit.Game
         }
         public void UnlockSkill(Skill skill)
         {
+            
             UnlockSkill(_progressionManager.Skills.FindLastIndex( ( s ) => { return s.Name == skill.Name; } ));
+        }
+
+        public bool IsSkillUnlock ( int index )
+        {
+
+            if ( PlayerPrefs.GetString( "Skills" ).ToCharArray() [index] == 1 )
+                return true;
+            else 
+                return false;
+        }
+        public bool IsSkillUnlock ( Skill skill )
+        {
+            return IsSkillUnlock( _progressionManager.Skills.FindLastIndex( ( s ) => { return s.Name == skill.Name; } ) );
+
         }
 
         public static List<Action> LoadAction ()

@@ -27,7 +27,7 @@ namespace EpicSpirit.Game
             this.transform.RotateAround( Vector3.up, 2*Time.deltaTime );
 	    }
 
-        public void OnTriggerStay(Collider collider)
+        public virtual void OnTriggerStay(Collider collider)
         {
             if ( enableCollect && collider.tag == "Player")
             {

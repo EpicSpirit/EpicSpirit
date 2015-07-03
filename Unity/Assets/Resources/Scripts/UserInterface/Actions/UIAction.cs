@@ -12,28 +12,43 @@ namespace EpicSpirit.Game
         internal Character _target;
         bool _isSkillEnabled;
         UISkill _uis;
+        GameObject _itemCounter;
+        bool _isActive;
+        Image _image;
             
         public void Awake ()
         {
-
+            _isActive = true;
             _target = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
             _isSkillEnabled = true;
-            gameObject.AddComponent<Image>();
-            _button =gameObject.AddComponent<Button>();
+            if ( _image == null && _button == null )
+            {
+                _image = gameObject.AddComponent<Image>();
+                _button = gameObject.AddComponent<Button>();
+            }
             _uis = GetComponentInChildren<UISkill>();
             if ( _uis != null )
                 _uis.enabled = false;
 
             Action action = _target.GetAttack( _indice );
-            
+
             if ( action.Name == "" )
-                this.gameObject.SetActive( false );
+            {
+                _button.enabled = false ;
+                _image.enabled = false;
+                _isActive = false;
+                if ( ( _itemCounter = GameObject.Find( "ItemCount" ) ) != null )
+                {
+                    _itemCounter.SetActive( false );
+                }
+
+            }
             
         }
 
-	    void Start () 
+	    public void Start () 
         {
-            if ( _target.GetAttack( _indice ).GetSprite != null )
+            if ( _target.GetAttack( _indice ).GetSprite != null && _isActive )
             {
                 _button = this.GetComponent<Button>();
                 _button.image.overrideSprite = _target.GetAttack( _indice ).GetSprite;

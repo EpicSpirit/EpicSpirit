@@ -27,6 +27,9 @@ namespace EpicSpirit.Game
 
         public override void Awake ()
         {
+            // TEST
+            GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().ResetSave();
+            // FIN TEST
             base.Awake();
 
             _lookAroundCount = 300;
