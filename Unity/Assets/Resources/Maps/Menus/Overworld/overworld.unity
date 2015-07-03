@@ -1669,7 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d33a04e948fb94981706a5eb6afd28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 1779325888}
   _currentMapNode: {fileID: 401215890}
 --- !u!4 &1057439147
 Transform:
@@ -3136,7 +3136,7 @@ GameObject:
   - 114: {fileID: 1206798373}
   - 65: {fileID: 1206798375}
   m_Layer: 0
-  m_Name: forest_temple
+  m_Name: temple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5806,6 +5806,12 @@ Transform:
   - {fileID: 1846817683}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1779325888 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11429926, guid: d35a5ca98074cc049972bf7e1f7a48ae,
+    type: 2}
+  m_PrefabInternal: {fileID: 1040002364}
+  m_Script: {fileID: 11500000, guid: 13e0cb1ffc250624ba8b0de5dffa515f, type: 3}
 --- !u!1 &1784376268
 GameObject:
   m_ObjectHideFlags: 0

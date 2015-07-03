@@ -23,7 +23,7 @@ namespace EpicSpirit.Game
 
             // On récupère le bon niveau
             LoadActualLevel();
-                _currentMapNode = GameObject.Find( "forest_1" ).GetComponent<MapNode>();
+                //_currentMapNode = GameObject.Find( "forest_1" ).GetComponent<MapNode>();
 
             // On débloque les maps si on vient de finir un level // Plutot dans le start ça non ?
             UnlockLevels();
