@@ -31,7 +31,6 @@ namespace EpicSpirit.Game
         {
             if ( enableCollect && collider.tag == "Player")
             {
-                Debug.Log("Collected");
                 SaveManager.AddItem( item );
                 UpdateItemButton();
                 Extinction();
