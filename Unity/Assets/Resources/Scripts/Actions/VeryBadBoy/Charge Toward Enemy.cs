@@ -12,8 +12,8 @@ namespace EpicSpirit.Game
         {
             base.Awake();
 
-            _attackAnimations.Add( new AttackAnimation( "charge", 0 ) );
-            _attackDuration = 1f;
+            _attackAnimations.Add( new AttackAnimation( "charge", _animations.GetClip("charge").length ) );
+            _attackDuration = _attackAnimations[0].TimeAttack;
             _strengh = 3;
             _isStoppable = false;
 
@@ -31,9 +31,9 @@ namespace EpicSpirit.Game
         public override bool Act ()
         {
             _veryBadBoy.transform.LookAt( _player.transform );
-            Invoke( "Charge", 0.5f );
+            _character.AnimationManager( _attackAnimations [0].AnimationName );
+            Invoke( "Charge", _attackAnimations [0].TimeAttack );
             return true;
-
         }
 
         void Charge()

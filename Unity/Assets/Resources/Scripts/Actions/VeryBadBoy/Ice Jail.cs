@@ -12,14 +12,12 @@ namespace EpicSpirit.Game
         {
             base.Awake();
 
-            _attackAnimations.Add( new AttackAnimation( "jail", 0 ) );
-            _attackDuration = 1f;
+            _attackAnimations.Add( new AttackAnimation( "jail", _animations.GetClip("jail").length ) );
+            _attackDuration = _attackAnimations [0].TimeAttack;
             _strengh = 0;
             _isStoppable = false;
 
-            _veryBadBoy = GameObject.Find( "VeryBadBoy" ).GetComponent<VeryBadBoy>();
             _player = GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>();
-
         }
 
         public override bool Act ()
