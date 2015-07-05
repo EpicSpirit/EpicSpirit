@@ -6,46 +6,54 @@ namespace EpicSpirit.Game
     public class VeryBadBoy : Enemy
     {
         private static System.Random _randomGenerator = new System.Random();
+        VeryBadBoyAI AI;
+        GameObject _bouclier;
 
         public override void Awake ()
         {
             base.Awake();
 
-            _currentHealth = 9999;
-            _movementSpeed = 1;
-			_aggroArea = 15;
+            _currentHealth = 30;
+			_aggroArea = int.MaxValue;
 			_aggroMovementSpeed = 7;
             _actions.Add( this.gameObject.AddComponent<SummonBadBoy>() );
+            _actions.Add( this.gameObject.AddComponent<TurnAround>() );
+            _actions.Add( this.gameObject.AddComponent<IceJail>() );
+            _actions.Add( this.gameObject.AddComponent<ChargeTowardEnemy>() );
 
+            AI = GetComponent<VeryBadBoyAI>();
+            _bouclier = GameObject.Find( "Bouclier" );
         }
 
         public override void Start()
         {
             base.Start();
-
-            
         }
+
+        public override void Update()
+        {
+            base.Update();
+            _bouclier.transform.RotateAroundLocal( Vector3.down, 5f*Time.deltaTime );
+        }
+
+
         internal override void takeDamage ( int force, Action actionAttacker )
         {
-            base.takeDamage( force, actionAttacker );
-
-            if ( isState( States.Damaged ) )
+            if ( !AI.isInvincible )
             {
-                AnimationManager( "damaged" );
-
-            }
-            if(_currentHealth <= 0) 
-            {
-                Invoke("LoadLevel", 1f);
+                base.takeDamage( force, actionAttacker );
+                if ( isState( States.Damaged ) )
+                {
+                    AnimationManager( "damaged" );
+                }
+                if ( _currentHealth <= 0 )
+                {
+                    Invoke( "LoadLevel", 1f );
+                }
             }
         }
 
-        void LoadLevel ()
-        {
-           // Application.LoadLevel( "endstory" );
-        }
 
-        //Todo : Même code que BadBoy, rendre ça Dry avec une méthode générique ? // Bah du coup on peut le placer dans enemy ?
         public override void Move( Vector3 direction )
         {
             base.Move( direction );

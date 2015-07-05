@@ -10,7 +10,7 @@ namespace EpicSpirit.Game
     {
         #region Fields
 
-        public short _movementSpeed;
+        public float _movementSpeed;
         public short _attackRange;
 
         public short _aggroMovementSpeed;
@@ -42,6 +42,14 @@ namespace EpicSpirit.Game
         // Attack
         internal List<Action> _actions;
 
+        public struct MoveToMemory
+        {
+            public Vector3 point;
+            public System.Action callback;
+            public bool isWorking;
+        }
+        MoveToMemory _moveToMemory;
+
         #endregion
 
         #region Properties
@@ -66,7 +74,7 @@ namespace EpicSpirit.Game
             get { return _allowMoveBack; }
             set { _allowMoveBack = value; }
         }
-        public short MovementSpeed
+        public float MovementSpeed
         {
             set { _movementSpeed = value; }
             get { return _movementSpeed; }
@@ -110,6 +118,8 @@ namespace EpicSpirit.Game
             }
 
             InitializeStateManager();
+            _moveToMemory = new MoveToMemory();
+            _moveToMemory.isWorking = false;
         }
 
         public virtual void Start ()
@@ -187,6 +197,39 @@ namespace EpicSpirit.Game
             direction *= 4;
             Move( direction );
             return !( direction == Vector3.zero );
+        }
+
+        internal void MoveTo ( Vector3 point, System.Action callback )
+        {
+            if ( _moveToMemory.isWorking == false )
+            {
+                _moveToMemory.point = point;
+                _moveToMemory.callback = callback;
+                _moveToMemory.isWorking = true;
+                MoveTo();
+            }
+            else
+            {
+                Debug.Log("Erreur, MoveTo Déjà en cours...");
+            }
+        }
+        internal void MoveTo()
+        {
+            Vector3 direction = _moveToMemory.point - this.transform.position;
+            direction.Normalize();
+
+            Move( direction );
+
+            if ( (this.transform.position - _moveToMemory.point).magnitude < 4 )
+            {
+                _moveToMemory.callback.Invoke();
+                _moveToMemory.isWorking = false;
+            }
+            else
+            {
+                Debug.Log( ( _moveToMemory.point - this.transform.position).magnitude );
+                Invoke( "MoveTo", Time.deltaTime );
+            }
         }
 
         /// <summary>

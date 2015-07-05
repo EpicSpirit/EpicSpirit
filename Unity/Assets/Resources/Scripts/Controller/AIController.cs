@@ -7,9 +7,9 @@ namespace EpicSpirit.Game
     public class AIController : MonoBehaviour
     {
         #region Fields
-        private short _randomMovementSpeed;
+        private float _randomMovementSpeed;
 
-        private Enemy _character;
+        internal Enemy _character;
         private static System.Random _randomGenerator = new System.Random();
         public GameObject Target;
 
@@ -29,7 +29,7 @@ namespace EpicSpirit.Game
         internal OnInvisibleOptimization a;
 
 
-        void Awake ()
+        internal virtual void Awake ()
         {
             _direction = new Vector3();
             _lastAttack = Time.fixedTime;
@@ -41,7 +41,6 @@ namespace EpicSpirit.Game
                 _character.MovementSpeed = 0;
 
             _randomMovementSpeed = _character._movementSpeed;
-            a = OnInvisibleOptimization.Initialize( this );
 
         }
 
@@ -49,7 +48,7 @@ namespace EpicSpirit.Game
         {
         }
 
-        void Update()
+        public virtual void Update()
         {
             if ( DetectTarget() || Target !=null)
             {
@@ -59,11 +58,6 @@ namespace EpicSpirit.Game
             {
                 RandomMove();
             }
-        }
-
-        void OnBecameVisible()
-        {
-            Debug.Log("visible");
         }
 
         // TODO: Mettre le vecteur du mouvement en random entre -1 et 1 pour tout les axes sauf Y
@@ -128,7 +122,7 @@ namespace EpicSpirit.Game
             return false;
         }
 
-        private void AggressiveMove()
+        internal virtual void AggressiveMove()
         {
             // Add range to aggro area after first aggro
             if(_character._followEveryWhereAfterFirstAggro)

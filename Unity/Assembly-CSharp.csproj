@@ -49,6 +49,7 @@
      <Compile Include="Assets\Cinematic_CameraPoint.cs" />
      <Compile Include="Assets\Cinematic_Coffre.cs" />
      <Compile Include="Assets\Cinematic_EndTrigger.cs" />
+     <Compile Include="Assets\Cinematic_Forest_2_boss.cs" />
      <Compile Include="Assets\Cinematic_Intro_ApparitionBadBoy.cs" />
      <Compile Include="Assets\Cinematic_TempleForest1.cs" />
      <Compile Include="Assets\Cinematique_Wall_Forest1.cs" />
@@ -77,7 +78,10 @@
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\FireBall.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\FrozenPick.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Skills\ShockWave.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\VeryBadBoy\Charge Toward Enemy.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\VeryBadBoy\Ice Jail.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\VeryBadBoy\SummonBadBoy.cs" />
+     <Compile Include="Assets\Resources\Scripts\Actions\VeryBadBoy\Turn Around.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Weapon.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Weapons\Excalibur.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Weapons\Masamune.cs" />

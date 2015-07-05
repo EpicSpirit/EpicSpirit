@@ -912,7 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e0cb1ffc250624ba8b0de5dffa515f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 12
+  _movementSpeed: 15
   _attackRange: 6
   _aggroMovementSpeed: 0
   _aggroArea: 0
@@ -920,6 +920,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
 --- !u!137 &13714734
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
