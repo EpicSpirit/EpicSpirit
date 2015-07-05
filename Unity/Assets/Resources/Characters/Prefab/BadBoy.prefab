@@ -267,7 +267,13 @@ MonoBehaviour:
   _attackRange: 5
   _aggroMovementSpeed: 8
   _aggroArea: 10
-  _health: 3
+  _aggroAreaAfterFirstAggro: 0
+  _followEveryWhereAfterFirstAggro: 0
+  _currentHealth: 0
+  _maxHealth: 0
+  _attack: 10
+  _attackSpeed: 2
+  _isSleeping: 0
 --- !u!114 &11484202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d280d901d28e4de448f00823b85429ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {fileID: 0}
+  Target: {fileID: 0}
 --- !u!137 &13709438
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

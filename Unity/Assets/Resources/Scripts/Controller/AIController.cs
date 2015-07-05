@@ -11,6 +11,9 @@ namespace EpicSpirit.Game
 
         private Enemy _character;
         private static System.Random _randomGenerator = new System.Random();
+        public GameObject Target;
+
+
 
         // Delay until the next move
         private int _changeDirection;
@@ -23,7 +26,9 @@ namespace EpicSpirit.Game
         // Time of the last Attack
         private float _lastAttack;
         #endregion
-        public OnInvisibleOptimization a;
+        internal OnInvisibleOptimization a;
+
+
         void Awake ()
         {
             _direction = new Vector3();
@@ -46,7 +51,7 @@ namespace EpicSpirit.Game
 
         void Update()
         {
-            if ( DetectTarget() )
+            if ( DetectTarget() || Target !=null)
             {
                 AggressiveMove();
             }

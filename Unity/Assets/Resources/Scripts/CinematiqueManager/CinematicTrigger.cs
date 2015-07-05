@@ -11,7 +11,8 @@ namespace EpicSpirit.Game
 			if( _cinematic == null )
             _cinematic = GetComponentInParent<Cinematic>();
 
-            GetComponent<BoxCollider>().isTrigger = true;
+            BoxCollider collider = GetComponent<BoxCollider>();
+            if(collider !=null) collider.isTrigger = true;
 	    }
         void OnTriggerEnter (Collider collider)
         {

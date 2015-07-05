@@ -49,6 +49,7 @@
      <Compile Include="Assets\Cinematic_CameraPoint.cs" />
      <Compile Include="Assets\Cinematic_Coffre.cs" />
      <Compile Include="Assets\Cinematic_EndTrigger.cs" />
+     <Compile Include="Assets\Cinematic_Intro_ApparitionBadBoy.cs" />
      <Compile Include="Assets\Cinematic_TempleForest1.cs" />
      <Compile Include="Assets\Cinematique_Wall_Forest1.cs" />
      <Compile Include="Assets\Coffre.cs" />
@@ -152,6 +153,7 @@
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNTouchpad.cs" />
+     <Compile Include="Assets\SpiNaked.cs" />
      <Compile Include="Assets\splashScreen.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
