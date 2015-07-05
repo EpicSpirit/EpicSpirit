@@ -12,7 +12,7 @@ namespace EpicSpirit.Game
         internal Character _target;
         bool _isSkillEnabled;
         UISkill _uis;
-        GameObject _itemCounter;
+        UIItem _itemCounter;
         bool _isActive;
         Image _image;
             
@@ -36,19 +36,17 @@ namespace EpicSpirit.Game
                 _button.enabled = false ;
                 _image.enabled = false;
                 _isActive = false;
-                if ( ( _itemCounter = GameObject.Find( "ItemCount" ) ) != null )
+                if ( action is Item && ( _itemCounter = GameObject.Find( "ItemCount" ).GetComponent<UIItem>() ) != null )
                 {
-                    _itemCounter.SetActive( false );
+
                 }
             }
         }
 
 	    public void Start () 
         {
-            Debug.Log( "Start of "+this.name );
             if ( _target.GetAttack( _indice ).GetSprite != null && _isActive )
             {
-                Debug.Log( "Set Button et tout" );
                 _button.enabled = true;
                 _image.enabled = true;
                 _button = this.GetComponent<Button>();
@@ -61,7 +59,7 @@ namespace EpicSpirit.Game
                         Invoke( "Enable", _target.GetAttack( _indice ).CoolDown );
                     }
                 } );               
-            }            
+            }
 	    }
 	    void Disable()
         {

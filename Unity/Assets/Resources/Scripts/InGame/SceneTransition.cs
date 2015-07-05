@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
 
         public void OnTriggerEnter ( Collider c )
         {
-            if ( c.gameObject.name == "Spi" )
+            if ( c.gameObject.tag == "Player" )
             {
                 //Application.LoadLevel( scene );
                 LevelManager.LoadLevel( scene );

@@ -212,6 +212,11 @@ namespace EpicSpirit.Game
             UnlockSkill(_progressionManager.Skills.FindLastIndex( ( s ) => { return s.Name == skill.Name; } ));
         }
 
+        internal void UnlockItem ( Item item )
+        {
+            UnlockItem( _progressionManager.Items.FindLastIndex( ( i ) => { return i.Name == item.Name; } ) );
+        }
+
         public bool IsSkillUnlock ( int index )
         {
 
@@ -224,6 +229,23 @@ namespace EpicSpirit.Game
         {
             return IsSkillUnlock( _progressionManager.Skills.FindLastIndex( ( s ) => { return s.Name == skill.Name; } ) );
 
+        }
+
+        internal bool IsItemUnlock ( Item item )
+        {
+            return IsItemUnlock( _progressionManager.Items.FindLastIndex( ( i ) => { return i.Name == item.Name; } ) );
+        }
+
+        private bool IsItemUnlock ( int index )
+        {
+            if ( PlayerPrefs.GetString( "Items" ).ToCharArray() [index] == '1' )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static List<Action> LoadAction ()
@@ -332,7 +354,7 @@ namespace EpicSpirit.Game
         {
             if(i.Quantity >0)
             {
-                PlayerPrefs.SetInt( i.Name, i.Quantity - 1 );
+                PlayerPrefs.SetInt( i.Name, GetItemQuantity(i) - 1 );
             }
             else
             {
@@ -348,5 +370,9 @@ namespace EpicSpirit.Game
         {
             return PlayerPrefs.GetInt( "Save", 0 ) == 1 ? true : false;
         }
+
+
+
+        
     }
 }

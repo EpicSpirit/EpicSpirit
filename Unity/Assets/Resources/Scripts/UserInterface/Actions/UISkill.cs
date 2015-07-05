@@ -21,6 +21,7 @@ namespace EpicSpirit.Game
             _cooldown.alignment = TextAnchor.MiddleCenter;
             _action = this.GetComponentInParent<UIAction>();
         }
+
         public void Start ()
         {
             _button = this.GetComponentInParent<Button>();
@@ -37,12 +38,6 @@ namespace EpicSpirit.Game
             }, this );
 
         }
-
-        
- 
-        
-        
-
 
     }
 }

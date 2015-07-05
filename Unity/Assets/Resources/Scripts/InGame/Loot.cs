@@ -32,6 +32,21 @@ namespace EpicSpirit.Game
             if ( enableCollect && collider.tag == "Player")
             {
                 SaveManager.AddItem( item );
+
+                var saveManager = GameObject.Find( "SaveManager" ).GetComponent<SaveManager>();
+
+                if ( !saveManager.IsItemUnlock( item ) )
+                {
+                    Debug.Log( "Unlocking Item "+item.Name );
+                    saveManager.UnlockItem( item );
+                    SaveManager.SetIconAttack(SaveManager.IconType.ActualItem, item);
+                    // Solution temporaire :
+                    GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( item, 1 );
+                    var uiItem = GameObject.Find( "Item" ).GetComponent<UIAction>();
+                    uiItem.Awake();
+                    uiItem.Start();
+                }
+                
                 UpdateItemButton();
                 Extinction();
             }

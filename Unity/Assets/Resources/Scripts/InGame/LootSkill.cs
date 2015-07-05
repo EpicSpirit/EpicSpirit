@@ -24,7 +24,6 @@ namespace EpicSpirit.Game
                 // Solution temporaire :
                 GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( Skill, 2 );
 
-
                 var uiAction = GameObject.Find( "Skill_1" ).GetComponent<UIAction>();
                 uiAction.Awake();
                 uiAction.Start();

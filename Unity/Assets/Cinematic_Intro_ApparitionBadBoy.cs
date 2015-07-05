@@ -18,8 +18,8 @@ namespace EpicSpirit.Game
                 go = spawnPoint.Spawn();
                 go.GetComponent<AIController>().Target=_player;
                 var badboy = go.GetComponent<BadBoy>();
-                badboy._aggroMovementSpeed = 12;
-                badboy._attackSpeed = 3f;
+                badboy._aggroMovementSpeed = 20;
+                badboy._attackSpeed = 1f;
 
             }
 

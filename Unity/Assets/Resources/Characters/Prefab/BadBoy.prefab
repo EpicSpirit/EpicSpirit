@@ -263,12 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b23177c4ac59044296fc6654e46ac5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
-  _attackRange: 5
+  _movementSpeed: 10
+  _attackRange: 4
   _aggroMovementSpeed: 8
   _aggroArea: 10
   _aggroAreaAfterFirstAggro: 0
-  _followEveryWhereAfterFirstAggro: 0
+  _followEveryWhereAfterFirstAggro: 1
   _currentHealth: 0
   _maxHealth: 0
   _attack: 10

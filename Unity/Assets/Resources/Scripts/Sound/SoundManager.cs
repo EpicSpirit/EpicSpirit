@@ -69,5 +69,10 @@ namespace EpicSpirit.Game
             }
             else return _soundManager;
         }
+
+        internal void Stop ()
+        {
+            _audioSource.Stop();
+        }
     }
 }

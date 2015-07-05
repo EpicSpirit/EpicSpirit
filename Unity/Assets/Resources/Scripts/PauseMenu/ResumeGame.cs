@@ -21,7 +21,6 @@ namespace EpicSpirit.Game
 		{
 			_button.onClick.AddListener( () => 
 	        {
-				Debug.Log("ResumeGame");
 				_menu.SetActive(false) ;
 				PauseManager.BlockEveryCharacter(false);
 			});
