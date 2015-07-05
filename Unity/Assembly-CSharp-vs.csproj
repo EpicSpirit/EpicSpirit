@@ -88,6 +88,7 @@
      <Compile Include="Assets\Resources\Scripts\Actions\Weapons\Sword.cs" />
      <Compile Include="Assets\Resources\Scripts\Camera\MoveCamera.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoy.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\BadBoyBouclier.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoySplitter.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\BadBoySplitterLastShape.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Character.cs" />

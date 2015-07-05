@@ -227,7 +227,6 @@ namespace EpicSpirit.Game
             }
             else
             {
-                Debug.Log( ( _moveToMemory.point - this.transform.position).magnitude );
                 Invoke( "MoveTo", Time.deltaTime );
             }
         }

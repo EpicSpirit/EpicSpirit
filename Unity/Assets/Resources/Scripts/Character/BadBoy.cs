@@ -21,7 +21,11 @@ namespace EpicSpirit.Game
         {
             base.Start();
         }
-        
+
+        public override void Update ()
+        {
+            base.Update();
+        }
 
         //Todo : Même code que VeryBadBoy, rendre ça Dry avec une méthode générique ?
         public override void Move( Vector3 direction )

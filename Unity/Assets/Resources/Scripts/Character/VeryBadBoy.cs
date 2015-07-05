@@ -9,6 +9,7 @@ namespace EpicSpirit.Game
         VeryBadBoyAI AI;
         GameObject _bouclier;
 
+
         public override void Awake ()
         {
             base.Awake();
@@ -65,6 +66,12 @@ namespace EpicSpirit.Game
             {
                 AnimationManager( "walk" );
             }
+        }
+
+        internal void Stunt ()
+        {
+            ChangeState( States.Damaged );
+            Invoke( "EndOfState", 2f );
         }
     }
 }
