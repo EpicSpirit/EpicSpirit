@@ -15,6 +15,7 @@ namespace EpicSpirit.Game
         {
             if(actionAttacker is FireBall)
             {
+                GetComponent<ParticleSystem>().Stop();
                 CurrentHealth = 0;
             }
 

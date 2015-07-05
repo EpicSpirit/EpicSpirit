@@ -20,7 +20,7 @@ namespace EpicSpirit.Game
         }
         internal virtual void Loot (UnityEngine.Object item)
         {
-            Loot( item, this.transform.position, 1 );
+            Loot( item, this.transform.position, 90 );
         }
 
         internal virtual void Loot ( UnityEngine.Object item, Vector3 appearancePosition, int opportunity )
