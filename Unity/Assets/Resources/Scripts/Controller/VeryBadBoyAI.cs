@@ -11,6 +11,7 @@ namespace EpicSpirit.Game
         VeryBadBoy _veryBadBoy;
         int _bouclier;
         int _numberOfCharge;
+        int _numberOfChargePhase;
 
         public enum FigthPhaseEnum
         {
@@ -38,6 +39,7 @@ namespace EpicSpirit.Game
             _veryBadBoy = (VeryBadBoy)_character;
             _bouclier = 0;
             _numberOfCharge = 0;
+            _numberOfChargePhase = 0;
 
         }
         public void Figth()
@@ -55,6 +57,22 @@ namespace EpicSpirit.Game
             {
                 Charge();
             }
+            if(figthPhase == FigthPhaseEnum.GoToJail)
+            {
+                GoToJail();
+                figthPhase = FigthPhaseEnum.Wait;
+            }
+        }
+
+        private void GoToJail ()
+        {
+            isInvincible = true;
+            _character.MoveTo( _centralPoint.position, Jail );
+        }
+
+        void Jail()
+        {
+            _veryBadBoy.Attack( ( int ) Attack.IceJail );
         }
 
         private void Charge ()
@@ -67,7 +85,13 @@ namespace EpicSpirit.Game
         public void EndOfCharge()
         {
             _numberOfCharge++;
-            if ( _numberOfCharge < 3 )
+            _numberOfChargePhase++;
+            if ( _numberOfChargePhase == 9 )
+            {
+                _numberOfChargePhase = 0;
+                Invoke( "ChangeStateToJail", 1f );
+            }
+            else if ( _numberOfCharge < 3 )
             {
                 Invoke( "ChangeStateToCharge", 1f );
             }
@@ -76,13 +100,20 @@ namespace EpicSpirit.Game
                 Invoke( "ChangeStateToProtection", 1f );
             }
         }
+        
         public void ChangeStateToCharge()
         {
             figthPhase = FigthPhaseEnum.Charge;
         }
+        
         public void ChangeStateToProtection ()
         {
             figthPhase = FigthPhaseEnum.Protection;
+        }
+
+        public void ChangeStateToJail()
+        {
+            figthPhase = FigthPhaseEnum.GoToJail;
         }
 
         private void PhaseGoToProtection()

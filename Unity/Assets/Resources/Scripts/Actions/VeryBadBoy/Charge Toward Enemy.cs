@@ -7,13 +7,10 @@ namespace EpicSpirit.Game
     {
         VeryBadBoy _veryBadBoy;
         Character _player;
-        bool stop;
 
         public override void Awake ()
         {
             base.Awake();
-            stop = false;
-            Invoke( "AutoStop", 10f );
 
             _attackAnimations.Add( new AttackAnimation( "charge", 0 ) );
             _attackDuration = 1f;
@@ -22,13 +19,6 @@ namespace EpicSpirit.Game
 
             _veryBadBoy = GameObject.Find( "VeryBadBoy" ).GetComponent<VeryBadBoy>();
             _player = GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>();
-
-        }
-        void AutoStop()
-        {
-            Debug.Log("AttoStop");
-            stop = true;
-            _veryBadBoy.GetComponent<VeryBadBoyAI>().EndOfCharge();
 
         }
 
@@ -48,12 +38,14 @@ namespace EpicSpirit.Game
 
         void Charge()
         {
+            _veryBadBoy.StopMoveTo();
             _veryBadBoy.Move( _veryBadBoy.transform.TransformDirection( Vector3.forward*2 ) );
 
             RaycastHit raycastHit;
             Debug.DrawRay( _veryBadBoy.transform.position+(Vector3.up*2), _veryBadBoy.transform.TransformDirection( Vector3.forward )*5f, Color.blue,0.5f);
             if ( Physics.Raycast( _veryBadBoy.transform.position + ( Vector3.up * 2 ), _veryBadBoy.transform.TransformDirection( Vector3.forward ), out raycastHit, 5f ) )
             {
+                Debug.Log("Touch");
                 // Si on touche le joueur
                 if(raycastHit.collider.tag == "Player")
                 {
@@ -70,12 +62,10 @@ namespace EpicSpirit.Game
                 }
                 CancelInvoke( "AutoStop" );
             }
-            else if(!stop) 
+            else
             {
                 Invoke( "Charge", Time.deltaTime );
             }
-            else
-            { Debug.Log("Normalement je ne passe jamais dedans"); }
         }
 
         void EnfOfChargeAfterStund()

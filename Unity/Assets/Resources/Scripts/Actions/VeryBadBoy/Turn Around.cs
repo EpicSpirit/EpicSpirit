@@ -5,13 +5,18 @@ namespace EpicSpirit.Game
 {
     public class TurnAround : Skill
     {
+        Transform[] listPoint;
+        int indexPoint;
+
         public override void Awake ()
         {
             base.Awake();
             _attackAnimations.Add( new AttackAnimation( "invoke", _animations.GetClip( "invoke" ).length / 2 ) );
             _attackDuration = _animations.GetClip( "invoke" ).length;
             _strengh = 0;
-            _isStoppable = false;
+            _isStoppable = true;
+            listPoint = GameObject.Find( "PointMouvement" ).GetComponentsInChildren<Transform>();
+            indexPoint = 1;
         }
 
         // Use this for initialization
@@ -44,7 +49,27 @@ namespace EpicSpirit.Game
             go = ( GameObject ) Instantiate( Resources.Load<GameObject>( "Characters/Prefab/BadBoyBouclier" ), pos3.transform.position, pos3.transform.rotation );
             go.transform.parent = pos3.transform;
 
+            Invoke("NextPoint", 1f);
+        }
 
+        void InvokeBadBoy()
+        {
+            GameObject.Find( "SpawnerTurnAround" ).GetComponent<CinematicSpawnPoint>().Spawn().GetComponent<AIController>().Target = GameObject.FindGameObjectWithTag( "Player" );
+
+        }    
+
+        void NextPoint()
+        {
+            _character.StopMoveTo();
+            _character.MoveTo( listPoint [indexPoint].position, NextPoint);
+            indexPoint++;
+            if ( indexPoint == 5 )
+            {
+                indexPoint = 1;
+                InvokeBadBoy();
+            }
+            if ( indexPoint == 3 )
+                InvokeBadBoy();
         }
     }
 }

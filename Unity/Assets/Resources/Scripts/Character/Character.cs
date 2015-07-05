@@ -231,6 +231,12 @@ namespace EpicSpirit.Game
             }
         }
 
+        internal void StopMoveTo()
+        {
+            CancelInvoke( "MoveTo" );
+            _moveToMemory.isWorking = false;
+        }
+
         /// <summary>
         /// Move the character on a side (x axis).
         /// </summary>
