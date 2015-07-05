@@ -15,8 +15,6 @@ namespace EpicSpirit.Game
             base.Awake();
 
             _currentHealth = 30;
-			_aggroArea = int.MaxValue;
-			_aggroMovementSpeed = 7;
             _actions.Add( this.gameObject.AddComponent<SummonBadBoy>() );
             _actions.Add( this.gameObject.AddComponent<TurnAround>() );
             _actions.Add( this.gameObject.AddComponent<IceJail>() );
@@ -42,15 +40,8 @@ namespace EpicSpirit.Game
         {
             if ( !AI.isInvincible )
             {
-                base.takeDamage( force, actionAttacker );
-                if ( isState( States.Damaged ) )
-                {
-                    AnimationManager( "damaged" );
-                }
-                if ( _currentHealth <= 0 )
-                {
-                    Invoke( "LoadLevel", 1f );
-                }
+                AnimationManager( "damaged" );
+                CurrentHealth -= force;
             }
         }
 

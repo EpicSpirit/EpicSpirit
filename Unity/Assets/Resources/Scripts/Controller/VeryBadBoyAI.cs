@@ -18,7 +18,8 @@ namespace EpicSpirit.Game
             Wait,
             Protection,
             Charge,
-            GoToJail
+            GoToJail,
+            InJail
         }
 
         public enum Attack :int
@@ -35,7 +36,6 @@ namespace EpicSpirit.Game
             _centralPoint = GameObject.Find( "CentralPoint" ).transform;
             isInvincible = true;
             figthPhase = FigthPhaseEnum.Wait;
-            _character._movementSpeed = 15;
             _veryBadBoy = (VeryBadBoy)_character;
             _bouclier = 0;
             _numberOfCharge = 0;
@@ -69,10 +69,14 @@ namespace EpicSpirit.Game
             isInvincible = true;
             _character.MoveTo( _centralPoint.position, Jail );
         }
-
-        void Jail()
+        
+        public void Jail()
         {
             _veryBadBoy.Attack( ( int ) Attack.IceJail );
+        }
+        public void EndOfJail()
+        {
+            figthPhase = FigthPhaseEnum.Protection;
         }
 
         private void Charge ()
@@ -124,7 +128,6 @@ namespace EpicSpirit.Game
 
         public void TurnAroundAttack()
         {
-            Debug.Log("TurnAroundAttack");
             _veryBadBoy.Attack((int)Attack.TurnAround);
             _bouclier = 3;
         }

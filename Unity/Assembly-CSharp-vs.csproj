@@ -98,6 +98,7 @@
      <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitchPole.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitchPoleSpawnEnemies.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Items\TempleSwitchStone.cs" />
+     <Compile Include="Assets\Resources\Scripts\Character\Jail.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\Spi.cs" />
      <Compile Include="Assets\Resources\Scripts\Character\VeryBadBoy.cs" />
      <Compile Include="Assets\Resources\Scripts\CinematiqueManager\Cinematic.cs" />

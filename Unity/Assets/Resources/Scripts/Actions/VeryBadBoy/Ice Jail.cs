@@ -31,7 +31,14 @@ namespace EpicSpirit.Game
 
         public void CreateJail ()
         {
-            Instantiate(Resources.Load<GameObject>("Ressources/Prefab/Jail"), _character.transform.position, _character.transform.rotation);
+            Instantiate(Resources.Load<GameObject>("Prefab/Jail"), _character.transform.position, _character.transform.rotation);
+
+            var listSpawner = GameObject.Find( "JailSpawner" ).GetComponentsInChildren<CinematicSpawnPoint>();
+            foreach(var spawner in listSpawner)
+            {
+                spawner.Spawn().GetComponent<AIController>().Target = _player.gameObject;
+            }
+
         }
 
     }

@@ -63,13 +63,11 @@ namespace EpicSpirit.Game
             _character.StopMoveTo();
             _character.MoveTo( listPoint [indexPoint].position, NextPoint);
             indexPoint++;
+            InvokeBadBoy();
             if ( indexPoint == 5 )
             {
                 indexPoint = 1;
-                InvokeBadBoy();
             }
-            if ( indexPoint == 3 )
-                InvokeBadBoy();
         }
     }
 }

@@ -39,7 +39,7 @@ namespace EpicSpirit.Game
         void Charge()
         {
             _veryBadBoy.StopMoveTo();
-            _veryBadBoy.Move( _veryBadBoy.transform.TransformDirection( Vector3.forward*2 ) );
+            _veryBadBoy.Move( _veryBadBoy.transform.TransformDirection( Vector3.forward*10 ) );
 
             RaycastHit raycastHit;
             Debug.DrawRay( _veryBadBoy.transform.position+(Vector3.up*2), _veryBadBoy.transform.TransformDirection( Vector3.forward )*5f, Color.blue,0.5f);
@@ -49,7 +49,9 @@ namespace EpicSpirit.Game
                 // Si on touche le joueur
                 if(raycastHit.collider.tag == "Player")
                 {
-                    raycastHit.collider.GetComponent<Spi>().takeDamage( _strengh, this );
+                    Spi spi = raycastHit.collider.GetComponent<Spi>();
+                    spi.takeDamage( _strengh, this );
+                    spi.MoveBack(this.gameObject,10f);
                     _veryBadBoy.EndOfState();
                     _veryBadBoy.GetComponent<VeryBadBoyAI>().EndOfCharge();
 
