@@ -54,10 +54,10 @@ namespace EpicSpirit.Game
         public void Etape4()
         {
             // On débloque le skill fireball, et on le place en skill_1. Fin du niveau
-            var fireball = GameObject.Find( "ProgressionManager" ).GetComponent<FireBall>();
-            GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().UnlockSkill( fireball );
+            var frozenPick = GameObject.Find( "ProgressionManager" ).GetComponent<FrozenPick>();
+            GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().UnlockSkill( frozenPick );
 
-            SaveManager.SetIconAttack( SaveManager.IconType.ActualSkill_1, fireball );
+            SaveManager.SetIconAttack( SaveManager.IconType.ActualSkill_1, frozenPick );
 
             Application.LoadLevel( "end_level" );
         }
