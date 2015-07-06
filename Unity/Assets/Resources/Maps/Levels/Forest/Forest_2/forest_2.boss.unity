@@ -732,7 +732,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 214
+      value: 774.570007
       objectReference: {fileID: 0}
     - target: {fileID: 413716, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: m_LocalPosition.y
@@ -764,7 +764,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422920, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.25732231
+      value: -8.2848835
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
@@ -936,6 +936,7 @@ GameObject:
   - 143: {fileID: 284510941}
   - 114: {fileID: 284510940}
   - 114: {fileID: 284510939}
+  - 114: {fileID: 284510942}
   m_Layer: 0
   m_Name: VeryBadBoy
   m_TagString: Ennemi
@@ -998,6 +999,19 @@ CharacterController:
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005
   m_Center: {x: 0, y: 4.5999999, z: 0}
+--- !u!114 &284510942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284510938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a8021efaa3e3f458132010d24e6b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _oneShot: 0
+  _allowBlackBars: 0
 --- !u!1001 &298702935
 Prefab:
   m_ObjectHideFlags: 0
@@ -5261,7 +5275,7 @@ Transform:
   - {fileID: 1752673509}
   - {fileID: 1019645668}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1458104582
 GameObject:
   m_ObjectHideFlags: 0
