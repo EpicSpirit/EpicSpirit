@@ -37,7 +37,7 @@ namespace EpicSpirit.Game
                 _attackDuration = HealthPotionAnimation.length;
             }
 
-            _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
+            _image = Resources.Load<Sprite>( "UI/Images/Potion2" );
             _isStoppable = false;
         }
 
