@@ -162,6 +162,7 @@
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNTouchpad.cs" />
      <Compile Include="Assets\SpiNaked.cs" />
      <Compile Include="Assets\splashScreen.cs" />
+     <Compile Include="Assets\t.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

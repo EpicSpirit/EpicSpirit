@@ -92,7 +92,7 @@ namespace EpicSpirit.Game
         {
             _numberOfCharge++;
             _numberOfChargePhase++;
-            if ( _numberOfChargePhase == 1 ) 
+            if ( _numberOfChargePhase == 3 ) 
             {
                 _numberOfChargePhase = 0;
                 Invoke( "ChangeStateToJail", 1f );
