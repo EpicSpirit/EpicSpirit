@@ -8,6 +8,7 @@ namespace EpicSpirit.Game
         public override void Awake ()
         {
             base.Awake();
+            _allowMoveBack = false;
         }
         internal override void Die ()
         {
@@ -19,6 +20,7 @@ namespace EpicSpirit.Game
                 Destroy( jail );
             }
         }
+
         internal override void takeDamage ( int force, Action actionAttacker )
         {
             if ( actionAttacker is FireBall )
