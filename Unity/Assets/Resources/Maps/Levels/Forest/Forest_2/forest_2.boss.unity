@@ -465,7 +465,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422920, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.28297806
+      value: -8.26530647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
@@ -1832,6 +1832,14 @@ Prefab:
     - target: {fileID: 10876242, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
       propertyPath: m_Intensity
       value: 1.70000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 460584, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 460584, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -43.4000015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a238a9fd64b96f47b3d5941f160ce08, type: 2}
@@ -5032,7 +5040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _oneShot: 1
-  _allowBlackBars: 0
+  _allowBlackBars: 1
 --- !u!4 &1390022478
 Transform:
   m_ObjectHideFlags: 0

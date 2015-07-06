@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10.6800003, z: 0}
+  m_LocalPosition: {x: 350.429993, y: 12.1400003, z: 193.050003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484098}
@@ -204,12 +204,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b23177c4ac59044296fc6654e46ac5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 0
-  _attackRange: 0
-  _aggroMovementSpeed: 0
-  _aggroArea: 0
-  _currentHealth: 0
-  _maxHealth: 0
+  _movementSpeed: 10
+  _attackRange: 5
+  _aggroMovementSpeed: 12
+  _aggroArea: 8
+  _aggroAreaAfterFirstAggro: 12
+  _followEveryWhereAfterFirstAggro: 0
+  _currentHealth: 2
+  _maxHealth: 2
+  _attack: 0
+  _attackSpeed: 7
+  _isSleeping: 0
 --- !u!114 &11443758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d280d901d28e4de448f00823b85429ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {fileID: 0}
+  Target: {fileID: 0}
 --- !u!137 &13779372
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -268,8 +273,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.20000005
-  m_Radius: 1.16999996
+  m_Height: 4.05000019
+  m_Radius: 1.09000003
   m_SlopeLimit: 45
   m_StepOffset: .300000012
   m_SkinWidth: .0799999982

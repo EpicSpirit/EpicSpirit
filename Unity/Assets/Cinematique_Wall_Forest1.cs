@@ -10,8 +10,8 @@ namespace EpicSpirit.Game
             var pointCamera = GetComponentInChildren<Cinematic_CameraPoint>();
             pointCamera.Prepare( _cameraController, 0f );
             BlackBars.EnableBlackBars = true;
-            BlackBars.TopSubtitleText = "Tiens, je ne peux pas passer";
-            BlackBars.BottomSubtitleText = "Il existe ptet un moyen de passer";
+            BlackBars.TopSubtitleText = "Well, i can't go there.";
+            BlackBars.BottomSubtitleText = "If i could burn that...";
             Invoke( "Etape1", 2f );
         }
         void Etape1()

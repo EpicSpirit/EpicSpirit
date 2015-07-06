@@ -28,8 +28,8 @@ namespace EpicSpirit.Game
             pointCamera.Prepare( _cameraController, 0f );
 
             BlackBars.EnableSubtitlesAndBlackBars = true;
-            BlackBars.TopSubtitleText = "Te voilà";
-            BlackBars.BottomSubtitleText = "Ainsi ils ont envoyé un minuscule esprit. Pour se battre contre les Nellys c'est bien peu ...";
+            BlackBars.TopSubtitleText = "Muhuhahaha ! You here !";
+            BlackBars.BottomSubtitleText = "That all they sent to defeat Nellys ? An insignifiant insect...";
         }
 
         void Etape2 ()

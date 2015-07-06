@@ -14,8 +14,8 @@ namespace EpicSpirit.Game
 
             camera = GameObject.Find( "Camera" ).GetComponent<MoveCamera>();
             pointCamera.Prepare( camera, 0f );
-            BlackBars.TopSubtitleText = "Oh !";
-            BlackBars.BottomSubtitleText = "Un coffre dans une forêt ?";
+            BlackBars.TopSubtitleText = "Gosh !";
+            BlackBars.BottomSubtitleText = "A treasure chest in a forest ?";
             Invoke( "Etape1", 2f );
         }
 

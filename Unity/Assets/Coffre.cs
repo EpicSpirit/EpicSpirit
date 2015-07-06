@@ -20,7 +20,7 @@ namespace EpicSpirit.Game
             if ( loot != null && !_isEmpty )
             {
                 AnimationManager( "open" );
-                Loot( loot, this.transform.position +this.transform.TransformDirection( Vector3.left *3), 0 );
+                Loot( loot, this.transform.position +this.transform.TransformDirection( Vector3.left *3), 100 );
                 _isEmpty = true;
             }
             else if ( loot == null ) Debug.Log( "Pas d'objet de loot configuré sur le coffre " + this.name + " ... " );

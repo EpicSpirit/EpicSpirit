@@ -20,13 +20,13 @@ namespace EpicSpirit.Game
         }
         internal virtual void Loot (UnityEngine.Object item)
         {
-            Loot( item, this.transform.position, 90 );
+            Loot( item, this.transform.position, 10 );
         }
 
-        internal virtual void Loot ( UnityEngine.Object item, Vector3 appearancePosition, int opportunity )
-        {
+        internal virtual void Loot ( UnityEngine.Object item, Vector3 appearancePosition, int lootRate )
+        {//Je pense que tu voulais mettre lootRate au lieu de opportunity, mais j'suis pas trop sur alors je commente
             var num = Random.Range( 1, 100 );
-            if ( num > opportunity )
+            if ( num < lootRate )
             {
                 var instance = Instantiate( item, appearancePosition, Quaternion.Euler(Vector3.zero));
             }
