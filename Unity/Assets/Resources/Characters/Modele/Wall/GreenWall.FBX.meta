@@ -1,18 +1,49 @@
 fileFormatVersion: 2
-guid: 5cc6c5ef4bcde7245a6bd17bd038bec1
-timeCreated: 1436140599
+guid: be1cf9b8da73c3a49b5f615c70d2d0c1
+timeCreated: 1436197691
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Cylinder001
+    100002: Cylinder002
+    100004: Cylinder003
+    100006: //RootNode
+    100008: Object001
+    100010: Object002
+    100012: Object003
+    100014: Object004
+    400000: Cylinder001
+    400002: Cylinder002
+    400004: Cylinder003
+    400006: //RootNode
+    400008: Object001
+    400010: Object002
+    400012: Object003
+    400014: Object004
+    2300000: Cylinder001
+    2300002: Cylinder002
+    2300004: Cylinder003
+    2300006: Object001
+    2300008: Object002
+    2300010: Object003
+    2300012: Object004
+    3300000: Cylinder001
+    3300002: Cylinder002
+    3300004: Cylinder003
+    3300006: Object001
+    3300008: Object002
+    3300010: Object003
+    3300012: Object004
     4300000: Cylinder001
+    4300002: Object001
+    4300004: Object002
+    4300006: Object003
+    4300008: Object004
+    4300010: Cylinder002
+    4300012: Cylinder003
     7400000: Take 001
     9500000: //RootNode
-    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -66,7 +97,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
