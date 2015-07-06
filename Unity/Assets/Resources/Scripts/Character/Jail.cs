@@ -14,6 +14,7 @@ namespace EpicSpirit.Game
         {
             base.Die();
             GameObject.Find( "VeryBadBoy" ).GetComponent<VeryBadBoyAI>().EndOfJail();
+            GameObject.Find( "VeryBadBoy" ).GetComponent<IceJail>().AvoidSpawn();
             var listJail = GameObject.FindGameObjectsWithTag( "Jail" );
             foreach(var jail in listJail)
             {

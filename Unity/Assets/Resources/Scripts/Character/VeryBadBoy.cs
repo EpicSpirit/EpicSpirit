@@ -8,13 +8,14 @@ namespace EpicSpirit.Game
         private static System.Random _randomGenerator = new System.Random();
         VeryBadBoyAI AI;
         GameObject _bouclier;
-
+        Cinematic_Forest_2_boss cinematic;
 
         public override void Awake ()
         {
             base.Awake();
 
-            _currentHealth = 30;
+            cinematic = GameObject.Find( "Cinematic" ).GetComponent<Cinematic_Forest_2_boss>();
+            _currentHealth = 30;    
             _actions.Add( this.gameObject.AddComponent<SummonBadBoy>() );
             _actions.Add( this.gameObject.AddComponent<TurnAround>() );
             _actions.Add( this.gameObject.AddComponent<IceJail>() );
@@ -63,6 +64,12 @@ namespace EpicSpirit.Game
         {
             ChangeState( States.Damaged );
             Invoke( "EndOfState", 2f );
+        }
+
+        internal override void Die ()
+        {
+            base.Die();
+            cinematic.End();
         }
     }
 }

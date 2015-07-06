@@ -36,13 +36,21 @@ namespace EpicSpirit.Game
                 var jail = spawner.Spawn();
                 jail.transform.LookAt( _veryBadBoy.transform.position);
             }
+            Invoke( "SpawnAll", 3f );
+        }
 
+        public void AvoidSpawn()
+        {
+            CancelInvoke( "SpawnAll" );
+        }
+
+        public void SpawnAll()
+        {
             var listSpawner = GameObject.Find( "JailSpawner" ).GetComponentsInChildren<CinematicSpawnPoint>();
-            foreach(var spawner in listSpawner)
+            foreach ( var spawner in listSpawner )
             {
                 spawner.Spawn().GetComponent<AIController>().Target = _player.gameObject;
             }
-
         }
 
     }
