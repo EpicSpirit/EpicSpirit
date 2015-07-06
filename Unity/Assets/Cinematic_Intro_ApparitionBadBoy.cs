@@ -40,14 +40,17 @@ namespace EpicSpirit.Game
         public void Etape1 ()
         {
             BlackBars.TopSubtitleText = "Oh";
+            BlackBars.BottomSubtitleText = "(Advice : Run dude)";
         }
         public void Etape2 ()
         {
             BlackBars.TopSubtitleText = "My";
+            BlackBars.BottomSubtitleText = "(Advice : Run dude)";
         }
         public void Etape3 ()
         {
             BlackBars.TopSubtitleText = "Spirit !!!";
+            BlackBars.BottomSubtitleText = "(Advice : Run dude)";
         }
         public void Etape4 ()
         {
