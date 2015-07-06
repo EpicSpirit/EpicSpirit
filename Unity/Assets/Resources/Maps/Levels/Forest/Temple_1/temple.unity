@@ -2160,7 +2160,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 464513928}
   m_LocalRotation: {x: .500000119, y: -.5, z: -.5, w: .49999994}
-  m_LocalPosition: {x: 11.6695557, y: 9.6986084, z: -47.7300415}
+  m_LocalPosition: {x: 11.6695557, y: 9.6986084, z: -32.2400017}
   m_LocalScale: {x: 1, y: 1, z: 2.19472051}
   m_Children: []
   m_Father: {fileID: 947060779}
@@ -3087,6 +3087,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn: []
   _oneShot: 0
   _gates:
@@ -4298,6 +4300,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn: []
   _oneShot: 0
   _gates:
@@ -4548,6 +4552,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn: []
   _oneShot: 0
   _gates:
@@ -5750,6 +5756,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn: []
   _oneShot: 0
   _gates:
@@ -6155,6 +6163,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 427290, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 161
+      objectReference: {fileID: 0}
+    - target: {fileID: 427290, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -235
+      objectReference: {fileID: 0}
+    - target: {fileID: 427290, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 114.599998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
   m_IsPrefabParent: 0
@@ -6471,6 +6491,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn:
   - {fileID: 2017827792}
   - {fileID: 2030505925}
@@ -9610,6 +9632,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn: []
   _oneShot: 0
   _gates:
@@ -10368,6 +10392,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn: []
   _oneShot: 0
   _gates:
@@ -11551,6 +11577,8 @@ MonoBehaviour:
   _followEveryWhereAfterFirstAggro: 0
   _currentHealth: 0
   _maxHealth: 0
+  _attack: 0
+  _attackSpeed: 5
   _allOn: []
   _oneShot: 0
   _gates:
