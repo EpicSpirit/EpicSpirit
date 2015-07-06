@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: fb09f4196a129ed418af54148405ea00
+timeCreated: 1436192295
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: CATRigHub001
+    100002: CATRigLArm1
+    100004: CATRigLArmCollarbone
+    100006: CATRigLArmPalm
+    100008: CATRigLLeg1
+    100010: CATRigLLeg1 1
+    100012: CATRigLLeg2
+    100014: CATRigLLeg2 1
+    100016: CATRigLLegAnkle
+    100018: CATRigLLegAnkle 1
+    100020: CATRigLLegDigit11
+    100022: CATRigLLegDigit11 1
+    100024: CATRigLLegPlatform
+    100026: CATRigLLegPlatform 1
+    100028: CATRigRArm1
+    100030: CATRigRArmCollarbone
+    100032: CATRigRArmPalm
+    100034: CATRigTail1
+    100036: CATRigTail2
+    100038: CATRigTail3
+    100040: CATRigTail4
+    100042: CATRigTail5
+    100044: Character002
+    100046: Group16659
+    100048: Group33316
+    100050: Group33317
+    100052: Group33318
+    100054: Group33319
+    100056: Sphere001
+    100058: Sphere002
+    100060: Sphere003
+    100062: Sphere004
+    100064: Sphere005
+    100066: //RootNode
+    400000: CATRigHub001
+    400002: CATRigLArm1
+    400004: CATRigLArmCollarbone
+    400006: CATRigLArmPalm
+    400008: CATRigLLeg1
+    400010: CATRigLLeg1 1
+    400012: CATRigLLeg2
+    400014: CATRigLLeg2 1
+    400016: CATRigLLegAnkle
+    400018: CATRigLLegAnkle 1
+    400020: CATRigLLegDigit11
+    400022: CATRigLLegDigit11 1
+    400024: CATRigLLegPlatform
+    400026: CATRigLLegPlatform 1
+    400028: CATRigRArm1
+    400030: CATRigRArmCollarbone
+    400032: CATRigRArmPalm
+    400034: CATRigTail1
+    400036: CATRigTail2
+    400038: CATRigTail3
+    400040: CATRigTail4
+    400042: CATRigTail5
+    400044: Character002
+    400046: Group16659
+    400048: Group33316
+    400050: Group33317
+    400052: Group33318
+    400054: Group33319
+    400056: Sphere001
+    400058: Sphere002
+    400060: Sphere003
+    400062: Sphere004
+    400064: Sphere005
+    400066: //RootNode
+    2300000: Group33316
+    3300000: Group33316
+    4300000: Group33316
+    4300002: Group33317
+    4300004: Group33318
+    4300006: Group33319
+    4300008: Group16659
+    4300010: Sphere001
+    4300012: Sphere002
+    4300014: Sphere003
+    4300016: Sphere004
+    4300018: Sphere005
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Group16659
+    13700002: Group33317
+    13700004: Group33318
+    13700006: Group33319
+    13700008: Sphere001
+    13700010: Sphere002
+    13700012: Sphere003
+    13700014: Sphere004
+    13700016: Sphere005
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

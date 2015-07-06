@@ -9,7 +9,7 @@ namespace EpicSpirit.Game
         public override void LaunchCinematic ()
         {
             Invoke( "Etape1", 0f );
-            Invoke( "Etape2", 0.1f ); // 4f la vraie valeur
+            Invoke( "Etape2", 4f ); // 4f la vraie valeur
         }
 
         void Etape1()

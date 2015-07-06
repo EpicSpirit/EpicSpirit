@@ -5696,7 +5696,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 447552, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 248.899994
+      value: 267
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5704,7 +5704,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 219.800003
+      value: 370.100006
       objectReference: {fileID: 0}
     - target: {fileID: 447552, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_LocalRotation.x
@@ -49850,7 +49850,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.25
+  m_Height: 7
   m_Radius: .25999999
   m_SlopeLimit: 45
   m_StepOffset: .300000012

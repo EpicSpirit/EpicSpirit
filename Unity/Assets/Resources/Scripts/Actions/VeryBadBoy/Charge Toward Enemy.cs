@@ -59,6 +59,7 @@ namespace EpicSpirit.Game
                 // Sinon cest que l'on touche un mur
                 else
                 {
+                    _veryBadBoy.AnimationManager( "stund" );
                     _veryBadBoy.Stunt();
                     Invoke( "EnfOfChargeAfterStund", 2f );
                 }
