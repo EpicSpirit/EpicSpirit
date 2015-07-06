@@ -58,6 +58,7 @@
      <Compile Include="Assets\EndLevel.cs" />
      <Compile Include="Assets\FinTemple_1.cs" />
      <Compile Include="Assets\ForestWall.cs" />
+     <Compile Include="Assets\Intro.cs" />
      <Compile Include="Assets\OnInvisibleOptimization.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\Action.cs" />
      <Compile Include="Assets\Resources\Scripts\Actions\AttackAnimation.cs" />
