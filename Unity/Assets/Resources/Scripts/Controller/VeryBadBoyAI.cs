@@ -73,6 +73,7 @@ namespace EpicSpirit.Game
         public void Jail()
         {
             _veryBadBoy.Attack( ( int ) Attack.IceJail );
+
         }
         public void EndOfJail()
         {
@@ -90,7 +91,7 @@ namespace EpicSpirit.Game
         {
             _numberOfCharge++;
             _numberOfChargePhase++;
-            if ( _numberOfChargePhase == 1 ) // 9 normalement
+            if ( _numberOfChargePhase == 9 ) 
             {
                 _numberOfChargePhase = 0;
                 Invoke( "ChangeStateToJail", 1f );

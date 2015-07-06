@@ -18,6 +18,7 @@ namespace EpicSpirit.Game
             _isStoppable = false;
 
             _player = GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>();
+            _veryBadBoy = GameObject.Find( "VeryBadBoy" ).GetComponent<VeryBadBoy>();
         }
 
         public override bool Act ()
@@ -29,7 +30,12 @@ namespace EpicSpirit.Game
 
         public void CreateJail ()
         {
-            Instantiate(Resources.Load<GameObject>("Prefab/Jail"), _character.transform.position, _character.transform.rotation);
+            var listSpawerJail = GameObject.Find( "JailSpawnerJails" ).GetComponentsInChildren<CinematicSpawnPoint>();
+            foreach ( var spawner in listSpawerJail )
+            {
+                var jail = spawner.Spawn();
+                jail.transform.LookAt( _veryBadBoy.transform.position);
+            }
 
             var listSpawner = GameObject.Find( "JailSpawner" ).GetComponentsInChildren<CinematicSpawnPoint>();
             foreach(var spawner in listSpawner)
