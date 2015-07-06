@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
             _name = "Low Health Potion";
             _description = "Restaure a small amount of hp.";
             HealingAmount = 2;
-            _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
+            _image = Resources.Load<Sprite>( "UI/Images/Potion2" );
         }
 
         public override Action AddActionToPerso( GameObject go )

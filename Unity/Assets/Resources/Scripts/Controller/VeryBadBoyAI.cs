@@ -75,6 +75,7 @@ namespace EpicSpirit.Game
             _veryBadBoy.Attack( ( int ) Attack.IceJail );
 
         }
+        
         public void EndOfJail()
         {
             figthPhase = FigthPhaseEnum.Protection;
@@ -91,7 +92,7 @@ namespace EpicSpirit.Game
         {
             _numberOfCharge++;
             _numberOfChargePhase++;
-            if ( _numberOfChargePhase == 9 ) 
+            if ( _numberOfChargePhase == 3 ) 
             {
                 _numberOfChargePhase = 0;
                 Invoke( "ChangeStateToJail", 1f );

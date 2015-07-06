@@ -11,7 +11,7 @@ namespace EpicSpirit.Game
             _name = "Middle Health Potion";
             _description = "Restaure a middle amount of hp.";
             HealingAmount = 5;
-            _image = Resources.Load<Sprite>( "UI/Images/button_health_potion" );
+            _image = Resources.Load<Sprite>( "UI/Images/Potion2" );
         }
 
         public override Action AddActionToPerso( GameObject go )

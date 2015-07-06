@@ -32,7 +32,7 @@ namespace EpicSpirit.Game
         {
             _veryBadBoy.transform.LookAt( _player.transform );
             _character.AnimationManager( _attackAnimations [0].AnimationName );
-            Invoke( "Charge", _attackAnimations [0].TimeAttack );
+            Invoke( "Charge", _attackAnimations [0].TimeAttack+0.5f );
             return true;
         }
 

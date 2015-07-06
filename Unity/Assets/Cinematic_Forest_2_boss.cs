@@ -6,8 +6,18 @@ namespace EpicSpirit.Game
     public class Cinematic_Forest_2_boss : Cinematic
     {
 
+        GameObject end;
+
+        public override void Awake ()
+        {
+            base.Awake();
+            end = GameObject.Find( "End" );
+            end.SetActive( false );
+        }
+
         public override void LaunchCinematic ()
         {
+            BlockEveryCharacter( true );
             Invoke( "Etape1", 0f );
             Invoke( "Etape2", 4f ); // 4f la vraie valeur
         }
@@ -29,6 +39,12 @@ namespace EpicSpirit.Game
             spawnPoint.Spawn();
             BlackBars.EnableSubtitlesAndBlackBars = false;
             GameObject.Find( "VeryBadBoy" ).GetComponent<VeryBadBoyAI>().Figth();
+            BlockEveryCharacter( false );
+        }
+
+        public void End()
+        {
+            end.SetActive( true );
         }
 
 

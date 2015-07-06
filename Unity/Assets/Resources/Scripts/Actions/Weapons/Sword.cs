@@ -25,7 +25,7 @@ namespace EpicSpirit.Game
             _currentPhase = 0;
             _attackDuration = 1;
             _strengh = 1;
-            _image = Resources.Load<Sprite>( "UI/Images/SimpleSword" );
+            _image = Resources.Load<Sprite>( "UI/Images/SlotEpée" );
             _isStoppable = false;
             _name = "Sword";
 			_description = "Although it comes from the forest heart, this blade seems banal.";
