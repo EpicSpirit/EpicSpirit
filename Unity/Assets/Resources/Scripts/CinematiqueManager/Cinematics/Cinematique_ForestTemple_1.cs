@@ -35,14 +35,14 @@ namespace EpicSpirit.Game
         }
         public void Etape1()
         {
-            BlackBars.TopSubtitleText = "Bravo Spi, tu as réussis";
-            BlackBars.BottomSubtitleText = "Prend ce pouvoir pour réussir ta quête";
+            BlackBars.TopSubtitleText = "Congratulation Spi";
+            BlackBars.BottomSubtitleText = "Take this power";
         }
 
         public void Etape2 ()
         {
-            BlackBars.TopSubtitleText = "Fais en bon usage ...";
-            BlackBars.BottomSubtitleText = "";
+            BlackBars.TopSubtitleText = "With great power";
+            BlackBars.BottomSubtitleText = "comes great responsibility...";
         }
 
         public void Etape3()
