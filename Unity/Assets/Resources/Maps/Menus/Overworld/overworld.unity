@@ -1643,6 +1643,14 @@ Prefab:
       propertyPath: _movementSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 14314940, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_Radius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427290, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
   m_IsPrefabParent: 0

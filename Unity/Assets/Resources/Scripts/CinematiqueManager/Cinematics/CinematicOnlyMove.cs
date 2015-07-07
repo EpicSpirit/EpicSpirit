@@ -54,6 +54,7 @@ namespace EpicSpirit.Game
         {
             BackCameraToPlayer();
             BlockEveryCharacter(false);
+            if ( this.name == "End" ) Application.LoadLevel( "overworld" );
         }
     }
 }
