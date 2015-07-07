@@ -17,6 +17,10 @@ namespace EpicSpirit.Game
             {
                 var meshRenderer = GameObject.Find("Group33316").GetComponent<SkinnedMeshRenderer>();
                 meshRenderer.material = Resources.Load<Material>( "Characters/Modele/Spi/DarkBody" );
+
+                meshRenderer = GameObject.Find( "Sphere005" ).GetComponent<SkinnedMeshRenderer>();
+                meshRenderer.material = Resources.Load<Material>( "Characters/Modele/Spi/DarkEyes" );
+
                 Extinction();
             }
         }
