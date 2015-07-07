@@ -208,7 +208,6 @@ namespace EpicSpirit.Game
         }
         public void UnlockSkill(Skill skill)
         {
-            
             UnlockSkill(_progressionManager.Skills.FindLastIndex( ( s ) => { return s.Name == skill.Name; } ));
         }
 
