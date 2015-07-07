@@ -1728,7 +1728,7 @@ Transform:
   - {fileID: 874375088}
   - {fileID: 2110688877}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1001 &39106623
 Prefab:
   m_ObjectHideFlags: 0
@@ -3053,7 +3053,7 @@ Transform:
   - {fileID: 1326659512}
   - {fileID: 811644067}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!4 &76166315 stripped
 Transform:
   m_PrefabParentObject: {fileID: 420214, guid: ae63bf1d108875349931f7afb83cf74d, type: 2}
@@ -5782,7 +5782,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 427290, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 447432, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439086, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 146592, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
@@ -51399,7 +51411,7 @@ Transform:
   m_Children:
   - {fileID: 464663625}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!143 &1643476113
 CharacterController:
   m_ObjectHideFlags: 0
