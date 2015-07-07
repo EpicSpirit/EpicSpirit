@@ -13,5 +13,14 @@
 /*.pidb
 /*.booproj
 
+**/*.orig
+**/*.suo
+
+Unity/*.sln
+Unity/Unity.userprefs
+
 #Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+Unity/Unity.sln
+Unity/Unity-csharp.sln
