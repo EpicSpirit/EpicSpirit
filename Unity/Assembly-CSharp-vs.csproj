@@ -124,6 +124,7 @@
      <Compile Include="Assets\Resources\Scripts\GameMenu\actionicone.cs" />
      <Compile Include="Assets\Resources\Scripts\GameOver\GameOver.cs" />
      <Compile Include="Assets\Resources\Scripts\InGame\Loot.cs" />
+     <Compile Include="Assets\Resources\Scripts\InGame\LootChampi.cs" />
      <Compile Include="Assets\Resources\Scripts\InGame\LootSkill.cs" />
      <Compile Include="Assets\Resources\Scripts\InGame\SceneTransition.cs" />
      <Compile Include="Assets\Resources\Scripts\LevelManager.cs" />

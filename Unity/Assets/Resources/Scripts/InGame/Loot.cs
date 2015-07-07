@@ -8,8 +8,8 @@ namespace EpicSpirit.Game
 
         public Item item;
         public bool enableCollect;
-        
-	    void Awake () 
+
+        public virtual void Awake () 
         {
             enableCollect = false;
 
