@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ChapeauSpi
-  m_Shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: yeux
+  m_Shader: {fileID: 10708, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: adba129bfa0b6b04eb82d63198b25971, type: 3}
+          m_Texture: {fileID: 2800000, guid: 5cabe779e98cd0743a3a035ce3551c8d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -135,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .588, g: .588, b: .588, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}

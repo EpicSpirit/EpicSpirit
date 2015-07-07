@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: ec3e1750061be62449d4d61e85c6ea3f
-timeCreated: 1436222754
+guid: 140f9dbd778bfe049a0b4c167e4b2da3
+timeCreated: 1435568176
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: CATRigHub001
-    100002: Character001
-    100004: //RootNode
+    100000: //RootNode
+    100002: CATRigHub001
+    100004: Character001
     100006: Group15959
-    100008: Sphere001
-    400000: CATRigHub001
-    400002: Character001
-    400004: //RootNode
+    400000: //RootNode
+    400002: CATRigHub001
+    400004: Character001
     400006: Group15959
-    400008: Sphere001
     4300000: Group15959
-    4300002: Sphere001
     7400000: idle
     7400002: walk
-    7400004: impulse
-    7400006: damaged
-    7400008: split
+    7400004: Take 0010
+    7400006: impulse
+    7400008: damaged
+    7400010: split
     9500000: //RootNode
     11100000: //RootNode
     13700000: Group15959
-    13700002: Sphere001
   materials:
     importMaterials: 1
     materialName: 0
@@ -35,10 +32,6 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 
-    animationImportWarnings: 
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -56,7 +49,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -77,8 +70,6 @@ ModelImporter:
       - path: Character001
         weight: 1
       - path: Group15959
-        weight: 1
-      - path: Sphere001
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -114,8 +105,6 @@ ModelImporter:
         weight: 1
       - path: Group15959
         weight: 1
-      - path: Sphere001
-        weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
@@ -149,8 +138,6 @@ ModelImporter:
       - path: Character001
         weight: 1
       - path: Group15959
-        weight: 1
-      - path: Sphere001
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -186,8 +173,6 @@ ModelImporter:
         weight: 1
       - path: Group15959
         weight: 1
-      - path: Sphere001
-        weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
@@ -222,15 +207,13 @@ ModelImporter:
         weight: 1
       - path: Group15959
         weight: 1
-      - path: Sphere001
-        weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 40
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
@@ -245,9 +228,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 0
     splitTangentsAcrossUV: 1
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
