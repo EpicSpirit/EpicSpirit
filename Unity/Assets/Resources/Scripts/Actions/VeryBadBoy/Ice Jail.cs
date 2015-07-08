@@ -37,7 +37,19 @@ namespace EpicSpirit.Game
                 jail.transform.LookAt( _veryBadBoy.transform.position);
             }
             Invoke( "SpawnAll", 3f );
+			Invoke ("EndJail", 3f);
         }
+
+		public void EndJail()
+		{
+			var listJail = GameObject.FindGameObjectsWithTag( "Jail" );
+			foreach(var jail in listJail)
+			{
+				Destroy( jail );
+			}
+			GameObject.Find( "VeryBadBoy" ).GetComponent<VeryBadBoyAI>().EndOfJail();
+
+		}
 
         public void AvoidSpawn()
         {
