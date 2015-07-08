@@ -36,11 +36,13 @@ namespace EpicSpirit.Game
                 _button.enabled = false ;
                 _image.enabled = false;
                 _isActive = false;
-                if ( action is Item && ( _itemCounter = GameObject.Find( "ItemCount" ).GetComponent<UIItem>() ) != null )
-                {
-
-                }
             }
+        }
+
+        public void OnEnable()
+        {
+            Debug.Log("Enable");
+            Start();
         }
 
 	    public void Start () 
@@ -49,6 +51,7 @@ namespace EpicSpirit.Game
             {
                 _button.enabled = true;
                 _image.enabled = true;
+                _image.color = new Color( 1, 1, 1, 1 );
                 _button = this.GetComponent<Button>();
                 _button.image.overrideSprite = _target.GetAttack( _indice ).GetSprite;
                 _button.onClick.AddListener( () => {
@@ -59,6 +62,17 @@ namespace EpicSpirit.Game
                         Invoke( "Enable", _target.GetAttack( _indice ).CoolDown );
                     }
                 } );               
+            }
+            else
+            {
+                Action action = _target.GetAttack( _indice );
+                if ( action.Name == "" )
+                {
+                    _button.enabled = false;
+                    _image.enabled = false;
+                    _image.color = new Color( 1, 1, 1, 0 );
+                    _isActive = false;
+                }
             }
 	    }
 	    void Disable()

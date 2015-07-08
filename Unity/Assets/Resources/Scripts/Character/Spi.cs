@@ -30,6 +30,8 @@ namespace EpicSpirit.Game
 
             base.Awake();
 
+            GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().ResetSave();
+
             _lookAroundCount = 300;
             _attackCounter = 0;
             _comboAttackInterval = 0.9f;
@@ -43,7 +45,6 @@ namespace EpicSpirit.Game
                 CurrentHealth = 20;
             }
 
-            
             _actions = SaveManager.LoadAction();
 
             if ( _actions != null )
