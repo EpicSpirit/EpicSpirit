@@ -15,6 +15,7 @@ namespace EpicSpirit.Game
             Music_ForestTemple,
             Music_GameMenu,
             Music_Overworld,
+			Music_BossForest,
             Effect_Fireball
         }
 
