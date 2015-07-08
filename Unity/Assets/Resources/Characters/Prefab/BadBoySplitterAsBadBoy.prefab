@@ -233,14 +233,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b23177c4ac59044296fc6654e46ac5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 6
-  _attackRange: 7
-  _aggroMovementSpeed: 8
+  _movementSpeed: 8
+  _attackRange: 5
+  _aggroMovementSpeed: 11
   _aggroArea: 10
   _aggroAreaAfterFirstAggro: 15
   _followEveryWhereAfterFirstAggro: 0
-  _currentHealth: 10
-  _maxHealth: 10
+  _currentHealth: 3
+  _maxHealth: 3
   _attack: 0
   _attackSpeed: 5
   _isSleeping: 0
@@ -289,8 +289,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 425060}
   m_AABB:
-    m_Center: {x: -.0557472706, y: -.000255703926, z: .0167519152}
-    m_Extent: {x: .757551908, y: .753432155, z: .756162167}
+    m_Center: {x: -.815345049, y: -.000255703926, z: .0167518854}
+    m_Extent: {x: 1.51714969, y: .753432155, z: .756162167}
   m_DirtyAABB: 0
 --- !u!137 &13798638
 SkinnedMeshRenderer:
