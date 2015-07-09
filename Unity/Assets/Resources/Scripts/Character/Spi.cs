@@ -30,7 +30,7 @@ namespace EpicSpirit.Game
 
             base.Awake();
 
-            GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().ResetSave();
+            //GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().ResetSave();
 
             _lookAroundCount = 300;
             _attackCounter = 0;
