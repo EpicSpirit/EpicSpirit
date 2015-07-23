@@ -9530,7 +9530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422920, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.27588844
+      value: -8.27912045
       objectReference: {fileID: 0}
     - target: {fileID: 21206522, guid: c56e747b2e4caf54cb263782771dcd25, type: 2}
       propertyPath: m_Sprite
@@ -15581,10 +15581,6 @@ Prefab:
     - target: {fileID: 427290, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400092, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
-      propertyPath: _movementSpeed
-      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}

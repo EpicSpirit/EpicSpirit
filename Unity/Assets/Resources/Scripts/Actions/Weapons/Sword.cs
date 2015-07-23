@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 namespace EpicSpirit.Game
 {
@@ -52,6 +53,7 @@ namespace EpicSpirit.Game
             if ( base.Act() )
             {
                 _character.AnimationManager( _attackAnimations [_currentPhase].AnimationName );
+                _character.GetComponentsInChildren<ParticleSystem>().FirstOrDefault( ( ps ) => ps.name == "AttackSwordEffect" ).Play();
                 Invoke( "Damage", _attackAnimations [_currentPhase].TimeAttack );
                 return true;
             }
