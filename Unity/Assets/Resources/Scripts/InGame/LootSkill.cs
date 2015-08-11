@@ -26,7 +26,7 @@ namespace EpicSpirit.Game
 
                 var uiAction = GameObject.Find( "Skill_1" ).GetComponent<UIAction>();
                 uiAction.Awake();
-                uiAction.Start();
+
 
                 Destroy( this.gameObject );
             }

@@ -1,86 +1,95 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 namespace EpicSpirit.Game 
 {
     public class UIAction : MonoBehaviour 
     {
-
         Button _button;
         public int _indice;
+        Action _action;
         internal Character _target;
         bool _isSkillEnabled;
         UISkill _uis;
         UIItem _itemCounter;
         bool _isActive;
         Image _image;
+        UIManager _UIManager;
+        Text _text;
             
         public void Awake ()
         {
-            _isActive = true;
+            _UIManager = this.GetComponentInParent<UIManager>();
             _target = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
-            _isSkillEnabled = true;
-            if ( _image == null && _button == null )
-            {
-                _image = gameObject.AddComponent<Image>();
-                _button = gameObject.AddComponent<Button>();
-            }
-            _uis = GetComponentInChildren<UISkill>();
-            if ( _uis != null )
-                _uis.enabled = false;
+            _image = gameObject.AddComponent<Image>();
+            _button = gameObject.AddComponent<Button>();
 
-            Action action = _target.GetAttack( _indice );
-            if ( action.Name == "" )
-            {
-                _button.enabled = false ;
-                _image.enabled = false;
-                _isActive = false;
-            }
+
+            ActivateButton();
         }
 
         public void OnEnable()
         {
-            Debug.Log("Enable");
-            Start();
+            ActivateButton();
         }
 
-	    public void Start () 
+        private void ChargeExtension(GameObject go)
         {
-            if ( _target.GetAttack( _indice ).GetSprite != null && _isActive )
+            var extension = GameObject.Instantiate( go );
+            extension.transform.parent = this.transform;
+            _text = extension.GetComponent<Text>();
+        }
+
+        public void ActivateButton()
+        {
+            _isActive = true;
+            _isActionEnabled = true;
+            _action = _target.GetAttack( _indice );
+
+            if ( _action.Name == "" || _action.GetSprite == null)
             {
-                _button.enabled = true;
-                _image.enabled = true;
-                _image.color = new Color( 1, 1, 1, 1 );
-                _button = this.GetComponent<Button>();
-                _button.image.overrideSprite = _target.GetAttack( _indice ).GetSprite;
-                _button.onClick.AddListener( () => {
-                    if ( _isSkillEnabled )
-                    {
-                        Disable();
-                        _target.Attack( _indice );
-                        Invoke( "Enable", _target.GetAttack( _indice ).CoolDown );
-                    }
-                } );               
+                _UIManager.DisableAction( this );
+                return;
             }
-            else
+
+            // Si l'on a à faire à un Item, on lui rajoute ton composant de texte via un prefab
+            if(_action is Item)
+                ChargeExtension( _UIManager.refItemCount );
+            
+
+            if(_action is Skill)
+                ChargeExtension( _UIManager.refSkillCount );
+            
+
+            _image.color = new Color( 1, 1, 1, 1 );
+            _button.image.overrideSprite = _action.GetSprite;
+            _button.onClick.AddListener( () =>
             {
-                Action action = _target.GetAttack( _indice );
-                if ( action.Name == "" )
+                _target.Attack( _indice );
+
+                if ( _action is Skill )
                 {
-                    _button.enabled = false;
-                    _image.enabled = false;
-                    _image.color = new Color( 1, 1, 1, 0 );
-                    _isActive = false;
+                    StartCoolDown();
+                    Invoke( "Enable", _target.GetAttack( _indice ).CoolDown );
                 }
-            }
-	    }
-	    void Disable()
+                else if(_action is Item)
+                {
+                    UpdateCount();
+                }
+            } );
+            
+        }
+
+        #region Skill
+        void StartCoolDown()
         {
             RunCoolDown();
             _isSkillEnabled = false;
         }
-        void Enable ()
+
+        void FinishCoolDown ()
         {
             _isSkillEnabled = true;
         }
@@ -103,5 +112,19 @@ namespace EpicSpirit.Game
                 }, _uis );
             }
         }
+        #endregion
+
+        #region Item
+        public void UpdateCount ()
+        {
+            if ( _action is Item )
+                _text.text = ( ( Item ) _action ).Quantity.ToString();
+            else
+                Debug.LogException( new Exception("Can't update count of non-item"), _action );
+        }
+
+        #endregion
+
+        public bool _isActionEnabled { get; set; }
     }
 }
