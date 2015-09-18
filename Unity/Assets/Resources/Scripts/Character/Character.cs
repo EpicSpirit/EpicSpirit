@@ -26,7 +26,7 @@ namespace EpicSpirit.Game
         
 
         // Character Statistic
-       // internal float _speedRotation;
+        // internal float _speedRotation;
         public int _attack;
         public float _attackSpeed = 5f;
 

@@ -42,7 +42,6 @@ namespace EpicSpirit.Game
         internal void DisableAction ( UIAction UIAction )
         {
             UIAction.GetComponent<Button>().onClick.RemoveAllListeners();
-            //UIAction.enabled = false;
             UIAction.gameObject.SetActive( false );
         }
         internal void EnableAction(UIAction UIAction)

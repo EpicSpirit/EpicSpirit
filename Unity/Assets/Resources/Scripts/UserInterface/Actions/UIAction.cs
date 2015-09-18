@@ -7,16 +7,19 @@ namespace EpicSpirit.Game
 {
     public class UIAction : MonoBehaviour 
     {
-        Button _button;
-        public int _indice;
-        Action _action;
-        internal Character _target;
-        bool _isSkillEnabled;
-        bool _isActive;
-        Image _image;
-        UIManager _UIManager;
-        Text _text;
-        float _currentCoolDown;
+        internal Character _target;     // Personnage que l'on contrôle
+        Action _action;                 // Action que contient le bouton
+        public int _indice;             // indice de l'attaque sur le personnage
+
+        Button _button;                 // Bouton tactile
+        Image _image;                   // Image du bouton (null si pas d'action)
+        Text _text;                     // Text du bouton (si Skill ou Item)
+
+        float _currentCoolDown;         // Temps restant avant la prochaine attaque (Si Skill)
+        
+        bool _isSkillEnabled;           // Si le skill est actif (Si Skill uniquement, sinon null)
+        bool _isActive; 
+        UIManager _UIManager;           // Manager principal de l'UI
             
         public void Awake ()
         {
@@ -24,6 +27,8 @@ namespace EpicSpirit.Game
             _target = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
             _image = gameObject.AddComponent<Image>();
             _button = gameObject.AddComponent<Button>();
+            _currentCoolDown = 0f;
+            _isSkillEnabled = true;
         }
 
         public void OnEnable()
@@ -81,17 +86,16 @@ namespace EpicSpirit.Game
             _image.color = new Color( 1, 1, 1, 1 );
             _button.image.overrideSprite = _action.GetSprite;
 
-            // Reaction au click => on déclenche l'action + reaction spécifique si Item (consomme objet) ou Skill(cooldown)
+            // Reaction au click => on déclenche l'action + reaction spécifique si Item (consomme objet) ou Skill (cooldown)
             _button.onClick.AddListener( () =>
             {
                 // Joue l'action
                 _target.Attack( _indice );
 
-                // Skill => COol, et prépare la fin du cooldown
+                // Skill => Lancement du CoolDown
                 if ( _action is Skill )
                 {
                     StartCoolDown();
-                    Invoke( "Enable", _target.GetAttack( _indice ).CoolDown );
                 }
                 // Item => consomme un objet
                 else if(_action is Item)
@@ -106,21 +110,27 @@ namespace EpicSpirit.Game
     #region Skill
         void StartCoolDown()
         {
-            _currentCoolDown = _action._cooldown;
-            RunCoolDown();
-            _isSkillEnabled = false;
+            if ( _isSkillEnabled )
+            {
+                _currentCoolDown = _action._cooldown;
+                RunCoolDown();
+                _isSkillEnabled = false;
+            }
         }
 
         void FinishCoolDown ()
         {
+            _text.text = "";
             _isSkillEnabled = true;
         }
 
         void RunCoolDown ()
         {
-            _currentCoolDown --;
-            if(_currentCoolDown != 0)
-                Invoke("RunCoolDown", Time.deltaTime * 1f);
+            _text.text = _currentCoolDown.ToString();
+            _currentCoolDown -= 1f;
+
+            if(_currentCoolDown != -1f)
+                Invoke("RunCoolDown", 1f);
             else 
                 FinishCoolDown();
         }
