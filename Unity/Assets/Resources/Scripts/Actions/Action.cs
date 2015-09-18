@@ -24,8 +24,8 @@ namespace EpicSpirit.Game
         internal float _currentCoolDown;
         internal float _cooldown;
         internal bool _isEnable;
-        Func<UISkill,float,bool> _function;
-        UISkill _textButton;
+        //Func<UISkill,float,bool> _function;
+        //UISkill _textButton;
 
         //Sound Managment
         internal AudioSource _audioSource;
@@ -120,8 +120,11 @@ namespace EpicSpirit.Game
         {
             if(_isEnable)
             {
-                _isEnable = false;
-                Invoke("EnableAttack",_cooldown);
+                if ( _cooldown != 0f )
+                {
+                    _isEnable = false;
+                    Invoke( "EnableAttack", _cooldown );
+                }
                 return true;
             }
             return false;
@@ -155,6 +158,7 @@ namespace EpicSpirit.Game
             return _targets;
         }
 
+        /*
         public void StartCoolDown ( Func<UISkill,float, bool> function, UISkill textButton )
         {
             _currentCoolDown = _cooldown;
@@ -168,6 +172,8 @@ namespace EpicSpirit.Game
             _function( _textButton, _currentCoolDown-- );
             if ( _currentCoolDown >= 0 ) Invoke( "DecrementCoolDown", 1f );
         }
+         *
+         * */
 
         public virtual void StopAction() {}
 

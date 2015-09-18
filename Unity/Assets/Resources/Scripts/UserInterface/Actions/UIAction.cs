@@ -12,11 +12,11 @@ namespace EpicSpirit.Game
         Action _action;
         internal Character _target;
         bool _isSkillEnabled;
-        UISkill _uis;
         bool _isActive;
         Image _image;
         UIManager _UIManager;
         Text _text;
+        float _currentCoolDown;
             
         public void Awake ()
         {
@@ -43,6 +43,14 @@ namespace EpicSpirit.Game
             {
                 extension.transform.Translate( new Vector3( 30, -30, 0 ) );
                 UpdateCount();
+            }
+            else if(_action is Skill)
+            {
+                _text.fontSize = 25;
+                _text.fontStyle = FontStyle.Bold;
+                _text.font = Resources.Load<Font>( "UI/BLKCHCRY" );
+                _text.resizeTextForBestFit = true;
+                _text.alignment = TextAnchor.MiddleCenter;
             }
 
         }
@@ -98,6 +106,7 @@ namespace EpicSpirit.Game
     #region Skill
         void StartCoolDown()
         {
+            _currentCoolDown = _action._cooldown;
             RunCoolDown();
             _isSkillEnabled = false;
         }
@@ -109,21 +118,11 @@ namespace EpicSpirit.Game
 
         void RunCoolDown ()
         {
-            if ( _uis != null )
-            {
-                _target.GetAttack( _indice ).StartCoolDown( ( uiSkill, ccd ) =>
-                {
-                    if ( ccd <=0 )
-                    {
-                        uiSkill._cooldown.text = "";
-                    }
-                    else
-                    {
-                        uiSkill._cooldown.text = ccd.ToString();
-                    }
-                    return true;
-                }, _uis );
-            }
+            _currentCoolDown --;
+            if(_currentCoolDown != 0)
+                Invoke("RunCoolDown", Time.deltaTime * 1f);
+            else 
+                FinishCoolDown();
         }
     #endregion
 
