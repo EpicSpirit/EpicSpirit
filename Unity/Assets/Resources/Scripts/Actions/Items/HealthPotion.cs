@@ -59,7 +59,7 @@ namespace EpicSpirit.Game
                 _character.AnimationManager( _attackAnimations [0].AnimationName );
                 _character.CurrentHealth += HealingAmount;
                 this.Remove();
-                GameObject.Find( "Item" ).GetComponentInChildren<UIItem>().UpdateCount();
+                GameObject.Find( "Item" ).GetComponent<UIAction>().UpdateCount();
                 return true;
             }
             else

@@ -13,7 +13,6 @@ namespace EpicSpirit.Game
         internal Character _target;
         bool _isSkillEnabled;
         UISkill _uis;
-        UIItem _itemCounter;
         bool _isActive;
         Image _image;
         UIManager _UIManager;
@@ -25,9 +24,6 @@ namespace EpicSpirit.Game
             _target = GameObject.FindWithTag( "Player" ).GetComponent<Character>();
             _image = gameObject.AddComponent<Image>();
             _button = gameObject.AddComponent<Button>();
-
-
-            ActivateButton();
         }
 
         public void OnEnable()
@@ -37,17 +33,28 @@ namespace EpicSpirit.Game
 
         private void ChargeExtension(GameObject go)
         {
-            var extension = GameObject.Instantiate( go );
+            // Création texte d'extension
+            GameObject extension = GameObject.Instantiate( go, this.transform.position, Quaternion.identity ) as GameObject;
             extension.transform.parent = this.transform;
             _text = extension.GetComponent<Text>();
+
+            // Si c'est un Item, on décale le texte et on met à jour le nb d'objet
+            if(_action is Item)
+            {
+                extension.transform.Translate( new Vector3( 30, -30, 0 ) );
+                UpdateCount();
+            }
+
         }
 
         public void ActivateButton()
         {
+            // Initialisations de base, on active nos booléens et on récupère l'action associé
             _isActive = true;
             _isActionEnabled = true;
             _action = _target.GetAttack( _indice );
 
+            // Si le nom est vide, c'est que l'action est vide, on la désactive
             if ( _action.Name == "" || _action.GetSprite == null)
             {
                 _UIManager.DisableAction( this );
@@ -58,31 +65,37 @@ namespace EpicSpirit.Game
             if(_action is Item)
                 ChargeExtension( _UIManager.refItemCount );
             
-
+            // Si l'on a à faire à un Skill, on lui ajoute son composant CoolDown
             if(_action is Skill)
                 ChargeExtension( _UIManager.refSkillCount );
             
-
+            // Set image du boutton
             _image.color = new Color( 1, 1, 1, 1 );
             _button.image.overrideSprite = _action.GetSprite;
+
+            // Reaction au click => on déclenche l'action + reaction spécifique si Item (consomme objet) ou Skill(cooldown)
             _button.onClick.AddListener( () =>
             {
+                // Joue l'action
                 _target.Attack( _indice );
 
+                // Skill => COol, et prépare la fin du cooldown
                 if ( _action is Skill )
                 {
                     StartCoolDown();
                     Invoke( "Enable", _target.GetAttack( _indice ).CoolDown );
                 }
+                // Item => consomme un objet
                 else if(_action is Item)
                 {
                     UpdateCount();
                 }
+
             } );
             
         }
 
-        #region Skill
+    #region Skill
         void StartCoolDown()
         {
             RunCoolDown();
@@ -112,9 +125,11 @@ namespace EpicSpirit.Game
                 }, _uis );
             }
         }
-        #endregion
+    #endregion
 
-        #region Item
+
+
+    #region Item
         public void UpdateCount ()
         {
             if ( _action is Item )
@@ -123,7 +138,7 @@ namespace EpicSpirit.Game
                 Debug.LogException( new Exception("Can't update count of non-item"), _action );
         }
 
-        #endregion
+    #endregion
 
         public bool _isActionEnabled { get; set; }
     }
