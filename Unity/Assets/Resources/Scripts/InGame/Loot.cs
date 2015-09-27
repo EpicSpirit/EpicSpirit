@@ -44,7 +44,6 @@ namespace EpicSpirit.Game
                     GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( item, 1 );
                     var uiItem = GameObject.Find( "Item" ).GetComponent<UIAction>();
                     uiItem.Awake();
-                    uiItem.Start();
                 }
                 
                 UpdateItemButton();
@@ -60,9 +59,9 @@ namespace EpicSpirit.Game
         public void UpdateItemButton()
         {
             var item =  GameObject.Find( "Item" );
-            UIItem uiItem;
-            if(item != null && (uiItem = item.GetComponentInChildren<UIItem>()) != null)
-                uiItem.UpdateCount();
+            UIAction uiAction;
+            if ( item != null && ( uiAction = item.GetComponent<UIAction>() ) != null )
+                uiAction.UpdateCount();
         }
     }
 }

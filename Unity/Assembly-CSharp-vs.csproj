@@ -153,7 +153,7 @@
      <Compile Include="Assets\Resources\Scripts\Tutorials\CheckPoint.cs" />
      <Compile Include="Assets\Resources\Scripts\Tutorials\CheckPointTransition.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIAction.cs" />
-     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIItem.cs" />
+     <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UIManager.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\Actions\UISkill.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\BlackBars.cs" />
      <Compile Include="Assets\Resources\Scripts\UserInterface\FPSDisplay.cs" />
@@ -164,6 +164,7 @@
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNThrowableTouchpad.cs" />
      <Compile Include="Assets\Resources\UI\CNControls\Scripts\CNTouchpad.cs" />
      <Compile Include="Assets\SpiNaked.cs" />
+     <Compile Include="Assets\Test.cs" />
      <Compile Include="Assets\splashScreen.cs" />
      <Compile Include="Assets\t.cs" />
  <Reference Include="UnityEngine.UI">
