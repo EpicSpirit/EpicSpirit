@@ -31,6 +31,7 @@ namespace EpicSpirit.Game
             _name = "Sword";
 			_description = "Although it comes from the forest heart, this blade seems banal.";
 			_range = 3;
+            _autofocus = true;
         }
 
         public override Action AddActionToPerso ( GameObject go )

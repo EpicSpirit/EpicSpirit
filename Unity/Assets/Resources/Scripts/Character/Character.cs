@@ -41,6 +41,7 @@ namespace EpicSpirit.Game
 
         // Attack
         internal List<Action> _actions;
+        private AutoFocus autoFocus;
 
         public struct MoveToMemory
         {
@@ -120,6 +121,8 @@ namespace EpicSpirit.Game
             InitializeStateManager();
             _moveToMemory = new MoveToMemory();
             _moveToMemory.isWorking = false;
+            AutoFocus = GetComponentInChildren<AutoFocus>();
+            
         }
 
         public virtual void Start ()
@@ -277,6 +280,7 @@ namespace EpicSpirit.Game
             if ( ChangeState( States.Attack ) )
             {
                 _actualAction = _actions [indice];
+                
                 if ( _actualAction.Act() )
                 {
                     StopAttack( _actualAction.AttackDuration );
@@ -435,6 +439,19 @@ namespace EpicSpirit.Game
             set { _state = value; }
         }
 
+        public AutoFocus AutoFocus
+        {
+            get
+            {
+                return autoFocus;
+            }
+
+            set
+            {
+                autoFocus = value;
+            }
+        }
+
 
         /// <summary>
         /// Return true if the state is right
@@ -493,6 +510,7 @@ namespace EpicSpirit.Game
 				};
         private  Effect _effect;
         private  bool _dead;
+
 
         /// <summary>
         /// Compute the Log2 (logarithm base 2) of a given number.

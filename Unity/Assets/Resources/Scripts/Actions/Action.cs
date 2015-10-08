@@ -19,6 +19,7 @@ namespace EpicSpirit.Game
         internal Character _character;
         internal bool _isStoppable;
 		internal int _range;
+        internal bool _autofocus;
 
         // CoolDown Managment
         internal float _currentCoolDown;
@@ -84,6 +85,7 @@ namespace EpicSpirit.Game
 
         public virtual void Awake ()
         {
+            _autofocus = false;
             _currentCoolDown = 0;
             _isEnable = true;
             _character = GetComponent<Character>();
@@ -124,6 +126,19 @@ namespace EpicSpirit.Game
                 {
                     _isEnable = false;
                     Invoke( "EnableAttack", _cooldown );
+                }
+                if( _autofocus )
+                {
+
+                    Character c = _character.AutoFocus.FindNearestCharacter();
+                    if( c!= null )
+                    {
+                        _character.transform.LookAt(c.transform.position);
+                        
+
+                        
+                    }
+
                 }
                 return true;
             }
