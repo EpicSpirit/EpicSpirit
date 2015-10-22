@@ -16,6 +16,8 @@
 **/*.orig
 **/*.suo
 
+**/*.meta
+
 Unity/*.sln
 Unity/Unity.userprefs
 
