@@ -133,10 +133,9 @@ namespace EpicSpirit.Game
                     Character c = _character.AutoFocus.FindNearestCharacter();
                     if( c!= null )
                     {
-                        _character.transform.LookAt(c.transform.position);
-                        
-
-                        
+                        var t = c.transform.position;
+                        var v = new Vector3(t.x, _character.transform.position.y, t.z);
+                        _character.transform.LookAt(v);
                     }
 
                 }

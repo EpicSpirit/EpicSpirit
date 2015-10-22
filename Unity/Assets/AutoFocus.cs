@@ -53,6 +53,7 @@ namespace EpicSpirit.Game
         
         public Character FindNearestCharacter()
         {
+            List<Character> nextToRemove = new List<Character>();
             var enumerator = _nearTargets.GetEnumerator();
             Character c = null;
             float range = float.MaxValue;
@@ -60,6 +61,13 @@ namespace EpicSpirit.Game
             while(enumerator.MoveNext())
             {
                 var actualCharacter = enumerator.Current;
+
+                if (actualCharacter == null)
+                {
+                    nextToRemove.Add(actualCharacter);
+                    continue;
+                }
+
                 var actualRange = Vector3.Distance(_me.transform.position, actualCharacter.transform.position);
 
                 if( actualRange < range)
@@ -67,6 +75,11 @@ namespace EpicSpirit.Game
                     range = actualRange;
                     c = actualCharacter;
                 }
+            }
+            enumerator.Dispose();
+            foreach(var t in nextToRemove)
+            {
+                _nearTargets.Remove(t);
             }
 
             Debug.Log(c);
