@@ -16,7 +16,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Maps/Others/Game_Over/game_over.unity
   - enabled: 0
-    path: Assets/Resources/Maps/Levels/Forest/Map_Boss_VeryBadBoy/Map_Boss_VeryBadBoy.unity
+    path: Assets/Resources/Maps/Levels/Forest/Forest_2_BossVeryBadBoy/Map_Boss_VeryBadBoy.unity
   - enabled: 1
     path: Assets/Resources/Maps/Story/endStory.unity
   - enabled: 1
@@ -26,15 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Maps/Menus/Game_Menu/game_menu.unity
   - enabled: 1
-    path: Assets/Resources/Maps/Levels/Forest/Forest_1/forest_1.unity
+    path: Assets/Resources/Maps/Levels/Forest/Forest_1_Easy/forest_1.unity
   - enabled: 0
     path: Assets/Resources/Maps/Levels/Forest/Forest_1/forest_1.2.unity
   - enabled: 1
-    path: Assets/Resources/Maps/Levels/Forest/Forest_Temple/forest_temple.unity
+    path: Assets/Resources/Maps/Levels/Forest/Forest_3_Temple/forest_temple.unity
   - enabled: 1
-    path: Assets/Resources/Maps/Levels/Forest/Forest_2/forest_2.unity
+    path: Assets/Resources/Maps/Levels/Forest/Forest_2_Dedale/forest_2.unity
   - enabled: 1
-    path: Assets/Resources/Maps/Levels/Forest/Forest_1/forest_1.0.unity
+    path: Assets/Resources/Maps/Levels/Forest/Forest_0/forest_1.0.unity
   - enabled: 1
     path: Assets/Resources/Maps/end_level.unity
   - enabled: 1
@@ -46,4 +46,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Maps/Levels/Mountain/mountain_1.unity
   - enabled: 1
-    path: Assets/Resources/Maps/Levels/Forest/Forest_2/forest_2.boss.unity
+    path: Assets/Resources/Maps/Levels/Forest/Forest_2_Dedale/forest_2.boss.unity

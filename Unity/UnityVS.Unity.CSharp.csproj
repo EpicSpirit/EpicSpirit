@@ -188,6 +188,7 @@
     <Compile Include="Assets\SpiNaked.cs" />
     <Compile Include="Assets\splashScreen.cs" />
     <Compile Include="Assets\t.cs" />
+    <Compile Include="Assets\tmp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -36,10 +36,57 @@ namespace EpicSpirit.Game
             ActivateButton();
         }
 
+        public void ActivateButton()
+        {
+            // Initialisations de base, on active nos booléens et on récupère l'action associé
+            _isActive = true;
+            _isActionEnabled = true;
+            _action = _target.GetAttack(_indice);
+
+            // Si le nom est vide, c'est que l'action est vide, on la désactive
+            if (_action.Name == "" || _action.GetSprite == null)
+            {
+                _UIManager.DisableAction(this);
+                return;
+            }
+
+            // Si l'on a à faire à un Item, on lui rajoute ton composant de texte via un prefab
+            if (_action is Item)
+                ChargeExtension(_UIManager.refItemCount);
+
+            // Si l'on a à faire à un Skill, on lui ajoute son composant CoolDown
+            if (_action is Skill)
+                ChargeExtension(_UIManager.refSkillCount);
+
+            // Set image du boutton
+            _image.color = new Color(1, 1, 1, 1);
+            _button.image.overrideSprite = _action.GetSprite;
+
+            // Reaction au click => on déclenche l'action + reaction spécifique si Item (consomme objet) ou Skill (cooldown)
+            _button.onClick.AddListener(() =>
+            {
+                // Joue l'action
+                _target.Attack(_indice);
+
+                // Skill => Lancement du CoolDown
+                if (_action is Skill)
+                {
+                    StartCoolDown();
+                }
+                // Item => consomme un objet
+                else if (_action is Item)
+                {
+                    UpdateCount();
+                }
+
+            });
+
+        }
+
         private void ChargeExtension(GameObject go)
         {
             // Création texte d'extension
-            GameObject extension = GameObject.Instantiate( go, this.transform.position, Quaternion.identity ) as GameObject;
+            GameObject extension = Instantiate(go, this.transform.position, Quaternion.identity) as GameObject;
             extension.transform.parent = this.transform;
             _text = extension.GetComponent<Text>();
 
@@ -58,53 +105,6 @@ namespace EpicSpirit.Game
                 _text.alignment = TextAnchor.MiddleCenter;
             }
 
-        }
-
-        public void ActivateButton()
-        {
-            // Initialisations de base, on active nos booléens et on récupère l'action associé
-            _isActive = true;
-            _isActionEnabled = true;
-            _action = _target.GetAttack( _indice );
-
-            // Si le nom est vide, c'est que l'action est vide, on la désactive
-            if ( _action.Name == "" || _action.GetSprite == null)
-            {
-                _UIManager.DisableAction( this );
-                return;
-            }
-
-            // Si l'on a à faire à un Item, on lui rajoute ton composant de texte via un prefab
-            if(_action is Item)
-                ChargeExtension( _UIManager.refItemCount );
-            
-            // Si l'on a à faire à un Skill, on lui ajoute son composant CoolDown
-            if(_action is Skill)
-                ChargeExtension( _UIManager.refSkillCount );
-            
-            // Set image du boutton
-            _image.color = new Color( 1, 1, 1, 1 );
-            _button.image.overrideSprite = _action.GetSprite;
-
-            // Reaction au click => on déclenche l'action + reaction spécifique si Item (consomme objet) ou Skill (cooldown)
-            _button.onClick.AddListener( () =>
-            {
-                // Joue l'action
-                _target.Attack( _indice );
-
-                // Skill => Lancement du CoolDown
-                if ( _action is Skill )
-                {
-                    StartCoolDown();
-                }
-                // Item => consomme un objet
-                else if(_action is Item)
-                {
-                    UpdateCount();
-                }
-
-            } );
-            
         }
 
     #region Skill

@@ -112,7 +112,7 @@ namespace EpicSpirit.Game
 
         public virtual Action AddActionToPerso(GameObject go)
         { 
-            Debug.Log("MustBe Implemented");
+            Debug.Log("Must Be Implemented");
             return null;
         }
 

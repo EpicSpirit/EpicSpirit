@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace EpicSpirit.Game
 {
     public abstract class Cinematic : MonoBehaviour
     {
         public bool _oneShot;
-        bool _asBegin; // has began ? :p
+        bool _asBegin; // has began ? :p TG ouèch xD
         internal MoveCamera _cameraController;
 		internal GameObject _camera;
 		internal GameObject _player;
@@ -16,6 +17,10 @@ namespace EpicSpirit.Game
         BlackBars _blackBars;
         [SerializeField]
         bool _allowBlackBars;
+        UnityAction FinishAction;
+
+
+        Button _skipButton;
 
 		public BlackBars BlackBars
 		{
@@ -24,12 +29,19 @@ namespace EpicSpirit.Game
 		}
         public virtual void Awake ()
         {
+            FinishAction = () => FinishCinematic();
+
             _asBegin = false;
 			_camera = GameObject.Find("Camera");
             _cameraController = _camera.GetComponent<MoveCamera>();
 			_player = GameObject.FindWithTag ("Player");
 
             _blackBars = GameObject.Find( "Black Bars" ).GetComponent<BlackBars>();
+
+            var t = GameObject.Find("SkipButton");
+            t.SetActive(true);
+            _skipButton = t.GetComponent<Button>();
+            _skipButton.enabled = true;
         }
 
 		public void Update()
@@ -40,13 +52,15 @@ namespace EpicSpirit.Game
 				BlockEveryCharacter(false);
 				BackCameraToPlayer();
 			}
-
 		}
 
         public abstract void LaunchCinematic ();
 
         public void Begin ()
         {
+            _skipButton.enabled = true;
+            _skipButton.onClick.AddListener( FinishAction );
+
             if ( !_oneShot || ( _oneShot && !_asBegin) )
             {
                 if ( _allowBlackBars )
@@ -59,6 +73,20 @@ namespace EpicSpirit.Game
                 
                 LaunchCinematic();
             }
+        }
+
+        internal void FinishCinematic()
+        {
+            CancelInvoke();
+            BlockEveryCharacter(false);
+            BackCameraToPlayer();
+
+            _skipButton.onClick.RemoveListener(FinishAction);
+            _skipButton.enabled = false;
+        }
+
+        internal void SkipCinematic()
+        {
 
         }
 
@@ -92,7 +120,6 @@ namespace EpicSpirit.Game
 
         internal void BackCameraToPlayer()
         {
-            
 			_cameraController._target = _player;
 			_cameraController.CameraSpeed = 0.4f;
             BlackBars.EnableSubtitlesAndBlackBars = false;

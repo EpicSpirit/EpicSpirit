@@ -33,9 +33,7 @@ namespace EpicSpirit.Game
             }
 
         }
-        void Start()
-        {
-        }
+        
 
         void Update()
         {
@@ -65,6 +63,7 @@ namespace EpicSpirit.Game
                 _character.Attack();
             }
         }
+
         private void KeyboardMove()
         {
             Vector3 direction = new Vector3();
@@ -98,10 +97,7 @@ namespace EpicSpirit.Game
                 0f,
                 _movementJoystick.GetAxis ("Vertical"));
 
-			//movement = _mainCameraTransform.TransformDirection (movement);
 			movement.y = 0f;
-			//  movement.Normalize();
-		// Si le devant du perso est différent de la direction empruntée, faire une rotation en fonction du temps à la place du déplacement.
 
             _character.Move( movement );
         }
