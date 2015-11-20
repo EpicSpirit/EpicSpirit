@@ -88,6 +88,7 @@ namespace EpicSpirit.Game
 
         public void OnMouseUp()
         {
+            Debug.Log("Click");
             var opc = GameObject.Find( "Controller" ).GetComponent<OverworldPlayerController>();
 
             if ( opc.CurrentMapNode == this )

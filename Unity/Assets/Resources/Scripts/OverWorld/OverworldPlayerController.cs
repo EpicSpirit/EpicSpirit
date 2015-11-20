@@ -21,6 +21,10 @@ namespace EpicSpirit.Game
             if ( _player == null )
                 _player = GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>();
 
+            // Modifie notre Spi pour qu'il ne puisse pas gêner le clique du joueur
+            _player.GetComponent<CharacterController>().radius = 0;
+            _player.GetComponentInChildren<AutoFocus>().gameObject.SetActive(false);
+
             // On récupère le bon niveau
             LoadActualLevel();
                 //_currentMapNode = GameObject.Find( "forest_1" ).GetComponent<MapNode>();
