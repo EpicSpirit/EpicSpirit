@@ -20,7 +20,6 @@ namespace EpicSpirit.Game
             }
         }
 
-
         void OnTriggerEnter(Collider other)
         {
             var character = other.GetComponent<Character>();
@@ -82,7 +81,6 @@ namespace EpicSpirit.Game
                 _nearTargets.Remove(t);
             }
 
-            Debug.Log(c);
             return c;
         }
 
