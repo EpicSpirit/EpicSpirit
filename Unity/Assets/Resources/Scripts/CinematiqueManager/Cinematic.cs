@@ -14,6 +14,8 @@ namespace EpicSpirit.Game
 		internal GameObject _camera;
 		internal GameObject _player;
 
+        public bool CanSkipScene { get; set; }
+
         BlackBars _blackBars;
         [SerializeField]
         bool _allowBlackBars;
@@ -30,7 +32,7 @@ namespace EpicSpirit.Game
         public virtual void Awake ()
         {
             FinishAction = () => FinishCinematic();
-
+            CanSkipScene = true;
             _asBegin = false;
 			_camera = GameObject.Find("Camera");
             _cameraController = _camera.GetComponent<MoveCamera>();
@@ -46,7 +48,7 @@ namespace EpicSpirit.Game
 
 		public void Update()
 		{
-			if ( Input.GetKeyDown( KeyCode.A ) )
+			if ( Input.GetKeyDown( KeyCode.A ))
 			{
 				CancelInvoke();
 				BlockEveryCharacter(false);
@@ -77,12 +79,15 @@ namespace EpicSpirit.Game
 
         internal void FinishCinematic()
         {
-            CancelInvoke();
-            BlockEveryCharacter(false);
-            BackCameraToPlayer();
+            if (CanSkipScene)
+            {
+                CancelInvoke();
+                BlockEveryCharacter(false);
+                BackCameraToPlayer();
 
-            _skipButton.onClick.RemoveListener(FinishAction);
-            _skipButton.enabled = false;
+                _skipButton.onClick.RemoveListener(FinishAction);
+                _skipButton.enabled = false;
+            }
         }
 
         internal void SkipCinematic()

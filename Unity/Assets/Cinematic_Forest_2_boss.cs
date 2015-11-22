@@ -11,6 +11,7 @@ namespace EpicSpirit.Game
         public override void Awake ()
         {
             base.Awake();
+            CanSkipScene = false;
             end = GameObject.Find( "End" );
             end.SetActive( false );
         }

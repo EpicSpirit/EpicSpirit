@@ -180,13 +180,13 @@ namespace EpicSpirit.Game
             UnlockItem( 0 );
             //UnlockItem( 1 );
 
-			UnlockSkill( 1 );
-			UnlockSkill( 2 );
-            UnlockSkill( 3 );
+			//UnlockSkill( 1 );
+			//UnlockSkill( 2 );
+            //UnlockSkill( 3 );
 
             SetIconAttack( IconType.ActualItem, _progressionManager.Items [0] );
             SetIconAttack( IconType.ActualWeapon, _progressionManager.Weapons [0] );
-            SetIconAttack( IconType.ActualSkill_1, _progressionManager.Skills [0] );
+            SetIconAttack( IconType.ActualSkill_1, _progressionManager.Skills [3] );
             SetIconAttack( IconType.ActualSkill_2, _progressionManager.Skills [0] );
             SetIconAttack( IconType.ActualSkill_3, _progressionManager.Skills [0] );
 

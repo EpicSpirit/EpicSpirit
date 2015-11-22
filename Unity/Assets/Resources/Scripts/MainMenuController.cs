@@ -99,7 +99,7 @@ namespace EpicSpirit.Game
         public void NewGame ()
         {
             GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().ResetSave();
-            Application.LoadLevel( "forest_1.0" );
+            Application.LoadLevel( "overworld" );
         }
         public void Option ()
         {
