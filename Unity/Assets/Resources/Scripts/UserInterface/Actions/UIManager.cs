@@ -27,26 +27,22 @@ namespace EpicSpirit.Game
 
         }
 
-        // Use this for initialization
-        void Start ()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update ()
-        {
-
-        }
-
         internal void DisableAction ( UIAction UIAction )
         {
             UIAction.GetComponent<Button>().onClick.RemoveAllListeners();
             UIAction.gameObject.SetActive( false );
         }
+
         internal void EnableAction(UIAction UIAction)
         {
-            UIAction.enabled = true;
+            UIAction.ActivateButton();
+            UIAction.gameObject.SetActive(true);
         }
+        internal void EnableAction(int UIAction)
+        {
+            EnableAction(_gamepad[UIAction]);
+        }
+
+
     }
 }

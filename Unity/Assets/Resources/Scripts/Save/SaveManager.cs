@@ -178,7 +178,7 @@ namespace EpicSpirit.Game
             UnlockWeapon( 0 );
             UnlockSkill( 0 );
             UnlockItem( 0 );
-            UnlockItem( 1 );
+            //UnlockItem( 1 );
 
 			UnlockSkill( 1 );
 			UnlockSkill( 2 );

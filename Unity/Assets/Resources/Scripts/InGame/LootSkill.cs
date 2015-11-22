@@ -19,14 +19,11 @@ namespace EpicSpirit.Game
             if ( enableCollect && collider.tag == "Player" )
             {
                 saveManager.UnlockSkill( Skill );
-                SaveManager.SetIconAttack( SaveManager.IconType.ActualSkill_1, Skill );
+                SaveManager.SetIconAttack( SaveManager.IconType.ActualSkill_3, Skill );
 
                 // Solution temporaire :
-                GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( Skill, 2 );
-
-                var uiAction = GameObject.Find( "Skill_1" ).GetComponent<UIAction>();
-                uiAction.Awake();
-
+                GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( Skill, 4 );
+                GameObject.Find("Actions").GetComponent<UIManager>().EnableAction(4);
 
                 Destroy( this.gameObject );
             }

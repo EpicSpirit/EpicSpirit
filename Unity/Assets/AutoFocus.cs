@@ -25,7 +25,6 @@ namespace EpicSpirit.Game
             var character = other.GetComponent<Character>();
             if(character != null && character != _me)
             {
-                Debug.Log("New Ennemis " + other.name);
                 _nearTargets.Add(character);
             }
             else
@@ -37,7 +36,6 @@ namespace EpicSpirit.Game
 
         void OnTriggerExit(Collider other)
         {
-            Debug.Log("Exit Ennemis " + other.name);
 
             var character = other.GetComponent<Character>();
             if (character != null)

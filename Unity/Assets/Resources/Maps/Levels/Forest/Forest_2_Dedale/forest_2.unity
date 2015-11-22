@@ -5866,15 +5866,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436568, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 436568, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 249.300003
+      value: 251.399994
       objectReference: {fileID: 0}
     - target: {fileID: 436568, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 228.300003
+      value: 213.699997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d35a5ca98074cc049972bf7e1f7a48ae, type: 2}
@@ -57845,7 +57845,7 @@ Transform:
   m_Children:
   - {fileID: 464663625}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!143 &1643476113
 CharacterController:
   m_ObjectHideFlags: 0

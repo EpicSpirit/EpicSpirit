@@ -10,7 +10,6 @@ namespace EpicSpirit.Game
     {
         int _currentPhase;
 
-        // TMP
         public override void Awake()
         {
             base.Awake();

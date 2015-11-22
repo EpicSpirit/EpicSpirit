@@ -27,8 +27,10 @@ namespace EpicSpirit.Game
             this.transform.RotateAround( Vector3.up, 2*Time.deltaTime );
 	    }
 
+
         public virtual void OnTriggerStay(Collider collider)
         {
+
             if ( enableCollect && collider.tag == "Player")
             {
                 SaveManager.AddItem( item );
@@ -42,10 +44,10 @@ namespace EpicSpirit.Game
                     SaveManager.SetIconAttack(SaveManager.IconType.ActualItem, item);
                     // Solution temporaire :
                     GameObject.FindGameObjectWithTag( "Player" ).GetComponent<Character>().AddAction( item, 1 );
-                    var uiItem = GameObject.Find( "Item" ).GetComponent<UIAction>();
-                    uiItem.Awake();
+                    GameObject.Find("Actions").GetComponent<UIManager>().EnableAction(1);
+
                 }
-                
+
                 UpdateItemButton();
                 Extinction();
             }
