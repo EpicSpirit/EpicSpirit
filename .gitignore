@@ -16,8 +16,6 @@
 **/*.orig
 **/*.suo
 
-**/*.meta
-
 Unity/*.sln
 Unity/Unity.userprefs
 
@@ -26,5 +24,3 @@ sysinfo.txt
 
 Unity/Unity.sln
 Unity/Unity-csharp.sln
-
-*.meta
