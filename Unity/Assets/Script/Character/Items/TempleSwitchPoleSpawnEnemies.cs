@@ -8,7 +8,7 @@ namespace EpicSpirit.Game
     {
         Cinematic_TempleForest1 _cinematic;
 
-        public void Awake()
+        public override void Awake()
         {
             _cinematic = GetComponentInChildren<Cinematic_TempleForest1>();
         }

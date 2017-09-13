@@ -6,7 +6,7 @@ public class BeginStoryScriptAlArrache : MonoBehaviour
 
 
 	private void OnMouseUp()
-	{		
-		Application.LoadLevel( "scene" );
+	{
+        UnityEngine.SceneManagement.SceneManager.LoadScene( "scene" );
 	}
 }

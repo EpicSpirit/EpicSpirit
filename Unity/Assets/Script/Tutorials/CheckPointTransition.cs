@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -8,7 +9,7 @@ namespace EpicSpirit.Game
         public override void OnTriggerEnter ( Collider collider )
         {
             base.OnTriggerEnter(collider);
-            Application.LoadLevel( "overworld" );
+            SceneManager.LoadScene( "overworld" );
         }
     }
 }

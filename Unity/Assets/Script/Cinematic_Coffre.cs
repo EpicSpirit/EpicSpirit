@@ -5,7 +5,7 @@ namespace EpicSpirit.Game
 {
     public class Cinematic_Coffre : Cinematic
     {
-        MoveCamera camera;
+        new MoveCamera camera;
 
         public override void LaunchCinematic ()
         {

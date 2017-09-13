@@ -9,13 +9,10 @@ namespace EpicSpirit.Game
     {
         SaveManager _saveManager;
 
-        int _attackCounter;
-        float _dateOfLastAttack;
-        float _comboAttackInterval;
         int _lookAroundCount;
         float _lastReceivedDamage;
 
-        public virtual int CurrentHealth
+        public override int CurrentHealth
         {
             get { return _currentHealth; }
             set
@@ -33,9 +30,6 @@ namespace EpicSpirit.Game
             //GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().ResetSave();
 
             _lookAroundCount = 300;
-            _attackCounter = 0;
-            _comboAttackInterval = 0.9f;
-            _dateOfLastAttack = Time.fixedTime;
             _lastReceivedDamage = 0f;
 
             _currentHealth = SaveManager.GetSpiHealth();

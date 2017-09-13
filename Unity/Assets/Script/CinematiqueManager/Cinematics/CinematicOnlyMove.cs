@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -54,7 +55,7 @@ namespace EpicSpirit.Game
         {
             BackCameraToPlayer();
             BlockEveryCharacter(false);
-            if ( this.name == "End" ) Application.LoadLevel( "overworld" );
+            if ( this.name == "End" ) SceneManager.LoadScene( "overworld" );
         }
     }
 }

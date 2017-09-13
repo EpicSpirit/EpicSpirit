@@ -94,12 +94,12 @@ namespace EpicSpirit.Game
         public void Continue()
         {
             if(canContinue)
-                Application.LoadLevel( "overworld" );
+                UnityEngine.SceneManagement.SceneManager.LoadScene( "overworld" );
         }
         public void NewGame ()
         {
             GameObject.Find( "SaveManager" ).GetComponent<SaveManager>().ResetSave();
-            Application.LoadLevel("overworld");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("overworld");
 
             //Application.LoadLevel( "forest_1.0" );
         }

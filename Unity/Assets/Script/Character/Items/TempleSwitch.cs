@@ -27,7 +27,7 @@ namespace EpicSpirit.Game
 		}
 
 
-		void Awake () 
+        public override void Awake () 
 		{
 			_isOn = false;
             AllowMoveBack = false;

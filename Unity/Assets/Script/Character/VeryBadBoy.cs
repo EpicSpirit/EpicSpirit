@@ -5,7 +5,6 @@ namespace EpicSpirit.Game
 {
     public class VeryBadBoy : Enemy
     {
-        private static System.Random _randomGenerator = new System.Random();
         VeryBadBoyAI AI;
         GameObject _bouclier;
         Cinematic_Forest_2_boss cinematic;
@@ -33,7 +32,7 @@ namespace EpicSpirit.Game
         public override void Update()
         {
             base.Update();
-            _bouclier.transform.RotateAroundLocal( Vector3.down, 5f*Time.deltaTime );
+            _bouclier.transform.Rotate( Vector3.down, 5f*Time.deltaTime );
         }
 
 

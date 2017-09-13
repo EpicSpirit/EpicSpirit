@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -59,7 +60,7 @@ namespace EpicSpirit.Game
 
             SaveManager.SetIconAttack( SaveManager.IconType.ActualSkill_1, frozenPick );
 
-            Application.LoadLevel( "end_level" );
+            SceneManager.LoadScene( "end_level" );
         }
 
 

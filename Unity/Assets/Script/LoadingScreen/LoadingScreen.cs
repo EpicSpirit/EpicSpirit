@@ -72,9 +72,14 @@ public class LoadingScreen : MonoBehaviour
 
         DontDestroyOnLoad( this );
         hide();
+
+        Debug.LogWarning("LoadingScreen is skipped");
     }
     void Update ()
     {
+
+        return;
+#if false
         if ( Application.isLoadingLevel )
         {
             show();
@@ -84,6 +89,7 @@ public class LoadingScreen : MonoBehaviour
         {
             hide();
         }
+#endif
 
 
     }

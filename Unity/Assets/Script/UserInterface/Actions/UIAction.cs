@@ -18,7 +18,6 @@ namespace EpicSpirit.Game
         float _currentCoolDown;         // Temps restant avant la prochaine attaque (Si Skill)
         
         bool _isSkillEnabled;           // Si le skill est actif (Si Skill uniquement, sinon null)
-        bool _isActive; 
         UIManager _UIManager;           // Manager principal de l'UI
             
         public void Awake ()
@@ -39,7 +38,6 @@ namespace EpicSpirit.Game
         public void ActivateButton()
         {
             // Initialisations de base, on active nos booléens et on récupère l'action associé
-            _isActive = true;
             _isActionEnabled = true;
             _action = _target.GetAttack(_indice);
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ResponsiveImage : MonoBehaviour
 {
@@ -25,6 +26,6 @@ public class ResponsiveImage : MonoBehaviour
 
     private void LoadMainMenu()
     {
-        Application.LoadLevel( "main_menu" );
+        SceneManager.LoadScene( "main_menu" );
     }
 }

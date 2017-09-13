@@ -11,21 +11,10 @@ namespace EpicSpirit.Game
 			base.Awake();
 			_cooldown = 5f ;
 			_strengh = 1;
-
-
-			if ( false )
-			{
-				_attackAnimations.Add( new AttackAnimation( "shockwave", _animations.GetClip( "shockwave" ).length * 0.6f ) );
-				_attackDuration = _animations.GetClip( "shockwave" ).length;
-			}
+			
 			_isStoppable = true;
-		//	_image = Resources.Load<Sprite>( "UI/Images/button_shockwave" );
 			_name = "Shock Wave";
 			_description = "Brutal offensive spell that throw out all enemies around.";
-
-
-
-
 
 			// Override _attackVectors
 			_attackVectors = new List<Vector3>();

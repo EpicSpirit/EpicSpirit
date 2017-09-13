@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -57,33 +58,10 @@ namespace EpicSpirit.Game
         {
             if ( _target != null )
             {
-                #region new camera
-                // enlever le && false pour passer dans ce code
-				if( Application.loadedLevelName == "forest_temple" && false)
-                {
-                    _movement.x = _target.transform.position.x + x_delta;
-                    _movement.z = _target.transform.position.z + z_delta;
-                    _movement.y = _target.transform.position.y + y_delta;
-                    RaycastHit hit;
-                    // Si il y a un obj entre Spi et la cam, on avance la caméra
-                    Debug.DrawRay( this.transform.position, _target.transform.position - this.transform.position, Color.red );
-                    if(Physics.Raycast(new Ray(this.transform.position, _target.transform.position-this.transform.position),out hit))
-                    {
-                        if ( hit.collider.name.Contains( "Wall" ) )
-                        {
-                            _movement += ( hit.point - this.transform.position );
-                        }
-                    }
-                    
-                }
-                #endregion
                 #region Old Camera
-                else
-                {
-                    _movement.x = _target.transform.position.x + x_delta;
-                    _movement.z = _target.transform.position.z + z_delta;
-                    _movement.y = _target.transform.position.y + y_delta;
-                }
+                _movement.x = _target.transform.position.x + x_delta;
+                _movement.z = _target.transform.position.z + z_delta;
+                _movement.y = _target.transform.position.y + y_delta;
                 #endregion
 
                 this.transform.position = Vector3.Lerp( this.transform.position, _movement, 0.4f );

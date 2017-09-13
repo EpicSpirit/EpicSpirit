@@ -25,10 +25,10 @@ public class EndStory : MonoBehaviour
 	
 	private void LoadMainMenu()
 	{
-		Application.LoadLevel( "main_menu" );
+        UnityEngine.SceneManagement.SceneManager.LoadScene( "main_menu" );
 	}
 	private void OnMouseUp()
-	{		
-		Application.LoadLevel( "main_menu" );
+	{
+        UnityEngine.SceneManagement.SceneManager.LoadScene( "main_menu" );
 	}
 }

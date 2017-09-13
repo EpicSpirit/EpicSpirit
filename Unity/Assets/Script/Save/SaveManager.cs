@@ -124,8 +124,7 @@ namespace EpicSpirit.Game
 
         public List<Action> LoadAllSkills () 
         {
-            var p = GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
-
+            GameObject.Find( "ProgressionManager" ).GetComponent<ProgressionManager>();
             return new List<Action>();
         }
 

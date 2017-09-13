@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -329,8 +330,11 @@ namespace EpicSpirit.Game
         {
             GameObject.Destroy( this.gameObject, 0.5f );
 
-            if ( GameObject.FindWithTag( "Player" ).GetComponent<Character>() == this )
-                Application.LoadLevel( "game_over" );
+            if (GameObject.FindWithTag("Player").GetComponent<Character>() == this)
+            {
+                SceneManager.LoadScene("game_over");
+                //Application.LoadLevel( "game_over" );
+            }
         }
 
         public void MoveBack(Vector3 v)
@@ -458,12 +462,10 @@ namespace EpicSpirit.Game
         /// <summary>
         /// Return true if the state is right
         /// </summary>
-        /// <param name="state">The state to match</param>
+        /// <param name="state">The state to match</param> 
         /// <returns>True if right</returns>
         public bool isState ( States state )
         {
-            if ( state == null ) { throw new ArgumentNullException(); }
-
             return _state == state;
         }
 
@@ -474,8 +476,6 @@ namespace EpicSpirit.Game
         /// <returns>True if the state has changed</returns>
         public bool ChangeState ( States state )
         {
-            if ( state == null ) { throw new ArgumentNullException(); }
-
             // EffectGestion
             if ( _effect != Effect.None && state != States.Damaged) return false;
 
@@ -498,8 +498,6 @@ namespace EpicSpirit.Game
         /// <returns>True if the new state is priority than the current state</returns>
         private bool isPriority ( States currentState, States newState )
         {
-            if ( currentState == null || newState == null ) throw new NullReferenceException( "Parameters can't be null" );
-
             return ( mask [Log2ForPower2( ( UInt32 ) currentState )] & ( int ) newState ) != 0;
         }
 #endregion
@@ -519,7 +517,6 @@ namespace EpicSpirit.Game
         /// </summary>
         /// <param name="v">Integer to compute</param>
         /// <returns>Log2 of the given integer</returns>
-        [CLSCompliant( false )]
         static public int Log2 ( UInt32 v )
         {
             unchecked
@@ -539,7 +536,6 @@ namespace EpicSpirit.Game
         /// </summary>
         /// <param name="v">Integer to compute. It MUST be a power of 2.</param>
         /// <returns>Result</returns>
-        [CLSCompliant( false )]
         static public int Log2ForPower2 ( UInt32 v )
         {
             unchecked

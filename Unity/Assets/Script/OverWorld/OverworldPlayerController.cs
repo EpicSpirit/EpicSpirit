@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -61,7 +62,7 @@ namespace EpicSpirit.Game
 			{
 				CurrentMapNode = GameObject.Find( ( string ) LevelManager.GetParameter( "level" ) ).GetComponent<MapNode>();
 			}
-			catch ( Exception e )
+			catch
 			{
 				CurrentMapNode = GameObject.Find( "forest_1" ).GetComponent<MapNode>();
 			}
@@ -75,7 +76,6 @@ namespace EpicSpirit.Game
 		{
 			if ( LevelManager.GetParameter( "ended" ) != null && ( bool ) LevelManager.GetParameter( "ended" ) == true )
 			{
-				List<MapNode> linkedMapNodes = new List<MapNode>();
 				foreach ( MapNode mapNode in CurrentMapNode.LinkedNodes )
 				{
 					mapNode.Unlock();
@@ -89,7 +89,7 @@ namespace EpicSpirit.Game
             LevelManager.SetParameter( "level", CurrentMapNode.name );
 
             if ( CurrentMapNode.IsLocked == false)
-                Application.LoadLevel( CurrentMapNode.name );
+                SceneManager.LoadScene( CurrentMapNode.name );
             else Debug.Log("Can't load the level");
         }
 
@@ -106,7 +106,7 @@ namespace EpicSpirit.Game
         public void LoadMenu_Step2()
         {
             LevelManager.SetParameter( "ended", false );
-            Application.LoadLevel( "game_menu" );
+            UnityEngine.SceneManagement.SceneManager.LoadScene( "game_menu" );
         }
     }
 }

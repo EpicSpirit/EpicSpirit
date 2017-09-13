@@ -23,7 +23,7 @@ namespace EpicSpirit.Game
 			                            {
 				Debug.Log("ExitLevelToMainMenu");
 				_menu.SetActive(false) ;
-				Application.LoadLevel("main_menu");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("main_menu");
 			});
 		}
 		

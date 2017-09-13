@@ -16,12 +16,9 @@ namespace EpicSpirit.Game
         // Joystick controller
         public CNAbstractController _movementJoystick;
 
-        // Main camera transform used for joystick
-        private Transform _mainCameraTransform;
 
         void Awake ()
         {
-            _mainCameraTransform = Camera.main.GetComponent<Transform>();
             GameObject gameObject;
             if ( _character == null && (gameObject= GameObject.FindGameObjectWithTag( "Player" )) != null )
             {

@@ -9,10 +9,9 @@ namespace EpicSpirit.Game
     {
         SaveManager _saveManager;
 
-        float _dateOfLastAttack;
         float _lastReceivedDamage;
 
-        public virtual int CurrentHealth
+        public override int CurrentHealth
         {
             get { return _currentHealth; }
             set
@@ -26,7 +25,6 @@ namespace EpicSpirit.Game
         {
             base.Awake();
 
-            _dateOfLastAttack = Time.fixedTime;
             _lastReceivedDamage = 0f;
 
             _currentHealth = 3;

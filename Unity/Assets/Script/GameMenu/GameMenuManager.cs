@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -225,7 +226,7 @@ namespace EpicSpirit.Game
 
         public void ExitMenu ()
         {
-            Application.LoadLevel( "overworld" );
+            SceneManager.LoadScene( "overworld" );
         }
 
         void EnableButton ( Button b )

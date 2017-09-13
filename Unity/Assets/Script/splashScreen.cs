@@ -13,6 +13,6 @@ public class splashScreen : MonoBehaviour {
 	
 	void LoadMenu()
     {
-        Application.LoadLevel( "main_menu" );
+        UnityEngine.SceneManagement.SceneManager.LoadScene( "main_menu" );
     }
 }

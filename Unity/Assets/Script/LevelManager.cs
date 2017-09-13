@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -42,7 +43,7 @@ namespace EpicSpirit.Game
 	        {
             if (param != null)
                 _parameters = param;
-        	    Application.LoadLevel(level);
+                SceneManager.LoadScene(level);
 	        }
     }
 }

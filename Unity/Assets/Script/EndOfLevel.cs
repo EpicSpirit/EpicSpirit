@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace EpicSpirit.Game
 {
@@ -12,7 +13,7 @@ namespace EpicSpirit.Game
 
         void End()
         {
-            Application.LoadLevel( "overworld" );
+            SceneManager.LoadScene( "overworld" );
 
         }
     }

@@ -24,7 +24,7 @@ namespace EpicSpirit.Game
 
 	    void Update () 
         {
-            this.transform.RotateAround( Vector3.up, 2*Time.deltaTime );
+            this.transform.Rotate( Vector3.up, 2*Time.deltaTime );
 	    }
 
 

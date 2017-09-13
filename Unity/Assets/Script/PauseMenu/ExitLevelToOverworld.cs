@@ -22,7 +22,7 @@ namespace EpicSpirit.Game
 			_button.onClick.AddListener( () => 
 			{
 				_menu.SetActive(false) ;
-				Application.LoadLevel("overworld");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("overworld");
 			});
 		}
 		

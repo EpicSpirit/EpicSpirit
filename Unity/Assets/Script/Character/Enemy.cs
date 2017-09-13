@@ -28,7 +28,7 @@ namespace EpicSpirit.Game
             var num = Random.Range( 1, 100 );
             if ( num < lootRate )
             {
-                var instance = Instantiate( item, appearancePosition, Quaternion.Euler(Vector3.zero));
+                Instantiate( item, appearancePosition, Quaternion.Euler(Vector3.zero));
             }
             
         }

@@ -20,7 +20,6 @@ namespace EpicSpirit.Game
         }
 
         AudioSource _audioSource;
-        AudioListener _audioListener;
         static SoundManager _soundManager;
 
         public AudioSource AudioSource
@@ -33,7 +32,6 @@ namespace EpicSpirit.Game
             _soundManager = this;
             DontDestroyOnLoad( this.gameObject );
             _audioSource = GetComponent<AudioSource>();
-            _audioListener = GetComponent<AudioListener>();
         }
 
         public void SetAndPlayBackgroundMusic(AudioClip clip)

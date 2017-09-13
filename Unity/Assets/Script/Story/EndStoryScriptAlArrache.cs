@@ -4,7 +4,7 @@ using System.Collections;
 public class EndStoryScriptAlArrache : MonoBehaviour {
 
 	private void OnMouseUp()
-	{		
-		Application.LoadLevel( "main_menu" );
+	{
+        UnityEngine.SceneManagement.SceneManager.LoadScene( "main_menu" );
 	}
 }
