@@ -199,6 +199,7 @@
     <Compile Include="Assets\Script\UserInterface\FPSDisplay.cs" />
     <Compile Include="Assets\Script\UserInterface\HealthBar\HealthAmount.cs" />
     <Compile Include="Assets\Script\UserInterface\HealthBar\HealthBackground.cs" />
+    <Compile Include="Assets\tmp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
