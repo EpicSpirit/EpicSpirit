@@ -276,6 +276,8 @@ namespace EpicSpirit.Game
         Action _actualAction;
         public void Attack (int indice) 
         {
+            if (_actions.Count < indice) return;
+
             // Tick Management
             if ( ChangeState( States.Attack ) )
             {

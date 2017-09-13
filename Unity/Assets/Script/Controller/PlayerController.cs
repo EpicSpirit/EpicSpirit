@@ -55,7 +55,6 @@ namespace EpicSpirit.Game
             }
         }
 
-
         private void Attack()
         {
             if ( Input.GetKeyDown( KeyCode.Space ) )

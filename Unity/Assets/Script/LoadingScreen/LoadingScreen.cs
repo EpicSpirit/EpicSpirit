@@ -38,8 +38,8 @@ public class LoadingScreen : MonoBehaviour
     void Awake ()
     {
         // Load image and text into children
-        _loadingImage = transform.FindChild( "Background" ).gameObject.AddComponent<Image>();
-        _loadingText = transform.FindChild( "Text" ).gameObject.AddComponent<Text>();
+        _loadingImage = transform.Find( "Background" ).gameObject.AddComponent<Image>();
+        _loadingText = transform.Find( "Text" ).gameObject.AddComponent<Text>();
 
         // Load an image if specified. If not, use black background
         if ( _loadingSprite != null )
